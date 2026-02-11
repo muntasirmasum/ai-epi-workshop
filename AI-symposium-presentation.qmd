@@ -1,0 +1,663 @@
+---
+title: "AI-Assisted Statistical Analysis in Graduate Epidemiology Education"
+subtitle: "Integrating Claude with RStudio for Teaching Regression Methods"
+author: "Muntasir Masum, PhD"
+institute: "Department of Epidemiology & Biostatistics<br>University at Albany, SUNY"
+date: "`r Sys.Date()`"
+format:
+  revealjs:
+    theme: ["simple", ai-epi-workshop.scss]
+    slide-number: c/t
+    width: 1600
+    height: 900
+    footer: "AI Plus Annual Symposium 2026"
+    preview-links: auto
+    echo: true
+    transition: none
+    background-transition: none
+---
+
+```{r}
+#| label: setup
+#| include: false
+
+# Load required packages
+library(tidyverse)
+library(NHANES)
+library(broom)
+library(knitr)
+library(kableExtra)
+
+# Set global chunk options
+knitr::opts_chunk$set(
+  echo = TRUE,
+  message = FALSE,
+  warning = FALSE,
+  fig.width = 10,
+  fig.height = 5,
+  cache = FALSE
+)
+
+# Set ggplot theme
+theme_set(theme_minimal(base_size = 16))
+```
+
+## Welcome
+
+### Today's Focus
+
+::: incremental
+- See Claude + RStudio in action
+- Real statistical workflows
+- Practical demonstrations
+- Q&A and discussion
+:::
+
+## Workshop Overview
+
+### 75-Minute Structure
+
+::: columns
+::: {.column width="33%"}
+**Part 1: Context** (15 min)
+
+- Teaching challenge
+- Why AI + R?
+- Course integration
+:::
+
+::: {.column width="33%"}
+**Part 2: Demonstrations** (45 min)
+
+- Coding workflow
+- Analysis workflow
+- Visualization
+- Debugging
+:::
+
+::: {.column width="33%"}
+**Part 3: Discussion** (15 min)
+
+- Implementation
+- Academic integrity
+- Q&A
+:::
+:::
+
+::: footer
+Materials available at: [GitHub repository link]
+:::
+
+## Who Is This For?
+
+::: incremental
+- **Educators** teaching quantitative methods
+- **Students** learning R and statistics
+- **Researchers** working with data
+- **Anyone** interested in AI-assisted analysis
+:::
+
+. . .
+
+**No assumptions about:** R experience • Statistics background • Epidemiology knowledge
+
+## The Teaching Challenge
+
+**Students come from diverse backgrounds**
+
+- Biology, Psychology, Public Health, Policy
+- Variable quantitative preparation
+- Different comfort with programming
+
+. . .
+
+**Traditional barriers**
+
+- Syntax frustration overshadows statistical thinking
+- Limited support outside office hours
+- Steep learning curve for R
+- Time debugging instead of learning
+
+. . .
+
+**The real goal:** Develop analytical thinkers, not code executors
+
+## Why Integrate AI Now?
+
+::: columns
+::: {.column width="50%"}
+**Traditional Approach**
+
+- Lectures + textbook
+- Office hours
+- TA support (limited)
+- Peer learning groups
+- Steep learning curve
+:::
+
+::: {.column width="50%"}
+**AI-Enhanced Approach**
+
+- On-demand explanation
+- Contextual guidance
+- Code debugging help
+- Iterative learning
+- Focus on interpretation
+:::
+:::
+
+## Course Context: EPI 553
+
+**Principles of Statistical Inference II** (Graduate level)
+
+::: columns
+::: {.column width="50%"}
+**Course Details**
+
+- 12-week semester
+- Multiple regression methods
+- All analyses in R
+- Team research projects
+- Poster presentation
+:::
+
+::: {.column width="50%"}
+**Progressive Integration**
+
+- Weeks 1-4: Structured prompts
+- Weeks 5-8: Semi-structured
+- Weeks 9-12: Open-ended projects
+
+*Scaffolding → Independence*
+:::
+:::
+
+## Four Key Principles
+
+1. **Scaffold, Don't Replace** — AI guides, students demonstrate understanding
+
+2. **Context Matters** — Statistical output → Public health implications
+
+3. **Encourage Curiosity** — AI asks questions that deepen learning
+
+4. **Build Independence** — Progressive responsibility transfer
+
+. . .
+
+**Core Philosophy:** AI is a teaching assistant, not a replacement for learning
+
+## Three Ways to Integrate Claude + RStudio
+
+### Choose Your Workflow
+
+::: columns
+::: {.column width="33%"}
+**1. ClaudeR Package**
+
+- Direct RStudio integration
+- Chat interface in RStudio
+- Access to R environment
+- *Most accessible*
+
+:::
+
+::: {.column width="33%"}
+**2. Claude Chat**
+
+- Web browser + RStudio
+- Copy/paste workflow
+- Manual code execution
+- *Intermediate approach*
+
+:::
+
+::: {.column width="33%"}
+**3. Claude Code**
+
+- Full AI IDE integration
+- Autonomous execution
+- Advanced workflows
+- *Most powerful*
+
+:::
+:::
+
+. . .
+
+**Today's focus:** All three approaches, with emphasis on **ClaudeR** for accessibility
+
+## ClaudeR Package Demo
+
+### What is ClaudeR?
+
+**Direct integration between RStudio and Claude AI**
+
+::: incremental
+- R package that connects to Claude Desktop/Code
+- Chat interface appears in RStudio
+- Claude can "see" your R environment
+- Interactive data analysis without leaving RStudio
+- **Perfect for students new to AI workflows**
+:::
+
+. . .
+
+**Installation:** `devtools::install_github("IMNMV/ClaudeR")`
+
+**GitHub:** [github.com/IMNMV/ClaudeR](https://github.com/IMNMV/ClaudeR)
+
+## ClaudeR in Action
+
+### Live Demonstration
+
+```r
+# Start ClaudeR connection
+library(ClaudeR)
+claudeAddin()
+
+# Now you can chat with Claude directly in RStudio!
+# Claude can see your loaded datasets
+# Ask questions about your data
+# Get help with analysis
+```
+
+. . .
+
+**Example conversation:**
+
+::: {style="background-color: #f0f0f0; padding: 20px; border-radius: 10px; margin-top: 20px;"}
+👤 **Student:** "I have the NHANES data loaded. Can you help me run a basic summary of systolic blood pressure?"
+
+🤖 **Claude:** "I can see you have NHANES loaded in your environment. Let me help you..."
+:::
+
+## Why ClaudeR Matters for Teaching
+
+::: incremental
+- **Lower barrier to entry** — Students don't need to learn new tools
+- **Familiar environment** — Works within RStudio they already use
+- **Context awareness** — Claude sees loaded data and objects
+- **Progressive learning** — Students can transition to more advanced workflows
+- **Reduces friction** — No switching between browser and IDE
+:::
+
+. . .
+
+**This is the approach I recommend for getting started!**
+
+## Today's Research Question
+
+> *Does alcohol consumption predict blood pressure?*
+
+**Dataset:** NHANES 2017-2018
+
+- Outcome: Systolic blood pressure (mmHg)
+- Exposure: Alcohol drinks per week
+- Covariates: Age, BMI, smoking status, sex
+
+. . .
+
+**Four workflows:** Coding • Analysis • Plotting • Debugging
+
+## Student Question: Coding
+
+*"I need to prepare my NHANES data for regression analysis. I want adults aged 20-65, exclude missing values, and create a drinks-per-week variable. How do I do this in R?"*
+
+. . .
+
+**How Claude helps:**
+
+- Suggests appropriate functions
+- Explains data manipulation logic
+- Provides annotated code
+- Anticipates common pitfalls
+
+## Claude's Approach
+
+**Understanding the task:**
+
+1. Filter age range (20-65)
+2. Select relevant variables
+3. Handle missing data
+4. Create derived variables
+
+## The Code
+
+```{r}
+#| eval: false
+#| echo: true
+
+# Load packages
+library(tidyverse)
+
+# Load NHANES data
+data("NHANES")
+
+# Prepare analysis dataset
+analysis_data <- NHANES %>%
+  filter(Age >= 20, Age <= 65) %>%
+  select(ID, Gender, Age, BMI, AlcoholDay, SmokeNow, BPSysAve) %>%
+  na.omit() %>%
+  mutate(
+    drinks_per_week = AlcoholDay * 7,
+    current_smoker = ifelse(SmokeNow == "Yes", 1, 0)
+  )
+```
+
+## Live Demonstration
+
+```{r}
+#| label: data-prep
+#| echo: true
+
+# Load NHANES data
+data("NHANES")
+
+# Prepare analysis dataset
+analysis_data <- NHANES %>%
+  filter(Age >= 20, Age <= 65) %>%
+  filter(!is.na(BPSysAve), !is.na(AlcoholDay), !is.na(BMI),
+         !is.na(SmokeNow), !is.na(Gender)) %>%
+  mutate(
+    drinks_per_week = AlcoholDay * 7,
+    current_smoker = ifelse(SmokeNow == "Yes", 1, 0)
+  ) %>%
+  select(ID, Gender, Age, BMI, drinks_per_week, current_smoker, BPSysAve) %>%
+  distinct(ID, .keep_all = TRUE)
+```
+
+## Check the Result
+
+```{r}
+#| echo: true
+glimpse(analysis_data)
+```
+
+## Key Takeaways
+
+1. Claude explains **logic** before showing code
+2. Code is **annotated** for learning
+3. Line-by-line highlighting helps follow flow
+4. Student **understands** pipeline, not just copies
+
+. . .
+
+**Teaching moment:** Why filter missing values *before* creating new variables?
+
+## Student Question: Analysis
+
+*"I need to run a multiple regression with blood pressure as outcome and alcohol, age, BMI, smoking, and sex as predictors. How do I interpret the results?"*
+
+## Fitting the Model
+
+```{r}
+#| label: model1
+#| echo: true
+
+# Fit multiple linear regression
+model1 <- lm(BPSysAve ~ drinks_per_week + Age + BMI +
+                        current_smoker + Gender,
+             data = analysis_data)
+
+# View results
+summary(model1)
+```
+
+## Claude's Interpretation
+
+**1. Coefficient for alcohol:**
+
+```{r}
+#| echo: true
+coef(model1)["drinks_per_week"]
+```
+
+Each additional drink per week is associated with a `r round(coef(model1)["drinks_per_week"], 3)` mmHg change in systolic BP, holding other factors constant.
+
+## Statistical Significance
+
+**2. P-value:**
+
+```{r}
+#| echo: true
+summary(model1)$coefficients["drinks_per_week", "Pr(>|t|)"]
+```
+
+. . .
+
+**Claude asks:** "What does p = `r format.pval(summary(model1)$coefficients['drinks_per_week', 'Pr(>|t|)'], digits=3)` tell us about this relationship?"
+
+. . .
+
+**Claude asks:** "Is this effect size clinically meaningful for public health?"
+
+## Student Question: Visualization
+
+*"I want to visualize the relationship between alcohol consumption and blood pressure, accounting for sex differences. What's the best plot?"*
+
+. . .
+
+**Claude suggests:**
+
+- Scatter plot with regression lines
+- Separate by sex
+- Add confidence intervals
+- Clear labels
+
+## Building the Plot
+
+```{r}
+#| label: vis-demo
+#| echo: true
+#| fig-width: 10
+#| fig-height: 5
+
+ggplot(analysis_data, aes(x = drinks_per_week, y = BPSysAve, color = Gender)) +
+  geom_point(alpha = 0.3, size = 2) +
+  geom_smooth(method = "lm", se = TRUE, linewidth = 1.5) +
+  labs(
+    title = "Alcohol Consumption and Systolic Blood Pressure",
+    subtitle = "NHANES 2017-2018, Adults Aged 20-65",
+    x = "Drinks Per Week",
+    y = "Systolic Blood Pressure (mmHg)",
+    color = "Sex"
+  ) +
+  theme_minimal(base_size = 18) +
+  theme(legend.position = "bottom")
+```
+
+## Iterative Refinement
+
+**Student:** "Can we make this publication-ready?"
+
+. . .
+
+**Claude suggests:**
+
+- Larger text for readability
+- Color-blind friendly palette
+- Add sample size annotations
+- Export at high resolution
+
+## Student Question: Debugging
+
+**Common errors students encounter:**
+
+1. **Missing package errors**
+   ```r
+   Error: could not find function "ggplot"
+   ```
+
+2. **Variable name typos**
+   ```r
+   Error: object 'drinks_perweek' not found
+   ```
+
+3. **Formula syntax errors**
+   ```r
+   Error in lm.fit(x, y, ...)
+   ```
+
+## Claude's Diagnostic Process
+
+**Student shares error:**
+```r
+Error: object 'current_smoker' not found
+```
+
+. . .
+
+**Claude's approach:**
+
+1. Identify the issue (variable doesn't exist)
+2. Explain why (not created or misspelled)
+3. Suggest fix (check mutate step)
+4. Teach pattern (how to verify variables)
+
+## Live Debugging
+
+**Intentional error:**
+
+```{r}
+#| error: true
+#| echo: true
+model_error <- lm(BP_Systolic ~ alcohol_weekly + Age,
+                  data = analysis_data)
+```
+
+## Claude's Fix
+
+"I see two issues:
+
+1. `BP_Systolic` should be `BPSysAve`
+2. `alcohol_weekly` should be `drinks_per_week`"
+
+. . .
+
+**Corrected:**
+
+```{r}
+#| echo: true
+model_correct <- lm(BPSysAve ~ drinks_per_week + Age,
+                    data = analysis_data)
+```
+
+## Optional Follow-Along
+
+**For participants:**
+
+1. Install R and RStudio (latest versions)
+2. Create Claude account (free at claude.ai)
+3. Install packages:
+   ```r
+   install.packages(c("tidyverse", "NHANES", "broom"))
+   ```
+
+**Workshop materials:** GitHub repository [link to be added]
+
+## Academic Integrity
+
+::: columns
+::: {.column width="50%"}
+**Clear Guidelines**
+
+- AI assistance allowed
+- Must cite AI use
+- Understand all code
+- No copy-paste only
+:::
+
+::: {.column width="50%"}
+**Assessment Design**
+
+- Timed exams (no AI)
+- Interpretation focus
+- Code annotation
+- Learning reflection
+:::
+:::
+
+. . .
+
+**Key message:** AI is a learning tool, not a replacement for understanding
+
+## Adapting to Your Context
+
+- **Different disciplines** — Principles apply beyond epidemiology
+- **Various skill levels** — Scale scaffolding to student needs
+- **Different software** — Concepts transfer to Python, Stata, SAS
+- **Online/in-person** — Works in both modalities
+- **Class size** — Scalable from seminars to large lectures
+
+## Benefits Observed
+
+::: columns
+::: {.column width="50%"}
+**For Students**
+
+- Reduced frustration
+- Deeper understanding
+- More interpretation time
+- Confidence building
+- 24/7 support access
+:::
+
+::: {.column width="50%"}
+**For Instructors**
+
+- Focus on concepts
+- Better class time use
+- Fewer basic questions
+- Advanced discussions
+- Scalable support
+:::
+:::
+
+## Challenges & Solutions
+
+| Challenge | Solution |
+|-----------|----------|
+| Over-reliance on AI | Progressive scaffolding; AI-free assessments |
+| Incorrect suggestions | Teach verification; show error examples |
+| Equity concerns | Free tier; computer lab access |
+| Faculty learning curve | Start small; build gradually |
+| Academic integrity | Clear policies; reflection assignments |
+
+## Discussion
+
+**Let's discuss:**
+
+- What challenges do you face in teaching quantitative methods?
+- How might AI integration work in your context?
+- What concerns do you have?
+- What additional support would help?
+
+## Resources
+
+**Workshop Materials**
+
+- GitHub: [repository link]
+- Slides: [link to HTML]
+- Contact: mmasum@albany.edu
+
+**Additional Resources**
+
+- Quarto: <https://quarto.org>
+- Claude: <https://claude.ai>
+- NHANES: <https://www.cdc.gov/nchs/nhanes/>
+
+## Thank You!
+
+<br><br>
+
+### Questions?
+
+<br>
+
+**Muntasir Masum, PhD**
+
+mmasum@albany.edu
+
+Department of Epidemiology & Biostatistics
+
+University at Albany, SUNY
