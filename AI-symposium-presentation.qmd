@@ -15,6 +15,7 @@ format:
       buttons: false
     preview-links: auto
     echo: true
+    mouse-wheel: true
 ---
 
 ```{r}
