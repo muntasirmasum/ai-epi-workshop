@@ -2,7 +2,7 @@
 title: "AI-Assisted Statistical Analysis in Graduate Epidemiology Education"
 subtitle: "Integrating Claude with RStudio for Teaching Regression Methods"
 author: "Muntasir Masum, PhD"
-institute: "Department of Epidemiology & Biostatistics<br>University at Albany, SUNY"
+institute: "Department of Epidemiology & Biostatistics<br>University at Albany, SUNY<br><br>[AI+ Annual Symposium 2026](https://events.albany.edu/event/ai-plus-symposium)"
 date: "`r Sys.Date()`"
 format:
   revealjs:
@@ -27,6 +27,7 @@ library(NHANES)
 library(broom)
 library(knitr)
 library(kableExtra)
+library(plotly)
 
 # Set global chunk options
 knitr::opts_chunk$set(
@@ -447,12 +448,12 @@ summary(model1)$coefficients["drinks_per_week", "Pr(>|t|)"]
 ## Building the Plot
 
 ```{r}
-#| label: vis-demo
+#| label: vis-demo-code
 #| echo: true
-#| fig-width: 10
-#| fig-height: 5
+#| eval: false
 
-ggplot(analysis_data, aes(x = drinks_per_week, y = BPSysAve, color = Gender)) +
+# Create interactive plot with plotly
+p <- ggplot(analysis_data, aes(x = drinks_per_week, y = BPSysAve, color = Gender)) +
   geom_point(alpha = 0.3, size = 2) +
   geom_smooth(method = "lm", se = TRUE, linewidth = 1.5) +
   labs(
@@ -464,7 +465,41 @@ ggplot(analysis_data, aes(x = drinks_per_week, y = BPSysAve, color = Gender)) +
   ) +
   theme_minimal(base_size = 18) +
   theme(legend.position = "bottom")
+
+# Convert to interactive plot
+ggplotly(p)
 ```
+
+## Interactive Visualization
+
+```{r}
+#| label: vis-demo
+#| echo: false
+#| fig-width: 10
+#| fig-height: 5.5
+
+# Create the plot
+p <- ggplot(analysis_data, aes(x = drinks_per_week, y = BPSysAve, color = Gender)) +
+  geom_point(alpha = 0.3, size = 2) +
+  geom_smooth(method = "lm", se = TRUE, linewidth = 1.5) +
+  labs(
+    title = "Alcohol Consumption and Systolic Blood Pressure",
+    subtitle = "NHANES 2017-2018, Adults Aged 20-65",
+    x = "Drinks Per Week",
+    y = "Systolic Blood Pressure (mmHg)",
+    color = "Sex"
+  ) +
+  theme_minimal(base_size = 18) +
+  theme(legend.position = "bottom")
+
+# Convert to interactive plotly
+ggplotly(p, tooltip = c("x", "y", "color")) %>%
+  layout(hovermode = "closest")
+```
+
+::: {.notes}
+Hover over points to see values. Click legend to show/hide groups. Interactive plots help students explore data patterns.
+:::
 
 ## Iterative Refinement
 
