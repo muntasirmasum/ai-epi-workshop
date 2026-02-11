@@ -11,10 +11,10 @@ format:
     width: 1600
     height: 900
     footer: "AI Plus Annual Symposium 2026"
+    chalkboard:
+      buttons: false
     preview-links: auto
     echo: true
-    transition: none
-    background-transition: none
 ---
 
 ```{r}
