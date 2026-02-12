@@ -174,7 +174,7 @@ Materials available at: [https://github.com/muntasirmasum/ai-epi-workshop](https
 - Direct RStudio integration
 - Uses Claude Desktop app
 - Access to R environment
-- *Most accessible*
+- *<span style="color: #D55E00; font-weight: bold;">Most accessible</span>*
 
 :::
 
