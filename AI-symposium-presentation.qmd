@@ -10,7 +10,7 @@ format:
     slide-number: c/t
     width: 1600
     height: 900
-    footer: "[📚 Materials](https://github.com/muntasirmasum/ai-epi-workshop) | [🏠 Home](#/welcome) | [📊 Overview](#/overview) | [🔗 Integration](#/integration) | [📝 Coding](#/coding) | [📈 Analysis](#/analysis) | [📉 Viz](#/visualization) | [🐛 Debug](#/debugging) | [✅ Integrity](#/integrity) | [📖 Resources](#/resources)"
+    footer: "[Workshop Materials](https://github.com/muntasirmasum/ai-epi-workshop) | [Live Presentation](https://muntasirmasum.github.io/ai-epi-workshop/)"
     chalkboard:
       buttons: false
     preview-links: auto
