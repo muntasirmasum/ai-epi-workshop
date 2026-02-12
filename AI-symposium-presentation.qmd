@@ -10,7 +10,7 @@ format:
     slide-number: c/t
     width: 1600
     height: 900
-    footer: "[Workshop Materials](https://github.com/muntasirmasum/ai-epi-workshop) | [Live Presentation](https://muntasirmasum.github.io/ai-epi-workshop/)"
+    footer: "[📚 Materials](https://github.com/muntasirmasum/ai-epi-workshop) | [🏠 Home](#/welcome) | [📊 Overview](#/overview) | [🔗 Integration](#/integration) | [📝 Coding](#/coding) | [📈 Analysis](#/analysis) | [📉 Viz](#/visualization) | [🐛 Debug](#/debugging) | [✅ Integrity](#/integrity) | [📖 Resources](#/resources)"
     chalkboard:
       buttons: false
     preview-links: auto
@@ -44,7 +44,7 @@ knitr::opts_chunk$set(
 theme_set(theme_minimal(base_size = 16))
 ```
 
-## Welcome
+## Welcome {#welcome}
 
 ### Today's Focus
 
@@ -55,7 +55,7 @@ theme_set(theme_minimal(base_size = 16))
 - Q&A and discussion
 :::
 
-## Workshop Overview
+## Workshop Overview {#overview}
 
 ### 75-Minute Structure
 
@@ -163,7 +163,7 @@ Materials available at: [https://github.com/muntasirmasum/ai-epi-workshop](https
 
 **Core Philosophy:** AI is a teaching assistant, not a replacement for learning
 
-## Three Ways to Integrate Claude + RStudio
+## Three Ways to Integrate Claude + RStudio {#integration}
 
 ### Choose Your Workflow
 
@@ -262,7 +262,7 @@ claudeAddin()
 
 **This is the approach I recommend for getting started!**
 
-## Today's Research Question
+## Today's Research Question {#research-question}
 
 > *Does alcohol consumption predict blood pressure?*
 
@@ -274,7 +274,7 @@ claudeAddin()
 
 . . .
 
-**Four workflows:** Coding • Analysis • Plotting • Debugging
+**Four workflows:** [Coding](#coding) • [Analysis](#analysis) • [Plotting](#visualization) • [Debugging](#debugging)
 
 
 ## Student-AI Interaction Flow
@@ -313,7 +313,7 @@ claudeAddin()
 Iterative learning process. Student maintains agency; Claude scaffolds understanding.
 :::
 
-## Student Question: Coding
+## Student Question: Coding {#coding}
 
 *"I need to prepare my NHANES data for regression analysis. I want adults aged 20-65, exclude missing values, and create a drinks-per-week variable. How do I do this in R?"*
 
@@ -399,7 +399,7 @@ glimpse(analysis_data)
 
 **Teaching moment:** Why filter missing values *before* creating new variables?
 
-## Student Question: Analysis
+## Student Question: Analysis {#analysis}
 
 *"I need to run a multiple regression with blood pressure as outcome and alcohol, age, BMI, smoking, and sex as predictors. How do I interpret the results?"*
 
@@ -461,7 +461,7 @@ summary(model1)$coefficients["drinks_per_week", "Pr(>|t|)"]
 **Teaching moment:** Claude uses Socratic questioning to help students think critically about statistical vs. clinical significance
 :::
 
-## Student Question: Visualization
+## Student Question: Visualization {#visualization}
 
 *"I want to visualize the relationship between alcohol consumption and blood pressure, accounting for sex differences. What's the best plot?"*
 
@@ -806,7 +806,7 @@ Model predictions generally track observed values but with considerable scatter,
 - Add sample size annotations
 - Export at high resolution
 
-## Student Question: Debugging
+## Student Question: Debugging {#debugging}
 
 **Common errors students encounter:**
 
@@ -855,7 +855,7 @@ Error: object 'current_smoker' not found
 
 **Workshop materials:** [GitHub repository](https://github.com/muntasirmasum/ai-epi-workshop)
 
-## Academic Integrity
+## Academic Integrity {#integrity}
 
 ::: columns
 ::: {.column width="50%"}
@@ -932,7 +932,7 @@ Error: object 'current_smoker' not found
 - What concerns do you have?
 - What additional support would help?
 
-## Resources
+## Resources {#resources}
 
 **Workshop Materials**
 
