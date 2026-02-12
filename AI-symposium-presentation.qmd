@@ -10,13 +10,12 @@ format:
     slide-number: c/t
     width: 1600
     height: 900
-    footer: "AI Plus Annual Symposium 2026"
+    footer: "[Workshop Materials](https://github.com/muntasirmasum/ai-epi-workshop) | [Live Presentation](https://muntasirmasum.github.io/ai-epi-workshop/)"
     chalkboard:
       buttons: false
     preview-links: auto
     echo: true
     mouse-wheel: true
-    logo: "ai+ symposium logo.png"
 ---
 
 ```{r}
@@ -227,7 +226,7 @@ Materials available at: [https://github.com/muntasirmasum/ai-epi-workshop](https
 
 . . .
 
-**Today's focus:** All three approaches, with emphasis on **ClaudeR** for accessibility
+**Today's focus:** Demonstrating AI-assisted statistical analysis workflows using Claude Code
 
 ## ClaudeR Package Demo
 
@@ -302,51 +301,12 @@ claudeAddin()
 
 **Four workflows:** Coding • Analysis • Plotting • Debugging
 
-## AI-Assisted Analysis Workflow
-
-::: {style="font-size: 1.5em; text-align: center; padding: 50px 40px; background: linear-gradient(135deg, #f8f5fc 0%, #e6dff5 50%, #f0edf7 100%); border-radius: 20px; box-shadow: 0 8px 16px rgba(70, 29, 124, 0.15);"}
-<div style="display: flex; justify-content: space-around; align-items: center; flex-wrap: wrap; gap: 20px;">
-  <div style="text-align: center;">
-    <div style="font-size: 2.5em; color: #461D7C;">📊</div>
-    <div style="color: #461D7C; font-weight: bold; margin-top: 10px;">Data Loading</div>
-  </div>
-  <div style="font-size: 2em; color: #9370DB;">→</div>
-  <div style="text-align: center;">
-    <div style="font-size: 2.5em; color: #461D7C;">🔍</div>
-    <div style="color: #461D7C; font-weight: bold; margin-top: 10px;">Exploration</div>
-  </div>
-  <div style="font-size: 2em; color: #9370DB;">→</div>
-  <div style="text-align: center;">
-    <div style="font-size: 2.5em; color: #461D7C;">🧹</div>
-    <div style="color: #461D7C; font-weight: bold; margin-top: 10px;">Cleaning</div>
-  </div>
-  <div style="font-size: 2em; color: #9370DB;">→</div>
-  <div style="text-align: center;">
-    <div style="font-size: 2.5em; color: #461D7C;">📈</div>
-    <div style="color: #461D7C; font-weight: bold; margin-top: 10px;">Analysis</div>
-  </div>
-  <div style="font-size: 2em; color: #9370DB;">→</div>
-  <div style="text-align: center;">
-    <div style="font-size: 2.5em; color: #461D7C;">📉</div>
-    <div style="color: #461D7C; font-weight: bold; margin-top: 10px;">Visualization</div>
-  </div>
-  <div style="font-size: 2em; color: #9370DB;">→</div>
-  <div style="text-align: center;">
-    <div style="font-size: 2.5em; color: #461D7C;">💡</div>
-    <div style="color: #461D7C; font-weight: bold; margin-top: 10px;">Interpretation</div>
-  </div>
-</div>
-:::
-
-::: {.notes}
-Standard data analysis pipeline where Claude assists at each step.
-:::
 
 ## Student-AI Interaction Flow
 
 ::: {style="font-size: 1.3em;"}
 ::: {.columns}
-::: {.column width="45%"}
+::: {.column width="50%"}
 **Student Actions:**
 
 1. 👨‍🎓 Ask question
@@ -356,11 +316,7 @@ Standard data analysis pipeline where Claude assists at each step.
 
 :::
 
-::: {.column width="10%"}
-<div style="display: flex; align-items: center; justify-content: center; height: 100%; font-size: 3em; color: #461D7C;">⇄</div>
-:::
-
-::: {.column width="45%"}
+::: {.column width="50%"}
 **Claude Assists:**
 
 1. 🤖 Understand context
@@ -910,33 +866,6 @@ Error: object 'current_smoker' not found
 3. Suggest fix (check mutate step)
 4. Teach pattern (how to verify variables)
 
-## Live Debugging
-
-**Intentional error:**
-
-```{r}
-#| error: true
-#| echo: true
-model_error <- lm(BP_Systolic ~ alcohol_weekly + Age,
-                  data = analysis_data)
-```
-
-## Claude's Fix
-
-"I see two issues:
-
-1. `BP_Systolic` should be `BPSysAve`
-2. `alcohol_weekly` should be `drinks_per_week`"
-
-. . .
-
-**Corrected:**
-
-```{r}
-#| echo: true
-model_correct <- lm(BPSysAve ~ drinks_per_week + Age,
-                    data = analysis_data)
-```
 
 ## Optional Follow-Along
 
@@ -1063,3 +992,7 @@ mmasum@albany.edu
 Department of Epidemiology & Biostatistics
 
 University at Albany, SUNY
+
+<br>
+
+[![LinkedIn](https://upload.wikimedia.org/wikipedia/commons/c/ca/LinkedIn_logo_initials.png){width=40px}](https://www.linkedin.com/in/muntasirmasum/)
