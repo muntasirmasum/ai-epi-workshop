@@ -303,22 +303,14 @@ claudeAddin()
 
 ## AI-Assisted Analysis Workflow
 
-```{mermaid}
-%%| fig-width: 14
-flowchart LR
-    A[📊 Data Loading] --> B[🔍 Exploration]
-    B --> C[🧹 Cleaning]
-    C --> D[📈 Analysis]
-    D --> E[📉 Visualization]
-    E --> F[💡 Interpretation]
-
-    style A fill:#461D7C,stroke:#333,stroke-width:2px,color:#fff
-    style B fill:#461D7C,stroke:#333,stroke-width:2px,color:#fff
-    style C fill:#461D7C,stroke:#333,stroke-width:2px,color:#fff
-    style D fill:#461D7C,stroke:#333,stroke-width:2px,color:#fff
-    style E fill:#461D7C,stroke:#333,stroke-width:2px,color:#fff
-    style F fill:#461D7C,stroke:#333,stroke-width:2px,color:#fff
-```
+::: {style="font-size: 1.8em; text-align: center; padding: 40px; background: linear-gradient(to right, #f8f9fa, #e9ecef); border-radius: 15px;"}
+<span style="color: #461D7C; font-weight: bold;">📊 Data Loading</span> →
+<span style="color: #461D7C; font-weight: bold;">🔍 Exploration</span> →
+<span style="color: #461D7C; font-weight: bold;">🧹 Cleaning</span> →
+<span style="color: #461D7C; font-weight: bold;">📈 Analysis</span> →
+<span style="color: #461D7C; font-weight: bold;">📉 Visualization</span> →
+<span style="color: #461D7C; font-weight: bold;">💡 Interpretation</span>
+:::
 
 ::: {.notes}
 Standard data analysis pipeline where Claude assists at each step.
@@ -326,32 +318,39 @@ Standard data analysis pipeline where Claude assists at each step.
 
 ## Student-AI Interaction Flow
 
-```{mermaid}
-%%| fig-width: 14
-flowchart TD
-    A[👨‍🎓 Student asks question] --> B[🤖 Claude understands context]
-    B --> C[💻 Claude generates R code]
-    C --> D[📝 Student reviews & runs code]
-    D --> E{Results<br/>correct?}
-    E -->|No| F[🐛 Claude helps debug]
-    F --> C
-    E -->|Yes| G[💡 Claude explains output]
-    G --> H[📊 Student interprets results]
-    H --> I{More<br/>questions?}
-    I -->|Yes| A
-    I -->|No| J[✅ Analysis complete]
+::: {style="font-size: 1.3em;"}
+::: {.columns}
+::: {.column width="45%"}
+**Student Actions:**
 
-    style A fill:#0072B2,stroke:#333,stroke-width:2px,color:#fff
-    style B fill:#461D7C,stroke:#333,stroke-width:2px,color:#fff
-    style C fill:#461D7C,stroke:#333,stroke-width:2px,color:#fff
-    style D fill:#0072B2,stroke:#333,stroke-width:2px,color:#fff
-    style E fill:#D55E00,stroke:#333,stroke-width:2px,color:#fff
-    style F fill:#461D7C,stroke:#333,stroke-width:2px,color:#fff
-    style G fill:#461D7C,stroke:#333,stroke-width:2px,color:#fff
-    style H fill:#0072B2,stroke:#333,stroke-width:2px,color:#fff
-    style I fill:#D55E00,stroke:#333,stroke-width:2px,color:#fff
-    style J fill:#009E73,stroke:#333,stroke-width:2px,color:#fff
-```
+1. 👨‍🎓 Ask question
+2. 📝 Review & run code
+3. 📊 Interpret results
+4. 🔄 Iterate if needed
+
+:::
+
+::: {.column width="10%"}
+<div style="text-align: center; font-size: 3em; color: #461D7C; padding-top: 60px;">⇄</div>
+:::
+
+::: {.column width="45%"}
+**Claude Assists:**
+
+1. 🤖 Understand context
+2. 💻 Generate R code
+3. 💡 Explain output
+4. 🐛 Help debug errors
+
+:::
+:::
+:::
+
+. . .
+
+::: {style="text-align: center; margin-top: 30px; padding: 20px; background-color: #f0e6f6; border-radius: 10px;"}
+**Iterative learning:** Student maintains agency; Claude scaffolds understanding
+:::
 
 ::: {.notes}
 Iterative learning process. Student maintains agency; Claude scaffolds understanding.
@@ -385,11 +384,7 @@ Iterative learning process. Student maintains agency; Claude scaffolds understan
 **💡 Claude suggests:** Use `filter()` for age range, `mutate()` for new variables, and handle missing data explicitly
 :::
 
-```{r}
-#| eval: false
-#| echo: true
-#| code-line-numbers: "6,7,10,11,12"
-
+```r
 # Load packages
 library(tidyverse)  # ← Claude recommends: tidyverse for data wrangling
 
@@ -497,11 +492,17 @@ summary(model1)$coefficients["drinks_per_week", "Pr(>|t|)"]
 
 . . .
 
-**Claude asks:** "What does p = `r format.pval(summary(model1)$coefficients['drinks_per_week', 'Pr(>|t|)'], digits=3)` tell us about this relationship?"
+**Claude guides interpretation:**
 
-. . .
+::: {style="background-color: #f0e6f6; padding: 20px; border-radius: 10px;"}
+💬 *"What does p = `r format.pval(summary(model1)$coefficients['drinks_per_week', 'Pr(>|t|)'], digits=3)` tell us about this relationship?"*
 
-**Claude asks:** "Is this effect size clinically meaningful for public health?"
+💬 *"Is this effect size clinically meaningful for public health?"*
+:::
+
+::: {style="font-size: 0.9em; margin-top: 15px; padding: 15px; background-color: #fff3cd; border-radius: 5px;"}
+**Teaching moment:** Claude uses Socratic questioning to help students think critically about statistical vs. clinical significance
+:::
 
 ## Student Question: Visualization
 
@@ -526,13 +527,8 @@ summary(model1)$coefficients["drinks_per_week", "Pr(>|t|)"]
 
 **Claude Code assists with visualization:**
 
-```{r}
-#| label: vis-demo-code
-#| echo: true
-#| eval: false
-#| code-line-numbers: "3,4,9"
-
-# Create interactive plot with plotly
+```r
+# Create scatter plot with regression lines
 p <- ggplot(analysis_data, aes(x = drinks_per_week, y = BPSysAve, color = Gender)) +
   geom_point(alpha = 0.3, size = 2) +  # ← Claude suggests: alpha for overplotting
   geom_smooth(method = "lm", se = TRUE, linewidth = 1.5) +  # ← Adds regression lines
@@ -543,25 +539,24 @@ p <- ggplot(analysis_data, aes(x = drinks_per_week, y = BPSysAve, color = Gender
     y = "Systolic Blood Pressure (mmHg)",
     color = "Sex"
   ) +
-  theme_minimal(base_size = 18) +
+  theme_minimal(base_size = 20) +
   theme(legend.position = "right")  # ← Claude suggests: move legend
 
-# Convert to interactive plot ← Claude adds: interactivity with plotly
-ggplotly(p, tooltip = c("x", "y", "color"))
+p  # Display the plot
 ```
 
-## Interactive Visualization
+## Visualization Output
 
 ```{r}
 #| label: vis-demo
 #| echo: false
-#| fig-width: 12
-#| fig-height: 8
+#| fig-width: 14
+#| fig-height: 9
 
 # Create the plot with legend on right
-p <- ggplot(analysis_data, aes(x = drinks_per_week, y = BPSysAve, color = Gender)) +
-  geom_point(alpha = 0.3, size = 2) +
-  geom_smooth(method = "lm", se = TRUE, linewidth = 1.5) +
+ggplot(analysis_data, aes(x = drinks_per_week, y = BPSysAve, color = Gender)) +
+  geom_point(alpha = 0.3, size = 3) +
+  geom_smooth(method = "lm", se = TRUE, linewidth = 2) +
   labs(
     title = "Alcohol Consumption and Systolic Blood Pressure",
     subtitle = "NHANES 2017-2018, Adults Aged 20-65",
@@ -569,23 +564,21 @@ p <- ggplot(analysis_data, aes(x = drinks_per_week, y = BPSysAve, color = Gender
     y = "Systolic Blood Pressure (mmHg)",
     color = "Sex"
   ) +
-  theme_minimal(base_size = 20) +
+  theme_minimal(base_size = 24) +
   theme(
     legend.position = "right",
-    legend.text = element_text(size = 18),
-    legend.title = element_text(size = 18, face = "bold")
-  )
-
-# Convert to interactive plotly
-ggplotly(p, tooltip = c("x", "y", "color")) %>%
-  layout(
-    hovermode = "closest",
-    legend = list(orientation = "v", x = 1.02, y = 0.5)
-  )
+    legend.text = element_text(size = 22),
+    legend.title = element_text(size = 22, face = "bold"),
+    plot.title = element_text(size = 26, face = "bold"),
+    plot.subtitle = element_text(size = 20),
+    axis.title = element_text(size = 22, face = "bold"),
+    axis.text = element_text(size = 20)
+  ) +
+  scale_color_manual(values = c("female" = "#D55E00", "male" = "#0072B2"))
 ```
 
 ::: {.notes}
-Hover over points to see values. Click legend to show/hide groups. Interactive plots help students explore data patterns.
+Clear visualization showing relationship between alcohol and blood pressure by sex. Larger plot for better visibility during presentation.
 :::
 
 ## Data Distributions
@@ -709,34 +702,42 @@ model_diag <- augment(model1)
 
 # 1. Residuals vs Fitted
 p1 <- ggplot(model_diag, aes(x = .fitted, y = .resid)) +
-  geom_point(alpha = 0.3, color = "#461D7C") +
-  geom_hline(yintercept = 0, linetype = "dashed", color = "red") +
-  geom_smooth(se = TRUE, color = "#0072B2") +
+  geom_point(alpha = 0.3, color = "#461D7C", size = 1.5) +
+  geom_hline(yintercept = 0, linetype = "dashed", color = "red", size = 1) +
+  geom_smooth(se = TRUE, color = "#0072B2", size = 1) +
   labs(title = "Residuals vs Fitted", x = "Fitted Values", y = "Residuals") +
-  theme_minimal(base_size = 14)
+  theme_minimal(base_size = 18) +
+  theme(axis.title = element_text(size = 20, face = "bold"),
+        axis.text = element_text(size = 16))
 
 # 2. Q-Q Plot
 p2 <- ggplot(model_diag, aes(sample = .resid)) +
-  stat_qq(alpha = 0.3, color = "#461D7C") +
-  stat_qq_line(color = "red", linetype = "dashed") +
+  stat_qq(alpha = 0.3, color = "#461D7C", size = 1.5) +
+  stat_qq_line(color = "red", linetype = "dashed", size = 1) +
   labs(title = "Normal Q-Q Plot", x = "Theoretical Quantiles", y = "Sample Quantiles") +
-  theme_minimal(base_size = 14)
+  theme_minimal(base_size = 18) +
+  theme(axis.title = element_text(size = 20, face = "bold"),
+        axis.text = element_text(size = 16))
 
 # 3. Scale-Location
 p3 <- ggplot(model_diag, aes(x = .fitted, y = sqrt(abs(.std.resid)))) +
-  geom_point(alpha = 0.3, color = "#461D7C") +
-  geom_smooth(se = TRUE, color = "#0072B2") +
+  geom_point(alpha = 0.3, color = "#461D7C", size = 1.5) +
+  geom_smooth(se = TRUE, color = "#0072B2", size = 1) +
   labs(title = "Scale-Location", x = "Fitted Values",
        y = expression(sqrt("|Standardized Residuals|"))) +
-  theme_minimal(base_size = 14)
+  theme_minimal(base_size = 18) +
+  theme(axis.title = element_text(size = 20, face = "bold"),
+        axis.text = element_text(size = 16))
 
 # 4. Residuals vs Leverage
 p4 <- ggplot(model_diag, aes(x = .hat, y = .std.resid)) +
-  geom_point(alpha = 0.3, color = "#461D7C") +
-  geom_hline(yintercept = 0, linetype = "dashed", color = "red") +
-  geom_smooth(se = TRUE, color = "#0072B2") +
+  geom_point(alpha = 0.3, color = "#461D7C", size = 1.5) +
+  geom_hline(yintercept = 0, linetype = "dashed", color = "red", size = 1) +
+  geom_smooth(se = TRUE, color = "#0072B2", size = 1) +
   labs(title = "Residuals vs Leverage", x = "Leverage", y = "Standardized Residuals") +
-  theme_minimal(base_size = 14)
+  theme_minimal(base_size = 18) +
+  theme(axis.title = element_text(size = 20, face = "bold"),
+        axis.text = element_text(size = 16))
 
 grid.arrange(p1, p2, p3, p4, ncol = 2)
 ```
@@ -777,10 +778,12 @@ p1 <- ggplot(model_metrics, aes(x = Model, y = Adj_R_squared)) +
   geom_col(fill = "#461D7C", alpha = 0.8) +
   geom_text(aes(label = sprintf("%.4f", Adj_R_squared)),
             vjust = -0.5, size = 6, fontface = "bold") +
-  labs(title = "Model Comparison: Adjusted R²",
+  labs(title = "Adjusted R²",
        y = "Adjusted R²", x = "") +
-  theme_minimal(base_size = 18) +
-  theme(axis.text.x = element_text(size = 14, face = "bold")) +
+  theme_minimal(base_size = 20) +
+  theme(axis.text.x = element_text(size = 16, face = "bold"),
+        axis.title.y = element_text(size = 20, face = "bold"),
+        plot.title = element_text(size = 22, face = "bold", hjust = 0.5)) +
   ylim(0, max(model_metrics$Adj_R_squared) * 1.2)
 
 # AIC comparison (lower is better)
@@ -788,10 +791,12 @@ p2 <- ggplot(model_metrics, aes(x = Model, y = AIC)) +
   geom_col(fill = "#0072B2", alpha = 0.8) +
   geom_text(aes(label = sprintf("%.0f", AIC)),
             vjust = -0.5, size = 6, fontface = "bold") +
-  labs(title = "Model Comparison: AIC (Lower is Better)",
+  labs(title = "AIC (Lower is Better)",
        y = "AIC", x = "") +
-  theme_minimal(base_size = 18) +
-  theme(axis.text.x = element_text(size = 14, face = "bold")) +
+  theme_minimal(base_size = 20) +
+  theme(axis.text.x = element_text(size = 16, face = "bold"),
+        axis.title.y = element_text(size = 20, face = "bold"),
+        plot.title = element_text(size = 22, face = "bold", hjust = 0.5)) +
   ylim(0, max(model_metrics$AIC) * 1.1)
 
 grid.arrange(p1, p2, ncol = 2)
