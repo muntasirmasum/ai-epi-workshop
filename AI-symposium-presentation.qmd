@@ -672,15 +672,21 @@ model_correct <- lm(BPSysAve ~ drinks_per_week + Age,
 
 **Workshop Materials**
 
-- GitHub: [repository link]
-- Slides: [link to HTML]
-- Contact: mmasum@albany.edu
+::: {style="font-size: 0.9em;"}
+- **GitHub Repository:** <https://github.com/muntasirmasum/ai-epi-workshop>
+  - All slides, code, datasets, and guides
+- **Live Presentation:** <https://muntasirmasum.github.io/ai-epi-workshop/>
+- **Contact:** mmasum@albany.edu
+:::
+
+. . .
 
 **Additional Resources**
 
 - Quarto: <https://quarto.org>
-- Claude: <https://claude.ai>
-- NHANES: <https://www.cdc.gov/nchs/nhanes/>
+- Claude AI: <https://claude.ai>
+- ClaudeR Package: <https://github.com/IMNMV/ClaudeR>
+- NHANES Data: <https://www.cdc.gov/nchs/nhanes/>
 
 ## Thank You!
 
