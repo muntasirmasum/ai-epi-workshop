@@ -704,9 +704,6 @@ Visual representation of effect sizes. Interaction term crosses zero, suggesting
 #| fig-width: 14
 #| fig-height: 14
 
-# Create diagnostic plots
-library(ggfortify)
-
 # Get model diagnostics
 model_diag <- augment(model1)
 
