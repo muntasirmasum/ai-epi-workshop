@@ -197,7 +197,7 @@ Materials available at: [GitHub repository link]
 **1. ClaudeR Package**
 
 - Direct RStudio integration
-- Chat interface in RStudio
+- Uses Claude Desktop app
 - Access to R environment
 - *Most accessible*
 
@@ -235,10 +235,10 @@ Materials available at: [GitHub repository link]
 **Direct integration between RStudio and Claude AI**
 
 ::: incremental
-- R package that connects to Claude Desktop/Code
-- Chat interface appears in RStudio
-- Claude can "see" your R environment
-- Interactive data analysis without leaving RStudio
+- R package that connects RStudio to Claude Desktop app
+- Establishes communication bridge between R and Claude
+- Claude can "see" and interact with your R environment
+- Chat happens in Claude Desktop while R runs in RStudio
 - **Perfect for students new to AI workflows**
 :::
 
