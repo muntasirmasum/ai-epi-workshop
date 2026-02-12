@@ -148,31 +148,6 @@ Materials available at: [https://github.com/muntasirmasum/ai-epi-workshop](https
 :::
 :::
 
-## Course Context: EPI 553
-
-**Principles of Statistical Inference II** (Graduate level)
-
-::: columns
-::: {.column width="50%"}
-**Course Details**
-
-- 12-week semester
-- Multiple regression methods
-- All analyses in R
-- Team research projects
-- Poster presentation
-:::
-
-::: {.column width="50%"}
-**Progressive Integration**
-
-- Weeks 1-4: Structured prompts
-- Weeks 5-8: Semi-structured
-- Weeks 9-12: Open-ended projects
-
-*Scaffolding → Independence*
-:::
-:::
 
 ## Four Key Principles
 
@@ -209,7 +184,7 @@ Materials available at: [https://github.com/muntasirmasum/ai-epi-workshop](https
 - Web browser + RStudio
 - Copy/paste workflow
 - Manual code execution
-- *Intermediate approach*
+- *<span style="color: #D55E00; font-weight: bold;">Intermediate approach</span>*
 
 :::
 
@@ -219,7 +194,7 @@ Materials available at: [https://github.com/muntasirmasum/ai-epi-workshop](https
 - Full AI IDE integration
 - Autonomous execution
 - Advanced workflows
-- *Most powerful*
+- *<span style="color: #D55E00; font-weight: bold;">Most powerful</span>*
 
 :::
 :::
@@ -871,8 +846,8 @@ Error: object 'current_smoker' not found
 
 **For participants:**
 
-1. Install R and RStudio (latest versions)
-2. Create Claude account (free at claude.ai)
+1. Install [R](https://cran.r-project.org/) and [RStudio](https://posit.co/download/rstudio-desktop/) (latest versions)
+2. Create Claude account (free at [claude.ai](https://claude.ai))
 3. Install packages:
    ```r
    install.packages(c("tidyverse", "NHANES", "broom"))
@@ -987,12 +962,14 @@ Error: object 'current_smoker' not found
 
 **Muntasir Masum, PhD**
 
-mmasum@albany.edu
-
 Department of Epidemiology & Biostatistics
 
 University at Albany, SUNY
 
 <br>
 
-[![LinkedIn](https://upload.wikimedia.org/wikipedia/commons/c/ca/LinkedIn_logo_initials.png){width=40px}](https://www.linkedin.com/in/muntasirmasum/)
+::: {style="display: flex; align-items: center; justify-content: center; gap: 15px; font-size: 1.2em;"}
+📧 [mmasum@albany.edu](mailto:mmasum@albany.edu)
+
+[![](https://upload.wikimedia.org/wikipedia/commons/c/ca/LinkedIn_logo_initials.png){width=35px style="vertical-align: middle;"}](https://www.linkedin.com/in/muntasirmasum/)
+:::
