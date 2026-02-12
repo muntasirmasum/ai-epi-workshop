@@ -1,6 +1,6 @@
 ---
-title: "AI-Assisted Statistical Analysis in Graduate Epidemiology Education"
-subtitle: "Integrating Claude with RStudio for Teaching Regression Methods"
+title: "<span style='color: #461D7C;'>AI-Assisted Statistical Analysis in Graduate Epidemiology Education</span>"
+subtitle: "<span style='color: #461D7C;'>Integrating Claude with RStudio for Teaching Regression Methods</span>"
 author: "Muntasir Masum, PhD"
 institute: "Department of Epidemiology & Biostatistics<br>University at Albany, SUNY<br><br>[AI+ Annual Symposium 2026](https://events.albany.edu/event/ai-plus-symposium)"
 date: "`r Sys.Date()`"
@@ -16,6 +16,7 @@ format:
     preview-links: auto
     echo: true
     mouse-wheel: true
+    logo: "ai+ symposium logo.png"
 ---
 
 ```{r}
@@ -87,7 +88,7 @@ theme_set(theme_minimal(base_size = 16))
 :::
 
 ::: footer
-Materials available at: [GitHub repository link]
+Materials available at: [https://github.com/muntasirmasum/ai-epi-workshop](https://github.com/muntasirmasum/ai-epi-workshop)
 :::
 
 ## Who Is This For?
@@ -303,13 +304,38 @@ claudeAddin()
 
 ## AI-Assisted Analysis Workflow
 
-::: {style="font-size: 1.8em; text-align: center; padding: 40px; background: linear-gradient(to right, #f8f9fa, #e9ecef); border-radius: 15px;"}
-<span style="color: #461D7C; font-weight: bold;">📊 Data Loading</span> →
-<span style="color: #461D7C; font-weight: bold;">🔍 Exploration</span> →
-<span style="color: #461D7C; font-weight: bold;">🧹 Cleaning</span> →
-<span style="color: #461D7C; font-weight: bold;">📈 Analysis</span> →
-<span style="color: #461D7C; font-weight: bold;">📉 Visualization</span> →
-<span style="color: #461D7C; font-weight: bold;">💡 Interpretation</span>
+::: {style="font-size: 1.5em; text-align: center; padding: 50px 40px; background: linear-gradient(135deg, #f8f5fc 0%, #e6dff5 50%, #f0edf7 100%); border-radius: 20px; box-shadow: 0 8px 16px rgba(70, 29, 124, 0.15);"}
+<div style="display: flex; justify-content: space-around; align-items: center; flex-wrap: wrap; gap: 20px;">
+  <div style="text-align: center;">
+    <div style="font-size: 2.5em; color: #461D7C;">📊</div>
+    <div style="color: #461D7C; font-weight: bold; margin-top: 10px;">Data Loading</div>
+  </div>
+  <div style="font-size: 2em; color: #9370DB;">→</div>
+  <div style="text-align: center;">
+    <div style="font-size: 2.5em; color: #461D7C;">🔍</div>
+    <div style="color: #461D7C; font-weight: bold; margin-top: 10px;">Exploration</div>
+  </div>
+  <div style="font-size: 2em; color: #9370DB;">→</div>
+  <div style="text-align: center;">
+    <div style="font-size: 2.5em; color: #461D7C;">🧹</div>
+    <div style="color: #461D7C; font-weight: bold; margin-top: 10px;">Cleaning</div>
+  </div>
+  <div style="font-size: 2em; color: #9370DB;">→</div>
+  <div style="text-align: center;">
+    <div style="font-size: 2.5em; color: #461D7C;">📈</div>
+    <div style="color: #461D7C; font-weight: bold; margin-top: 10px;">Analysis</div>
+  </div>
+  <div style="font-size: 2em; color: #9370DB;">→</div>
+  <div style="text-align: center;">
+    <div style="font-size: 2.5em; color: #461D7C;">📉</div>
+    <div style="color: #461D7C; font-weight: bold; margin-top: 10px;">Visualization</div>
+  </div>
+  <div style="font-size: 2em; color: #9370DB;">→</div>
+  <div style="text-align: center;">
+    <div style="font-size: 2.5em; color: #461D7C;">💡</div>
+    <div style="color: #461D7C; font-weight: bold; margin-top: 10px;">Interpretation</div>
+  </div>
+</div>
 :::
 
 ::: {.notes}
@@ -331,7 +357,7 @@ Standard data analysis pipeline where Claude assists at each step.
 :::
 
 ::: {.column width="10%"}
-<div style="text-align: center; font-size: 3em; color: #461D7C; padding-top: 60px;">⇄</div>
+<div style="display: flex; align-items: center; justify-content: center; height: 100%; font-size: 3em; color: #461D7C;">⇄</div>
 :::
 
 ::: {.column width="45%"}
@@ -923,7 +949,7 @@ model_correct <- lm(BPSysAve ~ drinks_per_week + Age,
    install.packages(c("tidyverse", "NHANES", "broom"))
    ```
 
-**Workshop materials:** GitHub repository [link to be added]
+**Workshop materials:** [GitHub repository](https://github.com/muntasirmasum/ai-epi-workshop)
 
 ## Academic Integrity
 
