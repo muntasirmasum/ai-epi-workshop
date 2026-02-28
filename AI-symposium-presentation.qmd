@@ -1268,12 +1268,16 @@ Department of Epidemiology & Biostatistics
 University at Albany, SUNY
 :::
 
-<br>
-
-::: {style="display: flex; align-items: center; justify-content: center; gap: 15px; font-size: 1.2em;"}
+::: {style="text-align: center; font-size: 1.1em;"}
 📧 [mmasum@albany.edu](mailto:mmasum@albany.edu)
+:::
 
-[![](https://upload.wikimedia.org/wikipedia/commons/c/ca/LinkedIn_logo_initials.png){width=35px style="vertical-align: middle;"}](https://www.linkedin.com/in/muntasirmasum/)
+::: {style="display: flex; align-items: center; justify-content: center; gap: 40px; font-size: 0.85em; margin-top: 12px;"}
+[![](https://upload.wikimedia.org/wikipedia/commons/c/ca/LinkedIn_logo_initials.png){width=26px style="vertical-align: middle;"}](https://www.linkedin.com/in/muntasirmasum/) [linkedin.com/in/muntasirmasum](https://www.linkedin.com/in/muntasirmasum/)
+
+[![](https://upload.wikimedia.org/wikipedia/commons/7/7a/Bluesky_Logo.svg){width=26px style="vertical-align: middle;"}](https://bsky.app/profile/muntasirm.bsky.social) [@muntasirm.bsky.social](https://bsky.app/profile/muntasirm.bsky.social)
+
+[![](https://upload.wikimedia.org/wikipedia/commons/9/91/Octicons-mark-github.svg){width=26px style="vertical-align: middle;"}](https://github.com/muntasirmasum) [github.com/muntasirmasum](https://github.com/muntasirmasum)
 :::
 
 ## Setting Up Your Kitchen Before You Cook {#setup-appendix .section-divider-gold data-background-color="#EAAA00"}
