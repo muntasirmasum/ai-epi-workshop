@@ -941,6 +941,63 @@ F-statistic: 42.71 on 5 and 1168 DF,  p-value: &lt; 2.2e-16</code></pre>
 </div>
 </div>
 </section>
+<section id="bug-1-the-case-sensitive-typo" class="slide level2">
+<h2>Bug #1: The Case-Sensitive Typo</h2>
+<div class="split">
+<div>
+<p><strong>The error:</strong></p>
+<p><img data-src="debug-error-typo.png" style="border: 2px solid #e74c3c; border-radius: 8px; box-shadow: 0 4px 12px rgba(231,76,60,0.25);;width:100.0%"></p>
+<div style="text-align: center; font-size: 0.6em; color: #e74c3c; margin-top: 5px;">
+<p>❌ <code>BPSysave</code> — object not found</p>
+</div>
+</div>
+<div>
+<p><strong>Claude’s fix:</strong></p>
+<p><img data-src="debug-fix-typo.png" style="border: 2px solid #27ae60; border-radius: 8px; box-shadow: 0 4px 12px rgba(39,174,96,0.25);;width:100.0%"></p>
+<div style="text-align: center; font-size: 0.6em; color: #27ae60; margin-top: 5px;">
+<p>✅ <code>BPSysAve</code> — capital “A” matters + adds <code>na.rm = TRUE</code></p>
+</div>
+</div>
+</div>
+</section>
+<section id="bug-2-assignment-vs.-comparison" class="slide level2">
+<h2>Bug #2: Assignment vs.&nbsp;Comparison</h2>
+<div class="split">
+<div>
+<p><strong>The error:</strong></p>
+<p><img data-src="debug-error-equals.png" style="border: 2px solid #e74c3c; border-radius: 8px; box-shadow: 0 4px 12px rgba(231,76,60,0.25);;width:100.0%"></p>
+<div style="text-align: center; font-size: 0.6em; color: #e74c3c; margin-top: 5px;">
+<p>❌ <code>filter(Gender = “female”)</code> — used <code>=</code> instead of <code>==</code></p>
+</div>
+</div>
+<div>
+<p><strong>Claude’s fix:</strong></p>
+<p><img data-src="debug-fix-equals.png" style="border: 2px solid #27ae60; border-radius: 8px; box-shadow: 0 4px 12px rgba(39,174,96,0.25);;width:100.0%"></p>
+<div style="text-align: center; font-size: 0.6em; color: #27ae60; margin-top: 5px;">
+<p>✅ <code>==</code> for comparison — plus tips on <code>%in%</code> and <code>is.na()</code></p>
+</div>
+</div>
+</div>
+</section>
+<section id="bug-3-the-missing-pipe" class="slide level2">
+<h2>Bug #3: The Missing Pipe</h2>
+<div class="split">
+<div>
+<p><strong>The error:</strong></p>
+<p><img data-src="debug-error-pipe.png" style="border: 2px solid #e74c3c; border-radius: 8px; box-shadow: 0 4px 12px rgba(231,76,60,0.25);;width:100.0%"></p>
+<div style="text-align: center; font-size: 0.6em; color: #e74c3c; margin-top: 5px;">
+<p>❌ <code>filter(Age &gt;= 30)</code> standalone — R can’t find <code>Age</code></p>
+</div>
+</div>
+<div>
+<p><strong>Claude’s fix:</strong></p>
+<p><img data-src="debug-fix-pipe.png" style="border: 2px solid #27ae60; border-radius: 8px; box-shadow: 0 4px 12px rgba(39,174,96,0.25);;width:100.0%"></p>
+<div style="text-align: center; font-size: 0.6em; color: #27ae60; margin-top: 5px;">
+<p>✅ Pipe from data frame: <code>analysis_data %&gt;% filter(Age &gt;= 30)</code></p>
+</div>
+</div>
+</div>
+</section>
 <section id="section-4" class="slide level2" data-background-color="#461D7C">
 <h2></h2>
 <div style="text-align: center; margin-top: 15%;">

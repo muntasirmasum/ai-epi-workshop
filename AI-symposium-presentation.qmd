@@ -964,6 +964,87 @@ Error in lm.fit(x, y, ...)                     # Formula syntax error
 Every R programmer has rage-quit over a missing comma at least once. Claude doesn't judge.
 :::
 
+## Bug #1: The Case-Sensitive Typo
+
+<div class="split">
+<div>
+
+**The error:**
+
+![](debug-error-typo.png){style="border: 2px solid #e74c3c; border-radius: 8px; box-shadow: 0 4px 12px rgba(231,76,60,0.25);" width="100%"}
+
+<div style="text-align: center; font-size: 0.6em; color: #e74c3c; margin-top: 5px;">
+❌ <code>BPSysave</code> — object not found
+</div>
+
+</div>
+<div>
+
+**Claude's fix:**
+
+![](debug-fix-typo.png){style="border: 2px solid #27ae60; border-radius: 8px; box-shadow: 0 4px 12px rgba(39,174,96,0.25);" width="100%"}
+
+<div style="text-align: center; font-size: 0.6em; color: #27ae60; margin-top: 5px;">
+✅ <code>BPSysAve</code> — capital "A" matters + adds <code>na.rm = TRUE</code>
+</div>
+
+</div>
+</div>
+
+## Bug #2: Assignment vs. Comparison
+
+<div class="split">
+<div>
+
+**The error:**
+
+![](debug-error-equals.png){style="border: 2px solid #e74c3c; border-radius: 8px; box-shadow: 0 4px 12px rgba(231,76,60,0.25);" width="100%"}
+
+<div style="text-align: center; font-size: 0.6em; color: #e74c3c; margin-top: 5px;">
+❌ <code>filter(Gender = "female")</code> — used <code>=</code> instead of <code>==</code>
+</div>
+
+</div>
+<div>
+
+**Claude's fix:**
+
+![](debug-fix-equals.png){style="border: 2px solid #27ae60; border-radius: 8px; box-shadow: 0 4px 12px rgba(39,174,96,0.25);" width="100%"}
+
+<div style="text-align: center; font-size: 0.6em; color: #27ae60; margin-top: 5px;">
+✅ <code>==</code> for comparison — plus tips on <code>%in%</code> and <code>is.na()</code>
+</div>
+
+</div>
+</div>
+
+## Bug #3: The Missing Pipe
+
+<div class="split">
+<div>
+
+**The error:**
+
+![](debug-error-pipe.png){style="border: 2px solid #e74c3c; border-radius: 8px; box-shadow: 0 4px 12px rgba(231,76,60,0.25);" width="100%"}
+
+<div style="text-align: center; font-size: 0.6em; color: #e74c3c; margin-top: 5px;">
+❌ <code>filter(Age >= 30)</code> standalone — R can't find <code>Age</code>
+</div>
+
+</div>
+<div>
+
+**Claude's fix:**
+
+![](debug-fix-pipe.png){style="border: 2px solid #27ae60; border-radius: 8px; box-shadow: 0 4px 12px rgba(39,174,96,0.25);" width="100%"}
+
+<div style="text-align: center; font-size: 0.6em; color: #27ae60; margin-top: 5px;">
+✅ Pipe from data frame: <code>analysis_data %>% filter(Age >= 30)</code>
+</div>
+
+</div>
+</div>
+
 ## {data-background-color="#461D7C"}
 
 ::: {style="text-align: center; margin-top: 15%;"}
