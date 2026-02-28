@@ -1395,12 +1395,100 @@ Claude Code
 <div class="card card--green" style="text-align: left; font-size: 0.78em; line-height: 1.7; max-width: 85%;">
 <p><strong style="color: #461D7C;">Three steps, starting today.</strong><br><br> <strong>1.</strong> Try Claude Chat yourself — paste some output and ask questions<br> <strong>2.</strong> Add one AI-assisted assignment to an existing course<br> <strong>3.</strong> Share the <a href="https://github.com/muntasirmasum/ai-epi-workshop">workshop materials</a> with your students<br><br> <span style="font-size: 0.85em; color: #6c757d;">→ <a href="#setup-appendix">Full setup guide in the appendix</a></span></p>
 </div>
+<script>
+// Dynamic contextual footer — updates resource link based on current slide
+document.addEventListener('DOMContentLoaded', function() {
+  const resources = {
+    // Context & overview slides
+    welcome:        { text: 'AI+ Symposium 2026',    url: 'https://events.albany.edu/event/ai-plus-symposium' },
+    overview:       { text: 'AI+ Symposium 2026',    url: 'https://events.albany.edu/event/ai-plus-symposium' },
+    // Tools & integration slides
+    integration:    { text: 'Claude AI ↗',            url: 'https://claude.ai' },
+    // Data & coding slides
+    coding:         { text: 'NHANES Data (CDC) ↗',   url: 'https://www.cdc.gov/nchs/nhanes/' },
+    // Analysis & regression slides
+    analysis:       { text: 'R for Data Science ↗',  url: 'https://r4ds.hadley.nz/' },
+    // Visualization slides
+    visualization:  { text: 'ggplot2 Reference ↗',   url: 'https://ggplot2.tidyverse.org/reference/' },
+    // Debugging slides
+    debugging:      { text: 'ClaudeR Package ↗',     url: 'https://github.com/IMNMV/ClaudeR' },
+    // Integrity & closing slides
+    integrity:      { text: 'Workshop Repo ↗',       url: 'https://github.com/muntasirmasum/ai-epi-workshop' },
+    resources:      { text: 'Workshop Repo ↗',       url: 'https://github.com/muntasirmasum/ai-epi-workshop' },
+    // Setup appendix slides
+    'setup-appendix': { text: 'Claude AI ↗',         url: 'https://claude.ai' },
+    // Try it yourself
+    'try-it':       { text: 'Posit Cloud ↗',         url: 'https://posit.cloud/content/12007732' },
+    // Research question
+    'research-question': { text: 'NHANES Data (CDC) ↗', url: 'https://www.cdc.gov/nchs/nhanes/' }
+  };
+
+  // Default resource when no section match
+  const defaultResource = { text: 'Claude AI ↗', url: 'https://claude.ai' };
+
+  // Section ranges: map slide IDs to their "zone"
+  // We'll find the closest preceding section ID
+  const sectionOrder = [
+    'welcome', 'overview', 'integration',
+    'coding', 'research-question',
+    'analysis', 'visualization', 'debugging',
+    'integrity', 'integrity-assess',
+    'try-it', 'resources', 'setup-appendix'
+  ];
+
+  function findCurrentSection(slide) {
+    // Check if the slide itself has a known ID
+    if (slide.id && resources[slide.id]) return slide.id;
+
+    // Walk backwards through previous siblings and parent sections
+    let el = slide;
+    while (el) {
+      if (el.id && resources[el.id]) return el.id;
+      // Check for section IDs in previous slides
+      el = el.previousElementSibling;
+    }
+
+    // Check slide content for section clues
+    const text = (slide.textContent || '').toLowerCase();
+    if (text.includes('debug') || text.includes('bug #')) return 'debugging';
+    if (text.includes('visualization') || text.includes('ggplot') || text.includes('coefficient') || text.includes('diagnostic') || text.includes('predicted') || text.includes('distribution') || text.includes('correlation')) return 'visualization';
+    if (text.includes('model') || text.includes('regression') || text.includes('coefficient') || text.includes('interpreting')) return 'analysis';
+    if (text.includes('nhanes') || text.includes('data-prep') || text.includes('drinks_per_week') || text.includes('glimpse')) return 'coding';
+    if (text.includes('claude chat') || text.includes('clauder') || text.includes('cowork') || text.includes('claude code')) return 'integration';
+    if (text.includes('integrity') || text.includes('assessment design')) return 'integrity';
+    if (text.includes('setup') || text.includes('install')) return 'setup-appendix';
+    if (text.includes('workshop material') || text.includes('github')) return 'resources';
+    if (text.includes('discussion') || text.includes('thank you') || text.includes('question')) return 'resources';
+
+    return null;
+  }
+
+  function updateFooter() {
+    const span = document.getElementById('ctx-resource');
+    if (!span) return;
+
+    const currentSlide = Reveal.getCurrentSlide();
+    if (!currentSlide) return;
+
+    const section = findCurrentSection(currentSlide);
+    const res = (section && resources[section]) ? resources[section] : defaultResource;
+
+    span.innerHTML = '<a href="' + res.url + '" target="_blank" style="text-decoration:none;">' + res.text + '</a>';
+  }
+
+  // Update on slide change
+  if (typeof Reveal !== 'undefined') {
+    Reveal.on('slidechanged', updateFooter);
+    Reveal.on('ready', updateFooter);
+  }
+});
+</script>
 
 </section>
     </div>
   <div class="quarto-auto-generated-content" style="display: none;">
 <div class="footer footer-default">
-<p><a href="https://github.com/muntasirmasum/ai-epi-workshop">Workshop Materials</a> | <a href="https://muntasirmasum.github.io/ai-epi-workshop/">Live Presentation</a></p>
+<p><a href="https://github.com/muntasirmasum/ai-epi-workshop/tree/main/materials">Workshop Materials</a> &nbsp;|&nbsp; <span id="ctx-resource"></span></p>
 </div>
 </div></div>
 
