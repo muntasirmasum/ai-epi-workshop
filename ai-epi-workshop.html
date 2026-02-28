@@ -96,7 +96,7 @@
     code span.vs { color: #20794d; } /* VerbatimString */
     code span.wa { color: #5e5e5e; font-style: italic; } /* Warning */
   </style>
-  <link rel="stylesheet" href="AI-symposium-presentation_files/libs/revealjs/dist/theme/quarto-488a43e43a615c7d6cf827697a43ba8c.css">
+  <link rel="stylesheet" href="AI-symposium-presentation_files/libs/revealjs/dist/theme/quarto-ff9384aafa7b17e768eadf608ccd3af6.css">
   <link href="AI-symposium-presentation_files/libs/revealjs/plugin/quarto-line-highlight/line-highlight.css" rel="stylesheet">
   <link href="AI-symposium-presentation_files/libs/revealjs/plugin/reveal-menu/menu.css" rel="stylesheet">
   <link href="AI-symposium-presentation_files/libs/revealjs/plugin/reveal-menu/quarto-menu.css" rel="stylesheet">
@@ -635,52 +635,136 @@ F-statistic: 42.71 on 5 and 1168 DF,  p-value: &lt; 2.2e-16</code></pre>
 </section>
 <section id="visualization-output" class="slide level2">
 <h2>Visualization Output</h2>
-
-<img data-src="AI-symposium-presentation_files/figure-revealjs/vis-demo-1.png" width="1344" class="r-stretch"><div class="takeaway">
-<p><strong>Takeaway:</strong> Males consistently show higher blood pressure than females across all drinking levels. Heavy drinkers show the widest spread — highly variable outcomes.</p>
+<div class="columns">
+<div class="column" style="width:70%;">
+<div class="cell">
+<div class="cell-output-display">
+<div>
+<figure>
+<p><img data-src="AI-symposium-presentation_files/figure-revealjs/vis-demo-1.png" width="960"></p>
+</figure>
 </div>
+</div>
+</div>
+</div><div class="column" style="width:28%;">
+<div class="takeaway-side">
+<p><strong>Takeaway</strong> Males consistently show higher blood pressure than females across all drinking levels. Heavy drinkers show the widest spread — highly variable outcomes.</p>
+</div>
+</div></div>
 </section>
 <section id="data-distributions" class="slide level2">
 <h2>Data Distributions</h2>
-
-<img data-src="AI-symposium-presentation_files/figure-revealjs/distributions-1.png" width="1344" class="r-stretch"><div class="takeaway">
-<p><strong>Takeaway:</strong> Alcohol consumption is heavily right-skewed — most people drink moderately, a few drink a lot. Blood pressure is roughly normal but shifted higher in males.</p>
+<div class="columns">
+<div class="column" style="width:70%;">
+<div class="cell">
+<div class="cell-output-display">
+<div>
+<figure>
+<p><img data-src="AI-symposium-presentation_files/figure-revealjs/distributions-1.png" width="960"></p>
+</figure>
 </div>
+</div>
+</div>
+</div><div class="column" style="width:28%;">
+<div class="takeaway-side">
+<p><strong>Takeaway</strong> Alcohol consumption is heavily right-skewed — most people drink moderately, a few drink a lot. Blood pressure is roughly normal but shifted higher in males.</p>
+</div>
+</div></div>
 </section>
 <section id="correlation-matrix" class="slide level2">
 <h2>Correlation Matrix</h2>
-
-<img data-src="AI-symposium-presentation_files/figure-revealjs/correlation-matrix-1.png" width="960" class="r-stretch"><div class="takeaway">
-<p><strong>Takeaway:</strong> Age has the strongest correlation with blood pressure (r ≈ 0.30). Alcohol shows a weak positive correlation — suggesting confounders matter more than drinking alone.</p>
+<div class="columns">
+<div class="column" style="width:60%;">
+<div class="cell">
+<div class="cell-output-display">
+<div>
+<figure>
+<p><img data-src="AI-symposium-presentation_files/figure-revealjs/correlation-matrix-1.png" width="768"></p>
+</figure>
 </div>
+</div>
+</div>
+</div><div class="column" style="width:38%;">
+<div class="takeaway-side">
+<p><strong>Takeaway</strong> Age has the strongest correlation with blood pressure (r ≈ 0.30). Alcohol shows a weak positive correlation — suggesting confounders matter more than drinking alone.</p>
+</div>
+</div></div>
 </section>
 <section id="coefficient-plot" class="slide level2">
 <h2>Coefficient Plot</h2>
-
-<img data-src="AI-symposium-presentation_files/figure-revealjs/coefficient-plot-1.png" width="1152" class="r-stretch"><div class="takeaway">
-<p><strong>Takeaway:</strong> Age and Sex (male) are the strongest predictors of blood pressure. Alcohol has a small but significant positive effect. Confidence intervals not crossing zero = statistically significant.</p>
+<div class="columns">
+<div class="column" style="width:68%;">
+<div class="cell">
+<div class="cell-output-display">
+<div>
+<figure>
+<p><img data-src="AI-symposium-presentation_files/figure-revealjs/coefficient-plot-1.png" width="960"></p>
+</figure>
 </div>
+</div>
+</div>
+</div><div class="column" style="width:30%;">
+<div class="takeaway-side">
+<p><strong>Takeaway</strong> Age and Sex (male) are the strongest predictors of blood pressure. Alcohol has a small but significant positive effect. Confidence intervals not crossing zero = statistically significant.</p>
+</div>
+</div></div>
 </section>
 <section id="model-diagnostics" class="slide level2">
 <h2>Model Diagnostics</h2>
-
-<img data-src="AI-symposium-presentation_files/figure-revealjs/diagnostic-plots-1.png" width="1344" class="r-stretch"><div class="takeaway">
-<p><strong>Takeaway:</strong> Residuals look reasonably normal with no major pattern violations. The model assumptions are adequately met for inference.</p>
+<div class="columns">
+<div class="column" style="width:70%;">
+<div class="cell">
+<div class="cell-output-display">
+<div>
+<figure>
+<p><img data-src="AI-symposium-presentation_files/figure-revealjs/diagnostic-plots-1.png" width="960"></p>
+</figure>
 </div>
+</div>
+</div>
+</div><div class="column" style="width:28%;">
+<div class="takeaway-side">
+<p><strong>Takeaway</strong> Residuals look reasonably normal with no major pattern violations. The model assumptions are adequately met for inference.</p>
+</div>
+</div></div>
 </section>
 <section id="model-comparison" class="slide level2">
 <h2>Model Comparison</h2>
-
-<img data-src="AI-symposium-presentation_files/figure-revealjs/model-comparison-1.png" width="1152" class="r-stretch"><div class="takeaway">
-<p><strong>Takeaway:</strong> Adding covariates dramatically improves fit. The full model (R² ≈ 0.12) explains far more than alcohol alone — age and sex are key confounders.</p>
+<div class="columns">
+<div class="column" style="width:70%;">
+<div class="cell">
+<div class="cell-output-display">
+<div>
+<figure>
+<p><img data-src="AI-symposium-presentation_files/figure-revealjs/model-comparison-1.png" width="960"></p>
+</figure>
 </div>
+</div>
+</div>
+</div><div class="column" style="width:28%;">
+<div class="takeaway-side">
+<p><strong>Takeaway</strong> Adding covariates dramatically improves fit. The full model (R² ≈ 0.12) explains far more than alcohol alone — age and sex are key confounders.</p>
+</div>
+</div></div>
 </section>
 <section id="predicted-effects" class="slide level2">
 <h2>Predicted Effects</h2>
-
-<img data-src="AI-symposium-presentation_files/figure-revealjs/predicted-effects-1.png" width="1344" class="r-stretch"><div class="takeaway">
-<p><strong>Takeaway:</strong> After adjusting for confounders, blood pressure rises modestly with drinking — but males start ~5 mmHg higher at every level. The widening CI at high intake reflects fewer observations.</p>
+<div class="columns">
+<div class="column" style="width:70%;">
+<div class="cell">
+<div class="cell-output-display">
+<div>
+<figure>
+<p><img data-src="AI-symposium-presentation_files/figure-revealjs/predicted-effects-1.png" width="960"></p>
+</figure>
 </div>
+</div>
+</div>
+</div><div class="column" style="width:28%;">
+<div class="takeaway-side">
+<p><strong>Takeaway</strong> After adjusting for confounders, blood pressure rises modestly with drinking — but males start ~5 mmHg higher at every level. The widening CI at high intake reflects fewer observations.</p>
+</div>
+</div></div>
 </section>
 <section id="debugging" class="slide level2">
 <h2>Student Question: Debugging</h2>

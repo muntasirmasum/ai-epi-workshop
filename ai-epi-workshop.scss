@@ -181,6 +181,29 @@ h2 {
   font-size: 1.1em;
 }
 
+// --- Takeaway side variant (right column) ---
+
+.takeaway-side {
+  background: linear-gradient(180deg, $purple 0%, darken($purple, 8%) 100%);
+  color: white;
+  border-radius: 12px;
+  padding: 20px 22px;
+  font-size: 0.62em;
+  line-height: 1.5;
+  box-shadow: 0 4px 12px rgba(70, 29, 124, 0.25);
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.takeaway-side strong {
+  color: $gold;
+  font-size: 1.15em;
+  display: block;
+  margin-bottom: 6px;
+}
+
 // --- Hero text ---
 
 .hero-text {
