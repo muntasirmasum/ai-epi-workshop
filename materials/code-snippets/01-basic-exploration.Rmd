@@ -1,0 +1,157 @@
+---
+title: "Basic Data Exploration"
+subtitle: "AI-Assisted Statistical Analysis Workshop"
+author: "Muntasir Masum, PhD"
+date: "`r Sys.Date()`"
+output:
+  html_document:
+    toc: true
+    toc_float: true
+    theme: cosmo
+    code_folding: show
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(
+  echo = TRUE,
+  message = FALSE,
+  warning = FALSE
+)
+```
+
+## Overview
+
+In this notebook, we load the NHANES dataset, prepare it for analysis, and explore its structure with summary statistics and frequency tables.
+
+**Research Question:** Does alcohol consumption predict blood pressure in adults?
+
+## 1. Load Packages
+
+```{r load-packages}
+# Core packages for data manipulation and visualization
+library(tidyverse)
+
+# NHANES dataset
+library(NHANES)
+```
+
+> **Claude Tip:** If you get an error like `there is no package called 'tidyverse'`, you need to install it first:
+> `install.packages("tidyverse")`
+
+## 2. Load and Prepare Data
+
+We use the NHANES 2017-2018 dataset, filtering to adults aged 20-65 and creating derived variables.
+
+```{r data-prep}
+# Load the built-in NHANES dataset
+data("NHANES")
+
+# Prepare analysis dataset
+analysis_data <- NHANES %>%
+  filter(Age >= 20, Age <= 65) %>%
+  filter(!is.na(BPSysAve), !is.na(AlcoholDay), !is.na(BMI),
+         !is.na(SmokeNow), !is.na(Gender)) %>%
+  mutate(
+    drinks_per_week = AlcoholDay * 7,
+    current_smoker = ifelse(SmokeNow == "Yes", 1, 0),
+    drink_category = cut(AlcoholDay * 7,
+      breaks = c(-Inf, 0, 7, 14, Inf),
+      labels = c("None", "Light", "Moderate", "Heavy"))
+  ) %>%
+  select(ID, Gender, Age, BMI, drinks_per_week, drink_category,
+         current_smoker, BPSysAve) %>%
+  distinct(ID, .keep_all = TRUE)
+```
+
+> **Alternative:** You can also load the pre-prepared CSV from the workshop repository:
+> `analysis_data <- read.csv("../datasets/nhanes_analysis.csv")`
+
+## 3. Explore Data Structure
+
+```{r glimpse}
+# Compact view of all variables
+glimpse(analysis_data)
+```
+
+```{r dimensions}
+# How many rows and columns?
+cat("Rows:", nrow(analysis_data), "\n")
+cat("Columns:", ncol(analysis_data), "\n")
+```
+
+```{r head}
+# View first few rows
+head(analysis_data)
+```
+
+## 4. Summary Statistics
+
+```{r summary}
+# Base R summary of all variables
+summary(analysis_data)
+```
+
+### Numeric Variables
+
+```{r numeric-summary}
+# Detailed summary of key numeric variables
+analysis_data %>%
+  select(Age, BMI, drinks_per_week, BPSysAve) %>%
+  pivot_longer(everything(), names_to = "Variable", values_to = "Value") %>%
+  group_by(Variable) %>%
+  summarise(
+    N = n(),
+    Mean = round(mean(Value), 1),
+    SD = round(sd(Value), 1),
+    Median = median(Value),
+    Min = min(Value),
+    Max = max(Value)
+  )
+```
+
+## 5. Frequency Tables
+
+```{r gender-table}
+# Gender distribution
+table(analysis_data$Gender)
+```
+
+```{r drink-category-table}
+# Drinking category distribution
+table(analysis_data$drink_category)
+```
+
+```{r smoking-table}
+# Smoking status
+table(analysis_data$current_smoker)
+```
+
+### Cross-Tabulation
+
+```{r cross-tab}
+# Gender by drinking category
+table(analysis_data$Gender, analysis_data$drink_category)
+```
+
+## 6. Quick Visualization
+
+```{r quick-hist, fig.width=8, fig.height=4}
+# Distribution of the outcome variable
+ggplot(analysis_data, aes(x = BPSysAve)) +
+  geom_histogram(bins = 30, fill = "#461D7C", alpha = 0.7) +
+  labs(title = "Distribution of Systolic Blood Pressure",
+       x = "Systolic BP (mmHg)", y = "Count") +
+  theme_minimal()
+```
+
+## Next Steps
+
+Now that we understand the data, we can proceed to:
+
+- **02-regression-models.Rmd** - Fit and interpret regression models
+- **03-visualizations.Rmd** - Create publication-quality plots
+- **04-diagnostics.Rmd** - Check model assumptions
+
+---
+
+*Workshop materials: [github.com/muntasirmasum/ai-epi-workshop](https://github.com/muntasirmasum/ai-epi-workshop)*

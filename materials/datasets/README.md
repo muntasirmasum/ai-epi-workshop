@@ -2,43 +2,56 @@
 
 ## Available Datasets
 
-### `nhanes_analysis.csv` (Coming Soon)
+### `nhanes_analysis.csv`
 **Description:** Cleaned subset of NHANES 2017-2018 data used in workshop demonstrations
 
 **Variables included:**
-- Demographics: Age, Gender, Race/Ethnicity
-- Health behaviors: Alcohol consumption (drinks per week)
-- Health outcomes: Systolic blood pressure (BPSysAve)
-- Sample characteristics: Survey weights, strata
+- Demographics: Age, Gender
+- Health behaviors: Alcohol consumption (drinks per week, drinking category), Smoking status
+- Health measures: BMI, Systolic blood pressure (BPSysAve)
 
-**Sample size:** Approximately 5,000 adults aged 20-65
+**Sample size:** 1,174 adults aged 20-65
 
 **Data source:** National Health and Nutrition Examination Survey (NHANES) 2017-2018
 - CDC Website: https://www.cdc.gov/nchs/nhanes/
 
-### `data_dictionary.md` (Coming Soon)
-Complete variable descriptions, coding schemes, and measurement details
-
-### `nhanes_codebook.pdf` (Coming Soon)
-Original NHANES documentation for reference
+### `data_dictionary.md`
+Complete variable descriptions, types, coding schemes, and data preparation notes.
 
 ## How to Load Data in R
 
 ```r
-# Set your working directory to the datasets folder
-setwd("path/to/materials/datasets")
-
-# Load the data
+# Option 1: Load from CSV
 nhanes_data <- read.csv("nhanes_analysis.csv")
 
+# Option 2: Recreate from NHANES package
+library(tidyverse)
+library(NHANES)
+data("NHANES")
+
+analysis_data <- NHANES %>%
+  filter(Age >= 20, Age <= 65) %>%
+  filter(!is.na(BPSysAve), !is.na(AlcoholDay), !is.na(BMI),
+         !is.na(SmokeNow), !is.na(Gender)) %>%
+  mutate(
+    drinks_per_week = AlcoholDay * 7,
+    current_smoker = ifelse(SmokeNow == "Yes", 1, 0),
+    drink_category = cut(AlcoholDay * 7,
+      breaks = c(-Inf, 0, 7, 14, Inf),
+      labels = c("None", "Light", "Moderate", "Heavy"))
+  ) %>%
+  select(ID, Gender, Age, BMI, drinks_per_week, drink_category,
+         current_smoker, BPSysAve) %>%
+  distinct(ID, .keep_all = TRUE)
+
 # View first few rows
-head(nhanes_data)
+head(analysis_data)
 
 # Check structure
-str(nhanes_data)
+str(analysis_data)
 
 # Summary statistics
-summary(nhanes_data)
+summary(analysis_data)
 ```
 
 ## Data Use Notes
@@ -57,7 +70,3 @@ If using this data in your own work, cite:
 For questions about:
 - **Workshop-specific data preparation:** Email mmasum@albany.edu
 - **Original NHANES study:** Visit https://www.cdc.gov/nchs/nhanes/
-
----
-
-**Status:** Materials being prepared and will be uploaded after the workshop session.

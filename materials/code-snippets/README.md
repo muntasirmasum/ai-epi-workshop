@@ -1,105 +1,87 @@
-# R Code Snippets
+# R Code Notebooks
 
-Code examples from the workshop, organized by topic and difficulty level.
+Code examples from the workshop, organized by topic as R Markdown notebooks (.Rmd).
 
-## 📚 Available Scripts
+## Available Notebooks
 
-### `01-basic-exploration.R` (Coming Soon)
+### `01-basic-exploration.Rmd`
 **Topics:** Loading data, basic exploration, summary statistics
 **Difficulty:** Beginner
 **Concepts:**
-- Reading CSV files
-- Viewing data structure
+- Loading packages and data
+- Viewing data structure with `glimpse()`
 - Computing summary statistics
 - Creating frequency tables
 
-### `02-regression-models.R` (Coming Soon)
+### `02-regression-models.Rmd`
 **Topics:** Linear regression, model interpretation
 **Difficulty:** Intermediate
 **Concepts:**
 - Simple linear regression
 - Multiple regression with categorical variables
 - Interpreting coefficients and p-values
-- Model summaries
+- Model comparison with AIC
 
-### `03-visualizations.R` (Coming Soon)
-**Topics:** ggplot2 graphics, plotly interactivity
+### `03-visualizations.Rmd`
+**Topics:** ggplot2 graphics, multi-panel plots
 **Difficulty:** Intermediate
 **Concepts:**
-- Scatter plots with regression lines
-- Faceting by groups
-- Interactive plots with plotly
-- Customizing themes and labels
+- Violin + box plots by group
+- Distribution histograms and density plots
+- Correlation matrix heatmap
+- Coefficient plots with confidence intervals
 
-### `04-diagnostics.R` (Coming Soon)
+### `04-diagnostics.Rmd`
 **Topics:** Regression diagnostics, assumption checking
 **Difficulty:** Advanced
 **Concepts:**
-- Residual plots
-- Checking linearity, normality, homoscedasticity
-- Influential points
-- Model refinement
+- Residuals vs fitted, Q-Q plot, Scale-Location, Leverage
+- Model comparison (simple vs additive vs full)
+- Predicted vs observed values
+- ANOVA for nested models
 
-## 🚀 How to Use These Scripts
+## How to Use These Notebooks
 
-### Method 1: Copy and Paste (Easiest)
+### Method 1: Run in RStudio (Recommended)
 1. Open RStudio
-2. Create a new R Script (File → New File → R Script)
-3. Copy code from any script file
-4. Run line-by-line using Cmd+Enter (Mac) or Ctrl+Enter (Windows)
+2. Open any `.Rmd` file (File -> Open File)
+3. Click **Knit** to render the full document, or
+4. Run chunks one at a time with **Ctrl+Shift+Enter** (Windows) / **Cmd+Shift+Enter** (Mac)
 
-### Method 2: Download and Run
-1. Download the entire `code-snippets/` folder
-2. In RStudio: File → Open File
-3. Navigate to downloaded script
-4. Run interactively or all at once
+### Method 2: Copy Code Chunks
+1. Open the `.Rmd` file in any text editor
+2. Copy code from between the ` ```{r} ` and ` ``` ` markers
+3. Paste into an R console or script
 
 ### Method 3: Work with Claude AI
-1. Copy any code snippet
+1. Copy any code chunk
 2. Paste into Claude (https://claude.ai)
 3. Ask questions like:
    - "Explain what this code does line by line"
    - "How would I modify this to use a different variable?"
    - "Why am I getting this error message?"
 
-## 💡 Learning Tips
+## Learning Tips
 
 **For beginners:**
-- Start with `01-basic-exploration.R`
-- Run code line by line, don't run all at once
-- Read comments carefully
+- Start with `01-basic-exploration.Rmd`
+- Run code chunk by chunk, not all at once
+- Read the narrative text between chunks
 - Use `?function_name` in R to see help documentation
 - Ask Claude to explain unfamiliar concepts
 
 **For intermediate users:**
 - Try modifying code to answer different questions
 - Experiment with different variables
-- Combine techniques from multiple scripts
+- Combine techniques from multiple notebooks
 - Challenge yourself to write code before looking at solutions
 
 **For advanced users:**
 - Adapt code to your own datasets
-- Optimize code for efficiency
 - Add additional diagnostic checks
 - Extend analyses with additional packages
 
-## 🤖 Using Claude AI with These Scripts
-
-**Example interactions:**
-
-*Understanding code:*
-> "I have this R code: [paste code]. Can you explain what each line does in plain language?"
-
-*Debugging:*
-> "This code gives me this error: [paste error]. How do I fix it?"
-
-*Extending:*
-> "I have this plot code. How would I add a third variable for point size?"
-
-*Learning:*
-> "What's the difference between filter() and subset() in R?"
-
-## 📋 Prerequisites
+## Prerequisites
 
 Make sure you have installed these R packages:
 
@@ -110,12 +92,11 @@ install.packages(c(
   "broom",
   "knitr",
   "kableExtra",
-  "plotly"
+  "gridExtra",
+  "reshape2"
 ))
 ```
 
-## 🔄 Updates
-
-These materials will be uploaded after the workshop. Check back soon!
+## Questions?
 
 For immediate questions: mmasum@albany.edu

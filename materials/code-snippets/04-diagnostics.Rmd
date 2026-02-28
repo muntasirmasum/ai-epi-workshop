@@ -1,0 +1,189 @@
+---
+title: "Model Diagnostics"
+subtitle: "AI-Assisted Statistical Analysis Workshop"
+author: "Muntasir Masum, PhD"
+date: "`r Sys.Date()`"
+output:
+  html_document:
+    toc: true
+    toc_float: true
+    theme: cosmo
+    code_folding: show
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(
+  echo = TRUE,
+  message = FALSE,
+  warning = FALSE,
+  fig.width = 10,
+  fig.height = 6
+)
+```
+
+## Overview
+
+After fitting a regression model, we must check whether the assumptions hold. This notebook covers residual diagnostics, model comparison, and predicted vs. observed plots.
+
+## 1. Setup
+
+```{r load-packages}
+library(tidyverse)
+library(NHANES)
+library(broom)
+library(gridExtra)
+```
+
+```{r data-prep}
+data("NHANES")
+
+analysis_data <- NHANES %>%
+  filter(Age >= 20, Age <= 65) %>%
+  filter(!is.na(BPSysAve), !is.na(AlcoholDay), !is.na(BMI),
+         !is.na(SmokeNow), !is.na(Gender)) %>%
+  mutate(
+    drinks_per_week = AlcoholDay * 7,
+    current_smoker = ifelse(SmokeNow == "Yes", 1, 0),
+    drink_category = cut(AlcoholDay * 7,
+      breaks = c(-Inf, 0, 7, 14, Inf),
+      labels = c("None", "Light", "Moderate", "Heavy"))
+  ) %>%
+  select(ID, Gender, Age, BMI, drinks_per_week, drink_category,
+         current_smoker, BPSysAve) %>%
+  distinct(ID, .keep_all = TRUE)
+```
+
+```{r fit-model}
+# Fit the full model
+model1 <- lm(BPSysAve ~ drinks_per_week + Age + BMI +
+                         current_smoker + Gender,
+             data = analysis_data)
+```
+
+## 2. Diagnostic Plots (Four-Panel)
+
+The four standard diagnostic plots check linearity, normality, homoscedasticity, and influential points.
+
+```{r diagnostic-4panel, fig.width=12, fig.height=10}
+model_diag <- augment(model1)
+
+p1 <- ggplot(model_diag, aes(x = .fitted, y = .resid)) +
+  geom_point(alpha = 0.3, color = "#461D7C", size = 1.5) +
+  geom_hline(yintercept = 0, linetype = "dashed", color = "red") +
+  geom_smooth(se = TRUE, color = "#0072B2") +
+  labs(title = "Residuals vs Fitted",
+       x = "Fitted Values", y = "Residuals") +
+  theme_minimal(base_size = 14)
+
+p2 <- ggplot(model_diag, aes(sample = .resid)) +
+  stat_qq(alpha = 0.3, color = "#461D7C", size = 1.5) +
+  stat_qq_line(color = "red", linetype = "dashed") +
+  labs(title = "Normal Q-Q Plot",
+       x = "Theoretical Quantiles", y = "Sample Quantiles") +
+  theme_minimal(base_size = 14)
+
+p3 <- ggplot(model_diag, aes(x = .fitted, y = sqrt(abs(.std.resid)))) +
+  geom_point(alpha = 0.3, color = "#461D7C", size = 1.5) +
+  geom_smooth(se = TRUE, color = "#0072B2") +
+  labs(title = "Scale-Location",
+       x = "Fitted Values",
+       y = expression(sqrt("|Standardized Residuals|"))) +
+  theme_minimal(base_size = 14)
+
+p4 <- ggplot(model_diag, aes(x = .hat, y = .std.resid)) +
+  geom_point(alpha = 0.3, color = "#461D7C", size = 1.5) +
+  geom_hline(yintercept = 0, linetype = "dashed", color = "red") +
+  geom_smooth(se = TRUE, color = "#0072B2") +
+  labs(title = "Residuals vs Leverage",
+       x = "Leverage", y = "Standardized Residuals") +
+  theme_minimal(base_size = 14)
+
+grid.arrange(p1, p2, p3, p4, ncol = 2)
+```
+
+### What to Look For
+
+| Plot | Checking | Good Sign |
+|------|----------|-----------|
+| Residuals vs Fitted | Linearity, homoscedasticity | Random scatter around 0 |
+| Q-Q Plot | Normality of residuals | Points follow the diagonal line |
+| Scale-Location | Constant variance | Flat trend line |
+| Residuals vs Leverage | Influential points | No points far from the cluster |
+
+## 3. Model Comparison
+
+Compare three progressively complex models.
+
+```{r model-comparison}
+model_simple <- lm(BPSysAve ~ drinks_per_week, data = analysis_data)
+model_additive <- lm(BPSysAve ~ drinks_per_week + Gender, data = analysis_data)
+model_full <- model1
+
+# Comparison table
+model_metrics <- tibble(
+  Model = c("Simple (Drinks Only)",
+            "Additive (Drinks + Sex)",
+            "Full (All Covariates)"),
+  R_squared = c(summary(model_simple)$r.squared,
+                summary(model_additive)$r.squared,
+                summary(model_full)$r.squared),
+  Adj_R_squared = c(summary(model_simple)$adj.r.squared,
+                    summary(model_additive)$adj.r.squared,
+                    summary(model_full)$adj.r.squared),
+  AIC = c(AIC(model_simple), AIC(model_additive), AIC(model_full))
+)
+
+model_metrics
+```
+
+### Visualize Model Comparison
+
+```{r model-comparison-plot, fig.width=10, fig.height=5}
+model_metrics_long <- model_metrics %>%
+  pivot_longer(cols = c(R_squared, Adj_R_squared),
+               names_to = "Metric", values_to = "Value")
+
+ggplot(model_metrics_long, aes(x = Model, y = Value, fill = Metric)) +
+  geom_col(position = "dodge", alpha = 0.8) +
+  labs(title = "Model Fit Comparison",
+       y = "Value", x = "") +
+  scale_fill_manual(values = c("#461D7C", "#0072B2"),
+                    labels = c("Adjusted R-squared", "R-squared")) +
+  theme_minimal(base_size = 14) +
+  theme(axis.text.x = element_text(size = 11))
+```
+
+## 4. Predicted vs Observed
+
+```{r predicted-vs-observed}
+model_diag <- augment(model1)
+
+ggplot(model_diag, aes(x = BPSysAve, y = .fitted)) +
+  geom_point(alpha = 0.3, color = "#461D7C", size = 1.5) +
+  geom_abline(slope = 1, intercept = 0,
+              linetype = "dashed", color = "red") +
+  labs(title = "Predicted vs Observed Systolic Blood Pressure",
+       x = "Observed BP (mmHg)", y = "Predicted BP (mmHg)") +
+  theme_minimal(base_size = 14) +
+  coord_equal()
+```
+
+> **Interpretation:** Points close to the red dashed line indicate good predictions. Wide scatter suggests the model explains only a portion of the variability in blood pressure.
+
+## 5. ANOVA Test for Nested Models
+
+```{r anova-test}
+anova(model_simple, model_additive, model_full)
+```
+
+> **Claude Tip:** A significant F-test indicates that the more complex model provides a statistically better fit than the simpler one.
+
+## Summary
+
+- Diagnostic plots help verify whether linear regression assumptions hold
+- Model comparison helps choose the right level of complexity
+- Low R-squared does not mean the model is wrong -- it reflects the inherent variability in biological data
+
+---
+
+*Workshop materials: [github.com/muntasirmasum/ai-epi-workshop](https://github.com/muntasirmasum/ai-epi-workshop)*

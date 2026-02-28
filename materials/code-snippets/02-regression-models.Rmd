@@ -1,0 +1,153 @@
+---
+title: "Regression Models"
+subtitle: "AI-Assisted Statistical Analysis Workshop"
+author: "Muntasir Masum, PhD"
+date: "`r Sys.Date()`"
+output:
+  html_document:
+    toc: true
+    toc_float: true
+    theme: cosmo
+    code_folding: show
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(
+  echo = TRUE,
+  message = FALSE,
+  warning = FALSE
+)
+```
+
+## Overview
+
+In this notebook, we fit simple and multiple linear regression models to examine the relationship between alcohol consumption and systolic blood pressure.
+
+## 1. Setup
+
+```{r load-packages}
+library(tidyverse)
+library(NHANES)
+library(broom)     # For tidy model output
+```
+
+```{r data-prep}
+data("NHANES")
+
+analysis_data <- NHANES %>%
+  filter(Age >= 20, Age <= 65) %>%
+  filter(!is.na(BPSysAve), !is.na(AlcoholDay), !is.na(BMI),
+         !is.na(SmokeNow), !is.na(Gender)) %>%
+  mutate(
+    drinks_per_week = AlcoholDay * 7,
+    current_smoker = ifelse(SmokeNow == "Yes", 1, 0),
+    drink_category = cut(AlcoholDay * 7,
+      breaks = c(-Inf, 0, 7, 14, Inf),
+      labels = c("None", "Light", "Moderate", "Heavy"))
+  ) %>%
+  select(ID, Gender, Age, BMI, drinks_per_week, drink_category,
+         current_smoker, BPSysAve) %>%
+  distinct(ID, .keep_all = TRUE)
+```
+
+## 2. Simple Linear Regression
+
+Start with a simple model: blood pressure predicted by alcohol consumption alone.
+
+```{r simple-model}
+model_simple <- lm(BPSysAve ~ drinks_per_week, data = analysis_data)
+summary(model_simple)
+```
+
+### Interpreting the Output
+
+```{r simple-coef}
+# Extract the coefficient for drinks_per_week
+coef(model_simple)["drinks_per_week"]
+```
+
+> **Interpretation:** Each additional drink per week is associated with a
+> `r round(coef(model_simple)["drinks_per_week"], 3)` mmHg change in systolic
+> blood pressure.
+
+## 3. Multiple Linear Regression
+
+Add confounders: Age, BMI, smoking status, and sex.
+
+```{r multiple-model}
+model1 <- lm(BPSysAve ~ drinks_per_week + Age + BMI +
+                         current_smoker + Gender,
+             data = analysis_data)
+summary(model1)
+```
+
+### Tidy Output with broom
+
+The `tidy()` function from the **broom** package gives a clean data frame of coefficients.
+
+```{r tidy-output}
+tidy(model1, conf.int = TRUE)
+```
+
+### Key Coefficient
+
+```{r key-coef}
+# Alcohol effect, adjusted for confounders
+coef(model1)["drinks_per_week"]
+```
+
+### P-Value
+
+```{r p-value}
+summary(model1)$coefficients["drinks_per_week", "Pr(>|t|)"]
+```
+
+## 4. Model Fit Statistics
+
+```{r model-fit}
+# R-squared: proportion of variance explained
+cat("R-squared:", round(summary(model1)$r.squared, 4), "\n")
+cat("Adjusted R-squared:", round(summary(model1)$adj.r.squared, 4), "\n")
+```
+
+```{r glance}
+# All model-level statistics at once
+glance(model1)
+```
+
+## 5. Comparing Models
+
+```{r model-comparison}
+# Simple model (unadjusted)
+model_simple <- lm(BPSysAve ~ drinks_per_week, data = analysis_data)
+
+# Additive model (adjusted, no interaction)
+model_additive <- lm(BPSysAve ~ drinks_per_week + Gender,
+                     data = analysis_data)
+
+# Full model (with all covariates)
+model_full <- model1
+
+# Compare with AIC
+cat("Simple model AIC:", AIC(model_simple), "\n")
+cat("Additive model AIC:", AIC(model_additive), "\n")
+cat("Full model AIC:", AIC(model_full), "\n")
+```
+
+> **Claude Tip:** Lower AIC indicates a better-fitting model, accounting for
+> model complexity. Always compare models that use the same dataset.
+
+## 6. ANOVA for Nested Models
+
+```{r anova}
+anova(model_simple, model_additive, model_full)
+```
+
+## Next Steps
+
+- **03-visualizations.Rmd** - Visualize these model results
+- **04-diagnostics.Rmd** - Check whether model assumptions hold
+
+---
+
+*Workshop materials: [github.com/muntasirmasum/ai-epi-workshop](https://github.com/muntasirmasum/ai-epi-workshop)*

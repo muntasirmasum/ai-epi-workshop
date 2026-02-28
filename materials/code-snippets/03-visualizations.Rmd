@@ -1,0 +1,194 @@
+---
+title: "Visualizations"
+subtitle: "AI-Assisted Statistical Analysis Workshop"
+author: "Muntasir Masum, PhD"
+date: "`r Sys.Date()`"
+output:
+  html_document:
+    toc: true
+    toc_float: true
+    theme: cosmo
+    code_folding: show
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(
+  echo = TRUE,
+  message = FALSE,
+  warning = FALSE,
+  fig.width = 10,
+  fig.height = 6
+)
+```
+
+## Overview
+
+In this notebook, we create visualizations to explore the relationship between alcohol consumption and blood pressure, including distribution plots, violin/box plots, correlation heatmaps, and coefficient plots.
+
+## 1. Setup
+
+```{r load-packages}
+library(tidyverse)
+library(NHANES)
+library(broom)
+library(gridExtra)
+library(reshape2)
+```
+
+```{r data-prep}
+data("NHANES")
+
+analysis_data <- NHANES %>%
+  filter(Age >= 20, Age <= 65) %>%
+  filter(!is.na(BPSysAve), !is.na(AlcoholDay), !is.na(BMI),
+         !is.na(SmokeNow), !is.na(Gender)) %>%
+  mutate(
+    drinks_per_week = AlcoholDay * 7,
+    current_smoker = ifelse(SmokeNow == "Yes", 1, 0),
+    drink_category = cut(AlcoholDay * 7,
+      breaks = c(-Inf, 0, 7, 14, Inf),
+      labels = c("None", "Light", "Moderate", "Heavy"))
+  ) %>%
+  select(ID, Gender, Age, BMI, drinks_per_week, drink_category,
+         current_smoker, BPSysAve) %>%
+  distinct(ID, .keep_all = TRUE)
+```
+
+## 2. Violin + Box Plot
+
+This visualization shows the full distribution shape of blood pressure across drinking categories, split by sex.
+
+```{r violin-boxplot, fig.height=7}
+ggplot(analysis_data, aes(x = drink_category, y = BPSysAve, fill = Gender)) +
+  geom_violin(alpha = 0.35, position = position_dodge(0.8),
+              color = NA, scale = "width") +
+  geom_boxplot(width = 0.15, alpha = 0.9,
+               position = position_dodge(0.8),
+               outlier.size = 0.8, outlier.alpha = 0.3) +
+  stat_summary(fun = mean, geom = "point", shape = 18, size = 4,
+               position = position_dodge(0.8), show.legend = FALSE) +
+  labs(
+    title = "Blood Pressure Distribution by Drinking Level and Sex",
+    subtitle = "NHANES 2017-2018 | Adults Aged 20-65 | Diamond = Mean",
+    x = "Drinking Category",
+    y = "Systolic Blood Pressure (mmHg)",
+    fill = "Sex"
+  ) +
+  scale_fill_manual(values = c("female" = "#D55E00", "male" = "#0072B2")) +
+  theme_minimal(base_size = 14) +
+  theme(panel.grid.major.x = element_blank())
+```
+
+> **ggplot Tip:** Violin + box plot combo shows both distribution shape *and* summary statistics -- far more informative than a bar chart.
+
+## 3. Distribution Plots
+
+### Histogram: Alcohol Consumption
+
+```{r hist-alcohol}
+ggplot(analysis_data, aes(x = drinks_per_week, fill = Gender)) +
+  geom_histogram(alpha = 0.6, bins = 30, position = "identity") +
+  labs(title = "Distribution of Alcohol Consumption",
+       x = "Drinks Per Week", y = "Count") +
+  scale_fill_manual(values = c("female" = "#D55E00", "male" = "#0072B2")) +
+  theme_minimal(base_size = 14) +
+  theme(legend.position = "top")
+```
+
+### Density Plot: Blood Pressure
+
+```{r density-bp}
+ggplot(analysis_data, aes(x = BPSysAve, fill = Gender)) +
+  geom_density(alpha = 0.6) +
+  labs(title = "Distribution of Systolic Blood Pressure",
+       x = "Systolic BP (mmHg)", y = "Density") +
+  scale_fill_manual(values = c("female" = "#D55E00", "male" = "#0072B2")) +
+  theme_minimal(base_size = 14) +
+  theme(legend.position = "top")
+```
+
+### Side-by-Side Distributions
+
+```{r side-by-side, fig.width=12, fig.height=5}
+p1 <- ggplot(analysis_data, aes(x = drinks_per_week, fill = Gender)) +
+  geom_histogram(alpha = 0.6, bins = 30, position = "identity") +
+  labs(title = "Alcohol Consumption", x = "Drinks Per Week", y = "Count") +
+  scale_fill_manual(values = c("female" = "#D55E00", "male" = "#0072B2")) +
+  theme_minimal(base_size = 12) +
+  theme(legend.position = "top")
+
+p2 <- ggplot(analysis_data, aes(x = BPSysAve, fill = Gender)) +
+  geom_density(alpha = 0.6) +
+  labs(title = "Systolic Blood Pressure", x = "Systolic BP (mmHg)", y = "Density") +
+  scale_fill_manual(values = c("female" = "#D55E00", "male" = "#0072B2")) +
+  theme_minimal(base_size = 12) +
+  theme(legend.position = "top")
+
+grid.arrange(p1, p2, ncol = 2)
+```
+
+## 4. Correlation Matrix Heatmap
+
+```{r correlation-matrix, fig.width=7, fig.height=6}
+corr_data <- analysis_data %>%
+  select(Age, drinks_per_week, BPSysAve) %>%
+  na.omit()
+
+cor_matrix <- cor(corr_data)
+melted_cor <- melt(cor_matrix)
+
+ggplot(melted_cor, aes(Var1, Var2, fill = value)) +
+  geom_tile(color = "white") +
+  geom_text(aes(label = sprintf("%.2f", value)), size = 6, color = "white") +
+  scale_fill_gradient2(low = "#0072B2", high = "#D55E00", mid = "white",
+                       midpoint = 0, limit = c(-1, 1),
+                       name = "Correlation") +
+  theme_minimal(base_size = 14) +
+  theme(axis.title = element_blank(),
+        axis.text.x = element_text(angle = 45, hjust = 1)) +
+  coord_fixed() +
+  labs(title = "Correlation Matrix of Key Variables")
+```
+
+## 5. Coefficient Plot
+
+Visualize regression coefficients with confidence intervals.
+
+```{r coef-plot, fig.height=5}
+# Fit the model
+model1 <- lm(BPSysAve ~ drinks_per_week + Age + BMI +
+                         current_smoker + Gender,
+             data = analysis_data)
+
+# Tidy the coefficients
+coef_data <- tidy(model1, conf.int = TRUE) %>%
+  filter(term != "(Intercept)") %>%
+  mutate(term = case_when(
+    term == "drinks_per_week" ~ "Drinks Per Week",
+    term == "Age" ~ "Age",
+    term == "BMI" ~ "BMI",
+    term == "current_smoker" ~ "Current Smoker",
+    term == "Gendermale" ~ "Sex (Male vs Female)",
+    TRUE ~ term
+  ))
+
+ggplot(coef_data, aes(x = estimate, y = term)) +
+  geom_vline(xintercept = 0, linetype = "dashed", color = "gray50") +
+  geom_errorbarh(aes(xmin = conf.low, xmax = conf.high),
+                 height = 0.2, linewidth = 1, color = "#461D7C") +
+  geom_point(size = 4, color = "#461D7C") +
+  labs(title = "Regression Coefficients with 95% Confidence Intervals",
+       subtitle = "Effect on Systolic Blood Pressure (mmHg)",
+       x = "Coefficient Estimate", y = "") +
+  theme_minimal(base_size = 14) +
+  theme(axis.text.y = element_text(face = "bold"),
+        panel.grid.major.y = element_blank())
+```
+
+## Next Steps
+
+- **04-diagnostics.Rmd** - Check model assumptions and compare models
+
+---
+
+*Workshop materials: [github.com/muntasirmasum/ai-epi-workshop](https://github.com/muntasirmasum/ai-epi-workshop)*
