@@ -1268,12 +1268,12 @@ Department of Epidemiology & Biostatistics
 University at Albany, SUNY
 :::
 
-<div style="display: inline-grid; grid-template-columns: 30px auto; gap: 6px 10px; align-items: center; font-size: 0.95em; text-align: left;">
-<span style="text-align: center;">📧</span> <a href="mailto:mmasum@albany.edu">mmasum@albany.edu</a>
-<span style="text-align: center;"><a href="https://www.linkedin.com/in/muntasirmasum/"><img src="https://upload.wikimedia.org/wikipedia/commons/c/ca/LinkedIn_logo_initials.png" width="22" style="vertical-align: middle;"></a></span> <a href="https://www.linkedin.com/in/muntasirmasum/">linkedin.com/in/muntasirmasum</a>
-<span style="text-align: center;"><a href="https://bsky.app/profile/muntasirm.bsky.social"><img src="https://upload.wikimedia.org/wikipedia/commons/7/7a/Bluesky_Logo.svg" width="22" style="vertical-align: middle;"></a></span> <a href="https://bsky.app/profile/muntasirm.bsky.social">@muntasirm.bsky.social</a>
-<span style="text-align: center;"><a href="https://github.com/muntasirmasum"><img src="https://upload.wikimedia.org/wikipedia/commons/9/91/Octicons-mark-github.svg" width="22" style="vertical-align: middle;"></a></span> <a href="https://github.com/muntasirmasum">github.com/muntasirmasum</a>
-</div>
+<table style="margin: 0 auto; border: none; border-collapse: collapse; font-size: 0.85em;">
+<tr><td style="border: none; padding: 4px 8px; text-align: center;">📧</td><td style="border: none; padding: 4px 8px;"><a href="mailto:mmasum@albany.edu">mmasum@albany.edu</a></td></tr>
+<tr><td style="border: none; padding: 4px 8px; text-align: center;"><a href="https://www.linkedin.com/in/muntasirmasum/"><img src="https://upload.wikimedia.org/wikipedia/commons/c/ca/LinkedIn_logo_initials.png" width="22"></a></td><td style="border: none; padding: 4px 8px;"><a href="https://www.linkedin.com/in/muntasirmasum/">linkedin.com/in/muntasirmasum</a></td></tr>
+<tr><td style="border: none; padding: 4px 8px; text-align: center;"><a href="https://bsky.app/profile/muntasirm.bsky.social"><img src="https://upload.wikimedia.org/wikipedia/commons/7/7a/Bluesky_Logo.svg" width="22"></a></td><td style="border: none; padding: 4px 8px;"><a href="https://bsky.app/profile/muntasirm.bsky.social">@muntasirm.bsky.social</a></td></tr>
+<tr><td style="border: none; padding: 4px 8px; text-align: center;"><a href="https://github.com/muntasirmasum"><img src="https://upload.wikimedia.org/wikipedia/commons/9/91/Octicons-mark-github.svg" width="22"></a></td><td style="border: none; padding: 4px 8px;"><a href="https://github.com/muntasirmasum">github.com/muntasirmasum</a></td></tr>
+</table>
 
 ## Setting Up Your Kitchen Before You Cook {#setup-appendix .section-divider-gold data-background-color="#EAAA00"}
 
