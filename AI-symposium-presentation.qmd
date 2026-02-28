@@ -1549,7 +1549,7 @@ document.addEventListener('DOMContentLoaded', function() {
     welcome:        { text: 'AI+ Symposium 2026',       url: 'https://events.albany.edu/event/ai-plus-symposium' },
     overview:       { text: 'AI+ Symposium 2026',       url: 'https://events.albany.edu/event/ai-plus-symposium' },
     // Tools & integration slides
-    integration:    { text: 'AI in Education ↗',        url: 'https://teaching.cornell.edu/generative-artificial-intelligence/ai-teaching-and-learning' },
+    integration:    { text: 'Workshop Repo ↗',           url: 'https://github.com/muntasirmasum/ai-epi-workshop' },
     // Data & coding slides
     coding:         { text: 'NHANES Data (CDC) ↗',      url: 'https://www.cdc.gov/nchs/nhanes/' },
     // Analysis & regression slides
