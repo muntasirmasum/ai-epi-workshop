@@ -32,6 +32,18 @@ library(gridExtra)
 
 This notebook walks through the complete demo from the workshop. Run each section step-by-step to reproduce the analysis.
 
+## How to Run Code in This Notebook
+
+Each gray box below is a **code chunk**. You have three ways to run them:
+
+1. **Run a single chunk:** Click the green **▶ Play** button at the top-right corner of any code chunk
+2. **Run a single line:** Place your cursor on a line and press **Ctrl + Enter** (Windows) or **Cmd + Enter** (Mac)
+3. **Run all chunks above:** Click the downward arrow icon ⏬ next to the Play button to run everything up to that point
+
+> **Tip:** Start from the top and work your way down — later chunks depend on earlier ones!
+
+---
+
 **Need help?** Paste any code or output into [Claude](https://claude.ai) and ask:
 
 - *"What does this do?"*
