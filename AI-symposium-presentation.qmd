@@ -366,7 +366,7 @@ I need to prepare my NHANES data for regression analysis. I want adults aged 20-
 <strong>Claude's approach:</strong> Filter age range → Select variables → Handle missing data → Create derived variables
 </div>
 
-## Claude Writes the Code — Step by Step
+## Claude Suggests the Code — Step by Step
 
 <div class="split">
 <div>
@@ -393,6 +393,10 @@ Select analytic variables, drop missing, check sample size
 </div>
 </div>
 
+<div class="tip-box" style="font-size: 0.65em; margin-top: 10px;">
+<strong>💡 Students can copy this code directly into RStudio and run it to analyze the data themselves.</strong>
+</div>
+
 ## Claude Flags What to Watch For
 
 <div style="text-align: center;">
@@ -405,7 +409,7 @@ Claude proactively warns about skewness, missing data patterns, and survey desig
 
 </div>
 
-## Live Code Output
+## What the Code Looks Like in RStudio
 
 <div class="claude-box">
 <strong>Claude suggests:</strong> Use <code>filter()</code> for age range, <code>mutate()</code> for new variables, and handle missing data explicitly
