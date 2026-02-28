@@ -136,13 +136,13 @@ Today we'll see exactly how that works.
 
 <div class="card-grid">
 <div class="card card--green">
-<h3>ClaudeR Package</h3>
-<p>Direct RStudio integration via Claude Desktop app</p>
+<h3>Claude Chat</h3>
+<p>Copy code & output from RStudio, paste into Claude Desktop App</p>
 <span class="card__label">Most accessible</span>
 </div>
 <div class="card card--orange">
-<h3>Claude Chat</h3>
-<p>Claude Desktop App + copy/paste to RStudio</p>
+<h3>ClaudeR Package</h3>
+<p>RStudio MCP connected to Claude Desktop App — Claude sees your environment</p>
 <span class="card__label">Intermediate approach</span>
 </div>
 <div class="card">
