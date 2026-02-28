@@ -366,6 +366,45 @@ I need to prepare my NHANES data for regression analysis. I want adults aged 20-
 <strong>Claude's approach:</strong> Filter age range → Select variables → Handle missing data → Create derived variables
 </div>
 
+## Claude Writes the Code — Step by Step
+
+<div class="split">
+<div>
+
+**Steps 1–2: Filter & create variables**
+
+![](Claude-assist1.png){style="border: 2px solid #ddd; border-radius: 8px; box-shadow: 0 4px 12px rgba(0,0,0,0.15);" width="100%"}
+
+<div style="text-align: center; font-size: 0.6em; color: #6c757d; margin-top: 5px;">
+Deduplicate, filter by age, create drinks-per-week
+</div>
+
+</div>
+<div>
+
+**Steps 3–4: Select columns & check sample**
+
+![](Claude-assist2.png){style="border: 2px solid #ddd; border-radius: 8px; box-shadow: 0 4px 12px rgba(0,0,0,0.15);" width="100%"}
+
+<div style="text-align: center; font-size: 0.6em; color: #6c757d; margin-top: 5px;">
+Select analytic variables, drop missing, check sample size
+</div>
+
+</div>
+</div>
+
+## Claude Flags What to Watch For
+
+<div style="text-align: center;">
+
+![](Claude-assist3.png){style="border: 2px solid #ddd; border-radius: 8px; box-shadow: 0 4px 12px rgba(0,0,0,0.15); max-height: 550px;"}
+
+<div style="font-size: 0.7em; color: #6c757d; margin-top: 10px;">
+Claude proactively warns about skewness, missing data patterns, and survey design — <strong>a tutor, not just a code generator</strong>
+</div>
+
+</div>
+
 ## Live Code Output
 
 <div class="claude-box">
