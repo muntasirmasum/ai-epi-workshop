@@ -96,7 +96,7 @@
     code span.vs { color: #20794d; } /* VerbatimString */
     code span.wa { color: #5e5e5e; font-style: italic; } /* Warning */
   </style>
-  <link rel="stylesheet" href="AI-symposium-presentation_files/libs/revealjs/dist/theme/quarto-394c30c67f884e8e92ab7e697f0730a5.css">
+  <link rel="stylesheet" href="AI-symposium-presentation_files/libs/revealjs/dist/theme/quarto-02ec7d1d1acef889670380362a081d1f.css">
   <link href="AI-symposium-presentation_files/libs/revealjs/plugin/quarto-line-highlight/line-highlight.css" rel="stylesheet">
   <link href="AI-symposium-presentation_files/libs/revealjs/plugin/reveal-menu/menu.css" rel="stylesheet">
   <link href="AI-symposium-presentation_files/libs/revealjs/plugin/reveal-menu/quarto-menu.css" rel="stylesheet">
@@ -225,89 +225,128 @@ Muntasir Masum, PhD
 </section>
 <section id="overview" class="slide level2">
 <h2>Workshop Roadmap</h2>
-<div class="columns">
-<div class="column" style="width:33%;">
+<div class="card-grid">
 <div class="card">
-<p><span class="card-icon" style="font-size: 1.6em;"><strong>Context</strong></span></p>
+<span class="card__icon">📋</span>
 <h3>
-15 minutes
+Context · 15 min
 </h3>
-<p>The teaching challenge &amp; how AI fits in</p>
+<p>
+The teaching challenge &amp; how AI fits in
+</p>
 </div>
-</div><div class="column" style="width:33%;">
-<div class="card-orange">
-<p><span class="card-icon" style="font-size: 1.6em;"><strong>Live Demo</strong></span></p>
+<div class="card card--orange">
+<span class="card__icon">💻</span>
 <h3>
-45 minutes
+Live Demo · 45 min
 </h3>
-<p>Coding, analysis, visualization &amp; debugging</p>
+<p>
+Coding, analysis, visualization &amp; debugging
+</p>
 </div>
-</div><div class="column" style="width:33%;">
-<div class="card-blue">
-<p><span class="card-icon" style="font-size: 1.6em;"><strong>Discussion</strong></span></p>
+<div class="card card--blue">
+<span class="card__icon">💬</span>
 <h3>
-15 minutes
+Discussion · 15 min
 </h3>
-<p>Implementation, integrity &amp; Q&amp;A</p>
+<p>
+Implementation, integrity &amp; Q&amp;A
+</p>
 </div>
-</div></div>
+</div>
 </section>
 <section id="who-is-this-for" class="slide level2">
 <h2>Who Is This For?</h2>
-<div class="columns">
-<div class="column" style="width:25%;">
+<div class="card-grid">
 <div class="card">
-<p><span style="font-size: 1.1em;"><strong>Educators</strong></span></p>
-<p>Teaching quantitative methods</p>
+<p>
+<strong>Educators</strong>
+</p>
+<p style="font-size:0.75em;">
+Teaching quantitative methods
+</p>
 </div>
-</div><div class="column" style="width:25%;">
 <div class="card">
-<p><span style="font-size: 1.1em;"><strong>Students</strong></span></p>
-<p>Learning R &amp; statistics</p>
+<p>
+<strong>Students</strong>
+</p>
+<p style="font-size:0.75em;">
+Learning R &amp; statistics
+</p>
 </div>
-</div><div class="column" style="width:25%;">
 <div class="card">
-<p><span style="font-size: 1.1em;"><strong>Researchers</strong></span></p>
-<p>Working with data</p>
+<p>
+<strong>Researchers</strong>
+</p>
+<p style="font-size:0.75em;">
+Working with data
+</p>
 </div>
-</div><div class="column" style="width:25%;">
 <div class="card">
-<p><span style="font-size: 1.1em;"><strong>Anyone</strong></span></p>
-<p>Curious about AI + analysis</p>
+<p>
+<strong>Anyone</strong>
+</p>
+<p style="font-size:0.75em;">
+Curious about AI + analysis
+</p>
 </div>
-</div></div>
+</div>
 <div class="fragment">
-<div style="text-align: center; margin-top: 30px; font-size: 0.85em;">
+<div style="text-align: center; margin-top: 20px; font-size: 0.85em;">
 <p><strong>No assumptions about:</strong> R experience · Statistics background · Epidemiology knowledge</p>
 </div>
 </div>
 </section>
 <section id="the-teaching-challenge" class="slide level2">
 <h2>The Teaching Challenge</h2>
-<div class="columns">
-<div class="column" style="width:48%;">
-<div style="text-align: center; margin-bottom: 15px;">
-<p><strong>The Problem</strong></p>
-</div>
+<div class="split">
+<div>
+<p style="text-align:center; font-weight:bold; margin-bottom:15px;">
+The Problem
+</p>
 <ul>
-<li><del>Syntax frustration overshadows statistical thinking</del></li>
-<li><del>Limited support outside office hours</del></li>
-<li><del>Steep learning curve for R</del></li>
-<li><del>Debugging takes all the time</del></li>
+<li>
+<del>
+Syntax frustration overshadows statistical thinking
+</del>
+</li>
+<li>
+<del>
+Limited support outside office hours
+</del>
+</li>
+<li>
+<del>
+Steep learning curve for R
+</del>
+</li>
+<li>
+<del>
+Debugging takes all the time
+</del>
+</li>
 </ul>
-</div><div class="column" style="width:4%;">
-
-</div><div class="column" style="width:48%;">
-<div style="text-align: center; margin-bottom: 15px;">
-<p><strong>The Goal</strong></p>
 </div>
+<div>
+<p style="text-align:center; font-weight:bold; margin-bottom:15px;">
+The Goal
+</p>
 <ul>
-<li>Focus on <em>interpretation</em>, not syntax</li>
-<li>On-demand, contextual guidance</li>
-<li>Iterative, scaffolded learning</li>
-<li>Students become <em>analytical thinkers</em></li>
+<li>
+Focus on <em>interpretation</em>, not syntax
+</li>
+<li>
+On-demand, contextual guidance
+</li>
+<li>
+Iterative, scaffolded learning
+</li>
+<li>
+Students become <em>analytical thinkers</em>
+</li>
 </ul>
-</div></div>
+</div>
+</div>
 <div class="fragment">
 <div class="claude-box">
 <p><strong>AI bridges this gap</strong> — Students get instant, context-aware help so they can focus on understanding, not debugging.</p>
@@ -316,32 +355,35 @@ Muntasir Masum, PhD
 </section>
 <section id="integration" class="slide level2">
 <h2>Three Ways to Use Claude + RStudio</h2>
-<div class="columns">
-<div class="column" style="width:33%;">
-<div class="card-green">
+<div class="card-grid">
+<div class="card card--green">
 <h3>
 ClaudeR Package
 </h3>
-<p>Direct RStudio integration via Claude Desktop app</p>
-<p><span style="font-size: 0.85em;"><em><span class="highlight-orange">Most accessible</span></em></span></p>
+<p>
+Direct RStudio integration via Claude Desktop app
+</p>
+<p><span class="card__label">Most accessible</span></p>
 </div>
-</div><div class="column" style="width:33%;">
-<div class="card-orange">
+<div class="card card--orange">
 <h3>
 Claude Chat
 </h3>
-<p>Claude Desktop App + copy/paste to RStudio</p>
-<p><span style="font-size: 0.85em;"><em><span class="highlight-orange">Intermediate approach</span></em></span></p>
+<p>
+Claude Desktop App + copy/paste to RStudio
+</p>
+<p><span class="card__label">Intermediate approach</span></p>
 </div>
-</div><div class="column" style="width:33%;">
 <div class="card">
 <h3>
 Claude Code
 </h3>
-<p>Full AI IDE integration with autonomous execution</p>
-<p><span style="font-size: 0.85em;"><em><span class="highlight-orange">Most powerful</span></em></span></p>
+<p>
+Full AI IDE integration with autonomous execution
+</p>
+<p><span class="card__label">Most powerful</span></p>
 </div>
-</div></div>
+</div>
 <div class="fragment">
 <div style="text-align: center; margin-top: 20px;">
 <p><strong>Today’s focus:</strong> Demonstrating AI-assisted statistical analysis workflows using Claude Code</p>
@@ -350,8 +392,8 @@ Claude Code
 </section>
 <section id="clauder-the-easiest-starting-point" class="slide level2">
 <h2>ClaudeR: The Easiest Starting Point</h2>
-<div class="columns">
-<div class="column" style="width:55%;">
+<div class="split">
+<div>
 <p><strong>What it does:</strong> Connects RStudio directly to Claude Desktop app</p>
 <ul>
 <li>Claude can <em>see</em> your loaded data and R environment</li>
@@ -360,9 +402,10 @@ Claude Code
 </ul>
 <p>. . .</p>
 <div class="tip-box">
-<p><strong>Install:</strong> <code>devtools::install_github("IMNMV/ClaudeR")</code> GitHub: <a href="https://github.com/IMNMV/ClaudeR">github.com/IMNMV/ClaudeR</a></p>
+<p><strong>Install:</strong> <code>devtools::install_github(“IMNMV/ClaudeR”)</code><br> GitHub: <a href="https://github.com/IMNMV/ClaudeR">github.com/IMNMV/ClaudeR</a></p>
 </div>
-</div><div class="column" style="width:45%;">
+</div>
+<div>
 <div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb1"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href=""></a><span class="co"># Start ClaudeR connection</span></span>
 <span id="cb1-2"><a href=""></a><span class="fu">library</span>(ClaudeR)</span>
 <span id="cb1-3"><a href=""></a><span class="fu">claudeAddin</span>()</span>
@@ -371,11 +414,11 @@ Claude Code
 <span id="cb1-6"><a href=""></a><span class="co"># Ask questions directly</span></span>
 <span id="cb1-7"><a href=""></a><span class="co"># Get help with analysis</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <p>. . .</p>
-<div style="background-color: #f0f0f0; padding: 16px; border-radius: 10px; font-size: 0.7em;">
-<p>👤 “I have NHANES loaded. Help me summarize systolic blood pressure?”</p>
-<p>🤖 “I can see NHANES in your environment. Let me help…”</p>
+<div class="chat-bubble">
+<p>👤 “I have NHANES loaded. Help me summarize systolic blood pressure?”<br><br> 🤖 “I can see NHANES in your environment. Let me help…”</p>
 </div>
-</div></div>
+</div>
+</div>
 </section>
 <section id="lets-see-it-in-action" class="slide level2 section-divider" data-background-color="#461D7C">
 <h2>Let’s See It in Action</h2>
@@ -479,7 +522,7 @@ $ BPSysAve        &lt;int&gt; 112, 128, 152, 122, 122, 93, 124, 117, 120, 110, 9
 <section id="fitting-the-model" class="slide level2 smaller">
 <h2>Fitting the Model</h2>
 <div class="claude-box">
-<p><strong>Claude explains:</strong> Use <code>lm()</code> for linear regression. Formula syntax: <code>outcome ~ predictor1 + predictor2 + ...</code></p>
+<p><strong>Claude explains:</strong> Use <code>lm()</code> for linear regression. Formula syntax: <code>outcome ~ predictor1 + predictor2 + …</code></p>
 </div>
 <div class="cell">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb6" data-code-line-numbers="2,3,4"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a href=""></a><span class="co"># Fit multiple linear regression</span></span>
@@ -636,65 +679,87 @@ F-statistic: 42.71 on 5 and 1168 DF,  p-value: &lt; 2.2e-16</code></pre>
 </section>
 <section id="optional-follow-along" class="slide level2">
 <h2>Optional Follow-Along</h2>
-<div class="columns">
-<div class="column" style="width:50%;">
+<div class="card-grid">
 <div class="card">
 <h3>
 Get Set Up
 </h3>
-<ol type="1">
-<li>Install <a href="https://cran.r-project.org/">R</a> and <a href="https://posit.co/download/rstudio-desktop/">RStudio</a></li>
-<li>Create Claude account at <a href="https://claude.ai">claude.ai</a></li>
+<p style="text-align:left; font-size:0.7em;">
+</p><ol type="1">
+<li>Install <a href="https://cran.r-project.org/">R</a> and <a href="https://posit.co/download/rstudio-desktop/">RStudio</a><br></li>
+<li>Create Claude account at <a href="https://claude.ai">claude.ai</a><br></li>
 <li>Install packages:</li>
 </ol>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb14"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb14-1"><a href=""></a><span class="fu">install.packages</span>(<span class="fu">c</span>(<span class="st">"tidyverse"</span>,</span>
-<span id="cb14-2"><a href=""></a>                    <span class="st">"NHANES"</span>, <span class="st">"broom"</span>))</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<p></p>
+<pre style="font-size:0.6em; text-align:left;"><code>install.packages(c("tidyverse",
+                    "NHANES", "broom"))</code></pre>
 </div>
-</div><div class="column" style="width:50%;">
-<div class="card-orange">
+<div class="card card--orange">
 <h3>
 Workshop Materials
 </h3>
-<p>Everything is on GitHub:</p>
-<ul>
-<li>Slides &amp; source code</li>
-<li>Sample datasets</li>
-<li>Quick-start guide</li>
+<p style="font-size:0.7em;">
+Everything is on GitHub:
+</p>
+<ul style="font-size:0.7em; text-align:left;">
+<li>
+Slides &amp; source code
+</li>
+<li>
+Sample datasets
+</li>
+<li>
+Quick-start guide
+</li>
 </ul>
-<p><a href="https://github.com/muntasirmasum/ai-epi-workshop">github.com/muntasirmasum/ai-epi-workshop</a></p>
+<p style="font-size:0.7em;">
+<a href="https://github.com/muntasirmasum/ai-epi-workshop">github.com/muntasirmasum/ai-epi-workshop</a>
+</p>
 </div>
-</div></div>
+</div>
 </section>
 <section id="integrity" class="slide level2">
 <h2>Academic Integrity</h2>
-<div class="columns">
-<div class="column" style="width:48%;">
+<div class="card-grid">
 <div class="card">
 <h3>
 Clear Guidelines
 </h3>
-<ul>
-<li>AI assistance is <strong>allowed</strong></li>
-<li>Must <strong>cite</strong> AI use</li>
-<li>Must <strong>understand</strong> all code</li>
-<li>No copy-paste only submissions</li>
+<ul style="font-size:0.75em; text-align:left;">
+<li>
+AI assistance is <strong>allowed</strong>
+</li>
+<li>
+Must <strong>cite</strong> AI use
+</li>
+<li>
+Must <strong>understand</strong> all code
+</li>
+<li>
+No copy-paste only submissions
+</li>
 </ul>
 </div>
-</div><div class="column" style="width:4%;">
-
-</div><div class="column" style="width:48%;">
-<div class="card-orange">
+<div class="card card--orange">
 <h3>
 Assessment Design
 </h3>
-<ul>
-<li>Timed exams (no AI)</li>
-<li>Interpretation-focused questions</li>
-<li>Code annotation requirements</li>
-<li>Learning reflection essays</li>
+<ul style="font-size:0.75em; text-align:left;">
+<li>
+Timed exams (no AI)
+</li>
+<li>
+Interpretation-focused questions
+</li>
+<li>
+Code annotation requirements
+</li>
+<li>
+Learning reflection essays
+</li>
 </ul>
 </div>
-</div></div>
+</div>
 <div class="fragment">
 <div style="text-align: center; margin-top: 20px;">
 <p><strong>AI is a learning tool, not a replacement for understanding</strong></p>
@@ -703,8 +768,8 @@ Assessment Design
 </section>
 <section id="discussion" class="slide level2">
 <h2>Discussion</h2>
-<div class="columns">
-<div class="column" style="width:50%;">
+<div class="split">
+<div>
 <p><strong>What we’ve seen today:</strong></p>
 <ul>
 <li>AI lowers barriers to statistical computing</li>
@@ -712,7 +777,8 @@ Assessment Design
 <li>Scaffolded learning builds independence</li>
 <li>Works across disciplines and skill levels</li>
 </ul>
-</div><div class="column" style="width:50%;">
+</div>
+<div>
 <p><strong>Let’s discuss:</strong></p>
 <ul>
 <li>What challenges do you face teaching quantitative methods?</li>
@@ -720,7 +786,8 @@ Assessment Design
 <li>What concerns do you have?</li>
 <li>What would help you get started?</li>
 </ul>
-</div></div>
+</div>
+</div>
 </section>
 <section id="resources" class="slide level2">
 <h2>Resources</h2>
@@ -741,14 +808,16 @@ Assessment Design
 </section>
 <section id="thank-you" class="slide level2">
 <h2>Thank You!</h2>
-<p><br><br></p>
-<h3>
-Questions?
-</h3>
 <p><br></p>
+<div style="text-align: center; font-size: 1.2em; font-family: 'Playfair Display', serif; color: #461D7C;">
+<p>Questions?</p>
+</div>
+<p><br></p>
+<div style="text-align: center;">
 <p><strong>Muntasir Masum, PhD</strong></p>
 <p>Department of Epidemiology &amp; Biostatistics</p>
 <p>University at Albany, SUNY</p>
+</div>
 <p><br></p>
 <div style="display: flex; align-items: center; justify-content: center; gap: 15px; font-size: 1.2em;">
 <p>📧 <a href="mailto:mmasum@albany.edu">mmasum@albany.edu</a></p>

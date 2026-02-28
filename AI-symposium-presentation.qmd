@@ -18,6 +18,7 @@ format:
     mouse-wheel: true
     transition: fade
     code-block-height: 650px
+    navigation-mode: linear
 ---
 
 ```{r}
@@ -57,148 +58,99 @@ Today we'll see exactly how that works.
 
 ## Workshop Roadmap {#overview}
 
-::: columns
-::: {.column width="33%"}
-::: {.card}
-[**Context**]{.card-icon style="font-size: 1.6em;"}
-
-<h3>15 minutes</h3>
-
-The teaching challenge & how AI fits in
-:::
-:::
-
-::: {.column width="33%"}
-::: {.card-orange}
-[**Live Demo**]{.card-icon style="font-size: 1.6em;"}
-
-<h3>45 minutes</h3>
-
-Coding, analysis, visualization & debugging
-:::
-:::
-
-::: {.column width="33%"}
-::: {.card-blue}
-[**Discussion**]{.card-icon style="font-size: 1.6em;"}
-
-<h3>15 minutes</h3>
-
-Implementation, integrity & Q&A
-:::
-:::
-:::
+<div class="card-grid">
+<div class="card">
+<span class="card__icon">📋</span>
+<h3>Context · 15 min</h3>
+<p>The teaching challenge & how AI fits in</p>
+</div>
+<div class="card card--orange">
+<span class="card__icon">💻</span>
+<h3>Live Demo · 45 min</h3>
+<p>Coding, analysis, visualization & debugging</p>
+</div>
+<div class="card card--blue">
+<span class="card__icon">💬</span>
+<h3>Discussion · 15 min</h3>
+<p>Implementation, integrity & Q&A</p>
+</div>
+</div>
 
 ## Who Is This For?
 
-::: columns
-::: {.column width="25%"}
-::: {.card}
-[**Educators**]{style="font-size: 1.1em;"}
-
-Teaching quantitative methods
-:::
-:::
-
-::: {.column width="25%"}
-::: {.card}
-[**Students**]{style="font-size: 1.1em;"}
-
-Learning R & statistics
-:::
-:::
-
-::: {.column width="25%"}
-::: {.card}
-[**Researchers**]{style="font-size: 1.1em;"}
-
-Working with data
-:::
-:::
-
-::: {.column width="25%"}
-::: {.card}
-[**Anyone**]{style="font-size: 1.1em;"}
-
-Curious about AI + analysis
-:::
-:::
-:::
+<div class="card-grid">
+<div class="card">
+<p><strong>Educators</strong></p>
+<p style="font-size:0.75em;">Teaching quantitative methods</p>
+</div>
+<div class="card">
+<p><strong>Students</strong></p>
+<p style="font-size:0.75em;">Learning R & statistics</p>
+</div>
+<div class="card">
+<p><strong>Researchers</strong></p>
+<p style="font-size:0.75em;">Working with data</p>
+</div>
+<div class="card">
+<p><strong>Anyone</strong></p>
+<p style="font-size:0.75em;">Curious about AI + analysis</p>
+</div>
+</div>
 
 . . .
 
-::: {style="text-align: center; margin-top: 30px; font-size: 0.85em;"}
+::: {style="text-align: center; margin-top: 20px; font-size: 0.85em;"}
 **No assumptions about:** R experience · Statistics background · Epidemiology knowledge
 :::
 
 ## The Teaching Challenge
 
-::: columns
-::: {.column width="48%"}
-::: {style="text-align: center; margin-bottom: 15px;"}
-**The Problem**
-:::
-
-- ~~Syntax frustration overshadows statistical thinking~~
-- ~~Limited support outside office hours~~
-- ~~Steep learning curve for R~~
-- ~~Debugging takes all the time~~
-:::
-
-::: {.column width="4%"}
-:::
-
-::: {.column width="48%"}
-::: {style="text-align: center; margin-bottom: 15px;"}
-**The Goal**
-:::
-
-- Focus on *interpretation*, not syntax
-- On-demand, contextual guidance
-- Iterative, scaffolded learning
-- Students become *analytical thinkers*
-:::
-:::
+<div class="split">
+<div>
+<p style="text-align:center; font-weight:bold; margin-bottom:15px;">The Problem</p>
+<ul>
+<li><del>Syntax frustration overshadows statistical thinking</del></li>
+<li><del>Limited support outside office hours</del></li>
+<li><del>Steep learning curve for R</del></li>
+<li><del>Debugging takes all the time</del></li>
+</ul>
+</div>
+<div>
+<p style="text-align:center; font-weight:bold; margin-bottom:15px;">The Goal</p>
+<ul>
+<li>Focus on <em>interpretation</em>, not syntax</li>
+<li>On-demand, contextual guidance</li>
+<li>Iterative, scaffolded learning</li>
+<li>Students become <em>analytical thinkers</em></li>
+</ul>
+</div>
+</div>
 
 . . .
 
-::: {.claude-box}
-**AI bridges this gap** — Students get instant, context-aware help so they can focus on understanding, not debugging.
-:::
+<div class="claude-box">
+<strong>AI bridges this gap</strong> — Students get instant, context-aware help so they can focus on understanding, not debugging.
+</div>
 
 ## Three Ways to Use Claude + RStudio {#integration}
 
-::: columns
-::: {.column width="33%"}
-::: {.card-green}
+<div class="card-grid">
+<div class="card card--green">
 <h3>ClaudeR Package</h3>
-
-Direct RStudio integration via Claude Desktop app
-
-[*<span class="highlight-orange">Most accessible</span>*]{style="font-size: 0.85em;"}
-:::
-:::
-
-::: {.column width="33%"}
-::: {.card-orange}
+<p>Direct RStudio integration via Claude Desktop app</p>
+<span class="card__label">Most accessible</span>
+</div>
+<div class="card card--orange">
 <h3>Claude Chat</h3>
-
-Claude Desktop App + copy/paste to RStudio
-
-[*<span class="highlight-orange">Intermediate approach</span>*]{style="font-size: 0.85em;"}
-:::
-:::
-
-::: {.column width="33%"}
-::: {.card}
+<p>Claude Desktop App + copy/paste to RStudio</p>
+<span class="card__label">Intermediate approach</span>
+</div>
+<div class="card">
 <h3>Claude Code</h3>
-
-Full AI IDE integration with autonomous execution
-
-[*<span class="highlight-orange">Most powerful</span>*]{style="font-size: 0.85em;"}
-:::
-:::
-:::
+<p>Full AI IDE integration with autonomous execution</p>
+<span class="card__label">Most powerful</span>
+</div>
+</div>
 
 . . .
 
@@ -208,8 +160,9 @@ Full AI IDE integration with autonomous execution
 
 ## ClaudeR: The Easiest Starting Point
 
-::: columns
-::: {.column width="55%"}
+<div class="split">
+<div>
+
 **What it does:** Connects RStudio directly to Claude Desktop app
 
 - Claude can *see* your loaded data and R environment
@@ -218,13 +171,14 @@ Full AI IDE integration with autonomous execution
 
 . . .
 
-::: {.tip-box}
-**Install:** `devtools::install_github("IMNMV/ClaudeR")`
-GitHub: [github.com/IMNMV/ClaudeR](https://github.com/IMNMV/ClaudeR)
-:::
-:::
+<div class="tip-box">
+<strong>Install:</strong> <code>devtools::install_github("IMNMV/ClaudeR")</code><br>
+GitHub: <a href="https://github.com/IMNMV/ClaudeR">github.com/IMNMV/ClaudeR</a>
+</div>
 
-::: {.column width="45%"}
+</div>
+<div>
+
 ```r
 # Start ClaudeR connection
 library(ClaudeR)
@@ -237,13 +191,13 @@ claudeAddin()
 
 . . .
 
-::: {style="background-color: #f0f0f0; padding: 16px; border-radius: 10px; font-size: 0.7em;"}
-👤 "I have NHANES loaded. Help me summarize systolic blood pressure?"
-
+<div class="chat-bubble">
+👤 "I have NHANES loaded. Help me summarize systolic blood pressure?"<br><br>
 🤖 "I can see NHANES in your environment. Let me help..."
-:::
-:::
-:::
+</div>
+
+</div>
+</div>
 
 ## Let's See It in Action {.section-divider data-background-color="#461D7C"}
 
@@ -269,21 +223,21 @@ Does alcohol consumption predict blood pressure?
 
 ## Student Question: Coding {#coding}
 
-::: {.student-ask}
+<div class="student-ask">
 I need to prepare my NHANES data for regression analysis. I want adults aged 20-65, exclude missing values, and create a drinks-per-week variable. How do I do this in R?
-:::
+</div>
 
 . . .
 
-::: {.claude-box}
-**Claude's approach:** Filter age range → Select variables → Handle missing data → Create derived variables
-:::
+<div class="claude-box">
+<strong>Claude's approach:</strong> Filter age range → Select variables → Handle missing data → Create derived variables
+</div>
 
 ## The Code {.smaller}
 
-::: {.claude-box}
-**Claude suggests:** Use `filter()` for age range, `mutate()` for new variables, and handle missing data explicitly
-:::
+<div class="claude-box">
+<strong>Claude suggests:</strong> Use <code>filter()</code> for age range, <code>mutate()</code> for new variables, and handle missing data explicitly
+</div>
 
 ```r
 # Load packages
@@ -304,9 +258,9 @@ analysis_data <- NHANES %>%
   )
 ```
 
-::: {.tip-box}
-**R Tip:** `na.omit()` drops ALL rows with any NA — consider `filter(!is.na(var))` for targeted removal
-:::
+<div class="tip-box">
+<strong>R Tip:</strong> <code>na.omit()</code> drops ALL rows with any NA — consider <code>filter(!is.na(var))</code> for targeted removal
+</div>
 
 ## Live Code Output
 
@@ -328,9 +282,9 @@ analysis_data <- NHANES %>%
   distinct(ID, .keep_all = TRUE)
 ```
 
-::: {.tip-box}
-**Pro Tip:** `glimpse()` gives you a better overview than `str()` for tidy data
-:::
+<div class="tip-box">
+<strong>Pro Tip:</strong> <code>glimpse()</code> gives you a better overview than <code>str()</code> for tidy data
+</div>
 
 ## Check the Result
 
@@ -341,15 +295,15 @@ glimpse(analysis_data)
 
 ## Student Question: Analysis {#analysis}
 
-::: {.student-ask}
+<div class="student-ask">
 I need to run a multiple regression with blood pressure as outcome and alcohol, age, BMI, smoking, and sex as predictors. How do I interpret the results?
-:::
+</div>
 
 ## Fitting the Model {.smaller}
 
-::: {.claude-box}
-**Claude explains:** Use `lm()` for linear regression. Formula syntax: `outcome ~ predictor1 + predictor2 + ...`
-:::
+<div class="claude-box">
+<strong>Claude explains:</strong> Use <code>lm()</code> for linear regression. Formula syntax: <code>outcome ~ predictor1 + predictor2 + ...</code>
+</div>
 
 ```{r}
 #| label: model1
@@ -364,9 +318,9 @@ model1 <- lm(BPSysAve ~ drinks_per_week + Age + BMI +
 summary(model1)
 ```
 
-::: {.tip-box}
-**Claude Tip:** Always tell Claude your research question — it gives better, more contextual code suggestions
-:::
+<div class="tip-box">
+<strong>Claude Tip:</strong> Always tell Claude your research question — it gives better, more contextual code suggestions
+</div>
 
 ## Interpreting the Results
 
@@ -390,9 +344,9 @@ summary(model1)$coefficients["drinks_per_week", "Pr(>|t|)"]
 
 . . .
 
-::: {.claude-box}
-**Claude guides the student:** "What does this p-value tell us? Is this effect size clinically meaningful for public health interventions?"
-:::
+<div class="claude-box">
+<strong>Claude guides the student:</strong> "What does this p-value tell us? Is this effect size clinically meaningful for public health interventions?"
+</div>
 
 ## Telling the Story with Data {.section-divider data-background-color="#461D7C"}
 
@@ -402,15 +356,15 @@ summary(model1)$coefficients["drinks_per_week", "Pr(>|t|)"]
 
 ## Student Question: Visualization {#visualization}
 
-::: {.student-ask}
+<div class="student-ask">
 I want to visualize the relationship between alcohol consumption and blood pressure, accounting for sex differences. What's the best plot?
-:::
+</div>
 
 . . .
 
-::: {.claude-box}
-**Claude suggests:** Scatter plot with regression lines, separate by sex, add confidence intervals, clear labels
-:::
+<div class="claude-box">
+<strong>Claude suggests:</strong> Scatter plot with regression lines, separate by sex, add confidence intervals, clear labels
+</div>
 
 ## Building the Plot {.smaller}
 
@@ -430,9 +384,9 @@ p <- ggplot(analysis_data, aes(x = drinks_per_week, y = BPSysAve,
   theme(legend.position = "right")
 ```
 
-::: {.tip-box}
-**ggplot Tip:** `alpha` controls transparency — essential when you have overlapping points (overplotting)
-:::
+<div class="tip-box">
+<strong>ggplot Tip:</strong> <code>alpha</code> controls transparency — essential when you have overlapping points (overplotting)
+</div>
 
 ## Visualization Output
 
@@ -680,9 +634,9 @@ ggplot(model_diag, aes(x = observed, y = predicted, color = Gender)) +
 
 ## Student Question: Debugging {#debugging}
 
-::: {.student-ask}
+<div class="student-ask">
 I'm getting errors when I try to run my regression. Can you help me figure out what's wrong?
-:::
+</div>
 
 . . .
 
@@ -696,13 +650,13 @@ Error in lm.fit(x, y, ...)                     # Formula syntax error
 
 . . .
 
-::: {.claude-box}
-**Claude's diagnostic process:** Identify the error → Explain *why* it happened → Suggest the fix → Teach the pattern so it doesn't happen again
-:::
+<div class="claude-box">
+<strong>Claude's diagnostic process:</strong> Identify the error → Explain <em>why</em> it happened → Suggest the fix → Teach the pattern so it doesn't happen again
+</div>
 
-::: {.tip-box}
-**Debug Tip:** Run `ls()` to see your environment — check if the variable exists before panicking!
-:::
+<div class="tip-box">
+<strong>Debug Tip:</strong> Run <code>ls()</code> to see your environment — check if the variable exists before panicking!
+</div>
 
 ## Bringing It All Together {.section-divider data-background-color="#461D7C"}
 
@@ -712,65 +666,51 @@ Error in lm.fit(x, y, ...)                     # Formula syntax error
 
 ## Optional Follow-Along
 
-::: columns
-::: {.column width="50%"}
-::: {.card}
+<div class="card-grid">
+<div class="card">
 <h3>Get Set Up</h3>
-
-1. Install [R](https://cran.r-project.org/) and [RStudio](https://posit.co/download/rstudio-desktop/)
-2. Create Claude account at [claude.ai](https://claude.ai)
+<p style="text-align:left; font-size:0.7em;">
+1. Install <a href="https://cran.r-project.org/">R</a> and <a href="https://posit.co/download/rstudio-desktop/">RStudio</a><br>
+2. Create Claude account at <a href="https://claude.ai">claude.ai</a><br>
 3. Install packages:
-
-```r
-install.packages(c("tidyverse",
-                    "NHANES", "broom"))
-```
-:::
-:::
-
-::: {.column width="50%"}
-::: {.card-orange}
+</p>
+<pre style="font-size:0.6em; text-align:left;"><code>install.packages(c("tidyverse",
+                    "NHANES", "broom"))</code></pre>
+</div>
+<div class="card card--orange">
 <h3>Workshop Materials</h3>
-
-Everything is on GitHub:
-
-- Slides & source code
-- Sample datasets
-- Quick-start guide
-
-[github.com/muntasirmasum/ai-epi-workshop](https://github.com/muntasirmasum/ai-epi-workshop)
-:::
-:::
-:::
+<p style="font-size:0.7em;">Everything is on GitHub:</p>
+<ul style="font-size:0.7em; text-align:left;">
+<li>Slides & source code</li>
+<li>Sample datasets</li>
+<li>Quick-start guide</li>
+</ul>
+<p style="font-size:0.7em;"><a href="https://github.com/muntasirmasum/ai-epi-workshop">github.com/muntasirmasum/ai-epi-workshop</a></p>
+</div>
+</div>
 
 ## Academic Integrity {#integrity}
 
-::: columns
-::: {.column width="48%"}
-::: {.card}
+<div class="card-grid">
+<div class="card">
 <h3>Clear Guidelines</h3>
-
-- AI assistance is **allowed**
-- Must **cite** AI use
-- Must **understand** all code
-- No copy-paste only submissions
-:::
-:::
-
-::: {.column width="4%"}
-:::
-
-::: {.column width="48%"}
-::: {.card-orange}
+<ul style="font-size:0.75em; text-align:left;">
+<li>AI assistance is <strong>allowed</strong></li>
+<li>Must <strong>cite</strong> AI use</li>
+<li>Must <strong>understand</strong> all code</li>
+<li>No copy-paste only submissions</li>
+</ul>
+</div>
+<div class="card card--orange">
 <h3>Assessment Design</h3>
-
-- Timed exams (no AI)
-- Interpretation-focused questions
-- Code annotation requirements
-- Learning reflection essays
-:::
-:::
-:::
+<ul style="font-size:0.75em; text-align:left;">
+<li>Timed exams (no AI)</li>
+<li>Interpretation-focused questions</li>
+<li>Code annotation requirements</li>
+<li>Learning reflection essays</li>
+</ul>
+</div>
+</div>
 
 . . .
 
@@ -780,25 +720,28 @@ Everything is on GitHub:
 
 ## Discussion
 
-::: columns
-::: {.column width="50%"}
+<div class="split">
+<div>
+
 **What we've seen today:**
 
 - AI lowers barriers to statistical computing
 - Students focus on *thinking*, not syntax
 - Scaffolded learning builds independence
 - Works across disciplines and skill levels
-:::
 
-::: {.column width="50%"}
+</div>
+<div>
+
 **Let's discuss:**
 
 - What challenges do you face teaching quantitative methods?
 - How might AI integration work in your context?
 - What concerns do you have?
 - What would help you get started?
-:::
-:::
+
+</div>
+</div>
 
 ## Resources {#resources}
 
@@ -818,17 +761,21 @@ Everything is on GitHub:
 
 ## Thank You!
 
-<br><br>
+<br>
 
-<h3>Questions?</h3>
+::: {style="text-align: center; font-size: 1.2em; font-family: 'Playfair Display', serif; color: #461D7C;"}
+Questions?
+:::
 
 <br>
 
+::: {style="text-align: center;"}
 **Muntasir Masum, PhD**
 
 Department of Epidemiology & Biostatistics
 
 University at Albany, SUNY
+:::
 
 <br>
 
