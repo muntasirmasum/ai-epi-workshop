@@ -1190,8 +1190,8 @@ Every R programmer has rage-quit over a missing comma at least once. Claude does
 
 ## Discussion
 
-<div class="split">
-<div>
+:::: {.columns}
+::: {.column width="48%" style="border: none;"}
 
 **What we've seen today:**
 
@@ -1202,8 +1202,8 @@ Every R programmer has rage-quit over a missing comma at least once. Claude does
 <p class="fragment" data-fragment-index="4" style="margin: 0;">✅ Works across disciplines and skill levels</p>
 </div>
 
-</div>
-<div>
+:::
+::: {.column width="48%" style="border: none;"}
 
 **Let's discuss:**
 
@@ -1214,8 +1214,8 @@ Every R programmer has rage-quit over a missing comma at least once. Claude does
 <p class="fragment" data-fragment-index="8" style="margin: 0;"><span style="background: #EAAA00; color: #461D7C; padding: 3px 10px; border-radius: 15px; font-size: 0.8em; margin-right: 8px;">4</span> What would help you get started?</p>
 </div>
 
-</div>
-</div>
+:::
+::::
 
 ## Resources {#resources}
 
