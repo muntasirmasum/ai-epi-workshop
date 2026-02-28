@@ -461,6 +461,7 @@ Claude proactively warns about skewness, missing data patterns, and survey desig
 ```{r}
 #| label: data-prep
 #| echo: true
+#| tidy: false
 #| code-line-numbers: "|3-4|5-7|8-11|12-13"
 
 data("NHANES")                                    # Load built-in dataset
@@ -512,6 +513,7 @@ I need to run a multiple regression with blood pressure as outcome and alcohol, 
 ```{r}
 #| label: model1
 #| echo: true
+#| tidy: false
 #| code-line-numbers: "2,3,4"
 
 # Fit multiple linear regression
