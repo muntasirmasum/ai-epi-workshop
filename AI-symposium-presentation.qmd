@@ -515,6 +515,7 @@ I need to run a multiple regression with blood pressure as outcome and alcohol, 
 #| echo: true
 #| tidy: false
 #| code-line-numbers: "2,3,4"
+#| output: false
 
 # Fit multiple linear regression
 model1 <- lm(
@@ -524,6 +525,15 @@ model1 <- lm(
 )
 
 summary(model1)                                    # View full results
+```
+
+```{r}
+#| label: model1-output
+#| echo: false
+tidy(model1, conf.int = TRUE) %>%
+  mutate(across(where(is.numeric), ~round(., 3))) %>%
+  kable(col.names = c("Term", "Estimate", "SE", "Statistic", "p-value", "CI Low", "CI High")) %>%
+  kable_styling(font_size = 22, full_width = FALSE)
 ```
 
 <div class="tip-box">
