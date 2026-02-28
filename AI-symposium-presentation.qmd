@@ -142,13 +142,13 @@ Today we'll see exactly how that works.
 <span class="card__label">Most accessible</span>
 </div>
 <div class="card card--orange">
-<h3>ClaudeR Package</h3>
-<p>RStudio MCP connected to Claude Desktop App — Claude sees your environment</p>
-<span class="card__label">Intermediate approach</span>
+<h3>ClaudeR + Cowork</h3>
+<p>ClaudeR connects RStudio to Claude — Claude sees your data and assists in real time</p>
+<span class="card__label">Today's focus</span>
 </div>
 <div class="card">
 <h3>Claude Code</h3>
-<p>Full AI IDE integration with autonomous execution</p>
+<p>Full AI agent in the terminal — autonomous coding & execution</p>
 <span class="card__label">Most powerful</span>
 </div>
 </div>
@@ -156,8 +156,81 @@ Today we'll see exactly how that works.
 . . .
 
 ::: {style="text-align: center; margin-top: 20px;"}
-**Today's focus:** Demonstrating AI-assisted statistical analysis workflows using Claude Code
+**Today's focus:** Demonstrating AI-assisted statistical analysis workflows using ClaudeR + Claude Cowork
 :::
+
+## Claude Chat: Interpreting Output
+
+<div class="split">
+<div>
+
+**The simplest workflow — no setup needed**
+
+1. Run your analysis in RStudio
+2. Copy the output from the console
+3. Paste into Claude and ask a question
+
+. . .
+
+<div class="tip-box">
+<strong>Works today:</strong> All you need is <a href="https://claude.ai">claude.ai</a> — free tier is enough to get started.
+</div>
+
+</div>
+<div>
+
+<div class="chat-bubble">
+👤 "I ran this regression in R. Can you explain the output?"
+
+<pre style="font-size:0.65em; background:#f8f9fa; padding:10px; border-radius:6px; margin:8px 0;">
+Coefficients:
+             Estimate Std. Error t value Pr(>|t|)
+(Intercept) 101.4821   2.1538   47.12  < 2e-16 ***
+Age           0.3048   0.0275   11.09  < 2e-16 ***
+Gendermale    4.8215   0.9012    5.35  1.1e-07 ***
+</pre>
+
+🤖 "This tells you that for each additional year of age, systolic blood pressure increases by about 0.3 mmHg, holding other variables constant. Males have BP about 4.8 mmHg higher than females on average..."
+</div>
+
+</div>
+</div>
+
+## Claude Chat: Debugging Errors
+
+<div class="split">
+<div>
+
+**When something breaks — Claude explains why**
+
+Students often get stuck on cryptic R errors. Copy-pasting into Claude gets instant, clear explanations.
+
+. . .
+
+<div class="claude-box">
+<strong>Why this works:</strong> Claude can recognize common R errors and suggest fixes without needing to see your full environment. Perfect for beginners.
+</div>
+
+</div>
+<div>
+
+<div class="chat-bubble">
+👤 "I'm getting this error in R:"
+
+<pre style="font-size:0.7em; background:#fff0f0; padding:10px; border-radius:6px; margin:8px 0; color:#c00;">
+Error in ggplot(data, aes(x = age, y = bp)) :
+  could not find function "ggplot"
+</pre>
+
+🤖 "You need to load the ggplot2 package first. Add this line before your plot code:"
+
+<pre style="font-size:0.7em; background:#f0fff0; padding:10px; border-radius:6px; margin:8px 0;">
+library(ggplot2)  # or library(tidyverse)
+</pre>
+</div>
+
+</div>
+</div>
 
 ## ClaudeR: The Easiest Starting Point
 
@@ -745,6 +818,41 @@ Error in lm.fit(x, y, ...)                     # Formula syntax error
 <div class="tip-box">
 <strong>Debug Tip:</strong> Run <code>ls()</code> to see your environment — check if the variable exists before panicking!
 </div>
+
+## Cowork vs Code
+
+<div class="card-grid">
+<div class="card card--green" style="flex: 1;">
+<span class="card__icon">🎓</span>
+<h3>Claude Cowork</h3>
+<p style="font-size:0.75em; text-align:left;">
+<strong>Learning mode</strong><br><br>
+› Student sees every step Claude takes<br>
+› Claude explains *why*, not just *what*<br>
+› Builds understanding through collaboration<br>
+› Student stays in the driver's seat
+</p>
+<span class="card__label">Best for learning</span>
+</div>
+<div class="card" style="flex: 1;">
+<span class="card__icon">⚡</span>
+<h3>Claude Code</h3>
+<p style="font-size:0.75em; text-align:left;">
+<strong>Production mode</strong><br><br>
+› Claude runs R autonomously in the terminal<br>
+› Writes, executes, and debugs code hands-off<br>
+› Best for experienced users with clear tasks<br>
+› Optimized for speed, not teaching
+</p>
+<span class="card__label">Best for efficiency</span>
+</div>
+</div>
+
+. . .
+
+::: {style="text-align: center; margin-top: 20px;"}
+**Start with Cowork to learn** → **Graduate to Code when ready**
+:::
 
 ## Bringing It All Together {.section-divider-gold data-background-color="#EAAA00"}
 
