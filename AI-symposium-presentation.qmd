@@ -254,7 +254,7 @@ library(ggplot2)  # or library(tidyverse)
 </div>
 </div>
 
-## ClaudeR: The Easiest Starting Point
+## ClaudeR: RStudio Meets Claude Desktop
 
 <div class="split">
 <div>
