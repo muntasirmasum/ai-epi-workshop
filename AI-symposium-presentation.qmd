@@ -21,7 +21,7 @@ format:
     navigation-mode: linear
     title-slide-attributes:
       data-background-image: "ai-plus-logo.png"
-      data-background-size: "160px"
+      data-background-size: "220px"
       data-background-position: "top 40px right 40px"
 ---
 
