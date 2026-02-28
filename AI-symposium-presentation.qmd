@@ -50,7 +50,7 @@ theme_set(theme_minimal(base_size = 16))
 
 ::: incremental
 - See Claude + RStudio in action
-- Real statistical workflows
+- Statistical workflows
 - Practical demonstrations
 - Q&A and discussion
 :::
@@ -181,7 +181,7 @@ Materials available at: [https://github.com/muntasirmasum/ai-epi-workshop](https
 ::: {.column width="33%"}
 **2. Claude Chat**
 
-- Web browser + RStudio
+- Claude Desktop App + RStudio
 - Copy/paste workflow
 - Manual code execution
 - *<span style="color: #D55E00; font-weight: bold;">Intermediate approach</span>*
@@ -397,7 +397,6 @@ glimpse(analysis_data)
 
 . . .
 
-**Teaching moment:** Why filter missing values *before* creating new variables?
 
 ## Student Question: Analysis {#analysis}
 
@@ -457,9 +456,6 @@ summary(model1)$coefficients["drinks_per_week", "Pr(>|t|)"]
 💬 *"Is this effect size clinically meaningful for public health?"*
 :::
 
-::: {style="font-size: 0.9em; margin-top: 15px; padding: 15px; background-color: #fff3cd; border-radius: 5px;"}
-**Teaching moment:** Claude uses Socratic questioning to help students think critically about statistical vs. clinical significance
-:::
 
 ## Student Question: Visualization {#visualization}
 
