@@ -351,6 +351,9 @@ Students become <em>analytical thinkers</em>
 <div class="claude-box">
 <p><strong>AI bridges this gap</strong> — Students get instant, context-aware help so they can focus on understanding, not debugging.</p>
 </div>
+<div style="text-align: center; margin-top: 10px; font-size: 0.55em; color: #6c757d; font-style: italic;">
+<p>Office hours at 2am? Not ideal. Claude at 2am? Always available, never annoyed.</p>
+</div>
 </div>
 </section>
 <section id="integration" class="slide level2">
@@ -837,6 +840,9 @@ F-statistic: 42.71 on 5 and 1168 DF,  p-value: &lt; 2.2e-16</code></pre>
 <div class="tip-box">
 <p><strong>Debug Tip:</strong> Run <code>ls()</code> to see your environment — check if the variable exists before panicking!</p>
 </div>
+<div style="text-align: center; margin-top: 10px; font-size: 0.55em; color: #6c757d; font-style: italic;">
+<p>Every R programmer has rage-quit over a missing comma at least once. Claude doesn’t judge.</p>
+</div>
 </div>
 </section>
 <section id="cowork-vs-code" class="slide level2">
@@ -1021,7 +1027,146 @@ Learning reflection essays
 <p>📧 <a href="mailto:mmasum@albany.edu">mmasum@albany.edu</a></p>
 <p><a href="https://www.linkedin.com/in/muntasirmasum/"><img data-src="https://upload.wikimedia.org/wikipedia/commons/c/ca/LinkedIn_logo_initials.png" style="vertical-align: middle;" width="35"></a></p>
 </div>
+</section>
+<section id="setting-up-your-kitchen-before-you-cook" class="slide level2 section-divider-gold" data-background-color="#EAAA00">
+<h2>Setting Up Your Kitchen Before You Cook</h2>
+<div style="text-align: center;">
+<p><span style="color: #461D7C; font-size: 0.9em; font-style: italic;">Because you can’t make a regression without cracking a few installs</span></p>
+</div>
+</section>
+<section id="setup-1-claude-chat-ready-in-30-seconds" class="slide level2">
+<h2>Setup 1: Claude Chat (Ready in 30 Seconds)</h2>
+<div class="card-grid">
+<div class="card card--green" style="flex: 1; text-align: left;">
+<h3 style="text-align: center;">
+The Zero-Install Option
+</h3>
+<p style="font-size: 0.72em;">
+<strong>Step 1:</strong> Go to <a href="https://claude.ai">claude.ai</a><br> <strong>Step 2:</strong> Create a free account<br> <strong>Step 3:</strong> Start pasting your R output<br><br> That’s it. Seriously.
+</p>
+</div>
+<div class="card" style="flex: 1; text-align: left;">
+<h3 style="text-align: center;">
+Best For
+</h3>
+<p style="font-size: 0.72em;">
+› Quick questions about R output<br> › Debugging error messages<br> › “What does this p-value mean?”<br> › Students who have never used AI before<br><br> <em style="color: #6c757d;">No R packages, no terminal, no configuration.</em>
+</p>
+</div>
+</div>
+</section>
+<section id="setup-2-clauder-cowork" class="slide level2">
+<h2>Setup 2: ClaudeR + Cowork</h2>
+<div class="split">
+<div>
+<p><strong>Step 1: Install R prerequisites</strong></p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb14"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb14-1"><a href=""></a><span class="co"># Install ClaudeR from GitHub</span></span>
+<span id="cb14-2"><a href=""></a><span class="fu">install.packages</span>(<span class="st">"devtools"</span>)</span>
+<span id="cb14-3"><a href=""></a>devtools<span class="sc">::</span><span class="fu">install_github</span>(<span class="st">"IMNMV/ClaudeR"</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<p>. . .</p>
+<p><strong>Step 2: Install Claude Desktop App</strong></p>
+<p>Download from <a href="https://claude.ai/download">claude.ai/download</a> (macOS or Windows)</p>
+<p>. . .</p>
+<p><strong>Step 3: Connect RStudio to Claude</strong></p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb15"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb15-1"><a href=""></a><span class="fu">library</span>(ClaudeR)</span>
+<span id="cb15-2"><a href=""></a><span class="fu">claudeAddin</span>()   <span class="co"># Opens the connection</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+<div>
+<p><strong>Step 4: Enable Cowork mode in Claude Desktop</strong></p>
+<ol type="1">
+<li>Open Claude Desktop App</li>
+<li>Go to Settings → Developer → Enable MCP</li>
+<li>ClaudeR will auto-configure the connection</li>
+</ol>
+<p>. . .</p>
+<div class="tip-box">
+<p><strong>Verify it works:</strong> Load a dataset in RStudio, then ask Claude Desktop: “What data do I have loaded?” — if it answers correctly, you’re connected!</p>
+</div>
+<div class="claude-box">
+<p><strong>Troubleshooting:</strong> If the connection fails, restart both RStudio and Claude Desktop. The MCP handshake sometimes needs a fresh start.</p>
+</div>
+</div>
+</div>
+</section>
+<section id="setup-3-claude-code" class="slide level2">
+<h2>Setup 3: Claude Code</h2>
+<div class="split">
+<div>
+<p><strong>Step 1: Install Node.js</strong> (required runtime)</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb16"><pre class="sourceCode numberSource bash number-lines code-with-copy"><code class="sourceCode bash"><span id="cb16-1"><a href=""></a><span class="co"># macOS (via Homebrew)</span></span>
+<span id="cb16-2"><a href=""></a><span class="ex">brew</span> install node</span>
+<span id="cb16-3"><a href=""></a></span>
+<span id="cb16-4"><a href=""></a><span class="co"># Windows (via winget)</span></span>
+<span id="cb16-5"><a href=""></a><span class="ex">winget</span> install OpenJS.NodeJS</span>
+<span id="cb16-6"><a href=""></a></span>
+<span id="cb16-7"><a href=""></a><span class="co"># Verify installation</span></span>
+<span id="cb16-8"><a href=""></a><span class="ex">node</span> <span class="at">--version</span>   <span class="co"># Should show v18+</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<p>. . .</p>
+<p><strong>Step 2: Install Claude Code</strong></p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb17"><pre class="sourceCode numberSource bash number-lines code-with-copy"><code class="sourceCode bash"><span id="cb17-1"><a href=""></a><span class="co"># Install globally via npm</span></span>
+<span id="cb17-2"><a href=""></a><span class="ex">npm</span> install <span class="at">-g</span> @anthropic-ai/claude-code</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+<div>
+<p><strong>Step 3: Authenticate</strong></p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb18"><pre class="sourceCode numberSource bash number-lines code-with-copy"><code class="sourceCode bash"><span id="cb18-1"><a href=""></a><span class="co"># Launch and follow the login prompt</span></span>
+<span id="cb18-2"><a href=""></a><span class="ex">claude</span></span>
+<span id="cb18-3"><a href=""></a></span>
+<span id="cb18-4"><a href=""></a><span class="co"># It will open a browser window</span></span>
+<span id="cb18-5"><a href=""></a><span class="co"># for Anthropic account authentication</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<p>. . .</p>
+<p><strong>Step 4: Start using with R</strong></p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb19"><pre class="sourceCode numberSource bash number-lines code-with-copy"><code class="sourceCode bash"><span id="cb19-1"><a href=""></a><span class="co"># Navigate to your project folder</span></span>
+<span id="cb19-2"><a href=""></a><span class="bu">cd</span> ~/my-r-project</span>
+<span id="cb19-3"><a href=""></a></span>
+<span id="cb19-4"><a href=""></a><span class="co"># Launch Claude Code</span></span>
+<span id="cb19-5"><a href=""></a><span class="ex">claude</span></span>
+<span id="cb19-6"><a href=""></a></span>
+<span id="cb19-7"><a href=""></a><span class="co"># Ask it to run R analysis</span></span>
+<span id="cb19-8"><a href=""></a><span class="op">&gt;</span> <span class="st">"Load NHANES data and run a regression</span></span>
+<span id="cb19-9"><a href=""></a><span class="st">    of BP on alcohol consumption"</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="tip-box">
+<p><strong>Note:</strong> Claude Code requires a paid Anthropic API plan. Start with Cowork if you’re exploring.</p>
+</div>
+</div>
+</div>
+</section>
+<section id="quick-reference-which-setup-is-right-for-you" class="slide level2">
+<h2>Quick Reference: Which Setup Is Right for You?</h2>
+<div class="card-grid">
+<div class="card card--green">
+<span class="card__icon">💬</span>
+<h3>
+Claude Chat
+</h3>
+<p style="font-size:0.7em;">
+<strong>Time:</strong> 30 seconds<br> <strong>Cost:</strong> Free<br> <strong>Skill:</strong> Any level<br> <strong>Best for:</strong> Quick Q&amp;A
+</p>
+</div>
+<div class="card card--orange">
+<span class="card__icon">🤝</span>
+<h3>
+ClaudeR + Cowork
+</h3>
+<p style="font-size:0.7em;">
+<strong>Time:</strong> 10 minutes<br> <strong>Cost:</strong> Free (Claude Desktop)<br> <strong>Skill:</strong> Beginner+<br> <strong>Best for:</strong> Learning &amp; analysis
+</p>
+</div>
+<div class="card">
+<span class="card__icon">⚡</span>
+<h3>
+Claude Code
+</h3>
+<p style="font-size:0.7em;">
+<strong>Time:</strong> 15 minutes<br> <strong>Cost:</strong> Paid API plan<br> <strong>Skill:</strong> Intermediate+<br> <strong>Best for:</strong> Autonomous workflows
+</p>
+</div>
+</div>
+<div class="fragment">
+<div style="text-align: center; margin-top: 20px; font-size: 0.85em;">
+<p><strong>Our recommendation:</strong> Start with <strong>Claude Chat</strong> today, move to <strong>Cowork</strong> this week, explore <strong>Code</strong> when you’re ready.</p>
+</div>
 
+</div>
 </section>
     </div>
   <div class="quarto-auto-generated-content" style="display: none;">
