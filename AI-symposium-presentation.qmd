@@ -287,6 +287,33 @@ claudeAddin()
 </div>
 </div>
 
+## Claude Cowork in Action
+
+<div class="split">
+<div>
+
+**You ask — Claude works in RStudio**
+
+![](claude-working.png){style="border: 2px solid #ddd; border-radius: 8px; box-shadow: 0 4px 12px rgba(0,0,0,0.15);" width="100%"}
+
+<div style="text-align: center; font-size: 0.6em; color: #6c757d; margin-top: 5px;">
+Student prompts Claude → Claude calls RStudio tools
+</div>
+
+</div>
+<div>
+
+**Claude delivers a full summary**
+
+![](claude-answers.png){style="border: 2px solid #ddd; border-radius: 8px; box-shadow: 0 4px 12px rgba(0,0,0,0.15);" width="100%"}
+
+<div style="text-align: center; font-size: 0.6em; color: #6c757d; margin-top: 5px;">
+Data prep steps, variable summaries, and next-step suggestions
+</div>
+
+</div>
+</div>
+
 ## {data-background-color="#461D7C"}
 
 ::: {style="text-align: center; margin-top: 15%;"}
