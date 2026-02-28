@@ -1275,7 +1275,7 @@ University at Albany, SUNY
 
 [![](https://upload.wikimedia.org/wikipedia/commons/7/7a/Bluesky_Logo.svg){width=24px style="vertical-align: middle;"}](https://bsky.app/profile/muntasirm.bsky.social) [@muntasirm.bsky.social](https://bsky.app/profile/muntasirm.bsky.social)
 
-[![](https://upload.wikimedia.org/wikipedia/commons/9/91/Octicons-mark-github.svg){width=24px style="vertical-align: middle;"}](https://github.com/muntasirmasum) [github.com/muntasirmasum](https://github.com/muntasirmasum)
+[![](https://github.githubassets.com/favicons/favicon-dark.svg){width=24px style="vertical-align: middle;"}](https://github.com/muntasirmasum) [github.com/muntasirmasum](https://github.com/muntasirmasum)
 :::
 
 ## Setting Up Your Kitchen Before You Cook {#setup-appendix .section-divider-gold data-background-color="#EAAA00"}
