@@ -2,7 +2,7 @@
 title: "<span style='color: #461D7C;'>AI-Assisted Statistical Analysis in Graduate Epidemiology Education</span>"
 subtitle: "<span style='color: #461D7C;'>Integrating Claude with RStudio for Teaching Regression Methods</span>"
 author: "Muntasir Masum, PhD"
-institute: "<a href='https://www.albany.edu/cihs/epidemiology-biostatistics'>Department of Epidemiology & Biostatistics</a><br>University at Albany, SUNY<br><br>[AI+ Annual Symposium 2026](https://events.albany.edu/event/ai-plus-symposium)"
+institute: "<a href='https://www.albany.edu/cihs/epidemiology-biostatistics'>Department of Epidemiology & Biostatistics</a><br><a href='https://www.albany.edu/cihs'>College of Integrated Health Sciences</a><br>University at Albany, SUNY<br><br>[AI+ Annual Symposium 2026](https://events.albany.edu/event/ai-plus-symposium)"
 date: "`r Sys.Date()`"
 format:
   revealjs:
@@ -1264,6 +1264,8 @@ Questions?
 **Muntasir Masum, PhD**
 
 [Department of Epidemiology & Biostatistics](https://www.albany.edu/cihs/epidemiology-biostatistics)
+
+[College of Integrated Health Sciences](https://www.albany.edu/cihs)
 
 University at Albany, SUNY
 :::
