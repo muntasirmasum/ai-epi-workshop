@@ -435,6 +435,10 @@ ggplot(analysis_data, aes(x = drink_category, y = BPSysAve, fill = Gender)) +
   )
 ```
 
+<div class="takeaway">
+<strong>Takeaway:</strong> Males consistently show higher blood pressure than females across all drinking levels. Heavy drinkers show the widest spread — highly variable outcomes.
+</div>
+
 ## Data Distributions
 
 ```{r}
@@ -463,6 +467,10 @@ p2 <- ggplot(analysis_data, aes(x = BPSysAve, fill = Gender)) +
 
 grid.arrange(p1, p2, ncol = 2)
 ```
+
+<div class="takeaway">
+<strong>Takeaway:</strong> Alcohol consumption is heavily right-skewed — most people drink moderately, a few drink a lot. Blood pressure is roughly normal but shifted higher in males.
+</div>
 
 ## Correlation Matrix
 
@@ -495,6 +503,10 @@ ggplot(melted_cor, aes(Var1, Var2, fill = value)) +
   labs(title = "Correlation Matrix of Key Variables")
 ```
 
+<div class="takeaway">
+<strong>Takeaway:</strong> Age has the strongest correlation with blood pressure (r ≈ 0.30). Alcohol shows a weak positive correlation — suggesting confounders matter more than drinking alone.
+</div>
+
 ## Coefficient Plot
 
 ```{r}
@@ -524,6 +536,10 @@ ggplot(coef_data, aes(x = estimate, y = term)) +
   theme(axis.text.y = element_text(size = 16, face = "bold"),
         panel.grid.major.y = element_blank())
 ```
+
+<div class="takeaway">
+<strong>Takeaway:</strong> Age and Sex (male) are the strongest predictors of blood pressure. Alcohol has a small but significant positive effect. Confidence intervals not crossing zero = statistically significant.
+</div>
 
 ## Model Diagnostics
 
@@ -572,6 +588,10 @@ p4 <- ggplot(model_diag, aes(x = .hat, y = .std.resid)) +
 
 grid.arrange(p1, p2, p3, p4, ncol = 2)
 ```
+
+<div class="takeaway">
+<strong>Takeaway:</strong> Residuals look reasonably normal with no major pattern violations. The model assumptions are adequately met for inference.
+</div>
 
 ## Model Comparison
 
@@ -623,6 +643,10 @@ p2 <- ggplot(model_metrics, aes(x = Model, y = AIC)) +
 grid.arrange(p1, p2, ncol = 2)
 ```
 
+<div class="takeaway">
+<strong>Takeaway:</strong> Adding covariates dramatically improves fit. The full model (R² ≈ 0.12) explains far more than alcohol alone — age and sex are key confounders.
+</div>
+
 ## Predicted Effects
 
 ```{r}
@@ -657,6 +681,10 @@ ggplot(pred, aes(x = x, y = predicted, color = group, fill = group)) +
   )
 ```
 
+<div class="takeaway">
+<strong>Takeaway:</strong> After adjusting for confounders, blood pressure rises modestly with drinking — but males start ~5 mmHg higher at every level. The widening CI at high intake reflects fewer observations.
+</div>
+
 ## Student Question: Debugging {#debugging}
 
 <div class="student-ask">
@@ -683,10 +711,10 @@ Error in lm.fit(x, y, ...)                     # Formula syntax error
 <strong>Debug Tip:</strong> Run <code>ls()</code> to see your environment — check if the variable exists before panicking!
 </div>
 
-## Bringing It All Together {.section-divider data-background-color="#461D7C"}
+## Bringing It All Together {.section-divider-gold data-background-color="#EAAA00"}
 
 ::: {style="text-align: center;"}
-[Implementation, integrity & discussion]{style="color: #c4a8e0; font-size: 0.9em;"}
+[Implementation, integrity & discussion]{style="color: #461D7C; font-size: 0.9em;"}
 :::
 
 ## Optional Follow-Along

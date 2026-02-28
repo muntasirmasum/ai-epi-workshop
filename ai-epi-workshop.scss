@@ -163,6 +163,24 @@ h2 {
   text-align: center;
 }
 
+// --- Takeaway callout for visualization slides ---
+
+.takeaway {
+  background: linear-gradient(135deg, $purple 0%, darken($purple, 8%) 100%);
+  color: white;
+  border-radius: 12px;
+  padding: 18px 24px;
+  margin: 16px 0;
+  font-size: 0.72em;
+  line-height: 1.4;
+  box-shadow: 0 4px 12px rgba(70, 29, 124, 0.25);
+}
+
+.takeaway strong {
+  color: $gold;
+  font-size: 1.1em;
+}
+
 // --- Hero text ---
 
 .hero-text {
