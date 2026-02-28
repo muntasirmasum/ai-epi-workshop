@@ -161,6 +161,8 @@ Office hours at 2am? Not ideal. Claude at 2am? Always available, never annoyed.
 
 ::: {style="text-align: center; margin-top: 20px;"}
 **Today's focus:** Demonstrating AI-assisted statistical analysis workflows using ClaudeR + Claude Cowork
+
+<span style="font-size: 0.65em; color: #6c757d;">📎 [Setup instructions in the appendix (slides 37–41)](#setup-appendix)</span>
 :::
 
 ## Claude Chat: Interpreting Output
@@ -1023,7 +1025,7 @@ That's it. Seriously.
 </div>
 </div>
 
-## Setup 2: ClaudeR + Cowork
+## Setup 2: ClaudeR + Cowork {#setup-appendix}
 
 <div class="split">
 <div>
@@ -1042,7 +1044,8 @@ devtools::install_github("IMNMV/ClaudeR")
 
 Download from [claude.ai/download](https://claude.ai/download) (macOS or Windows)
 
-. . .
+</div>
+<div>
 
 **Step 3: Connect RStudio to Claude**
 
@@ -1051,29 +1054,22 @@ library(ClaudeR)
 claudeAddin()   # Opens the connection
 ```
 
-</div>
-<div>
+. . .
 
 **Step 4: Enable Cowork mode in Claude Desktop**
 
 1. Open Claude Desktop App
-2. Go to Settings → Developer → Enable MCP
-3. ClaudeR will auto-configure the connection
-
-. . .
-
-<div class="tip-box">
-<strong>Verify it works:</strong> Load a dataset in RStudio, then ask Claude Desktop: "What data do I have loaded?" — if it answers correctly, you're connected!
-</div>
-
-<div class="claude-box">
-<strong>Troubleshooting:</strong> If the connection fails, restart both RStudio and Claude Desktop. The MCP handshake sometimes needs a fresh start.
-</div>
+2. Settings → Developer → Enable MCP
+3. ClaudeR auto-configures the connection
 
 </div>
 </div>
 
-## Setup 3: Claude Code
+::: {.tip-box style="margin-top: 12px; font-size: 0.55em;"}
+**Verify it works:** Load a dataset in RStudio, then ask Claude Desktop: "What data do I have loaded?" — if it answers correctly, you're connected! &nbsp; | &nbsp; **Troubleshooting:** Restart both RStudio and Claude Desktop if connection fails.
+:::
+
+## Setup 3: Claude Code — Install
 
 <div class="split">
 <div>
@@ -1091,7 +1087,8 @@ winget install OpenJS.NodeJS
 node --version   # Should show v18+
 ```
 
-. . .
+</div>
+<div>
 
 **Step 2: Install Claude Code**
 
@@ -1100,7 +1097,18 @@ node --version   # Should show v18+
 npm install -g @anthropic-ai/claude-code
 ```
 
+. . .
+
+::: {.tip-box style="font-size: 0.85em;"}
+**Note:** Claude Code requires a paid Anthropic API plan. Start with Cowork if you're exploring.
+:::
+
 </div>
+</div>
+
+## Setup 3: Claude Code — Authenticate & Use
+
+<div class="split">
 <div>
 
 **Step 3: Authenticate**
@@ -1113,7 +1121,8 @@ claude
 # for Anthropic account authentication
 ```
 
-. . .
+</div>
+<div>
 
 **Step 4: Start using with R**
 
@@ -1125,13 +1134,9 @@ cd ~/my-r-project
 claude
 
 # Ask it to run R analysis
-> "Load NHANES data and run a regression
-    of BP on alcohol consumption"
+> "Load NHANES data and run a
+    regression of BP on alcohol"
 ```
-
-<div class="tip-box">
-<strong>Note:</strong> Claude Code requires a paid Anthropic API plan. Start with Cowork if you're exploring.
-</div>
 
 </div>
 </div>

@@ -390,6 +390,7 @@ Full AI agent in the terminal — autonomous coding &amp; execution
 <div class="fragment">
 <div style="text-align: center; margin-top: 20px;">
 <p><strong>Today’s focus:</strong> Demonstrating AI-assisted statistical analysis workflows using ClaudeR + Claude Cowork</p>
+<p><span style="font-size: 0.65em; color: #6c757d;">📎 <a href="#/setup-appendix">Setup instructions in the appendix (slides 37–41)</a></span></p>
 </div>
 </div>
 </section>
@@ -1055,7 +1056,7 @@ Best For
 </div>
 </div>
 </section>
-<section id="setup-2-clauder-cowork" class="slide level2">
+<section id="setup-appendix" class="slide level2">
 <h2>Setup 2: ClaudeR + Cowork</h2>
 <div class="split">
 <div>
@@ -1066,30 +1067,26 @@ Best For
 <p>. . .</p>
 <p><strong>Step 2: Install Claude Desktop App</strong></p>
 <p>Download from <a href="https://claude.ai/download">claude.ai/download</a> (macOS or Windows)</p>
-<p>. . .</p>
+</div>
+<div>
 <p><strong>Step 3: Connect RStudio to Claude</strong></p>
 <div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb15"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb15-1"><a href=""></a><span class="fu">library</span>(ClaudeR)</span>
 <span id="cb15-2"><a href=""></a><span class="fu">claudeAddin</span>()   <span class="co"># Opens the connection</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-</div>
-<div>
+<p>. . .</p>
 <p><strong>Step 4: Enable Cowork mode in Claude Desktop</strong></p>
 <ol type="1">
 <li>Open Claude Desktop App</li>
-<li>Go to Settings → Developer → Enable MCP</li>
-<li>ClaudeR will auto-configure the connection</li>
+<li>Settings → Developer → Enable MCP</li>
+<li>ClaudeR auto-configures the connection</li>
 </ol>
-<p>. . .</p>
-<div class="tip-box">
-<p><strong>Verify it works:</strong> Load a dataset in RStudio, then ask Claude Desktop: “What data do I have loaded?” — if it answers correctly, you’re connected!</p>
-</div>
-<div class="claude-box">
-<p><strong>Troubleshooting:</strong> If the connection fails, restart both RStudio and Claude Desktop. The MCP handshake sometimes needs a fresh start.</p>
 </div>
 </div>
+<div class="tip-box" style="margin-top: 12px; font-size: 0.55em;">
+<p><strong>Verify it works:</strong> Load a dataset in RStudio, then ask Claude Desktop: “What data do I have loaded?” — if it answers correctly, you’re connected! &nbsp; | &nbsp; <strong>Troubleshooting:</strong> Restart both RStudio and Claude Desktop if connection fails.</p>
 </div>
 </section>
-<section id="setup-3-claude-code" class="slide level2">
-<h2>Setup 3: Claude Code</h2>
+<section id="setup-3-claude-code-install" class="slide level2">
+<h2>Setup 3: Claude Code — Install</h2>
 <div class="split">
 <div>
 <p><strong>Step 1: Install Node.js</strong> (required runtime)</p>
@@ -1101,11 +1098,21 @@ Best For
 <span id="cb16-6"><a href=""></a></span>
 <span id="cb16-7"><a href=""></a><span class="co"># Verify installation</span></span>
 <span id="cb16-8"><a href=""></a><span class="ex">node</span> <span class="at">--version</span>   <span class="co"># Should show v18+</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-<p>. . .</p>
+</div>
+<div>
 <p><strong>Step 2: Install Claude Code</strong></p>
 <div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb17"><pre class="sourceCode numberSource bash number-lines code-with-copy"><code class="sourceCode bash"><span id="cb17-1"><a href=""></a><span class="co"># Install globally via npm</span></span>
 <span id="cb17-2"><a href=""></a><span class="ex">npm</span> install <span class="at">-g</span> @anthropic-ai/claude-code</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<p>. . .</p>
+<div class="tip-box" style="font-size: 0.85em;">
+<p><strong>Note:</strong> Claude Code requires a paid Anthropic API plan. Start with Cowork if you’re exploring.</p>
 </div>
+</div>
+</div>
+</section>
+<section id="setup-3-claude-code-authenticate-use" class="slide level2">
+<h2>Setup 3: Claude Code — Authenticate &amp; Use</h2>
+<div class="split">
 <div>
 <p><strong>Step 3: Authenticate</strong></p>
 <div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb18"><pre class="sourceCode numberSource bash number-lines code-with-copy"><code class="sourceCode bash"><span id="cb18-1"><a href=""></a><span class="co"># Launch and follow the login prompt</span></span>
@@ -1113,7 +1120,8 @@ Best For
 <span id="cb18-3"><a href=""></a></span>
 <span id="cb18-4"><a href=""></a><span class="co"># It will open a browser window</span></span>
 <span id="cb18-5"><a href=""></a><span class="co"># for Anthropic account authentication</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-<p>. . .</p>
+</div>
+<div>
 <p><strong>Step 4: Start using with R</strong></p>
 <div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb19"><pre class="sourceCode numberSource bash number-lines code-with-copy"><code class="sourceCode bash"><span id="cb19-1"><a href=""></a><span class="co"># Navigate to your project folder</span></span>
 <span id="cb19-2"><a href=""></a><span class="bu">cd</span> ~/my-r-project</span>
@@ -1122,11 +1130,8 @@ Best For
 <span id="cb19-5"><a href=""></a><span class="ex">claude</span></span>
 <span id="cb19-6"><a href=""></a></span>
 <span id="cb19-7"><a href=""></a><span class="co"># Ask it to run R analysis</span></span>
-<span id="cb19-8"><a href=""></a><span class="op">&gt;</span> <span class="st">"Load NHANES data and run a regression</span></span>
-<span id="cb19-9"><a href=""></a><span class="st">    of BP on alcohol consumption"</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-<div class="tip-box">
-<p><strong>Note:</strong> Claude Code requires a paid Anthropic API plan. Start with Cowork if you’re exploring.</p>
-</div>
+<span id="cb19-8"><a href=""></a><span class="op">&gt;</span> <span class="st">"Load NHANES data and run a</span></span>
+<span id="cb19-9"><a href=""></a><span class="st">    regression of BP on alcohol"</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 </div>
 </section>
