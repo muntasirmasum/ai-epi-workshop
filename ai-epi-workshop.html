@@ -96,7 +96,7 @@
     code span.vs { color: #20794d; } /* VerbatimString */
     code span.wa { color: #5e5e5e; font-style: italic; } /* Warning */
   </style>
-  <link rel="stylesheet" href="AI-symposium-presentation_files/libs/revealjs/dist/theme/quarto-02ec7d1d1acef889670380362a081d1f.css">
+  <link rel="stylesheet" href="AI-symposium-presentation_files/libs/revealjs/dist/theme/quarto-7501c5119023ffa90cdcb2a36c738981.css">
   <link href="AI-symposium-presentation_files/libs/revealjs/plugin/quarto-line-highlight/line-highlight.css" rel="stylesheet">
   <link href="AI-symposium-presentation_files/libs/revealjs/plugin/reveal-menu/menu.css" rel="stylesheet">
   <link href="AI-symposium-presentation_files/libs/revealjs/plugin/reveal-menu/quarto-menu.css" rel="stylesheet">
@@ -420,10 +420,10 @@ Full AI IDE integration with autonomous execution
 </div>
 </div>
 </section>
-<section id="lets-see-it-in-action" class="slide level2 section-divider" data-background-color="#461D7C">
+<section id="lets-see-it-in-action" class="slide level2 section-divider-gold" data-background-color="#EAAA00">
 <h2>Let’s See It in Action</h2>
 <div style="text-align: center;">
-<p><span style="color: #c4a8e0; font-size: 0.9em;">Coding · Analysis · Visualization · Debugging</span></p>
+<p><span style="color: #461D7C; font-size: 0.9em;">Coding · Analysis · Visualization · Debugging</span></p>
 </div>
 </section>
 <section id="research-question" class="slide level2">
@@ -480,28 +480,30 @@ Full AI IDE integration with autonomous execution
 <section id="live-code-output" class="slide level2">
 <h2>Live Code Output</h2>
 <div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb3"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href=""></a><span class="fu">data</span>(<span class="st">"NHANES"</span>)</span>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb3"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href=""></a><span class="fu">data</span>(<span class="st">"NHANES"</span>)                                    <span class="co"># Load built-in dataset</span></span>
 <span id="cb3-2"><a href=""></a></span>
 <span id="cb3-3"><a href=""></a>analysis_data <span class="ot">&lt;-</span> NHANES <span class="sc">%&gt;%</span></span>
-<span id="cb3-4"><a href=""></a>  <span class="fu">filter</span>(Age <span class="sc">&gt;=</span> <span class="dv">20</span>, Age <span class="sc">&lt;=</span> <span class="dv">65</span>) <span class="sc">%&gt;%</span></span>
-<span id="cb3-5"><a href=""></a>  <span class="fu">filter</span>(<span class="sc">!</span><span class="fu">is.na</span>(BPSysAve), <span class="sc">!</span><span class="fu">is.na</span>(AlcoholDay), <span class="sc">!</span><span class="fu">is.na</span>(BMI),</span>
-<span id="cb3-6"><a href=""></a>         <span class="sc">!</span><span class="fu">is.na</span>(SmokeNow), <span class="sc">!</span><span class="fu">is.na</span>(Gender)) <span class="sc">%&gt;%</span></span>
-<span id="cb3-7"><a href=""></a>  <span class="fu">mutate</span>(</span>
-<span id="cb3-8"><a href=""></a>    <span class="at">drinks_per_week =</span> AlcoholDay <span class="sc">*</span> <span class="dv">7</span>,</span>
-<span id="cb3-9"><a href=""></a>    <span class="at">current_smoker =</span> <span class="fu">ifelse</span>(SmokeNow <span class="sc">==</span> <span class="st">"Yes"</span>, <span class="dv">1</span>, <span class="dv">0</span>),</span>
-<span id="cb3-10"><a href=""></a>    <span class="at">drink_category =</span> <span class="fu">cut</span>(AlcoholDay <span class="sc">*</span> <span class="dv">7</span>,</span>
-<span id="cb3-11"><a href=""></a>      <span class="at">breaks =</span> <span class="fu">c</span>(<span class="sc">-</span><span class="cn">Inf</span>, <span class="dv">0</span>, <span class="dv">7</span>, <span class="dv">14</span>, <span class="cn">Inf</span>),</span>
-<span id="cb3-12"><a href=""></a>      <span class="at">labels =</span> <span class="fu">c</span>(<span class="st">"None"</span>, <span class="st">"Light"</span>, <span class="st">"Moderate"</span>, <span class="st">"Heavy"</span>))</span>
-<span id="cb3-13"><a href=""></a>  ) <span class="sc">%&gt;%</span></span>
-<span id="cb3-14"><a href=""></a>  <span class="fu">select</span>(ID, Gender, Age, BMI, drinks_per_week, drink_category, current_smoker, BPSysAve) <span class="sc">%&gt;%</span></span>
-<span id="cb3-15"><a href=""></a>  <span class="fu">distinct</span>(ID, <span class="at">.keep_all =</span> <span class="cn">TRUE</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<span id="cb3-4"><a href=""></a>  <span class="fu">filter</span>(Age <span class="sc">&gt;=</span> <span class="dv">20</span>, Age <span class="sc">&lt;=</span> <span class="dv">65</span>) <span class="sc">%&gt;%</span>                 <span class="co"># Adults only</span></span>
+<span id="cb3-5"><a href=""></a>  <span class="fu">filter</span>(<span class="sc">!</span><span class="fu">is.na</span>(BPSysAve), <span class="sc">!</span><span class="fu">is.na</span>(AlcoholDay),    <span class="co"># Drop missing values</span></span>
+<span id="cb3-6"><a href=""></a>         <span class="sc">!</span><span class="fu">is.na</span>(BMI), <span class="sc">!</span><span class="fu">is.na</span>(SmokeNow),</span>
+<span id="cb3-7"><a href=""></a>         <span class="sc">!</span><span class="fu">is.na</span>(Gender)) <span class="sc">%&gt;%</span></span>
+<span id="cb3-8"><a href=""></a>  <span class="fu">mutate</span>(</span>
+<span id="cb3-9"><a href=""></a>    <span class="at">drinks_per_week =</span> AlcoholDay <span class="sc">*</span> <span class="dv">7</span>,              <span class="co"># Daily → weekly</span></span>
+<span id="cb3-10"><a href=""></a>    <span class="at">current_smoker =</span> <span class="fu">ifelse</span>(SmokeNow <span class="sc">==</span> <span class="st">"Yes"</span>, <span class="dv">1</span>, <span class="dv">0</span>),  <span class="co"># Binary coding</span></span>
+<span id="cb3-11"><a href=""></a>    <span class="at">drink_category =</span> <span class="fu">cut</span>(AlcoholDay <span class="sc">*</span> <span class="dv">7</span>,           <span class="co"># Categorize drinkers</span></span>
+<span id="cb3-12"><a href=""></a>      <span class="at">breaks =</span> <span class="fu">c</span>(<span class="sc">-</span><span class="cn">Inf</span>, <span class="dv">0</span>, <span class="dv">7</span>, <span class="dv">14</span>, <span class="cn">Inf</span>),</span>
+<span id="cb3-13"><a href=""></a>      <span class="at">labels =</span> <span class="fu">c</span>(<span class="st">"None"</span>, <span class="st">"Light"</span>, <span class="st">"Moderate"</span>, <span class="st">"Heavy"</span>))</span>
+<span id="cb3-14"><a href=""></a>  ) <span class="sc">%&gt;%</span></span>
+<span id="cb3-15"><a href=""></a>  <span class="fu">select</span>(ID, Gender, Age, BMI, drinks_per_week,    <span class="co"># Keep key variables</span></span>
+<span id="cb3-16"><a href=""></a>         drink_category, current_smoker, BPSysAve) <span class="sc">%&gt;%</span></span>
+<span id="cb3-17"><a href=""></a>  <span class="fu">distinct</span>(ID, <span class="at">.keep_all =</span> <span class="cn">TRUE</span>)                   <span class="co"># Remove duplicates</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 <div class="tip-box">
 <p><strong>Pro Tip:</strong> <code>glimpse()</code> gives you a better overview than <code>str()</code> for tidy data</p>
 </div>
 </section>
-<section id="check-the-result" class="slide level2">
-<h2>Check the Result</h2>
+<section id="a-look-at-the-data" class="slide level2">
+<h2>A Look at the Data</h2>
 <div class="cell">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb4"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href=""></a><span class="fu">glimpse</span>(analysis_data)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
@@ -531,11 +533,13 @@ $ BPSysAve        &lt;int&gt; 112, 128, 152, 122, 122, 93, 124, 117, 120, 110, 9
 </div>
 <div class="cell">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb6" data-code-line-numbers="2,3,4"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a href=""></a><span class="co"># Fit multiple linear regression</span></span>
-<span id="cb6-2"><a href=""></a>model1 <span class="ot">&lt;-</span> <span class="fu">lm</span>(BPSysAve <span class="sc">~</span> drinks_per_week <span class="sc">+</span> Age <span class="sc">+</span> BMI <span class="sc">+</span></span>
-<span id="cb6-3"><a href=""></a>                        current_smoker <span class="sc">+</span> Gender,</span>
-<span id="cb6-4"><a href=""></a>             <span class="at">data =</span> analysis_data)</span>
-<span id="cb6-5"><a href=""></a></span>
-<span id="cb6-6"><a href=""></a><span class="fu">summary</span>(model1)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<span id="cb6-2"><a href=""></a>model1 <span class="ot">&lt;-</span> <span class="fu">lm</span>(</span>
+<span id="cb6-3"><a href=""></a>  BPSysAve <span class="sc">~</span> drinks_per_week <span class="sc">+</span> Age <span class="sc">+</span> BMI <span class="sc">+</span>        <span class="co"># Outcome ~ predictors</span></span>
+<span id="cb6-4"><a href=""></a>              current_smoker <span class="sc">+</span> Gender,</span>
+<span id="cb6-5"><a href=""></a>  <span class="at">data =</span> analysis_data                             <span class="co"># Use cleaned dataset</span></span>
+<span id="cb6-6"><a href=""></a>)</span>
+<span id="cb6-7"><a href=""></a></span>
+<span id="cb6-8"><a href=""></a><span class="fu">summary</span>(model1)                                    <span class="co"># View full results</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>
 Call:
@@ -592,10 +596,10 @@ F-statistic: 42.71 on 5 and 1168 DF,  p-value: &lt; 2.2e-16</code></pre>
 </div>
 </div>
 </section>
-<section id="telling-the-story-with-data" class="slide level2 section-divider" data-background-color="#461D7C">
+<section id="telling-the-story-with-data" class="slide level2 section-divider-gold" data-background-color="#EAAA00">
 <h2>Telling the Story with Data</h2>
 <div style="text-align: center;">
-<p><span style="color: #c4a8e0; font-size: 0.9em;">Visualization that communicates</span></p>
+<p><span style="color: #461D7C; font-size: 0.9em;">Visualization that communicates</span></p>
 </div>
 </section>
 <section id="visualization" class="slide level2">
@@ -653,10 +657,10 @@ F-statistic: 42.71 on 5 and 1168 DF,  p-value: &lt; 2.2e-16</code></pre>
 <h2>Model Comparison</h2>
 
 <img data-src="AI-symposium-presentation_files/figure-revealjs/model-comparison-1.png" width="1152" class="r-stretch"></section>
-<section id="predicted-vs-observed" class="slide level2">
-<h2>Predicted vs Observed</h2>
+<section id="predicted-effects" class="slide level2">
+<h2>Predicted Effects</h2>
 
-<img data-src="AI-symposium-presentation_files/figure-revealjs/predicted-observed-1.png" width="960" class="r-stretch"></section>
+<img data-src="AI-symposium-presentation_files/figure-revealjs/predicted-effects-1.png" width="1344" class="r-stretch"></section>
 <section id="debugging" class="slide level2">
 <h2>Student Question: Debugging</h2>
 <div class="student-ask">

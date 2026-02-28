@@ -31,6 +31,7 @@ library(broom)
 library(knitr)
 library(kableExtra)
 library(plotly)
+library(ggeffects)
 
 knitr::opts_chunk$set(
   echo = TRUE,
@@ -199,10 +200,10 @@ claudeAddin()
 </div>
 </div>
 
-## Let's See It in Action {.section-divider data-background-color="#461D7C"}
+## Let's See It in Action {.section-divider-gold data-background-color="#EAAA00"}
 
 ::: {style="text-align: center;"}
-[Coding · Analysis · Visualization · Debugging]{style="color: #c4a8e0; font-size: 0.9em;"}
+[Coding · Analysis · Visualization · Debugging]{style="color: #461D7C; font-size: 0.9em;"}
 :::
 
 ## Today's Research Question {#research-question}
@@ -269,28 +270,30 @@ analysis_data <- NHANES %>%
 #| label: data-prep
 #| echo: true
 
-data("NHANES")
+data("NHANES")                                    # Load built-in dataset
 
 analysis_data <- NHANES %>%
-  filter(Age >= 20, Age <= 65) %>%
-  filter(!is.na(BPSysAve), !is.na(AlcoholDay), !is.na(BMI),
-         !is.na(SmokeNow), !is.na(Gender)) %>%
+  filter(Age >= 20, Age <= 65) %>%                 # Adults only
+  filter(!is.na(BPSysAve), !is.na(AlcoholDay),    # Drop missing values
+         !is.na(BMI), !is.na(SmokeNow),
+         !is.na(Gender)) %>%
   mutate(
-    drinks_per_week = AlcoholDay * 7,
-    current_smoker = ifelse(SmokeNow == "Yes", 1, 0),
-    drink_category = cut(AlcoholDay * 7,
+    drinks_per_week = AlcoholDay * 7,              # Daily → weekly
+    current_smoker = ifelse(SmokeNow == "Yes", 1, 0),  # Binary coding
+    drink_category = cut(AlcoholDay * 7,           # Categorize drinkers
       breaks = c(-Inf, 0, 7, 14, Inf),
       labels = c("None", "Light", "Moderate", "Heavy"))
   ) %>%
-  select(ID, Gender, Age, BMI, drinks_per_week, drink_category, current_smoker, BPSysAve) %>%
-  distinct(ID, .keep_all = TRUE)
+  select(ID, Gender, Age, BMI, drinks_per_week,    # Keep key variables
+         drink_category, current_smoker, BPSysAve) %>%
+  distinct(ID, .keep_all = TRUE)                   # Remove duplicates
 ```
 
 <div class="tip-box">
 <strong>Pro Tip:</strong> <code>glimpse()</code> gives you a better overview than <code>str()</code> for tidy data
 </div>
 
-## Check the Result
+## A Look at the Data
 
 ```{r}
 #| echo: true
@@ -315,11 +318,13 @@ I need to run a multiple regression with blood pressure as outcome and alcohol, 
 #| code-line-numbers: "2,3,4"
 
 # Fit multiple linear regression
-model1 <- lm(BPSysAve ~ drinks_per_week + Age + BMI +
-                        current_smoker + Gender,
-             data = analysis_data)
+model1 <- lm(
+  BPSysAve ~ drinks_per_week + Age + BMI +        # Outcome ~ predictors
+              current_smoker + Gender,
+  data = analysis_data                             # Use cleaned dataset
+)
 
-summary(model1)
+summary(model1)                                    # View full results
 ```
 
 <div class="tip-box">
@@ -352,10 +357,10 @@ summary(model1)$coefficients["drinks_per_week", "Pr(>|t|)"]
 <strong>Claude guides the student:</strong> "What does this p-value tell us? Is this effect size clinically meaningful for public health interventions?"
 </div>
 
-## Telling the Story with Data {.section-divider data-background-color="#461D7C"}
+## Telling the Story with Data {.section-divider-gold data-background-color="#EAAA00"}
 
 ::: {style="text-align: center;"}
-[Visualization that communicates]{style="color: #c4a8e0; font-size: 0.9em;"}
+[Visualization that communicates]{style="color: #461D7C; font-size: 0.9em;"}
 :::
 
 ## Student Question: Visualization {#visualization}
@@ -618,29 +623,38 @@ p2 <- ggplot(model_metrics, aes(x = Model, y = AIC)) +
 grid.arrange(p1, p2, ncol = 2)
 ```
 
-## Predicted vs Observed
+## Predicted Effects
 
 ```{r}
-#| label: predicted-observed
+#| label: predicted-effects
 #| echo: false
-#| fig-width: 10
+#| fig-width: 14
 #| fig-height: 8
 
-model_diag <- model_diag %>%
-  rename(observed = BPSysAve, predicted = .fitted)
+pred <- ggpredict(model1, terms = c("drinks_per_week [0:80 by=2]", "Gender"))
 
-ggplot(model_diag, aes(x = observed, y = predicted, color = Gender)) +
-  geom_point(alpha = 0.4, size = 2) +
-  geom_abline(intercept = 0, slope = 1, linetype = "dashed",
-              color = "red", size = 1.2) +
-  labs(title = "Predicted vs Observed Systolic Blood Pressure",
-       subtitle = "Points near diagonal line indicate good predictions",
-       x = "Observed BP (mmHg)",
-       y = "Predicted BP (mmHg)") +
-  theme_minimal(base_size = 18) +
+ggplot(pred, aes(x = x, y = predicted, color = group, fill = group)) +
+  geom_ribbon(aes(ymin = conf.low, ymax = conf.high), alpha = 0.15, color = NA) +
+  geom_line(linewidth = 1.5) +
   scale_color_manual(values = c("female" = "#D55E00", "male" = "#0072B2")) +
-  theme(legend.position = "top") +
-  coord_fixed()
+  scale_fill_manual(values = c("female" = "#D55E00", "male" = "#0072B2")) +
+  labs(
+    title = "Predicted Systolic Blood Pressure by Alcohol Consumption",
+    subtitle = "Adjusted for Age, BMI, and Smoking | Shaded area = 95% CI",
+    x = "Drinks Per Week",
+    y = "Predicted Systolic BP (mmHg)",
+    color = "Sex", fill = "Sex"
+  ) +
+  theme_minimal(base_size = 24) +
+  theme(
+    legend.position = "right",
+    legend.text = element_text(size = 22),
+    legend.title = element_text(size = 22, face = "bold"),
+    plot.title = element_text(size = 26, face = "bold"),
+    plot.subtitle = element_text(size = 18, color = "gray40"),
+    axis.title = element_text(size = 22, face = "bold"),
+    axis.text = element_text(size = 20)
+  )
 ```
 
 ## Student Question: Debugging {#debugging}
