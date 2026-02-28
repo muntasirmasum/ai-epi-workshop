@@ -1559,7 +1559,7 @@ document.addEventListener('DOMContentLoaded', function() {
     // Debugging slides
     debugging:      { text: 'Common R Errors ↗',        url: 'https://statsandr.com/blog/top-10-errors-in-r/' },
     // Integrity & closing slides
-    integrity:      { text: 'AI & Academic Integrity ↗', url: 'https://www.insidehighered.com/topics/artificial-intelligence-and-academic-integrity' },
+    integrity:      { text: 'Workshop Repo ↗',           url: 'https://github.com/muntasirmasum/ai-epi-workshop' },
     resources:      { text: 'Workshop Repo ↗',          url: 'https://github.com/muntasirmasum/ai-epi-workshop' },
     // Setup appendix slides
     'setup-appendix': { text: 'Setup Guide ↗',          url: 'https://github.com/muntasirmasum/ai-epi-workshop/tree/main/materials' },
