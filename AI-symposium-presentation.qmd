@@ -17,7 +17,7 @@ format:
     echo: true
     mouse-wheel: false
     transition: fade
-    code-block-height: 650px
+    code-block-height: 500px
     navigation-mode: linear
     code-overflow: scroll
     title-slide-attributes:
@@ -409,7 +409,7 @@ I need to prepare my NHANES data for regression analysis. I want adults aged 20-
 <strong>Claude's approach:</strong> Filter age range → Select variables → Handle missing data → Create derived variables
 </div>
 
-## Claude Suggests the Code — Step by Step
+## Claude Suggests the Code — Step by Step {.smaller}
 
 <div class="split">
 <div>
@@ -452,7 +452,7 @@ Claude proactively warns about skewness, missing data patterns, and survey desig
 
 </div>
 
-## What the Code Looks Like in RStudio
+## What the Code Looks Like in RStudio {.smaller}
 
 <div class="claude-box">
 <strong>Claude suggests:</strong> Use <code>filter()</code> for age range, <code>mutate()</code> for new variables, and handle missing data explicitly
@@ -613,7 +613,7 @@ p <- ggplot(analysis_data, aes(x = drink_category, y = BPSysAve,
 #| label: vis-demo
 #| echo: false
 #| fig-width: 10
-#| fig-height: 8
+#| fig-height: 6.5
 
 ggplot(analysis_data, aes(x = drink_category, y = BPSysAve, fill = Gender)) +
   geom_violin(alpha = 0.35, position = position_dodge(0.8),
@@ -660,7 +660,7 @@ ggplot(analysis_data, aes(x = drink_category, y = BPSysAve, fill = Gender)) +
 #| label: distributions
 #| echo: false
 #| fig-width: 10
-#| fig-height: 7
+#| fig-height: 5.5
 
 library(gridExtra)
 
@@ -700,7 +700,7 @@ grid.arrange(p1, p2, ncol = 2)
 #| label: correlation-matrix
 #| echo: false
 #| fig-width: 8
-#| fig-height: 7
+#| fig-height: 5.5
 
 corr_data <- analysis_data %>%
   select(Age, drinks_per_week, BPSysAve) %>%
@@ -743,7 +743,7 @@ ggplot(melted_cor, aes(Var1, Var2, fill = value)) +
 #| label: coefficient-plot
 #| echo: false
 #| fig-width: 10
-#| fig-height: 7
+#| fig-height: 5.5
 
 coef_data <- tidy(model1, conf.int = TRUE) %>%
   filter(term != "(Intercept)") %>%
@@ -784,7 +784,7 @@ ggplot(coef_data, aes(x = estimate, y = term)) +
 #| label: diagnostic-plots
 #| echo: false
 #| fig-width: 10
-#| fig-height: 8
+#| fig-height: 6.5
 
 model_diag <- augment(model1)
 
@@ -841,7 +841,7 @@ grid.arrange(p1, p2, p3, p4, ncol = 2)
 #| label: model-comparison
 #| echo: false
 #| fig-width: 10
-#| fig-height: 7
+#| fig-height: 5.5
 
 model_simple <- lm(BPSysAve ~ drinks_per_week, data = analysis_data)
 model_additive <- lm(BPSysAve ~ drinks_per_week + Gender, data = analysis_data)
@@ -887,7 +887,7 @@ grid.arrange(p1, p2, ncol = 2)
 :::
 ::: {.column width="28%"}
 <div class="takeaway-side">
-<strong>Takeaway</strong> Adding covariates dramatically improves fit. The full model (R² ≈ 0.12) explains far more than alcohol alone — age and sex are key confounders.
+<strong>Takeaway</strong> Adding covariates dramatically improves fit. The full model (R² ≈ 0.15) explains far more than alcohol alone — age and sex are key confounders.
 </div>
 :::
 ::::
@@ -900,7 +900,7 @@ grid.arrange(p1, p2, ncol = 2)
 #| label: predicted-effects
 #| echo: false
 #| fig-width: 10
-#| fig-height: 8
+#| fig-height: 6.5
 
 pred <- ggpredict(model1, terms = c("drinks_per_week [0:80 by=2]", "Gender"))
 

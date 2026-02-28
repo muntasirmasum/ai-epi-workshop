@@ -98,8 +98,8 @@ h2 {
   background: $orange-light;
   border-left: 5px solid $orange;
   border-radius: 0 8px 8px 0;
-  padding: 14px 20px;
-  margin: 16px 0;
+  padding: 12px 20px;
+  margin: 10px 0;
   font-size: 0.7em;
 }
 
@@ -113,8 +113,8 @@ h2 {
   background: $purple-light;
   border-left: 5px solid $purple;
   border-radius: 0 8px 8px 0;
-  padding: 14px 20px;
-  margin: 16px 0;
+  padding: 12px 20px;
+  margin: 10px 0;
   font-size: 0.7em;
 }
 
@@ -305,7 +305,7 @@ h2 {
 
 .cell .cell-output-stdout pre code,
 .cell .cell-output pre code {
-  max-height: 650px;
+  max-height: 500px;
 }
 
 // --- Subtle slide background (Emil Hvitfeldt inspired) ---
