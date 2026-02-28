@@ -19,6 +19,7 @@ format:
     transition: fade
     code-block-height: 650px
     navigation-mode: linear
+    code-overflow: scroll
     title-slide-attributes:
       data-background-image: "ai-plus-logo.png"
       data-background-size: "220px"
@@ -43,7 +44,9 @@ knitr::opts_chunk$set(
   warning = FALSE,
   fig.width = 10,
   fig.height = 5,
-  cache = FALSE
+  cache = FALSE,
+  tidy = "formatR",
+  tidy.opts = list(width.cutoff = 110)
 )
 
 theme_set(theme_minimal(base_size = 16))
@@ -122,12 +125,13 @@ Today we'll see exactly how that works.
 </div>
 <div>
 <p style="text-align:center; font-weight:bold; margin-bottom:15px;">The Goal</p>
-<ul>
-<li>Focus on <em>interpretation</em>, not syntax</li>
-<li>On-demand, contextual guidance</li>
-<li>Iterative, scaffolded learning</li>
-<li>Students become <em>analytical thinkers</em></li>
-</ul>
+
+::: {.incremental}
+- Focus on *interpretation*, not syntax
+- On-demand, contextual guidance
+- Iterative, scaffolded learning
+- Students become *analytical thinkers*
+:::
 </div>
 </div>
 
@@ -393,7 +397,7 @@ Does alcohol consumption predict blood pressure?
 [Coding](#coding){.workflow-btn} [Analysis](#analysis){.workflow-btn} [Visualization](#visualization){.workflow-btn} [Debugging](#debugging){.workflow-btn}
 :::
 
-## Student Question: Coding {#coding}
+## Student Question: Coding {#coding auto-animate=true}
 
 <div class="student-ask">
 I need to prepare my NHANES data for regression analysis. I want adults aged 20-65, exclude missing values, and create a drinks-per-week variable. How do I do this in R?
@@ -457,6 +461,7 @@ Claude proactively warns about skewness, missing data patterns, and survey desig
 ```{r}
 #| label: data-prep
 #| echo: true
+#| code-line-numbers: "|3-4|5-7|8-11|12-13"
 
 data("NHANES")                                    # Load built-in dataset
 
@@ -492,13 +497,13 @@ analysis_data <- NHANES %>%
 glimpse(analysis_data)
 ```
 
-## Student Question: Analysis {#analysis}
+## Student Question: Analysis {#analysis auto-animate=true}
 
 <div class="student-ask">
 I need to run a multiple regression with blood pressure as outcome and alcohol, age, BMI, smoking, and sex as predictors. How do I interpret the results?
 </div>
 
-## Fitting the Model {.smaller}
+## Fitting the Model {.smaller auto-animate=true}
 
 <div class="claude-box">
 <strong>Claude explains:</strong> Use <code>lm()</code> for linear regression. Formula syntax: <code>outcome ~ predictor1 + predictor2 + ...</code>
@@ -563,7 +568,7 @@ summary(model1)$coefficients["drinks_per_week", "Pr(>|t|)"]
 [Visualization that communicates]{style="color: #461D7C; font-size: 0.9em;"}
 :::
 
-## Student Question: Visualization {#visualization}
+## Student Question: Visualization {#visualization auto-animate=true}
 
 <div class="student-ask">
 I want to visualize the relationship between alcohol consumption and blood pressure, accounting for sex differences. What's the best plot?
@@ -575,9 +580,9 @@ I want to visualize the relationship between alcohol consumption and blood press
 <strong>Claude suggests:</strong> A violin plot with overlaid box plots — shows the full distribution shape, grouped by drinking level and colored by sex
 </div>
 
-## Building the Plot {.smaller}
+## Building the Plot {.smaller auto-animate=true}
 
-```r
+```{.r code-line-numbers="|1-2|3-5|6-11|12-14"}
 p <- ggplot(analysis_data, aes(x = drink_category, y = BPSysAve,
                                 fill = Gender)) +
   geom_violin(alpha = 0.4, position = position_dodge(0.8)) +
@@ -938,7 +943,7 @@ ggplot(pred, aes(x = x, y = predicted, color = group, fill = group)) +
 [*"One research question, six visualizations,<br>zero StackOverflow."*]{style="font-size: 1.5em; color: white; font-family: 'Playfair Display', serif;"}
 :::
 
-## Student Question: Debugging {#debugging}
+## Student Question: Debugging {#debugging auto-animate=true}
 
 <div class="student-ask">
 I'm getting errors when I try to run my regression. Can you help me figure out what's wrong?
@@ -1178,10 +1183,12 @@ Every R programmer has rage-quit over a missing comma at least once. Claude does
 
 **What we've seen today:**
 
+::: {.incremental}
 - AI lowers barriers to statistical computing
 - Students focus on *thinking*, not syntax
 - Scaffolded learning builds independence
 - Works across disciplines and skill levels
+:::
 
 </div>
 <div>

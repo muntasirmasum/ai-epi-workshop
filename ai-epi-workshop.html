@@ -96,7 +96,7 @@
     code span.vs { color: #20794d; } /* VerbatimString */
     code span.wa { color: #5e5e5e; font-style: italic; } /* Warning */
   </style>
-  <link rel="stylesheet" href="AI-symposium-presentation_files/libs/revealjs/dist/theme/quarto-3a159cdad313537c32e7ddbc4d891eb7.css">
+  <link rel="stylesheet" href="AI-symposium-presentation_files/libs/revealjs/dist/theme/quarto-2d4fb5c5f78f34811b698a2c90810fab.css">
   <link href="AI-symposium-presentation_files/libs/revealjs/plugin/quarto-line-highlight/line-highlight.css" rel="stylesheet">
   <link href="AI-symposium-presentation_files/libs/revealjs/plugin/reveal-menu/menu.css" rel="stylesheet">
   <link href="AI-symposium-presentation_files/libs/revealjs/plugin/reveal-menu/quarto-menu.css" rel="stylesheet">
@@ -332,18 +332,10 @@ Debugging takes all the time
 The Goal
 </p>
 <ul>
-<li>
-Focus on <em>interpretation</em>, not syntax
-</li>
-<li>
-On-demand, contextual guidance
-</li>
-<li>
-Iterative, scaffolded learning
-</li>
-<li>
-Students become <em>analytical thinkers</em>
-</li>
+<li class="fragment">Focus on <em>interpretation</em>, not syntax</li>
+<li class="fragment">On-demand, contextual guidance</li>
+<li class="fragment">Iterative, scaffolded learning</li>
+<li class="fragment">Students become <em>analytical thinkers</em></li>
 </ul>
 </div>
 </div>
@@ -567,8 +559,8 @@ Claude Code
 <p><a href="#/coding" class="workflow-btn">Coding</a> <a href="#/analysis" class="workflow-btn">Analysis</a> <a href="#/visualization" class="workflow-btn">Visualization</a> <a href="#/debugging" class="workflow-btn">Debugging</a></p>
 </div>
 </section>
-<section id="coding" class="slide level2">
-<h2>Student Question: Coding</h2>
+<section id="coding" class="slide level2" data-auto-animate="true">
+<h2 data-id="quarto-animate-title">Student Question: Coding</h2>
 <div class="student-ask">
 <p>I need to prepare my NHANES data for regression analysis. I want adults aged 20-65, exclude missing values, and create a drinks-per-week variable. How do I do this in R?</p>
 </div>
@@ -615,7 +607,7 @@ Claude Code
 <p><strong>Claude suggests:</strong> Use <code>filter()</code> for age range, <code>mutate()</code> for new variables, and handle missing data explicitly</p>
 </div>
 <div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb2"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href=""></a><span class="fu">data</span>(<span class="st">"NHANES"</span>)                                    <span class="co"># Load built-in dataset</span></span>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb2" data-code-line-numbers="|3-4|5-7|8-11|12-13"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href=""></a><span class="fu">data</span>(<span class="st">"NHANES"</span>)                                    <span class="co"># Load built-in dataset</span></span>
 <span id="cb2-2"><a href=""></a></span>
 <span id="cb2-3"><a href=""></a>analysis_data <span class="ot">&lt;-</span> NHANES <span class="sc">%&gt;%</span></span>
 <span id="cb2-4"><a href=""></a>  <span class="fu">filter</span>(Age <span class="sc">&gt;=</span> <span class="dv">20</span>, Age <span class="sc">&lt;=</span> <span class="dv">65</span>) <span class="sc">%&gt;%</span>                 <span class="co"># Adults only</span></span>
@@ -658,26 +650,26 @@ $ BPSysAve        &lt;int&gt; 112, 128, 152, 122, 122, 93, 124, 117, 120, 110, 9
 </div>
 </div>
 </section>
-<section id="analysis" class="slide level2">
-<h2>Student Question: Analysis</h2>
+<section id="analysis" class="slide level2" data-auto-animate="true">
+<h2 data-id="quarto-animate-title">Student Question: Analysis</h2>
 <div class="student-ask">
 <p>I need to run a multiple regression with blood pressure as outcome and alcohol, age, BMI, smoking, and sex as predictors. How do I interpret the results?</p>
 </div>
 </section>
-<section id="fitting-the-model" class="slide level2 smaller">
-<h2>Fitting the Model</h2>
+<section id="fitting-the-model" class="slide level2 smaller" data-auto-animate="true">
+<h2 data-id="quarto-animate-title">Fitting the Model</h2>
 <div class="claude-box">
 <p><strong>Claude explains:</strong> Use <code>lm()</code> for linear regression. Formula syntax: <code>outcome ~ predictor1 + predictor2 + …</code></p>
 </div>
 <div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb5" data-code-line-numbers="2,3,4"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href=""></a><span class="co"># Fit multiple linear regression</span></span>
-<span id="cb5-2"><a href=""></a>model1 <span class="ot">&lt;-</span> <span class="fu">lm</span>(</span>
-<span id="cb5-3"><a href=""></a>  BPSysAve <span class="sc">~</span> drinks_per_week <span class="sc">+</span> Age <span class="sc">+</span> BMI <span class="sc">+</span>        <span class="co"># Outcome ~ predictors</span></span>
-<span id="cb5-4"><a href=""></a>              current_smoker <span class="sc">+</span> Gender,</span>
-<span id="cb5-5"><a href=""></a>  <span class="at">data =</span> analysis_data                             <span class="co"># Use cleaned dataset</span></span>
-<span id="cb5-6"><a href=""></a>)</span>
-<span id="cb5-7"><a href=""></a></span>
-<span id="cb5-8"><a href=""></a><span class="fu">summary</span>(model1)                                    <span class="co"># View full results</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb5" data-code-line-numbers="2,3,4"><pre class="sourceCode numberSource r number-lines code-with-copy" data-id="quarto-animate-code"><code class="sourceCode r hljs"><span id="cb5-1" class="hljs-ln-code"><a href=""></a><span class="co"># Fit multiple linear regression</span></span>
+<span id="cb5-2" class="hljs-ln-code"><a href=""></a>model1 <span class="ot">&lt;-</span> <span class="fu">lm</span>(</span>
+<span id="cb5-3" class="hljs-ln-code"><a href=""></a>  BPSysAve <span class="sc">~</span> drinks_per_week <span class="sc">+</span> Age <span class="sc">+</span> BMI <span class="sc">+</span>        <span class="co"># Outcome ~ predictors</span></span>
+<span id="cb5-4" class="hljs-ln-code"><a href=""></a>              current_smoker <span class="sc">+</span> Gender,</span>
+<span id="cb5-5" class="hljs-ln-code"><a href=""></a>  <span class="at">data =</span> analysis_data                             <span class="co"># Use cleaned dataset</span></span>
+<span id="cb5-6" class="hljs-ln-code"><a href=""></a>)</span>
+<span id="cb5-7" class="hljs-ln-code"><a href=""></a></span>
+<span id="cb5-8" class="hljs-ln-code"><a href=""></a><span class="fu">summary</span>(model1)                                    <span class="co"># View full results</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>
 Call:
@@ -747,8 +739,8 @@ F-statistic: 42.71 on 5 and 1168 DF,  p-value: &lt; 2.2e-16</code></pre>
 <p><span style="color: #461D7C; font-size: 0.9em;">Visualization that communicates</span></p>
 </div>
 </section>
-<section id="visualization" class="slide level2">
-<h2>Student Question: Visualization</h2>
+<section id="visualization" class="slide level2" data-auto-animate="true">
+<h2 data-id="quarto-animate-title">Student Question: Visualization</h2>
 <div class="student-ask">
 <p>I want to visualize the relationship between alcohol consumption and blood pressure, accounting for sex differences. What’s the best plot?</p>
 </div>
@@ -758,22 +750,22 @@ F-statistic: 42.71 on 5 and 1168 DF,  p-value: &lt; 2.2e-16</code></pre>
 </div>
 </div>
 </section>
-<section id="building-the-plot" class="slide level2 smaller">
-<h2>Building the Plot</h2>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb11"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb11-1"><a href=""></a>p <span class="ot">&lt;-</span> <span class="fu">ggplot</span>(analysis_data, <span class="fu">aes</span>(<span class="at">x =</span> drink_category, <span class="at">y =</span> BPSysAve,</span>
-<span id="cb11-2"><a href=""></a>                                <span class="at">fill =</span> Gender)) <span class="sc">+</span></span>
-<span id="cb11-3"><a href=""></a>  <span class="fu">geom_violin</span>(<span class="at">alpha =</span> <span class="fl">0.4</span>, <span class="at">position =</span> <span class="fu">position_dodge</span>(<span class="fl">0.8</span>)) <span class="sc">+</span></span>
-<span id="cb11-4"><a href=""></a>  <span class="fu">geom_boxplot</span>(<span class="at">width =</span> <span class="fl">0.15</span>, <span class="at">alpha =</span> <span class="fl">0.8</span>,</span>
-<span id="cb11-5"><a href=""></a>               <span class="at">position =</span> <span class="fu">position_dodge</span>(<span class="fl">0.8</span>), <span class="at">outlier.size =</span> <span class="fl">0.5</span>) <span class="sc">+</span></span>
-<span id="cb11-6"><a href=""></a>  <span class="fu">labs</span>(</span>
-<span id="cb11-7"><a href=""></a>    <span class="at">title =</span> <span class="st">"Blood Pressure by Drinking Level and Sex"</span>,</span>
-<span id="cb11-8"><a href=""></a>    <span class="at">subtitle =</span> <span class="st">"NHANES 2017-2018, Adults 20-65"</span>,</span>
-<span id="cb11-9"><a href=""></a>    <span class="at">x =</span> <span class="st">"Drinking Category"</span>, <span class="at">y =</span> <span class="st">"Systolic BP (mmHg)"</span>,</span>
-<span id="cb11-10"><a href=""></a>    <span class="at">fill =</span> <span class="st">"Sex"</span></span>
-<span id="cb11-11"><a href=""></a>  ) <span class="sc">+</span></span>
-<span id="cb11-12"><a href=""></a>  <span class="fu">scale_fill_manual</span>(<span class="at">values =</span> <span class="fu">c</span>(<span class="st">"female"</span> <span class="ot">=</span> <span class="st">"#D55E00"</span>,</span>
-<span id="cb11-13"><a href=""></a>                                <span class="st">"male"</span> <span class="ot">=</span> <span class="st">"#0072B2"</span>)) <span class="sc">+</span></span>
-<span id="cb11-14"><a href=""></a>  <span class="fu">theme_minimal</span>(<span class="at">base_size =</span> <span class="dv">20</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<section id="building-the-plot" class="slide level2 smaller" data-auto-animate="true">
+<h2 data-id="quarto-animate-title">Building the Plot</h2>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb11" data-code-line-numbers="|1-2|3-5|6-11|12-14"><pre class="sourceCode numberSource r number-lines code-with-copy" data-id="quarto-animate-code"><code class="sourceCode r hljs"><span id="cb11-1" class="hljs-ln-code"><a href=""></a>p <span class="ot">&lt;-</span> <span class="fu">ggplot</span>(analysis_data, <span class="fu">aes</span>(<span class="at">x =</span> drink_category, <span class="at">y =</span> BPSysAve,</span>
+<span id="cb11-2" class="hljs-ln-code"><a href=""></a>                                <span class="at">fill =</span> Gender)) <span class="sc">+</span></span>
+<span id="cb11-3" class="hljs-ln-code"><a href=""></a>  <span class="fu">geom_violin</span>(<span class="at">alpha =</span> <span class="fl">0.4</span>, <span class="at">position =</span> <span class="fu">position_dodge</span>(<span class="fl">0.8</span>)) <span class="sc">+</span></span>
+<span id="cb11-4" class="hljs-ln-code"><a href=""></a>  <span class="fu">geom_boxplot</span>(<span class="at">width =</span> <span class="fl">0.15</span>, <span class="at">alpha =</span> <span class="fl">0.8</span>,</span>
+<span id="cb11-5" class="hljs-ln-code"><a href=""></a>               <span class="at">position =</span> <span class="fu">position_dodge</span>(<span class="fl">0.8</span>), <span class="at">outlier.size =</span> <span class="fl">0.5</span>) <span class="sc">+</span></span>
+<span id="cb11-6" class="hljs-ln-code"><a href=""></a>  <span class="fu">labs</span>(</span>
+<span id="cb11-7" class="hljs-ln-code"><a href=""></a>    <span class="at">title =</span> <span class="st">"Blood Pressure by Drinking Level and Sex"</span>,</span>
+<span id="cb11-8" class="hljs-ln-code"><a href=""></a>    <span class="at">subtitle =</span> <span class="st">"NHANES 2017-2018, Adults 20-65"</span>,</span>
+<span id="cb11-9" class="hljs-ln-code"><a href=""></a>    <span class="at">x =</span> <span class="st">"Drinking Category"</span>, <span class="at">y =</span> <span class="st">"Systolic BP (mmHg)"</span>,</span>
+<span id="cb11-10" class="hljs-ln-code"><a href=""></a>    <span class="at">fill =</span> <span class="st">"Sex"</span></span>
+<span id="cb11-11" class="hljs-ln-code"><a href=""></a>  ) <span class="sc">+</span></span>
+<span id="cb11-12" class="hljs-ln-code"><a href=""></a>  <span class="fu">scale_fill_manual</span>(<span class="at">values =</span> <span class="fu">c</span>(<span class="st">"female"</span> <span class="ot">=</span> <span class="st">"#D55E00"</span>,</span>
+<span id="cb11-13" class="hljs-ln-code"><a href=""></a>                                <span class="st">"male"</span> <span class="ot">=</span> <span class="st">"#0072B2"</span>)) <span class="sc">+</span></span>
+<span id="cb11-14" class="hljs-ln-code"><a href=""></a>  <span class="fu">theme_minimal</span>(<span class="at">base_size =</span> <span class="dv">20</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="tip-box">
 <p><strong>ggplot Tip:</strong> Violin + box plot combo shows both distribution shape <em>and</em> summary statistics — far more informative than a bar chart</p>
 </div>
@@ -918,16 +910,16 @@ F-statistic: 42.71 on 5 and 1168 DF,  p-value: &lt; 2.2e-16</code></pre>
 <p><span style="font-size: 1.5em; color: white; font-family: 'Playfair Display', serif;"><em>“One research question, six visualizations,<br>zero StackOverflow.”</em></span></p>
 </div>
 </section>
-<section id="debugging" class="slide level2">
-<h2>Student Question: Debugging</h2>
+<section id="debugging" class="slide level2" data-auto-animate="true">
+<h2 data-id="quarto-animate-title">Student Question: Debugging</h2>
 <div class="student-ask">
 <p>I’m getting errors when I try to run my regression. Can you help me figure out what’s wrong?</p>
 </div>
 <div class="fragment">
 <p><strong>Common errors students encounter:</strong></p>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb12"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb12-1"><a href=""></a>Error<span class="sc">:</span> could not find <span class="cf">function</span> <span class="st">"ggplot"</span>        <span class="co"># Missing package</span></span>
-<span id="cb12-2"><a href=""></a>Error<span class="sc">:</span> object <span class="st">'drinks_perweek'</span> not found       <span class="co"># Typo in variable name</span></span>
-<span id="cb12-3"><a href=""></a>Error <span class="cf">in</span> <span class="fu">lm.fit</span>(x, y, ...)                     <span class="co"># Formula syntax error</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb12"><pre class="sourceCode numberSource r number-lines code-with-copy" data-id="quarto-animate-code"><code class="sourceCode r hljs"><span id="cb12-1" class="hljs-ln-code"><a href=""></a>Error<span class="sc">:</span> could not find <span class="cf">function</span> <span class="st">"ggplot"</span>        <span class="co"># Missing package</span></span>
+<span id="cb12-2" class="hljs-ln-code"><a href=""></a>Error<span class="sc">:</span> object <span class="st">'drinks_perweek'</span> not found       <span class="co"># Typo in variable name</span></span>
+<span id="cb12-3" class="hljs-ln-code"><a href=""></a>Error <span class="cf">in</span> <span class="fu">lm.fit</span>(x, y, ...)                     <span class="co"># Formula syntax error</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 <div class="fragment">
 <div class="claude-box">
@@ -1150,10 +1142,10 @@ Everything Is on GitHub
 <div>
 <p><strong>What we’ve seen today:</strong></p>
 <ul>
-<li>AI lowers barriers to statistical computing</li>
-<li>Students focus on <em>thinking</em>, not syntax</li>
-<li>Scaffolded learning builds independence</li>
-<li>Works across disciplines and skill levels</li>
+<li class="fragment">AI lowers barriers to statistical computing</li>
+<li class="fragment">Students focus on <em>thinking</em>, not syntax</li>
+<li class="fragment">Scaffolded learning builds independence</li>
+<li class="fragment">Works across disciplines and skill levels</li>
 </ul>
 </div>
 <div>

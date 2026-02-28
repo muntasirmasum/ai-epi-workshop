@@ -300,3 +300,68 @@ h2 {
 .medium {
   font-size: 0.85em;
 }
+
+// --- Taller R output blocks (Tom Palmer Tip #4) ---
+
+.cell .cell-output-stdout pre code,
+.cell .cell-output pre code {
+  max-height: 650px;
+}
+
+// --- Subtle slide background (Emil Hvitfeldt inspired) ---
+
+.reveal .slides section {
+  background: linear-gradient(
+    180deg,
+    rgba(255,255,255,1) 0%,
+    rgba(248,249,250,0.6) 100%
+  );
+}
+
+// Preserve solid-color backgrounds on section dividers & TL;DR slides
+.reveal .slides section[data-background-color] {
+  background: none !important;
+}
+
+// --- Polished footer (Thomas Mock inspired) ---
+
+.reveal .footer {
+  font-size: 0.45em !important;
+  color: rgba(108, 117, 125, 0.6) !important;
+  letter-spacing: 0.3px;
+}
+
+.reveal .footer a {
+  color: rgba(70, 29, 124, 0.5) !important;
+  text-decoration: none !important;
+  transition: color 0.2s;
+}
+
+.reveal .footer a:hover {
+  color: rgba(70, 29, 124, 0.85) !important;
+}
+
+// --- Enhanced title slide (Grant McDermott / UBD40 inspired) ---
+
+.reveal .slides section.quarto-title-block {
+  background: linear-gradient(
+    135deg,
+    rgba(255,255,255,1) 0%,
+    rgba(240,230,246,0.4) 50%,
+    rgba(234,170,0,0.08) 100%
+  ) !important;
+}
+
+// --- Smooth image hover (visual polish) ---
+
+.reveal img {
+  transition: box-shadow 0.3s ease;
+}
+
+// --- Better slide number styling ---
+
+.reveal .slide-number {
+  font-size: 0.5em !important;
+  color: rgba(108, 117, 125, 0.5) !important;
+  background: transparent !important;
+}
