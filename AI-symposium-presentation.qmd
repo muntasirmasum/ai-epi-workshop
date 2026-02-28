@@ -975,13 +975,13 @@ Every R programmer has rage-quit over a missing comma at least once. Claude does
 <strong>1.</strong> Go to <a href="https://posit.cloud/content/12007732">posit.cloud/content/12007732</a><br>
 <strong>2.</strong> Sign up for a free account (or log in)<br>
 <strong>3.</strong> Click <strong>"Save a Permanent Copy"</strong><br>
-<strong>4.</strong> Open <code>workshop-demo.R</code> and start running code!
+<strong>4.</strong> Open <a href="https://github.com/muntasirmasum/ai-epi-workshop/blob/main/workshop-demo.Rmd"><code>workshop-demo.Rmd</code></a> and start running code!
 </div>
 
 . . .
 
 <div class="tip-box" style="font-size: 0.72em;">
-<strong>What's included:</strong> R + RStudio in the cloud, NHANES data, all packages pre-installed, the complete analysis script from today's demo, and challenges to try on your own.
+<strong>What's included:</strong> R + RStudio in the cloud, NHANES data, all packages pre-installed, the complete analysis script, <strong>deliberate bugs to debug with <a href="https://claude.ai">Claude</a></strong>, and challenges to try on your own.
 </div>
 
 </div>
