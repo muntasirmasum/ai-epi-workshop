@@ -1191,7 +1191,7 @@ Every R programmer has rage-quit over a missing comma at least once. Claude does
 ## Discussion
 
 :::: {.columns}
-::: {.column width="48%" style="border: none;"}
+::: {.column width="48%"}
 
 **What we've seen today:**
 
@@ -1203,7 +1203,7 @@ Every R programmer has rage-quit over a missing comma at least once. Claude does
 </div>
 
 :::
-::: {.column width="48%" style="border: none;"}
+::: {.column width="48%"}
 
 **Let's discuss:**
 
