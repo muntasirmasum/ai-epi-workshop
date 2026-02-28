@@ -162,7 +162,7 @@ Office hours at 2am? Not ideal. Claude at 2am? Always available, never annoyed.
 ::: {style="text-align: center; margin-top: 20px;"}
 **Today's focus:** Demonstrating AI-assisted statistical analysis workflows using ClaudeR + Claude Cowork
 
-<span style="font-size: 0.65em; color: #6c757d;">📎 [Setup instructions in the appendix (slides 37–42)](#setup-appendix)</span>
+<span style="font-size: 0.65em; color: #6c757d;">📎 [Setup instructions in the appendix (slides 36–41)](#setup-appendix)</span>
 :::
 
 ## Claude Chat: Interpreting Output
