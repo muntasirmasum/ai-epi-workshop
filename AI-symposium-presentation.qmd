@@ -137,6 +137,14 @@ Today we'll see exactly how that works.
 Office hours at 2am? Not ideal. Claude at 2am? Always available, never annoyed.
 :::
 
+## {data-background-color="#461D7C"}
+
+::: {style="text-align: center; margin-top: 15%;"}
+[TL;DR]{style="font-size: 1.2em; color: #EAAA00; font-weight: bold; letter-spacing: 3px;"}
+
+[*"Students drown in syntax.<br>AI throws them a life raft."*]{style="font-size: 1.5em; color: white; font-family: 'Playfair Display', serif;"}
+:::
+
 ## Three Ways to Use Claude + RStudio {#integration}
 
 <div class="card-grid">
@@ -279,6 +287,14 @@ claudeAddin()
 </div>
 </div>
 
+## {data-background-color="#461D7C"}
+
+::: {style="text-align: center; margin-top: 15%;"}
+[TL;DR]{style="font-size: 1.2em; color: #EAAA00; font-weight: bold; letter-spacing: 3px;"}
+
+[*"Chat → Cowork → Code.<br>Start simple, level up when ready."*]{style="font-size: 1.5em; color: white; font-family: 'Playfair Display', serif;"}
+:::
+
 ## Let's See It in Action {.section-divider-gold data-background-color="#EAAA00"}
 
 ::: {style="text-align: center;"}
@@ -407,6 +423,14 @@ summary(model1)$coefficients["drinks_per_week", "Pr(>|t|)"]
 <div class="claude-box">
 <strong>Claude guides the student:</strong> "What does this p-value tell us? Is this effect size clinically meaningful for public health interventions?"
 </div>
+
+## {data-background-color="#461D7C"}
+
+::: {style="text-align: center; margin-top: 15%;"}
+[TL;DR]{style="font-size: 1.2em; color: #EAAA00; font-weight: bold; letter-spacing: 3px;"}
+
+[*"You ask the question. Claude writes the code.<br>You interpret the answer."*]{style="font-size: 1.5em; color: white; font-family: 'Playfair Display', serif;"}
+:::
 
 ## Telling the Story with Data {.section-divider-gold data-background-color="#EAAA00"}
 
@@ -782,6 +806,14 @@ ggplot(pred, aes(x = x, y = predicted, color = group, fill = group)) +
 :::
 ::::
 
+## {data-background-color="#461D7C"}
+
+::: {style="text-align: center; margin-top: 15%;"}
+[TL;DR]{style="font-size: 1.2em; color: #EAAA00; font-weight: bold; letter-spacing: 3px;"}
+
+[*"One research question, six visualizations,<br>zero StackOverflow."*]{style="font-size: 1.5em; color: white; font-family: 'Playfair Display', serif;"}
+:::
+
 ## Student Question: Debugging {#debugging}
 
 <div class="student-ask">
@@ -810,6 +842,14 @@ Error in lm.fit(x, y, ...)                     # Formula syntax error
 
 ::: {style="text-align: center; margin-top: 10px; font-size: 0.55em; color: #6c757d; font-style: italic;"}
 Every R programmer has rage-quit over a missing comma at least once. Claude doesn't judge.
+:::
+
+## {data-background-color="#461D7C"}
+
+::: {style="text-align: center; margin-top: 15%;"}
+[TL;DR]{style="font-size: 1.2em; color: #EAAA00; font-weight: bold; letter-spacing: 3px;"}
+
+[*"Errors aren't roadblocks —<br>they're teaching moments."*]{style="font-size: 1.5em; color: white; font-family: 'Playfair Display', serif;"}
 :::
 
 ## Cowork vs Code
@@ -845,6 +885,14 @@ Every R programmer has rage-quit over a missing comma at least once. Claude does
 
 ::: {style="text-align: center; margin-top: 20px;"}
 **Start with Cowork to learn** → **Graduate to Code when ready**
+:::
+
+## {data-background-color="#461D7C"}
+
+::: {style="text-align: center; margin-top: 15%;"}
+[TL;DR]{style="font-size: 1.2em; color: #EAAA00; font-weight: bold; letter-spacing: 3px;"}
+
+[*"Cowork to learn. Code to ship."*]{style="font-size: 1.5em; color: white; font-family: 'Playfair Display', serif;"}
 :::
 
 ## Bringing It All Together {.section-divider-gold data-background-color="#EAAA00"}
