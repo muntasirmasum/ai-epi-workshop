@@ -963,7 +963,7 @@ Every R programmer has rage-quit over a missing comma at least once. Claude does
 <div style="text-align: center;">
 ![](qr-posit-cloud.png){width=350px}
 
-<span style="font-size: 0.7em; color: #6c757d;">Scan or visit the link below</span>
+<span style="font-size: 0.7em; color: #6c757d;">Scan or <a href="https://posit.cloud/content/12007732">visit the link</a></span>
 </div>
 
 </div>
@@ -974,7 +974,7 @@ Every R programmer has rage-quit over a missing comma at least once. Claude does
 <div class="card card--green" style="text-align: left; font-size: 0.75em; line-height: 1.8;">
 <strong>1.</strong> Go to <a href="https://posit.cloud/content/12007732">posit.cloud/content/12007732</a><br>
 <strong>2.</strong> Sign up for a free account (or log in)<br>
-<strong>3.</strong> Click <strong>"Save a Permanent Copy"</strong><br>
+<strong>3.</strong> Click <strong>"Save a Permanent Copy"</strong> (saves your own editable copy)<br>
 <strong>4.</strong> Open <a href="https://github.com/muntasirmasum/ai-epi-workshop/blob/main/workshop-demo.Rmd"><code>workshop-demo.Rmd</code></a> and start running code!
 </div>
 
