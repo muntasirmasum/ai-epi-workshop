@@ -62,7 +62,7 @@ Today we'll see exactly how that works.
 ::: {.card}
 [**Context**]{.card-icon style="font-size: 1.6em;"}
 
-### 15 minutes
+<h3>15 minutes</h3>
 
 The teaching challenge & how AI fits in
 :::
@@ -72,7 +72,7 @@ The teaching challenge & how AI fits in
 ::: {.card-orange}
 [**Live Demo**]{.card-icon style="font-size: 1.6em;"}
 
-### 45 minutes
+<h3>45 minutes</h3>
 
 Coding, analysis, visualization & debugging
 :::
@@ -82,7 +82,7 @@ Coding, analysis, visualization & debugging
 ::: {.card-blue}
 [**Discussion**]{.card-icon style="font-size: 1.6em;"}
 
-### 15 minutes
+<h3>15 minutes</h3>
 
 Implementation, integrity & Q&A
 :::
@@ -171,7 +171,7 @@ Curious about AI + analysis
 ::: columns
 ::: {.column width="33%"}
 ::: {.card-green}
-### ClaudeR Package
+<h3>ClaudeR Package</h3>
 
 Direct RStudio integration via Claude Desktop app
 
@@ -181,7 +181,7 @@ Direct RStudio integration via Claude Desktop app
 
 ::: {.column width="33%"}
 ::: {.card-orange}
-### Claude Chat
+<h3>Claude Chat</h3>
 
 Claude Desktop App + copy/paste to RStudio
 
@@ -191,7 +191,7 @@ Claude Desktop App + copy/paste to RStudio
 
 ::: {.column width="33%"}
 ::: {.card}
-### Claude Code
+<h3>Claude Code</h3>
 
 Full AI IDE integration with autonomous execution
 
@@ -715,7 +715,7 @@ Error in lm.fit(x, y, ...)                     # Formula syntax error
 ::: columns
 ::: {.column width="50%"}
 ::: {.card}
-### Get Set Up
+<h3>Get Set Up</h3>
 
 1. Install [R](https://cran.r-project.org/) and [RStudio](https://posit.co/download/rstudio-desktop/)
 2. Create Claude account at [claude.ai](https://claude.ai)
@@ -730,7 +730,7 @@ install.packages(c("tidyverse",
 
 ::: {.column width="50%"}
 ::: {.card-orange}
-### Workshop Materials
+<h3>Workshop Materials</h3>
 
 Everything is on GitHub:
 
@@ -748,7 +748,7 @@ Everything is on GitHub:
 ::: columns
 ::: {.column width="48%"}
 ::: {.card}
-### Clear Guidelines
+<h3>Clear Guidelines</h3>
 
 - AI assistance is **allowed**
 - Must **cite** AI use
@@ -762,7 +762,7 @@ Everything is on GitHub:
 
 ::: {.column width="48%"}
 ::: {.card-orange}
-### Assessment Design
+<h3>Assessment Design</h3>
 
 - Timed exams (no AI)
 - Interpretation-focused questions
@@ -820,7 +820,7 @@ Everything is on GitHub:
 
 <br><br>
 
-### Questions?
+<h3>Questions?</h3>
 
 <br>
 
