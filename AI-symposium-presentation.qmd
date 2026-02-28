@@ -1126,7 +1126,7 @@ Every R programmer has rage-quit over a missing comma at least once. Claude does
 <li>📊 Sample datasets</li>
 <li>📖 Quick-start guide</li>
 </ul>
-<p style="font-size:0.95em; margin-top: 15px;"><strong><a href="https://github.com/muntasirmasum/ai-epi-workshop">github.com/muntasirmasum/ai-epi-workshop</a></strong></p>
+<p style="font-size:0.82em; margin-top: 15px; white-space: nowrap;"><strong><a href="https://github.com/muntasirmasum/ai-epi-workshop">github.com/muntasirmasum/ai-epi-workshop</a></strong></p>
 </div>
 
 :::
