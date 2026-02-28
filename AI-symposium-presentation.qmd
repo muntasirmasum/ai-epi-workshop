@@ -602,7 +602,7 @@ coef_data <- tidy(model1, conf.int = TRUE) %>%
   ))
 
 ggplot(coef_data, aes(x = estimate, y = term)) +
-  geom_vline(xintercept = 0, linetype = "dashed", color = "gray50", size = 1) +
+  geom_vline(xintercept = 0, linetype = "dashed", color = "#EAAA00", size = 1.2) +
   geom_errorbarh(aes(xmin = conf.low, xmax = conf.high),
                  height = 0.2, size = 1.2, color = "#461D7C") +
   geom_point(size = 4, color = "#461D7C") +
