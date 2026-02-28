@@ -245,13 +245,9 @@ claudeAddin()
 :::
 :::
 
----
-
-## {.section-divider data-background-color="#461D7C"}
+## Let's See It in Action {.section-divider data-background-color="#461D7C"}
 
 ::: {style="text-align: center;"}
-[Let's See It in Action]{style="color: white; font-family: 'Playfair Display', serif; font-size: 2em; font-weight: 900;"}
-
 [Coding · Analysis · Visualization · Debugging]{style="color: #c4a8e0; font-size: 0.9em;"}
 :::
 
@@ -398,13 +394,9 @@ summary(model1)$coefficients["drinks_per_week", "Pr(>|t|)"]
 **Claude guides the student:** "What does this p-value tell us? Is this effect size clinically meaningful for public health interventions?"
 :::
 
----
-
-## {.section-divider data-background-color="#461D7C"}
+## Telling the Story with Data {.section-divider data-background-color="#461D7C"}
 
 ::: {style="text-align: center;"}
-[Telling the Story with Data]{style="color: white; font-family: 'Playfair Display', serif; font-size: 2em; font-weight: 900;"}
-
 [Visualization that communicates]{style="color: #c4a8e0; font-size: 0.9em;"}
 :::
 
@@ -712,13 +704,9 @@ Error in lm.fit(x, y, ...)                     # Formula syntax error
 **Debug Tip:** Run `ls()` to see your environment — check if the variable exists before panicking!
 :::
 
----
-
-## {.section-divider data-background-color="#461D7C"}
+## Bringing It All Together {.section-divider data-background-color="#461D7C"}
 
 ::: {style="text-align: center;"}
-[Bringing It All Together]{style="color: white; font-family: 'Playfair Display', serif; font-size: 2em; font-weight: 900;"}
-
 [Implementation, integrity & discussion]{style="color: #c4a8e0; font-size: 0.9em;"}
 :::
 
