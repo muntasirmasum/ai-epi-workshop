@@ -287,12 +287,12 @@ claudeAddin()
 </div>
 </div>
 
-## Claude Cowork in Action
+## Claude Cowork in Action — You Ask, Claude Codes
 
 <div class="split">
 <div>
 
-**You ask — Claude works in RStudio**
+**You type a plain-English request**
 
 ![](claude-working.png){style="border: 2px solid #ddd; border-radius: 8px; box-shadow: 0 4px 12px rgba(0,0,0,0.15);" width="100%"}
 
@@ -303,15 +303,27 @@ Student prompts Claude → Claude calls RStudio tools
 </div>
 <div>
 
-**Claude delivers a full summary**
+**Claude writes & runs the code in RStudio**
 
-![](claude-answers.png){style="border: 2px solid #ddd; border-radius: 8px; box-shadow: 0 4px 12px rgba(0,0,0,0.15);" width="100%"}
+![](claudeR-RStudio.png){style="border: 2px solid #ddd; border-radius: 8px; box-shadow: 0 4px 12px rgba(0,0,0,0.15);" width="100%"}
 
 <div style="text-align: center; font-size: 0.6em; color: #6c757d; margin-top: 5px;">
-Data prep steps, variable summaries, and next-step suggestions
+Real R code executed live in your RStudio session
 </div>
 
 </div>
+</div>
+
+## Claude Cowork in Action — The Results
+
+<div style="text-align: center;">
+
+![](claude-answers.png){style="border: 2px solid #ddd; border-radius: 8px; box-shadow: 0 4px 12px rgba(0,0,0,0.15); max-height: 680px;"}
+
+<div style="font-size: 0.65em; color: #6c757d; margin-top: 8px;">
+Data prep steps, variable summaries, flags, and next-step suggestions — all from one prompt
+</div>
+
 </div>
 
 ## {data-background-color="#461D7C"}
