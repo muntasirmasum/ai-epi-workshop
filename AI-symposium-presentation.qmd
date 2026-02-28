@@ -311,39 +311,11 @@ I need to prepare my NHANES data for regression analysis. I want adults aged 20-
 <strong>Claude's approach:</strong> Filter age range → Select variables → Handle missing data → Create derived variables
 </div>
 
-## The Code {.smaller}
+## Live Code Output
 
 <div class="claude-box">
 <strong>Claude suggests:</strong> Use <code>filter()</code> for age range, <code>mutate()</code> for new variables, and handle missing data explicitly
 </div>
-
-```r
-# Load packages
-library(tidyverse)  # ← Claude recommends: tidyverse for data wrangling
-
-# Load NHANES data
-data("NHANES")  # ← Built-in dataset from NHANES package
-
-# Prepare analysis dataset
-analysis_data <- NHANES %>%
-  filter(Age >= 20, Age <= 65) %>%              # Filter age range
-  select(ID, Gender, Age, BMI, AlcoholDay,
-         SmokeNow, BPSysAve) %>%                # Select relevant vars
-  na.omit() %>%                                  # Remove missing data
-  mutate(
-    drinks_per_week = AlcoholDay * 7,            # Convert daily → weekly
-    current_smoker = ifelse(SmokeNow == "Yes", 1, 0),
-    drink_category = cut(AlcoholDay * 7,         # Categorize drinking
-      breaks = c(-Inf, 0, 7, 14, Inf),
-      labels = c("None", "Light", "Moderate", "Heavy"))
-  )
-```
-
-<div class="tip-box">
-<strong>R Tip:</strong> <code>na.omit()</code> drops ALL rows with any NA — consider <code>filter(!is.na(var))</code> for targeted removal
-</div>
-
-## Live Code Output
 
 ```{r}
 #| label: data-prep
