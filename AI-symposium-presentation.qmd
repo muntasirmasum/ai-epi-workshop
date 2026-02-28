@@ -1164,97 +1164,76 @@ claude
 
 ##
 
-<div class="card-grid" style="gap: 30px;">
-<div style="flex: 1;">
-
-<div class="claude-box" style="margin-bottom: 14px; font-size: 0.75em;">
+<div class="claude-box" style="margin-bottom: 20px; font-size: 0.85em;">
 <strong>🎓 Won't students just let AI do all the work?</strong>
 </div>
 
-<div class="card card--green" style="text-align: left; font-size: 0.68em; line-height: 1.6;">
+<div class="card card--green" style="text-align: left; font-size: 0.78em; line-height: 1.7; max-width: 85%;">
 <strong style="color: #461D7C;">Short answer: Not with Cowork.</strong><br><br>
-Claude Cowork is a <em>tutor</em>, not an autopilot. Students still choose the variables, interpret the output, and explain the results. Claude explains <em>why</em> code works — it doesn't just hand over answers.<br><br>
+Claude Cowork is a <em>tutor</em>, not an autopilot. Students still choose the variables, interpret the output, and explain the results. Claude explains <em>why</em> code works — it doesn't just hand over answers. The learning happens in the conversation, not the copy-paste.<br><br>
 <span style="font-size: 0.85em; color: #6c757d;">→ See how this works in practice: <a href="#analysis">Analysis demo</a> · <a href="#debugging">Debugging demo</a></span>
-</div>
-
-</div>
-<div style="flex: 1;">
-
-<div class="claude-box" style="margin-bottom: 14px; font-size: 0.75em;">
-<strong>🔒 Is student data safe? Does Claude store it?</strong>
-</div>
-
-<div class="card card--green" style="text-align: left; font-size: 0.68em; line-height: 1.6;">
-<strong style="color: #461D7C;">Privacy by default.</strong><br><br>
-Claude does not train on user conversations. In our demo, we use publicly available NHANES data — no student PII involved. For sensitive data, Anthropic offers enterprise plans with additional compliance.<br><br>
-<span style="font-size: 0.85em; color: #6c757d;">Always check your institution's data governance policy.</span>
-</div>
-
-</div>
 </div>
 
 ##
 
-<div class="card-grid" style="gap: 30px;">
-<div style="flex: 1;">
+<div class="claude-box" style="margin-bottom: 20px; font-size: 0.85em;">
+<strong>🔒 Is student data safe? Does Claude store it?</strong>
+</div>
 
-<div class="claude-box" style="margin-bottom: 14px; font-size: 0.75em;">
+<div class="card card--green" style="text-align: left; font-size: 0.78em; line-height: 1.7; max-width: 85%;">
+<strong style="color: #461D7C;">Privacy by default.</strong><br><br>
+Claude does not train on user conversations. In our demo, we use publicly available NHANES data — no student PII involved. For courses handling sensitive data, Anthropic offers enterprise plans with additional compliance.<br><br>
+<span style="font-size: 0.85em; color: #6c757d;">Always check your institution's data governance policy.</span>
+</div>
+
+##
+
+<div class="claude-box" style="margin-bottom: 20px; font-size: 0.85em;">
 <strong>💰 How much does this actually cost?</strong>
 </div>
 
-<div class="card card--green" style="text-align: left; font-size: 0.68em; line-height: 1.6;">
+<div class="card card--green" style="text-align: left; font-size: 0.78em; line-height: 1.7; max-width: 85%;">
 <strong style="color: #461D7C;">Free to start, affordable to scale.</strong><br><br>
 <strong>Claude Chat:</strong> Free tier at claude.ai<br>
 <strong>ClaudeR + Cowork:</strong> Free (Claude Desktop App)<br>
 <strong>Claude Code:</strong> Paid API (~$5–20/month)<br><br>
-Most students can do everything on the free tier. No paywall for learning.<br>
+Most students can do everything on the free tier. No paywall for learning.<br><br>
 <span style="font-size: 0.85em; color: #6c757d;">→ <a href="#integration">Compare all three options</a> · <a href="#setup-appendix">Setup instructions</a></span>
-</div>
-
-</div>
-<div style="flex: 1;">
-
-<div class="claude-box" style="margin-bottom: 14px; font-size: 0.75em;">
-<strong>📚 Does this work outside epidemiology?</strong>
-</div>
-
-<div class="card card--green" style="text-align: left; font-size: 0.68em; line-height: 1.6;">
-<strong style="color: #461D7C;">Absolutely — any discipline that uses data.</strong><br><br>
-The workflow generalizes to any R-based analysis: sociology, psychology, economics, political science, ecology, business analytics. Claude adapts to the domain — you just change the dataset and research question. The pedagogy stays the same.
-</div>
-
-</div>
 </div>
 
 ##
 
-<div class="card-grid" style="gap: 30px;">
-<div style="flex: 1;">
+<div class="claude-box" style="margin-bottom: 20px; font-size: 0.85em;">
+<strong>📚 Does this work outside epidemiology?</strong>
+</div>
 
-<div class="claude-box" style="margin-bottom: 14px; font-size: 0.75em;">
+<div class="card card--green" style="text-align: left; font-size: 0.78em; line-height: 1.7; max-width: 85%;">
+<strong style="color: #461D7C;">Absolutely — any discipline that uses data.</strong><br><br>
+The workflow generalizes to any R-based analysis: sociology, psychology, economics, political science, ecology, business analytics. Claude adapts to the domain — you just change the dataset and research question. The pedagogy stays the same.
+</div>
+
+##
+
+<div class="claude-box" style="margin-bottom: 20px; font-size: 0.85em;">
 <strong>⚖️ How do you handle academic integrity?</strong>
 </div>
 
-<div class="card card--green" style="text-align: left; font-size: 0.68em; line-height: 1.6;">
+<div class="card card--green" style="text-align: left; font-size: 0.78em; line-height: 1.7; max-width: 85%;">
 <strong style="color: #461D7C;">Set the policy before the semester starts.</strong><br><br>
 We treat AI like a calculator — permitted and expected, but you must show your reasoning. Students submit annotated code explaining each decision. The assessment shifts from <em>"Did you get the right answer?"</em> to <em>"Do you understand what you did and why?"</em>
 </div>
 
-</div>
-<div style="flex: 1;">
+##
 
-<div class="claude-box" style="margin-bottom: 14px; font-size: 0.75em;">
+<div class="claude-box" style="margin-bottom: 20px; font-size: 0.85em;">
 <strong>🚀 How do I get started in my own course?</strong>
 </div>
 
-<div class="card card--green" style="text-align: left; font-size: 0.68em; line-height: 1.6;">
+<div class="card card--green" style="text-align: left; font-size: 0.78em; line-height: 1.7; max-width: 85%;">
 <strong style="color: #461D7C;">Three steps, starting today.</strong><br><br>
 <strong>1.</strong> Try Claude Chat yourself — paste some output and ask questions<br>
 <strong>2.</strong> Add one AI-assisted assignment to an existing course<br>
 <strong>3.</strong> Share the <a href="https://github.com/muntasirmasum/ai-epi-workshop">workshop materials</a> with your students<br><br>
 <span style="font-size: 0.85em; color: #6c757d;">→ <a href="#setup-appendix">Full setup guide in the appendix</a></span>
-</div>
-
-</div>
 </div>
 
