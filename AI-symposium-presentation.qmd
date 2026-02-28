@@ -1546,31 +1546,31 @@ We treat AI like a calculator — permitted and expected, but you must show your
 document.addEventListener('DOMContentLoaded', function() {
   const resources = {
     // Context & overview slides
-    welcome:        { text: 'AI+ Symposium 2026',    url: 'https://events.albany.edu/event/ai-plus-symposium' },
-    overview:       { text: 'AI+ Symposium 2026',    url: 'https://events.albany.edu/event/ai-plus-symposium' },
+    welcome:        { text: 'AI+ Symposium 2026',       url: 'https://events.albany.edu/event/ai-plus-symposium' },
+    overview:       { text: 'AI+ Symposium 2026',       url: 'https://events.albany.edu/event/ai-plus-symposium' },
     // Tools & integration slides
-    integration:    { text: 'Claude AI ↗',            url: 'https://claude.ai' },
+    integration:    { text: 'AI in Education ↗',        url: 'https://teaching.cornell.edu/generative-artificial-intelligence/ai-teaching-and-learning' },
     // Data & coding slides
-    coding:         { text: 'NHANES Data (CDC) ↗',   url: 'https://www.cdc.gov/nchs/nhanes/' },
+    coding:         { text: 'NHANES Data (CDC) ↗',      url: 'https://www.cdc.gov/nchs/nhanes/' },
     // Analysis & regression slides
-    analysis:       { text: 'R for Data Science ↗',  url: 'https://r4ds.hadley.nz/' },
+    analysis:       { text: 'R for Data Science ↗',     url: 'https://r4ds.hadley.nz/' },
     // Visualization slides
-    visualization:  { text: 'ggplot2 Reference ↗',   url: 'https://ggplot2.tidyverse.org/reference/' },
+    visualization:  { text: 'ggplot2 Reference ↗',      url: 'https://ggplot2.tidyverse.org/reference/' },
     // Debugging slides
-    debugging:      { text: 'ClaudeR Package ↗',     url: 'https://github.com/IMNMV/ClaudeR' },
+    debugging:      { text: 'Common R Errors ↗',        url: 'https://statsandr.com/blog/top-10-errors-in-r/' },
     // Integrity & closing slides
-    integrity:      { text: 'Workshop Repo ↗',       url: 'https://github.com/muntasirmasum/ai-epi-workshop' },
-    resources:      { text: 'Workshop Repo ↗',       url: 'https://github.com/muntasirmasum/ai-epi-workshop' },
+    integrity:      { text: 'AI & Academic Integrity ↗', url: 'https://www.insidehighered.com/topics/artificial-intelligence-and-academic-integrity' },
+    resources:      { text: 'Workshop Repo ↗',          url: 'https://github.com/muntasirmasum/ai-epi-workshop' },
     // Setup appendix slides
-    'setup-appendix': { text: 'Claude AI ↗',         url: 'https://claude.ai' },
+    'setup-appendix': { text: 'Setup Guide ↗',          url: 'https://github.com/muntasirmasum/ai-epi-workshop/tree/main/materials' },
     // Try it yourself
-    'try-it':       { text: 'Posit Cloud ↗',         url: 'https://posit.cloud/content/12007732' },
+    'try-it':       { text: 'Posit Cloud ↗',            url: 'https://posit.cloud/content/12007732' },
     // Research question
     'research-question': { text: 'NHANES Data (CDC) ↗', url: 'https://www.cdc.gov/nchs/nhanes/' }
   };
 
   // Default resource when no section match
-  const defaultResource = { text: 'Claude AI ↗', url: 'https://claude.ai' };
+  const defaultResource = { text: 'Workshop Repo ↗', url: 'https://github.com/muntasirmasum/ai-epi-workshop' };
 
   // Section ranges: map slide IDs to their "zone"
   // We'll find the closest preceding section ID
