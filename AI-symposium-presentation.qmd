@@ -326,7 +326,7 @@ Real R code executed live in your RStudio session
 
 <div style="text-align: center;">
 
-![](claude-answers.png){style="border: 2px solid #ddd; border-radius: 8px; box-shadow: 0 4px 12px rgba(0,0,0,0.15); max-height: 780px;"}
+![](claude-answers.png){style="border: 2px solid #ddd; border-radius: 8px; box-shadow: 0 4px 12px rgba(0,0,0,0.15); max-height: 600px;"}
 
 <div style="font-size: 0.65em; color: #6c757d; margin-top: 8px;">
 Data prep steps, variable summaries, flags, and next-step suggestions — all from one prompt
