@@ -967,7 +967,7 @@ Every R programmer has rage-quit over a missing comma at least once. Claude does
 ## Bug #1: The Case-Sensitive Typo
 
 <div class="split">
-<div>
+<div style="flex: 1;">
 
 **The error:**
 
@@ -978,7 +978,7 @@ Every R programmer has rage-quit over a missing comma at least once. Claude does
 </div>
 
 </div>
-<div>
+<div style="flex: 1.4;">
 
 **Claude's fix:**
 
@@ -994,7 +994,7 @@ Every R programmer has rage-quit over a missing comma at least once. Claude does
 ## Bug #2: Assignment vs. Comparison
 
 <div class="split">
-<div>
+<div style="flex: 1;">
 
 **The error:**
 
@@ -1005,7 +1005,7 @@ Every R programmer has rage-quit over a missing comma at least once. Claude does
 </div>
 
 </div>
-<div>
+<div style="flex: 1.4;">
 
 **Claude's fix:**
 
@@ -1021,7 +1021,7 @@ Every R programmer has rage-quit over a missing comma at least once. Claude does
 ## Bug #3: The Missing Pipe
 
 <div class="split">
-<div>
+<div style="flex: 1;">
 
 **The error:**
 
@@ -1032,7 +1032,7 @@ Every R programmer has rage-quit over a missing comma at least once. Claude does
 </div>
 
 </div>
-<div>
+<div style="flex: 1.4;">
 
 **Claude's fix:**
 
