@@ -252,7 +252,10 @@ analysis_data <- NHANES %>%
   na.omit() %>%                                  # Remove missing data
   mutate(
     drinks_per_week = AlcoholDay * 7,            # Convert daily → weekly
-    current_smoker = ifelse(SmokeNow == "Yes", 1, 0)
+    current_smoker = ifelse(SmokeNow == "Yes", 1, 0),
+    drink_category = cut(AlcoholDay * 7,         # Categorize drinking
+      breaks = c(-Inf, 0, 7, 14, Inf),
+      labels = c("None", "Light", "Moderate", "Heavy"))
   )
 ```
 
@@ -274,9 +277,12 @@ analysis_data <- NHANES %>%
          !is.na(SmokeNow), !is.na(Gender)) %>%
   mutate(
     drinks_per_week = AlcoholDay * 7,
-    current_smoker = ifelse(SmokeNow == "Yes", 1, 0)
+    current_smoker = ifelse(SmokeNow == "Yes", 1, 0),
+    drink_category = cut(AlcoholDay * 7,
+      breaks = c(-Inf, 0, 7, 14, Inf),
+      labels = c("None", "Light", "Moderate", "Heavy"))
   ) %>%
-  select(ID, Gender, Age, BMI, drinks_per_week, current_smoker, BPSysAve) %>%
+  select(ID, Gender, Age, BMI, drinks_per_week, drink_category, current_smoker, BPSysAve) %>%
   distinct(ID, .keep_all = TRUE)
 ```
 
@@ -361,29 +367,30 @@ I want to visualize the relationship between alcohol consumption and blood press
 . . .
 
 <div class="claude-box">
-<strong>Claude suggests:</strong> Scatter plot with regression lines, separate by sex, add confidence intervals, clear labels
+<strong>Claude suggests:</strong> A violin plot with overlaid box plots — shows the full distribution shape, grouped by drinking level and colored by sex
 </div>
 
 ## Building the Plot {.smaller}
 
 ```r
-p <- ggplot(analysis_data, aes(x = drinks_per_week, y = BPSysAve,
-                                color = Gender)) +
-  geom_point(alpha = 0.3, size = 2) +
-  geom_smooth(method = "lm", se = TRUE, linewidth = 1.5) +
+p <- ggplot(analysis_data, aes(x = drink_category, y = BPSysAve,
+                                fill = Gender)) +
+  geom_violin(alpha = 0.4, position = position_dodge(0.8)) +
+  geom_boxplot(width = 0.15, alpha = 0.8,
+               position = position_dodge(0.8), outlier.size = 0.5) +
   labs(
-    title = "Alcohol Consumption and Systolic Blood Pressure",
-    subtitle = "NHANES 2017-2018, Adults Aged 20-65",
-    x = "Drinks Per Week",
-    y = "Systolic Blood Pressure (mmHg)",
-    color = "Sex"
+    title = "Blood Pressure by Drinking Level and Sex",
+    subtitle = "NHANES 2017-2018, Adults 20-65",
+    x = "Drinking Category", y = "Systolic BP (mmHg)",
+    fill = "Sex"
   ) +
-  theme_minimal(base_size = 20) +
-  theme(legend.position = "right")
+  scale_fill_manual(values = c("female" = "#D55E00",
+                                "male" = "#0072B2")) +
+  theme_minimal(base_size = 20)
 ```
 
 <div class="tip-box">
-<strong>ggplot Tip:</strong> <code>alpha</code> controls transparency — essential when you have overlapping points (overplotting)
+<strong>ggplot Tip:</strong> Violin + box plot combo shows both distribution shape <em>and</em> summary statistics — far more informative than a bar chart
 </div>
 
 ## Visualization Output
@@ -394,27 +401,33 @@ p <- ggplot(analysis_data, aes(x = drinks_per_week, y = BPSysAve,
 #| fig-width: 14
 #| fig-height: 9
 
-ggplot(analysis_data, aes(x = drinks_per_week, y = BPSysAve, color = Gender)) +
-  geom_point(alpha = 0.3, size = 3) +
-  geom_smooth(method = "lm", se = TRUE, linewidth = 2) +
+ggplot(analysis_data, aes(x = drink_category, y = BPSysAve, fill = Gender)) +
+  geom_violin(alpha = 0.35, position = position_dodge(0.8),
+              color = NA, scale = "width") +
+  geom_boxplot(width = 0.15, alpha = 0.9,
+               position = position_dodge(0.8),
+               outlier.size = 0.8, outlier.alpha = 0.3) +
+  stat_summary(fun = mean, geom = "point", shape = 18, size = 4,
+               position = position_dodge(0.8), show.legend = FALSE) +
   labs(
-    title = "Alcohol Consumption and Systolic Blood Pressure",
-    subtitle = "NHANES 2017-2018, Adults Aged 20-65",
-    x = "Drinks Per Week",
+    title = "Blood Pressure Distribution by Drinking Level and Sex",
+    subtitle = "NHANES 2017-2018 | Adults Aged 20-65 | Diamond = Mean",
+    x = "Drinking Category",
     y = "Systolic Blood Pressure (mmHg)",
-    color = "Sex"
+    fill = "Sex"
   ) +
+  scale_fill_manual(values = c("female" = "#D55E00", "male" = "#0072B2")) +
   theme_minimal(base_size = 24) +
   theme(
     legend.position = "right",
     legend.text = element_text(size = 22),
     legend.title = element_text(size = 22, face = "bold"),
     plot.title = element_text(size = 26, face = "bold"),
-    plot.subtitle = element_text(size = 20),
+    plot.subtitle = element_text(size = 18, color = "gray40"),
     axis.title = element_text(size = 22, face = "bold"),
-    axis.text = element_text(size = 20)
-  ) +
-  scale_color_manual(values = c("female" = "#D55E00", "male" = "#0072B2"))
+    axis.text = element_text(size = 20),
+    panel.grid.major.x = element_blank()
+  )
 ```
 
 ## Data Distributions

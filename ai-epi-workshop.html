@@ -10,7 +10,7 @@
   <meta name="generator" content="quarto-1.8.27">
 
   <meta name="author" content="Muntasir Masum, PhD">
-  <meta name="dcterms.date" content="2026-02-27">
+  <meta name="dcterms.date" content="2026-02-28">
   <title>AI-Assisted Statistical Analysis in Graduate Epidemiology Education</title>
   <meta name="apple-mobile-web-app-capable" content="yes">
   <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
@@ -210,7 +210,7 @@ Muntasir Masum, PhD
     </div>
 </div>
 
-  <p class="date">2026-02-27</p>
+  <p class="date">2026-02-28</p>
 </section>
 <section id="welcome" class="slide level2">
 <h2></h2>
@@ -468,8 +468,11 @@ Full AI IDE integration with autonomous execution
 <span id="cb2-12"><a href=""></a>  <span class="fu">na.omit</span>() <span class="sc">%&gt;%</span>                                  <span class="co"># Remove missing data</span></span>
 <span id="cb2-13"><a href=""></a>  <span class="fu">mutate</span>(</span>
 <span id="cb2-14"><a href=""></a>    <span class="at">drinks_per_week =</span> AlcoholDay <span class="sc">*</span> <span class="dv">7</span>,            <span class="co"># Convert daily → weekly</span></span>
-<span id="cb2-15"><a href=""></a>    <span class="at">current_smoker =</span> <span class="fu">ifelse</span>(SmokeNow <span class="sc">==</span> <span class="st">"Yes"</span>, <span class="dv">1</span>, <span class="dv">0</span>)</span>
-<span id="cb2-16"><a href=""></a>  )</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<span id="cb2-15"><a href=""></a>    <span class="at">current_smoker =</span> <span class="fu">ifelse</span>(SmokeNow <span class="sc">==</span> <span class="st">"Yes"</span>, <span class="dv">1</span>, <span class="dv">0</span>),</span>
+<span id="cb2-16"><a href=""></a>    <span class="at">drink_category =</span> <span class="fu">cut</span>(AlcoholDay <span class="sc">*</span> <span class="dv">7</span>,         <span class="co"># Categorize drinking</span></span>
+<span id="cb2-17"><a href=""></a>      <span class="at">breaks =</span> <span class="fu">c</span>(<span class="sc">-</span><span class="cn">Inf</span>, <span class="dv">0</span>, <span class="dv">7</span>, <span class="dv">14</span>, <span class="cn">Inf</span>),</span>
+<span id="cb2-18"><a href=""></a>      <span class="at">labels =</span> <span class="fu">c</span>(<span class="st">"None"</span>, <span class="st">"Light"</span>, <span class="st">"Moderate"</span>, <span class="st">"Heavy"</span>))</span>
+<span id="cb2-19"><a href=""></a>  )</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="tip-box">
 <p><strong>R Tip:</strong> <code>na.omit()</code> drops ALL rows with any NA — consider <code>filter(!is.na(var))</code> for targeted removal</p>
 </div>
@@ -485,10 +488,13 @@ Full AI IDE integration with autonomous execution
 <span id="cb3-6"><a href=""></a>         <span class="sc">!</span><span class="fu">is.na</span>(SmokeNow), <span class="sc">!</span><span class="fu">is.na</span>(Gender)) <span class="sc">%&gt;%</span></span>
 <span id="cb3-7"><a href=""></a>  <span class="fu">mutate</span>(</span>
 <span id="cb3-8"><a href=""></a>    <span class="at">drinks_per_week =</span> AlcoholDay <span class="sc">*</span> <span class="dv">7</span>,</span>
-<span id="cb3-9"><a href=""></a>    <span class="at">current_smoker =</span> <span class="fu">ifelse</span>(SmokeNow <span class="sc">==</span> <span class="st">"Yes"</span>, <span class="dv">1</span>, <span class="dv">0</span>)</span>
-<span id="cb3-10"><a href=""></a>  ) <span class="sc">%&gt;%</span></span>
-<span id="cb3-11"><a href=""></a>  <span class="fu">select</span>(ID, Gender, Age, BMI, drinks_per_week, current_smoker, BPSysAve) <span class="sc">%&gt;%</span></span>
-<span id="cb3-12"><a href=""></a>  <span class="fu">distinct</span>(ID, <span class="at">.keep_all =</span> <span class="cn">TRUE</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<span id="cb3-9"><a href=""></a>    <span class="at">current_smoker =</span> <span class="fu">ifelse</span>(SmokeNow <span class="sc">==</span> <span class="st">"Yes"</span>, <span class="dv">1</span>, <span class="dv">0</span>),</span>
+<span id="cb3-10"><a href=""></a>    <span class="at">drink_category =</span> <span class="fu">cut</span>(AlcoholDay <span class="sc">*</span> <span class="dv">7</span>,</span>
+<span id="cb3-11"><a href=""></a>      <span class="at">breaks =</span> <span class="fu">c</span>(<span class="sc">-</span><span class="cn">Inf</span>, <span class="dv">0</span>, <span class="dv">7</span>, <span class="dv">14</span>, <span class="cn">Inf</span>),</span>
+<span id="cb3-12"><a href=""></a>      <span class="at">labels =</span> <span class="fu">c</span>(<span class="st">"None"</span>, <span class="st">"Light"</span>, <span class="st">"Moderate"</span>, <span class="st">"Heavy"</span>))</span>
+<span id="cb3-13"><a href=""></a>  ) <span class="sc">%&gt;%</span></span>
+<span id="cb3-14"><a href=""></a>  <span class="fu">select</span>(ID, Gender, Age, BMI, drinks_per_week, drink_category, current_smoker, BPSysAve) <span class="sc">%&gt;%</span></span>
+<span id="cb3-15"><a href=""></a>  <span class="fu">distinct</span>(ID, <span class="at">.keep_all =</span> <span class="cn">TRUE</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 <div class="tip-box">
 <p><strong>Pro Tip:</strong> <code>glimpse()</code> gives you a better overview than <code>str()</code> for tidy data</p>
@@ -500,12 +506,13 @@ Full AI IDE integration with autonomous execution
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb4"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href=""></a><span class="fu">glimpse</span>(analysis_data)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>Rows: 1,174
-Columns: 7
+Columns: 8
 $ ID              &lt;int&gt; 51630, 51677, 51678, 51691, 51715, 51723, 51732, 51734…
 $ Gender          &lt;fct&gt; female, male, male, female, male, male, male, male, fe…
 $ Age             &lt;int&gt; 49, 33, 60, 57, 49, 28, 32, 25, 21, 27, 26, 30, 58, 35…
 $ BMI             &lt;dbl&gt; 30.57, 28.54, 25.84, 20.66, 29.13, 25.45, 20.15, 27.06…
 $ drinks_per_week &lt;dbl&gt; 14, 21, 42, 7, 42, 21, 84, 35, 21, 49, 49, 7, 28, 7, 7…
+$ drink_category  &lt;fct&gt; Moderate, Heavy, Heavy, Light, Heavy, Heavy, Heavy, He…
 $ current_smoker  &lt;dbl&gt; 1, 0, 0, 0, 1, 1, 1, 1, 1, 1, 1, 1, 1, 0, 0, 1, 1, 1, …
 $ BPSysAve        &lt;int&gt; 112, 128, 152, 122, 122, 93, 124, 117, 120, 110, 99, 1…</code></pre>
 </div>
@@ -598,27 +605,28 @@ F-statistic: 42.71 on 5 and 1168 DF,  p-value: &lt; 2.2e-16</code></pre>
 </div>
 <div class="fragment">
 <div class="claude-box">
-<p><strong>Claude suggests:</strong> Scatter plot with regression lines, separate by sex, add confidence intervals, clear labels</p>
+<p><strong>Claude suggests:</strong> A violin plot with overlaid box plots — shows the full distribution shape, grouped by drinking level and colored by sex</p>
 </div>
 </div>
 </section>
 <section id="building-the-plot" class="slide level2 smaller">
 <h2>Building the Plot</h2>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb12"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb12-1"><a href=""></a>p <span class="ot">&lt;-</span> <span class="fu">ggplot</span>(analysis_data, <span class="fu">aes</span>(<span class="at">x =</span> drinks_per_week, <span class="at">y =</span> BPSysAve,</span>
-<span id="cb12-2"><a href=""></a>                                <span class="at">color =</span> Gender)) <span class="sc">+</span></span>
-<span id="cb12-3"><a href=""></a>  <span class="fu">geom_point</span>(<span class="at">alpha =</span> <span class="fl">0.3</span>, <span class="at">size =</span> <span class="dv">2</span>) <span class="sc">+</span></span>
-<span id="cb12-4"><a href=""></a>  <span class="fu">geom_smooth</span>(<span class="at">method =</span> <span class="st">"lm"</span>, <span class="at">se =</span> <span class="cn">TRUE</span>, <span class="at">linewidth =</span> <span class="fl">1.5</span>) <span class="sc">+</span></span>
-<span id="cb12-5"><a href=""></a>  <span class="fu">labs</span>(</span>
-<span id="cb12-6"><a href=""></a>    <span class="at">title =</span> <span class="st">"Alcohol Consumption and Systolic Blood Pressure"</span>,</span>
-<span id="cb12-7"><a href=""></a>    <span class="at">subtitle =</span> <span class="st">"NHANES 2017-2018, Adults Aged 20-65"</span>,</span>
-<span id="cb12-8"><a href=""></a>    <span class="at">x =</span> <span class="st">"Drinks Per Week"</span>,</span>
-<span id="cb12-9"><a href=""></a>    <span class="at">y =</span> <span class="st">"Systolic Blood Pressure (mmHg)"</span>,</span>
-<span id="cb12-10"><a href=""></a>    <span class="at">color =</span> <span class="st">"Sex"</span></span>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb12"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb12-1"><a href=""></a>p <span class="ot">&lt;-</span> <span class="fu">ggplot</span>(analysis_data, <span class="fu">aes</span>(<span class="at">x =</span> drink_category, <span class="at">y =</span> BPSysAve,</span>
+<span id="cb12-2"><a href=""></a>                                <span class="at">fill =</span> Gender)) <span class="sc">+</span></span>
+<span id="cb12-3"><a href=""></a>  <span class="fu">geom_violin</span>(<span class="at">alpha =</span> <span class="fl">0.4</span>, <span class="at">position =</span> <span class="fu">position_dodge</span>(<span class="fl">0.8</span>)) <span class="sc">+</span></span>
+<span id="cb12-4"><a href=""></a>  <span class="fu">geom_boxplot</span>(<span class="at">width =</span> <span class="fl">0.15</span>, <span class="at">alpha =</span> <span class="fl">0.8</span>,</span>
+<span id="cb12-5"><a href=""></a>               <span class="at">position =</span> <span class="fu">position_dodge</span>(<span class="fl">0.8</span>), <span class="at">outlier.size =</span> <span class="fl">0.5</span>) <span class="sc">+</span></span>
+<span id="cb12-6"><a href=""></a>  <span class="fu">labs</span>(</span>
+<span id="cb12-7"><a href=""></a>    <span class="at">title =</span> <span class="st">"Blood Pressure by Drinking Level and Sex"</span>,</span>
+<span id="cb12-8"><a href=""></a>    <span class="at">subtitle =</span> <span class="st">"NHANES 2017-2018, Adults 20-65"</span>,</span>
+<span id="cb12-9"><a href=""></a>    <span class="at">x =</span> <span class="st">"Drinking Category"</span>, <span class="at">y =</span> <span class="st">"Systolic BP (mmHg)"</span>,</span>
+<span id="cb12-10"><a href=""></a>    <span class="at">fill =</span> <span class="st">"Sex"</span></span>
 <span id="cb12-11"><a href=""></a>  ) <span class="sc">+</span></span>
-<span id="cb12-12"><a href=""></a>  <span class="fu">theme_minimal</span>(<span class="at">base_size =</span> <span class="dv">20</span>) <span class="sc">+</span></span>
-<span id="cb12-13"><a href=""></a>  <span class="fu">theme</span>(<span class="at">legend.position =</span> <span class="st">"right"</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<span id="cb12-12"><a href=""></a>  <span class="fu">scale_fill_manual</span>(<span class="at">values =</span> <span class="fu">c</span>(<span class="st">"female"</span> <span class="ot">=</span> <span class="st">"#D55E00"</span>,</span>
+<span id="cb12-13"><a href=""></a>                                <span class="st">"male"</span> <span class="ot">=</span> <span class="st">"#0072B2"</span>)) <span class="sc">+</span></span>
+<span id="cb12-14"><a href=""></a>  <span class="fu">theme_minimal</span>(<span class="at">base_size =</span> <span class="dv">20</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="tip-box">
-<p><strong>ggplot Tip:</strong> <code>alpha</code> controls transparency — essential when you have overlapping points (overplotting)</p>
+<p><strong>ggplot Tip:</strong> Violin + box plot combo shows both distribution shape <em>and</em> summary statistics — far more informative than a bar chart</p>
 </div>
 </section>
 <section id="visualization-output" class="slide level2">
