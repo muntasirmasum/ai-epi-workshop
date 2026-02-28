@@ -15,7 +15,7 @@ format:
       buttons: false
     preview-links: auto
     echo: true
-    mouse-wheel: true
+    mouse-wheel: false
     transition: fade
     code-block-height: 650px
     navigation-mode: linear
@@ -214,8 +214,6 @@ Does alcohol consumption predict blood pressure?
 ::: {style="text-align: center; font-size: 0.8em;"}
 **Dataset:** NHANES 2017-2018 · **Outcome:** Systolic BP (mmHg) · **Exposure:** Alcohol drinks/week
 :::
-
-. . .
 
 ::: {style="text-align: center; margin-top: 30px;"}
 [Coding](#coding){.workflow-btn} [Analysis](#analysis){.workflow-btn} [Visualization](#visualization){.workflow-btn} [Debugging](#debugging){.workflow-btn}
