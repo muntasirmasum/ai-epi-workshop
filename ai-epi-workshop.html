@@ -96,7 +96,7 @@
     code span.vs { color: #20794d; } /* VerbatimString */
     code span.wa { color: #5e5e5e; font-style: italic; } /* Warning */
   </style>
-  <link rel="stylesheet" href="AI-symposium-presentation_files/libs/revealjs/dist/theme/quarto-84e890cdf1c5ecb6be03a5741b73de63.css">
+  <link rel="stylesheet" href="AI-symposium-presentation_files/libs/revealjs/dist/theme/quarto-394c30c67f884e8e92ab7e697f0730a5.css">
   <link href="AI-symposium-presentation_files/libs/revealjs/plugin/quarto-line-highlight/line-highlight.css" rel="stylesheet">
   <link href="AI-symposium-presentation_files/libs/revealjs/plugin/reveal-menu/menu.css" rel="stylesheet">
   <link href="AI-symposium-presentation_files/libs/revealjs/plugin/reveal-menu/quarto-menu.css" rel="stylesheet">
@@ -213,275 +213,194 @@ Muntasir Masum, PhD
   <p class="date">2026-02-27</p>
 </section>
 <section id="welcome" class="slide level2">
-<h2>Welcome</h2>
-<h3 id="todays-focus">Today’s Focus</h3>
-<ul>
-<li class="fragment">See Claude + RStudio in action</li>
-<li class="fragment">Statistical workflows</li>
-<li class="fragment">Practical demonstrations</li>
-<li class="fragment">Q&amp;A and discussion</li>
-</ul>
+<h2></h2>
+<div class="hero-text">
+<p>What if your students had a <strong>24/7 AI teaching assistant</strong><br>that understood their data, their code, and their questions?</p>
+</div>
+<div class="fragment">
+<div style="text-align: center; font-size: 0.8em; color: #6c757d;">
+<p>Today we’ll see exactly how that works.</p>
+</div>
+</div>
 </section>
 <section id="overview" class="slide level2">
-<h2>Workshop Overview</h2>
-<h3 id="minute-structure">75-Minute Structure</h3>
+<h2>Workshop Roadmap</h2>
 <div class="columns">
 <div class="column" style="width:33%;">
-<p><strong>Part 1: Context</strong> (15 min)</p>
-<ul>
-<li>Teaching challenge</li>
-<li>Why AI + R?</li>
-<li>Course integration</li>
-</ul>
-</div><div class="column" style="width:33%;">
-<p><strong>Part 2: Demonstrations</strong> (45 min)</p>
-<ul>
-<li>Coding workflow</li>
-<li>Analysis workflow</li>
-<li>Visualization</li>
-<li>Debugging</li>
-</ul>
-</div><div class="column" style="width:33%;">
-<p><strong>Part 3: Discussion</strong> (15 min)</p>
-<ul>
-<li>Implementation</li>
-<li>Academic integrity</li>
-<li>Q&amp;A</li>
-</ul>
-</div></div>
-<div class="footer">
-<p>Materials available at: <a href="https://github.com/muntasirmasum/ai-epi-workshop">https://github.com/muntasirmasum/ai-epi-workshop</a></p>
+<div class="card">
+<p><span class="card-icon" style="font-size: 1.6em;"><strong>Context</strong></span></p>
+<h3 id="minutes">15 minutes</h3>
+<p>The teaching challenge &amp; how AI fits in</p>
 </div>
+</div><div class="column" style="width:33%;">
+<div class="card-orange">
+<p><span class="card-icon" style="font-size: 1.6em;"><strong>Live Demo</strong></span></p>
+<h3 id="minutes-1">45 minutes</h3>
+<p>Coding, analysis, visualization &amp; debugging</p>
+</div>
+</div><div class="column" style="width:33%;">
+<div class="card-blue">
+<p><span class="card-icon" style="font-size: 1.6em;"><strong>Discussion</strong></span></p>
+<h3 id="minutes-2">15 minutes</h3>
+<p>Implementation, integrity &amp; Q&amp;A</p>
+</div>
+</div></div>
 </section>
 <section id="who-is-this-for" class="slide level2">
 <h2>Who Is This For?</h2>
-<ul>
-<li class="fragment"><strong>Educators</strong> teaching quantitative methods</li>
-<li class="fragment"><strong>Students</strong> learning R and statistics</li>
-<li class="fragment"><strong>Researchers</strong> working with data</li>
-<li class="fragment"><strong>Anyone</strong> interested in AI-assisted analysis</li>
-</ul>
+<div class="columns">
+<div class="column" style="width:25%;">
+<div class="card">
+<p><span style="font-size: 1.1em;"><strong>Educators</strong></span></p>
+<p>Teaching quantitative methods</p>
+</div>
+</div><div class="column" style="width:25%;">
+<div class="card">
+<p><span style="font-size: 1.1em;"><strong>Students</strong></span></p>
+<p>Learning R &amp; statistics</p>
+</div>
+</div><div class="column" style="width:25%;">
+<div class="card">
+<p><span style="font-size: 1.1em;"><strong>Researchers</strong></span></p>
+<p>Working with data</p>
+</div>
+</div><div class="column" style="width:25%;">
+<div class="card">
+<p><span style="font-size: 1.1em;"><strong>Anyone</strong></span></p>
+<p>Curious about AI + analysis</p>
+</div>
+</div></div>
 <div class="fragment">
-<p><strong>No assumptions about:</strong> R experience • Statistics background • Epidemiology knowledge</p>
+<div style="text-align: center; margin-top: 30px; font-size: 0.85em;">
+<p><strong>No assumptions about:</strong> R experience · Statistics background · Epidemiology knowledge</p>
+</div>
 </div>
 </section>
 <section id="the-teaching-challenge" class="slide level2">
 <h2>The Teaching Challenge</h2>
-<p><strong>Students come from diverse backgrounds</strong></p>
-<ul>
-<li>Biology, Psychology, Public Health, Policy</li>
-<li>Variable quantitative preparation</li>
-<li>Different comfort with programming</li>
-</ul>
-<div class="fragment">
-<p><strong>Traditional barriers</strong></p>
-<ul>
-<li>Syntax frustration overshadows statistical thinking</li>
-<li>Limited support outside office hours</li>
-<li>Steep learning curve for R</li>
-<li>Time debugging instead of learning</li>
-</ul>
-</div>
-<div class="fragment">
-<p><strong>The real goal:</strong> Develop analytical thinkers, not code executors</p>
-</div>
-</section>
-<section id="why-integrate-ai-now" class="slide level2">
-<h2>Why Integrate AI Now?</h2>
 <div class="columns">
-<div class="column" style="width:50%;">
-<p><strong>Traditional Approach</strong></p>
+<div class="column" style="width:48%;">
+<div style="text-align: center; margin-bottom: 15px;">
+<p><strong>The Problem</strong></p>
+</div>
 <ul>
-<li>Lectures + textbook</li>
-<li>Office hours</li>
-<li>TA support (limited)</li>
-<li>Peer learning groups</li>
-<li>Steep learning curve</li>
+<li><del>Syntax frustration overshadows statistical thinking</del></li>
+<li><del>Limited support outside office hours</del></li>
+<li><del>Steep learning curve for R</del></li>
+<li><del>Debugging takes all the time</del></li>
 </ul>
-</div><div class="column" style="width:50%;">
-<p><strong>AI-Enhanced Approach</strong></p>
+</div><div class="column" style="width:4%;">
+
+</div><div class="column" style="width:48%;">
+<div style="text-align: center; margin-bottom: 15px;">
+<p><strong>The Goal</strong></p>
+</div>
 <ul>
-<li>On-demand explanation</li>
-<li>Contextual guidance</li>
-<li>Code debugging help</li>
-<li>Iterative learning</li>
-<li>Focus on interpretation</li>
+<li>Focus on <em>interpretation</em>, not syntax</li>
+<li>On-demand, contextual guidance</li>
+<li>Iterative, scaffolded learning</li>
+<li>Students become <em>analytical thinkers</em></li>
 </ul>
 </div></div>
-</section>
-<section id="four-key-principles" class="slide level2">
-<h2>Four Key Principles</h2>
-<ol type="1">
-<li><p><strong>Scaffold, Don’t Replace</strong> — AI guides, students demonstrate understanding</p></li>
-<li><p><strong>Context Matters</strong> — Statistical output → Public health implications</p></li>
-<li><p><strong>Encourage Curiosity</strong> — AI asks questions that deepen learning</p></li>
-<li><p><strong>Build Independence</strong> — Progressive responsibility transfer</p></li>
-</ol>
 <div class="fragment">
-<p><strong>Core Philosophy:</strong> AI is a teaching assistant, not a replacement for learning</p>
+<div class="claude-box">
+<p><strong>AI bridges this gap</strong> — Students get instant, context-aware help so they can focus on understanding, not debugging.</p>
+</div>
 </div>
 </section>
 <section id="integration" class="slide level2">
-<h2>Three Ways to Integrate Claude + RStudio</h2>
-<h3 id="choose-your-workflow">Choose Your Workflow</h3>
+<h2>Three Ways to Use Claude + RStudio</h2>
 <div class="columns">
 <div class="column" style="width:33%;">
-<p><strong>1. ClaudeR Package</strong></p>
-<ul>
-<li>Direct RStudio integration</li>
-<li>Uses Claude Desktop app</li>
-<li>Access to R environment</li>
-<li><em><span style="color: #D55E00; font-weight: bold;">Most accessible</span></em></li>
-</ul>
+<section id="clauder-package" class="card-green">
+<h3>ClaudeR Package</h3>
+<p>Direct RStudio integration via Claude Desktop app</p>
+<p><span style="font-size: 0.85em;"><em><span class="highlight-orange">Most accessible</span></em></span></p>
+</section>
 </div><div class="column" style="width:33%;">
-<p><strong>2. Claude Chat</strong></p>
-<ul>
-<li>Claude Desktop App + RStudio</li>
-<li>Copy/paste workflow</li>
-<li>Manual code execution</li>
-<li><em><span style="color: #D55E00; font-weight: bold;">Intermediate approach</span></em></li>
-</ul>
+<section id="claude-chat" class="card-orange">
+<h3>Claude Chat</h3>
+<p>Claude Desktop App + copy/paste to RStudio</p>
+<p><span style="font-size: 0.85em;"><em><span class="highlight-orange">Intermediate approach</span></em></span></p>
+</section>
 </div><div class="column" style="width:33%;">
-<p><strong>3. Claude Code</strong></p>
-<ul>
-<li>Full AI IDE integration</li>
-<li>Autonomous execution</li>
-<li>Advanced workflows</li>
-<li><em><span style="color: #D55E00; font-weight: bold;">Most powerful</span></em></li>
-</ul>
+<section id="claude-code" class="card">
+<h3>Claude Code</h3>
+<p>Full AI IDE integration with autonomous execution</p>
+<p><span style="font-size: 0.85em;"><em><span class="highlight-orange">Most powerful</span></em></span></p>
+</section>
 </div></div>
-<p>. . .</p>
+<div class="fragment">
+<div style="text-align: center; margin-top: 20px;">
 <p><strong>Today’s focus:</strong> Demonstrating AI-assisted statistical analysis workflows using Claude Code</p>
+</div>
+</div>
 </section>
-<section id="clauder-package-demo" class="slide level2">
-<h2>ClaudeR Package Demo</h2>
-<h3 id="what-is-clauder">What is ClaudeR?</h3>
-<p><strong>Direct integration between RStudio and Claude AI</strong></p>
+<section id="clauder-the-easiest-starting-point" class="slide level2">
+<h2>ClaudeR: The Easiest Starting Point</h2>
+<div class="columns">
+<div class="column" style="width:55%;">
+<p><strong>What it does:</strong> Connects RStudio directly to Claude Desktop app</p>
 <ul>
-<li class="fragment">R package that connects RStudio to Claude Desktop app</li>
-<li class="fragment">Establishes communication bridge between R and Claude</li>
-<li class="fragment">Claude can “see” and interact with your R environment</li>
-<li class="fragment">Chat happens in Claude Desktop while R runs in RStudio</li>
-<li class="fragment"><strong>Perfect for students new to AI workflows</strong></li>
+<li>Claude can <em>see</em> your loaded data and R environment</li>
+<li>Chat in Claude Desktop, run code in RStudio</li>
+<li>Perfect for students new to AI workflows</li>
 </ul>
 <p>. . .</p>
-<p><strong>Installation:</strong> <code>devtools::install_github("IMNMV/ClaudeR")</code></p>
-<p><strong>GitHub:</strong> <a href="https://github.com/IMNMV/ClaudeR">github.com/IMNMV/ClaudeR</a></p>
-</section>
-<section id="clauder-in-action" class="slide level2">
-<h2>ClaudeR in Action</h2>
-<h3 id="live-demonstration">Live Demonstration</h3>
+<div class="tip-box">
+<p><strong>Install:</strong> <code>devtools::install_github("IMNMV/ClaudeR")</code> GitHub: <a href="https://github.com/IMNMV/ClaudeR">github.com/IMNMV/ClaudeR</a></p>
+</div>
+</div><div class="column" style="width:45%;">
 <div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb1"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href=""></a><span class="co"># Start ClaudeR connection</span></span>
 <span id="cb1-2"><a href=""></a><span class="fu">library</span>(ClaudeR)</span>
 <span id="cb1-3"><a href=""></a><span class="fu">claudeAddin</span>()</span>
 <span id="cb1-4"><a href=""></a></span>
-<span id="cb1-5"><a href=""></a><span class="co"># Now you can chat with Claude directly in RStudio!</span></span>
-<span id="cb1-6"><a href=""></a><span class="co"># Claude can see your loaded datasets</span></span>
-<span id="cb1-7"><a href=""></a><span class="co"># Ask questions about your data</span></span>
-<span id="cb1-8"><a href=""></a><span class="co"># Get help with analysis</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<span id="cb1-5"><a href=""></a><span class="co"># Now Claude can see your data!</span></span>
+<span id="cb1-6"><a href=""></a><span class="co"># Ask questions directly</span></span>
+<span id="cb1-7"><a href=""></a><span class="co"># Get help with analysis</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <p>. . .</p>
-<p><strong>Example conversation:</strong></p>
-<div style="background-color: #f0f0f0; padding: 20px; border-radius: 10px; margin-top: 20px;">
-<p>👤 <strong>Student:</strong> “I have the NHANES data loaded. Can you help me run a basic summary of systolic blood pressure?”</p>
-<p>🤖 <strong>Claude:</strong> “I can see you have NHANES loaded in your environment. Let me help you…”</p>
+<div style="background-color: #f0f0f0; padding: 16px; border-radius: 10px; font-size: 0.7em;">
+<p>👤 “I have NHANES loaded. Help me summarize systolic blood pressure?”</p>
+<p>🤖 “I can see NHANES in your environment. Let me help…”</p>
 </div>
+</div></div>
 </section>
-<section id="why-clauder-matters-for-teaching" class="slide level2">
-<h2>Why ClaudeR Matters for Teaching</h2>
-<ul>
-<li class="fragment"><strong>Lower barrier to entry</strong> — Students don’t need to learn new tools</li>
-<li class="fragment"><strong>Familiar environment</strong> — Works within RStudio they already use</li>
-<li class="fragment"><strong>Context awareness</strong> — Claude sees loaded data and objects</li>
-<li class="fragment"><strong>Progressive learning</strong> — Students can transition to more advanced workflows</li>
-<li class="fragment"><strong>Reduces friction</strong> — No switching between browser and IDE</li>
-</ul>
-<div class="fragment">
-<p><strong>This is the approach I recommend for getting started!</strong></p>
+<section id="section" class="slide level2 section-divider" data-background-color="#461D7C">
+<h2></h2>
+<div style="text-align: center;">
+<p><span style="color: white; font-family: 'Playfair Display', serif; font-size: 2em; font-weight: 900;">Let’s See It in Action</span></p>
+<p><span style="color: #c4a8e0; font-size: 0.9em;">Coding · Analysis · Visualization · Debugging</span></p>
 </div>
 </section>
 <section id="research-question" class="slide level2">
 <h2>Today’s Research Question</h2>
-<blockquote>
-<p><em>Does alcohol consumption predict blood pressure?</em></p>
-</blockquote>
-<p><strong>Dataset:</strong> NHANES 2017-2018</p>
-<ul>
-<li>Outcome: Systolic blood pressure (mmHg)</li>
-<li>Exposure: Alcohol drinks per week</li>
-<li>Covariates: Age, BMI, smoking status, sex</li>
-</ul>
-<div class="fragment">
-<p><strong>Four workflows:</strong> <a href="#/coding">Coding</a> • <a href="#/analysis">Analysis</a> • <a href="#/visualization">Plotting</a> • <a href="#/debugging">Debugging</a></p>
+<div class="hero-text">
+<p>Does alcohol consumption predict blood pressure?</p>
 </div>
-</section>
-<section id="student-ai-interaction-flow" class="slide level2">
-<h2>Student-AI Interaction Flow</h2>
-<div style="font-size: 1.3em;">
-<div class="columns">
-<div class="column" style="width:50%;">
-<p><strong>Student Actions:</strong></p>
-<ol type="1">
-<li>👨‍🎓 Ask question</li>
-<li>📝 Review &amp; run code</li>
-<li>📊 Interpret results</li>
-<li>🔄 Iterate if needed</li>
-</ol>
-</div><div class="column" style="width:50%;">
-<p><strong>Claude Assists:</strong></p>
-<ol type="1">
-<li>🤖 Understand context</li>
-<li>💻 Generate R code</li>
-<li>💡 Explain output</li>
-<li>🐛 Help debug errors</li>
-</ol>
-</div></div>
+<div style="text-align: center; font-size: 0.8em;">
+<p><strong>Dataset:</strong> NHANES 2017-2018 · <strong>Outcome:</strong> Systolic BP (mmHg) · <strong>Exposure:</strong> Alcohol drinks/week</p>
 </div>
 <div class="fragment">
-<div style="text-align: center; margin-top: 30px; padding: 20px; background-color: #f0e6f6; border-radius: 10px;">
-<p><strong>Iterative learning:</strong> Student maintains agency; Claude scaffolds understanding</p>
+<div style="text-align: center; margin-top: 30px;">
+<p><a href="#/coding" class="workflow-btn">Coding</a> <a href="#/analysis" class="workflow-btn">Analysis</a> <a href="#/visualization" class="workflow-btn">Visualization</a> <a href="#/debugging" class="workflow-btn">Debugging</a></p>
 </div>
-<aside class="notes">
-<p>Iterative learning process. Student maintains agency; Claude scaffolds understanding.</p>
-<style type="text/css">
-        span.MJX_Assistive_MathML {
-          position:absolute!important;
-          clip: rect(1px, 1px, 1px, 1px);
-          padding: 1px 0 0 0!important;
-          border: 0!important;
-          height: 1px!important;
-          width: 1px!important;
-          overflow: hidden!important;
-          display:block!important;
-      }</style></aside>
 </div>
 </section>
 <section id="coding" class="slide level2">
 <h2>Student Question: Coding</h2>
-<p><em>“I need to prepare my NHANES data for regression analysis. I want adults aged 20-65, exclude missing values, and create a drinks-per-week variable. How do I do this in R?”</em></p>
-<div class="fragment">
-<p><strong>How Claude helps:</strong></p>
-<ul>
-<li>Suggests appropriate functions</li>
-<li>Explains data manipulation logic</li>
-<li>Provides annotated code</li>
-<li>Anticipates common pitfalls</li>
-</ul>
+<div class="student-ask">
+<p>I need to prepare my NHANES data for regression analysis. I want adults aged 20-65, exclude missing values, and create a drinks-per-week variable. How do I do this in R?</p>
 </div>
-</section>
-<section id="claudes-approach" class="slide level2">
-<h2>Claude’s Approach</h2>
-<p><strong>Understanding the task:</strong></p>
-<ol type="1">
-<li>Filter age range (20-65)</li>
-<li>Select relevant variables</li>
-<li>Handle missing data</li>
-<li>Create derived variables</li>
-</ol>
+<div class="fragment">
+<div class="claude-box">
+<p><strong>Claude’s approach:</strong> Filter age range → Select variables → Handle missing data → Create derived variables</p>
+</div>
+</div>
 </section>
 <section id="the-code" class="slide level2 smaller">
 <h2>The Code</h2>
-<div style="background-color: #f0e6f6; padding: 15px; border-left: 5px solid #461D7C; border-radius: 5px; margin-bottom: 20px;">
-<p><strong>💡 Claude suggests:</strong> Use <code>filter()</code> for age range, <code>mutate()</code> for new variables, and handle missing data explicitly</p>
+<div class="claude-box">
+<p><strong>Claude suggests:</strong> Use <code>filter()</code> for age range, <code>mutate()</code> for new variables, and handle missing data explicitly</p>
 </div>
 <div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb2"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href=""></a><span class="co"># Load packages</span></span>
 <span id="cb2-2"><a href=""></a><span class="fu">library</span>(tidyverse)  <span class="co"># ← Claude recommends: tidyverse for data wrangling</span></span>
@@ -491,31 +410,36 @@ Muntasir Masum, PhD
 <span id="cb2-6"><a href=""></a></span>
 <span id="cb2-7"><a href=""></a><span class="co"># Prepare analysis dataset</span></span>
 <span id="cb2-8"><a href=""></a>analysis_data <span class="ot">&lt;-</span> NHANES <span class="sc">%&gt;%</span></span>
-<span id="cb2-9"><a href=""></a>  <span class="fu">filter</span>(Age <span class="sc">&gt;=</span> <span class="dv">20</span>, Age <span class="sc">&lt;=</span> <span class="dv">65</span>) <span class="sc">%&gt;%</span>  <span class="co"># ← Filter age range (student's requirement)</span></span>
-<span id="cb2-10"><a href=""></a>  <span class="fu">select</span>(ID, Gender, Age, BMI, AlcoholDay, SmokeNow, BPSysAve) <span class="sc">%&gt;%</span>  <span class="co"># ← Select relevant vars</span></span>
-<span id="cb2-11"><a href=""></a>  <span class="fu">na.omit</span>() <span class="sc">%&gt;%</span>  <span class="co"># ← Claude suggests: remove missing data</span></span>
-<span id="cb2-12"><a href=""></a>  <span class="fu">mutate</span>(  <span class="co"># ← Create derived variables</span></span>
-<span id="cb2-13"><a href=""></a>    <span class="at">drinks_per_week =</span> AlcoholDay <span class="sc">*</span> <span class="dv">7</span>,  <span class="co"># ← Convert daily to weekly</span></span>
-<span id="cb2-14"><a href=""></a>    <span class="at">current_smoker =</span> <span class="fu">ifelse</span>(SmokeNow <span class="sc">==</span> <span class="st">"Yes"</span>, <span class="dv">1</span>, <span class="dv">0</span>)  <span class="co"># ← Binary indicator</span></span>
-<span id="cb2-15"><a href=""></a>  )</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<span id="cb2-9"><a href=""></a>  <span class="fu">filter</span>(Age <span class="sc">&gt;=</span> <span class="dv">20</span>, Age <span class="sc">&lt;=</span> <span class="dv">65</span>) <span class="sc">%&gt;%</span>              <span class="co"># Filter age range</span></span>
+<span id="cb2-10"><a href=""></a>  <span class="fu">select</span>(ID, Gender, Age, BMI, AlcoholDay,</span>
+<span id="cb2-11"><a href=""></a>         SmokeNow, BPSysAve) <span class="sc">%&gt;%</span>                <span class="co"># Select relevant vars</span></span>
+<span id="cb2-12"><a href=""></a>  <span class="fu">na.omit</span>() <span class="sc">%&gt;%</span>                                  <span class="co"># Remove missing data</span></span>
+<span id="cb2-13"><a href=""></a>  <span class="fu">mutate</span>(</span>
+<span id="cb2-14"><a href=""></a>    <span class="at">drinks_per_week =</span> AlcoholDay <span class="sc">*</span> <span class="dv">7</span>,            <span class="co"># Convert daily → weekly</span></span>
+<span id="cb2-15"><a href=""></a>    <span class="at">current_smoker =</span> <span class="fu">ifelse</span>(SmokeNow <span class="sc">==</span> <span class="st">"Yes"</span>, <span class="dv">1</span>, <span class="dv">0</span>)</span>
+<span id="cb2-16"><a href=""></a>  )</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="tip-box">
+<p><strong>R Tip:</strong> <code>na.omit()</code> drops ALL rows with any NA — consider <code>filter(!is.na(var))</code> for targeted removal</p>
+</div>
 </section>
-<section id="live-demonstration-1" class="slide level2">
-<h2>Live Demonstration</h2>
+<section id="live-code-output" class="slide level2">
+<h2>Live Code Output</h2>
 <div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb3"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href=""></a><span class="co"># Load NHANES data</span></span>
-<span id="cb3-2"><a href=""></a><span class="fu">data</span>(<span class="st">"NHANES"</span>)</span>
-<span id="cb3-3"><a href=""></a></span>
-<span id="cb3-4"><a href=""></a><span class="co"># Prepare analysis dataset</span></span>
-<span id="cb3-5"><a href=""></a>analysis_data <span class="ot">&lt;-</span> NHANES <span class="sc">%&gt;%</span></span>
-<span id="cb3-6"><a href=""></a>  <span class="fu">filter</span>(Age <span class="sc">&gt;=</span> <span class="dv">20</span>, Age <span class="sc">&lt;=</span> <span class="dv">65</span>) <span class="sc">%&gt;%</span></span>
-<span id="cb3-7"><a href=""></a>  <span class="fu">filter</span>(<span class="sc">!</span><span class="fu">is.na</span>(BPSysAve), <span class="sc">!</span><span class="fu">is.na</span>(AlcoholDay), <span class="sc">!</span><span class="fu">is.na</span>(BMI),</span>
-<span id="cb3-8"><a href=""></a>         <span class="sc">!</span><span class="fu">is.na</span>(SmokeNow), <span class="sc">!</span><span class="fu">is.na</span>(Gender)) <span class="sc">%&gt;%</span></span>
-<span id="cb3-9"><a href=""></a>  <span class="fu">mutate</span>(</span>
-<span id="cb3-10"><a href=""></a>    <span class="at">drinks_per_week =</span> AlcoholDay <span class="sc">*</span> <span class="dv">7</span>,</span>
-<span id="cb3-11"><a href=""></a>    <span class="at">current_smoker =</span> <span class="fu">ifelse</span>(SmokeNow <span class="sc">==</span> <span class="st">"Yes"</span>, <span class="dv">1</span>, <span class="dv">0</span>)</span>
-<span id="cb3-12"><a href=""></a>  ) <span class="sc">%&gt;%</span></span>
-<span id="cb3-13"><a href=""></a>  <span class="fu">select</span>(ID, Gender, Age, BMI, drinks_per_week, current_smoker, BPSysAve) <span class="sc">%&gt;%</span></span>
-<span id="cb3-14"><a href=""></a>  <span class="fu">distinct</span>(ID, <span class="at">.keep_all =</span> <span class="cn">TRUE</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb3"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href=""></a><span class="fu">data</span>(<span class="st">"NHANES"</span>)</span>
+<span id="cb3-2"><a href=""></a></span>
+<span id="cb3-3"><a href=""></a>analysis_data <span class="ot">&lt;-</span> NHANES <span class="sc">%&gt;%</span></span>
+<span id="cb3-4"><a href=""></a>  <span class="fu">filter</span>(Age <span class="sc">&gt;=</span> <span class="dv">20</span>, Age <span class="sc">&lt;=</span> <span class="dv">65</span>) <span class="sc">%&gt;%</span></span>
+<span id="cb3-5"><a href=""></a>  <span class="fu">filter</span>(<span class="sc">!</span><span class="fu">is.na</span>(BPSysAve), <span class="sc">!</span><span class="fu">is.na</span>(AlcoholDay), <span class="sc">!</span><span class="fu">is.na</span>(BMI),</span>
+<span id="cb3-6"><a href=""></a>         <span class="sc">!</span><span class="fu">is.na</span>(SmokeNow), <span class="sc">!</span><span class="fu">is.na</span>(Gender)) <span class="sc">%&gt;%</span></span>
+<span id="cb3-7"><a href=""></a>  <span class="fu">mutate</span>(</span>
+<span id="cb3-8"><a href=""></a>    <span class="at">drinks_per_week =</span> AlcoholDay <span class="sc">*</span> <span class="dv">7</span>,</span>
+<span id="cb3-9"><a href=""></a>    <span class="at">current_smoker =</span> <span class="fu">ifelse</span>(SmokeNow <span class="sc">==</span> <span class="st">"Yes"</span>, <span class="dv">1</span>, <span class="dv">0</span>)</span>
+<span id="cb3-10"><a href=""></a>  ) <span class="sc">%&gt;%</span></span>
+<span id="cb3-11"><a href=""></a>  <span class="fu">select</span>(ID, Gender, Age, BMI, drinks_per_week, current_smoker, BPSysAve) <span class="sc">%&gt;%</span></span>
+<span id="cb3-12"><a href=""></a>  <span class="fu">distinct</span>(ID, <span class="at">.keep_all =</span> <span class="cn">TRUE</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+<div class="tip-box">
+<p><strong>Pro Tip:</strong> <code>glimpse()</code> gives you a better overview than <code>str()</code> for tidy data</p>
 </div>
 </section>
 <section id="check-the-result" class="slide level2">
@@ -535,32 +459,24 @@ $ BPSysAve        &lt;int&gt; 112, 128, 152, 122, 122, 93, 124, 117, 120, 110, 9
 </div>
 </div>
 </section>
-<section id="key-takeaways" class="slide level2">
-<h2>Key Takeaways</h2>
-<ol type="1">
-<li>Claude explains <strong>logic</strong> before showing code</li>
-<li>Code is <strong>annotated</strong> for learning</li>
-<li>Line-by-line highlighting helps follow flow</li>
-<li>Student <strong>understands</strong> pipeline, not just copies</li>
-</ol>
-</section>
 <section id="analysis" class="slide level2">
 <h2>Student Question: Analysis</h2>
-<p><em>“I need to run a multiple regression with blood pressure as outcome and alcohol, age, BMI, smoking, and sex as predictors. How do I interpret the results?”</em></p>
+<div class="student-ask">
+<p>I need to run a multiple regression with blood pressure as outcome and alcohol, age, BMI, smoking, and sex as predictors. How do I interpret the results?</p>
+</div>
 </section>
 <section id="fitting-the-model" class="slide level2 smaller">
 <h2>Fitting the Model</h2>
-<div style="background-color: #f0e6f6; padding: 15px; border-left: 5px solid #461D7C; border-radius: 5px; margin-bottom: 20px;">
-<p><strong>💡 Claude explains:</strong> Use <code>lm()</code> for linear regression. Formula syntax: <code>outcome ~ predictor1 + predictor2 + ...</code></p>
+<div class="claude-box">
+<p><strong>Claude explains:</strong> Use <code>lm()</code> for linear regression. Formula syntax: <code>outcome ~ predictor1 + predictor2 + ...</code></p>
 </div>
 <div class="cell">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb6" data-code-line-numbers="2,3,4"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a href=""></a><span class="co"># Fit multiple linear regression</span></span>
-<span id="cb6-2"><a href=""></a>model1 <span class="ot">&lt;-</span> <span class="fu">lm</span>(BPSysAve <span class="sc">~</span> drinks_per_week <span class="sc">+</span> Age <span class="sc">+</span> BMI <span class="sc">+</span>  <span class="co"># ← Main predictors</span></span>
-<span id="cb6-3"><a href=""></a>                        current_smoker <span class="sc">+</span> Gender,  <span class="co"># ← Additional covariates</span></span>
-<span id="cb6-4"><a href=""></a>             <span class="at">data =</span> analysis_data)  <span class="co"># ← Specify dataset</span></span>
+<span id="cb6-2"><a href=""></a>model1 <span class="ot">&lt;-</span> <span class="fu">lm</span>(BPSysAve <span class="sc">~</span> drinks_per_week <span class="sc">+</span> Age <span class="sc">+</span> BMI <span class="sc">+</span></span>
+<span id="cb6-3"><a href=""></a>                        current_smoker <span class="sc">+</span> Gender,</span>
+<span id="cb6-4"><a href=""></a>             <span class="at">data =</span> analysis_data)</span>
 <span id="cb6-5"><a href=""></a></span>
-<span id="cb6-6"><a href=""></a><span class="co"># View results ← Claude suggests: summary() for comprehensive output</span></span>
-<span id="cb6-7"><a href=""></a><span class="fu">summary</span>(model1)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<span id="cb6-6"><a href=""></a><span class="fu">summary</span>(model1)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>
 Call:
@@ -587,13 +503,13 @@ Multiple R-squared:  0.1546,    Adjusted R-squared:  0.1509
 F-statistic: 42.71 on 5 and 1168 DF,  p-value: &lt; 2.2e-16</code></pre>
 </div>
 </div>
-<div style="font-size: 0.8em; margin-top: 15px; padding: 10px; background-color: #fff3cd; border-radius: 5px;">
-<p><strong>🎯 Claude’s teaching point:</strong> Each coefficient represents the change in BP for a 1-unit increase in that predictor, <em>holding all other variables constant</em></p>
+<div class="tip-box">
+<p><strong>Claude Tip:</strong> Always tell Claude your research question — it gives better, more contextual code suggestions</p>
 </div>
 </section>
-<section id="claudes-interpretation" class="slide level2">
-<h2>Claude’s Interpretation</h2>
-<p><strong>1. Coefficient for alcohol:</strong></p>
+<section id="interpreting-the-results" class="slide level2">
+<h2>Interpreting the Results</h2>
+<p><strong>Coefficient for alcohol:</strong></p>
 <div class="cell">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb8"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb8-1"><a href=""></a><span class="fu">coef</span>(model1)[<span class="st">"drinks_per_week"</span>]</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
@@ -602,48 +518,45 @@ F-statistic: 42.71 on 5 and 1168 DF,  p-value: &lt; 2.2e-16</code></pre>
 </div>
 </div>
 <p>Each additional drink per week is associated with a 0.014 mmHg change in systolic BP, holding other factors constant.</p>
-</section>
-<section id="statistical-significance" class="slide level2">
-<h2>Statistical Significance</h2>
-<p><strong>2. P-value:</strong></p>
+<div class="fragment">
+<p><strong>P-value:</strong></p>
 <div class="cell">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb10"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb10-1"><a href=""></a><span class="fu">summary</span>(model1)<span class="sc">$</span>coefficients[<span class="st">"drinks_per_week"</span>, <span class="st">"Pr(&gt;|t|)"</span>]</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>[1] 0.3879358</code></pre>
 </div>
 </div>
-<div class="fragment">
-<p><strong>Claude guides interpretation:</strong></p>
-<div style="background-color: #f0e6f6; padding: 20px; border-radius: 10px;">
-<p>💬 <em>“What does p = 0.388 tell us about this relationship?”</em></p>
-<p>💬 <em>“Is this effect size clinically meaningful for public health?”</em></p>
 </div>
+<div class="fragment">
+<div class="claude-box">
+<p><strong>Claude guides the student:</strong> “What does this p-value tell us? Is this effect size clinically meaningful for public health interventions?”</p>
+</div>
+</div>
+</section>
+<section id="section-1" class="slide level2 section-divider" data-background-color="#461D7C">
+<h2></h2>
+<div style="text-align: center;">
+<p><span style="color: white; font-family: 'Playfair Display', serif; font-size: 2em; font-weight: 900;">Telling the Story with Data</span></p>
+<p><span style="color: #c4a8e0; font-size: 0.9em;">Visualization that communicates</span></p>
 </div>
 </section>
 <section id="visualization" class="slide level2">
 <h2>Student Question: Visualization</h2>
-<p><em>“I want to visualize the relationship between alcohol consumption and blood pressure, accounting for sex differences. What’s the best plot?”</em></p>
+<div class="student-ask">
+<p>I want to visualize the relationship between alcohol consumption and blood pressure, accounting for sex differences. What’s the best plot?</p>
+</div>
 <div class="fragment">
-<p><strong>Claude suggests:</strong></p>
-<ul>
-<li>Scatter plot with regression lines</li>
-<li>Separate by sex</li>
-<li>Add confidence intervals</li>
-<li>Clear labels</li>
-</ul>
+<div class="claude-box">
+<p><strong>Claude suggests:</strong> Scatter plot with regression lines, separate by sex, add confidence intervals, clear labels</p>
+</div>
 </div>
 </section>
 <section id="building-the-plot" class="slide level2 smaller">
 <h2>Building the Plot</h2>
-<div style="background-color: #f8f9fa; padding: 20px; border-radius: 10px;">
-<p><strong>Student asks:</strong> <em>“How do I create a scatter plot with separate regression lines for males and females?”</em></p>
-</div>
-<div class="fragment">
-<p><strong>Claude Code assists with visualization:</strong></p>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb12"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb12-1"><a href=""></a><span class="co"># Create scatter plot with regression lines</span></span>
-<span id="cb12-2"><a href=""></a>p <span class="ot">&lt;-</span> <span class="fu">ggplot</span>(analysis_data, <span class="fu">aes</span>(<span class="at">x =</span> drinks_per_week, <span class="at">y =</span> BPSysAve, <span class="at">color =</span> Gender)) <span class="sc">+</span></span>
-<span id="cb12-3"><a href=""></a>  <span class="fu">geom_point</span>(<span class="at">alpha =</span> <span class="fl">0.3</span>, <span class="at">size =</span> <span class="dv">2</span>) <span class="sc">+</span>  <span class="co"># ← Claude suggests: alpha for overplotting</span></span>
-<span id="cb12-4"><a href=""></a>  <span class="fu">geom_smooth</span>(<span class="at">method =</span> <span class="st">"lm"</span>, <span class="at">se =</span> <span class="cn">TRUE</span>, <span class="at">linewidth =</span> <span class="fl">1.5</span>) <span class="sc">+</span>  <span class="co"># ← Adds regression lines</span></span>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb12"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb12-1"><a href=""></a>p <span class="ot">&lt;-</span> <span class="fu">ggplot</span>(analysis_data, <span class="fu">aes</span>(<span class="at">x =</span> drinks_per_week, <span class="at">y =</span> BPSysAve,</span>
+<span id="cb12-2"><a href=""></a>                                <span class="at">color =</span> Gender)) <span class="sc">+</span></span>
+<span id="cb12-3"><a href=""></a>  <span class="fu">geom_point</span>(<span class="at">alpha =</span> <span class="fl">0.3</span>, <span class="at">size =</span> <span class="dv">2</span>) <span class="sc">+</span></span>
+<span id="cb12-4"><a href=""></a>  <span class="fu">geom_smooth</span>(<span class="at">method =</span> <span class="st">"lm"</span>, <span class="at">se =</span> <span class="cn">TRUE</span>, <span class="at">linewidth =</span> <span class="fl">1.5</span>) <span class="sc">+</span></span>
 <span id="cb12-5"><a href=""></a>  <span class="fu">labs</span>(</span>
 <span id="cb12-6"><a href=""></a>    <span class="at">title =</span> <span class="st">"Alcohol Consumption and Systolic Blood Pressure"</span>,</span>
 <span id="cb12-7"><a href=""></a>    <span class="at">subtitle =</span> <span class="st">"NHANES 2017-2018, Adults Aged 20-65"</span>,</span>
@@ -652,300 +565,160 @@ F-statistic: 42.71 on 5 and 1168 DF,  p-value: &lt; 2.2e-16</code></pre>
 <span id="cb12-10"><a href=""></a>    <span class="at">color =</span> <span class="st">"Sex"</span></span>
 <span id="cb12-11"><a href=""></a>  ) <span class="sc">+</span></span>
 <span id="cb12-12"><a href=""></a>  <span class="fu">theme_minimal</span>(<span class="at">base_size =</span> <span class="dv">20</span>) <span class="sc">+</span></span>
-<span id="cb12-13"><a href=""></a>  <span class="fu">theme</span>(<span class="at">legend.position =</span> <span class="st">"right"</span>)  <span class="co"># ← Claude suggests: move legend</span></span>
-<span id="cb12-14"><a href=""></a></span>
-<span id="cb12-15"><a href=""></a>p  <span class="co"># Display the plot</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<span id="cb12-13"><a href=""></a>  <span class="fu">theme</span>(<span class="at">legend.position =</span> <span class="st">"right"</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="tip-box">
+<p><strong>ggplot Tip:</strong> <code>alpha</code> controls transparency — essential when you have overlapping points (overplotting)</p>
 </div>
 </section>
 <section id="visualization-output" class="slide level2">
 <h2>Visualization Output</h2>
 
-<img data-src="AI-symposium-presentation_files/figure-revealjs/vis-demo-1.png" width="1344" class="r-stretch"><aside class="notes">
-<p>Clear visualization showing relationship between alcohol and blood pressure by sex. Larger plot for better visibility during presentation.</p>
-<style type="text/css">
-        span.MJX_Assistive_MathML {
-          position:absolute!important;
-          clip: rect(1px, 1px, 1px, 1px);
-          padding: 1px 0 0 0!important;
-          border: 0!important;
-          height: 1px!important;
-          width: 1px!important;
-          overflow: hidden!important;
-          display:block!important;
-      }</style></aside>
-</section>
+<img data-src="AI-symposium-presentation_files/figure-revealjs/vis-demo-1.png" width="1344" class="r-stretch"></section>
 <section id="data-distributions" class="slide level2">
 <h2>Data Distributions</h2>
 
-<img data-src="AI-symposium-presentation_files/figure-revealjs/distributions-1.png" width="1344" class="r-stretch"><aside class="notes">
-<p>Understanding data distributions before modeling. Notice the skewed distribution of alcohol consumption and roughly normal distribution of blood pressure.</p>
-<style type="text/css">
-        span.MJX_Assistive_MathML {
-          position:absolute!important;
-          clip: rect(1px, 1px, 1px, 1px);
-          padding: 1px 0 0 0!important;
-          border: 0!important;
-          height: 1px!important;
-          width: 1px!important;
-          overflow: hidden!important;
-          display:block!important;
-      }</style></aside>
-</section>
+<img data-src="AI-symposium-presentation_files/figure-revealjs/distributions-1.png" width="1344" class="r-stretch"></section>
 <section id="correlation-matrix" class="slide level2">
 <h2>Correlation Matrix</h2>
 
-<img data-src="AI-symposium-presentation_files/figure-revealjs/correlation-matrix-1.png" width="960" class="r-stretch"><aside class="notes">
-<p>Weak positive correlation between alcohol and blood pressure. Age shows weak correlations with both variables.</p>
-<style type="text/css">
-        span.MJX_Assistive_MathML {
-          position:absolute!important;
-          clip: rect(1px, 1px, 1px, 1px);
-          padding: 1px 0 0 0!important;
-          border: 0!important;
-          height: 1px!important;
-          width: 1px!important;
-          overflow: hidden!important;
-          display:block!important;
-      }</style></aside>
-</section>
+<img data-src="AI-symposium-presentation_files/figure-revealjs/correlation-matrix-1.png" width="960" class="r-stretch"></section>
 <section id="coefficient-plot" class="slide level2">
 <h2>Coefficient Plot</h2>
 
-<img data-src="AI-symposium-presentation_files/figure-revealjs/coefficient-plot-1.png" width="1152" class="r-stretch"><aside class="notes">
-<p>Visual representation of effect sizes. Interaction term crosses zero, suggesting similar effects by sex.</p>
-<style type="text/css">
-        span.MJX_Assistive_MathML {
-          position:absolute!important;
-          clip: rect(1px, 1px, 1px, 1px);
-          padding: 1px 0 0 0!important;
-          border: 0!important;
-          height: 1px!important;
-          width: 1px!important;
-          overflow: hidden!important;
-          display:block!important;
-      }</style></aside>
-</section>
-<section id="model-diagnostics-residual-plots" class="slide level2">
-<h2>Model Diagnostics: Residual Plots</h2>
+<img data-src="AI-symposium-presentation_files/figure-revealjs/coefficient-plot-1.png" width="1152" class="r-stretch"></section>
+<section id="model-diagnostics" class="slide level2">
+<h2>Model Diagnostics</h2>
 
-<img data-src="AI-symposium-presentation_files/figure-revealjs/diagnostic-plots-1.png" width="1344" class="r-stretch"><aside class="notes">
-<p>Checking model assumptions: linearity, normality, homoscedasticity, influential points. Generally good fit with some deviations from normality.</p>
-<style type="text/css">
-        span.MJX_Assistive_MathML {
-          position:absolute!important;
-          clip: rect(1px, 1px, 1px, 1px);
-          padding: 1px 0 0 0!important;
-          border: 0!important;
-          height: 1px!important;
-          width: 1px!important;
-          overflow: hidden!important;
-          display:block!important;
-      }</style></aside>
-</section>
+<img data-src="AI-symposium-presentation_files/figure-revealjs/diagnostic-plots-1.png" width="1344" class="r-stretch"></section>
 <section id="model-comparison" class="slide level2">
 <h2>Model Comparison</h2>
 
-<img data-src="AI-symposium-presentation_files/figure-revealjs/model-comparison-1.png" width="1152" class="r-stretch"><aside class="notes">
-<p>Comparing model performance. Interaction model shows marginally better fit but added complexity may not be justified.</p>
-<style type="text/css">
-        span.MJX_Assistive_MathML {
-          position:absolute!important;
-          clip: rect(1px, 1px, 1px, 1px);
-          padding: 1px 0 0 0!important;
-          border: 0!important;
-          height: 1px!important;
-          width: 1px!important;
-          overflow: hidden!important;
-          display:block!important;
-      }</style></aside>
-</section>
+<img data-src="AI-symposium-presentation_files/figure-revealjs/model-comparison-1.png" width="1152" class="r-stretch"></section>
 <section id="predicted-vs-observed" class="slide level2">
 <h2>Predicted vs Observed</h2>
 
-<img data-src="AI-symposium-presentation_files/figure-revealjs/predicted-observed-1.png" width="960" class="r-stretch"><aside class="notes">
-<p>Model predictions generally track observed values but with considerable scatter, reflecting modest R² values.</p>
-<style type="text/css">
-        span.MJX_Assistive_MathML {
-          position:absolute!important;
-          clip: rect(1px, 1px, 1px, 1px);
-          padding: 1px 0 0 0!important;
-          border: 0!important;
-          height: 1px!important;
-          width: 1px!important;
-          overflow: hidden!important;
-          display:block!important;
-      }</style></aside>
-</section>
-<section id="iterative-refinement" class="slide level2">
-<h2>Iterative Refinement</h2>
-<p><strong>Student:</strong> “Can we make this publication-ready?”</p>
-<div class="fragment">
-<p><strong>Claude suggests:</strong></p>
-<ul>
-<li>Larger text for readability</li>
-<li>Color-blind friendly palette</li>
-<li>Add sample size annotations</li>
-<li>Export at high resolution</li>
-</ul>
-</div>
-</section>
+<img data-src="AI-symposium-presentation_files/figure-revealjs/predicted-observed-1.png" width="960" class="r-stretch"></section>
 <section id="debugging" class="slide level2">
 <h2>Student Question: Debugging</h2>
-<p><strong>Common errors students encounter:</strong></p>
-<ol type="1">
-<li><p><strong>Missing package errors</strong></p>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb13"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb13-1"><a href=""></a>Error<span class="sc">:</span> could not find <span class="cf">function</span> <span class="st">"ggplot"</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div></li>
-<li><p><strong>Variable name typos</strong></p>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb14"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb14-1"><a href=""></a>Error<span class="sc">:</span> object <span class="st">'drinks_perweek'</span> not found</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div></li>
-<li><p><strong>Formula syntax errors</strong></p>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb15"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb15-1"><a href=""></a>Error <span class="cf">in</span> <span class="fu">lm.fit</span>(x, y, ...)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div></li>
-</ol>
-</section>
-<section id="claudes-diagnostic-process" class="slide level2">
-<h2>Claude’s Diagnostic Process</h2>
-<p><strong>Student shares error:</strong></p>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb16"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb16-1"><a href=""></a>Error<span class="sc">:</span> object <span class="st">'current_smoker'</span> not found</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="student-ask">
+<p>I’m getting errors when I try to run my regression. Can you help me figure out what’s wrong?</p>
+</div>
 <div class="fragment">
-<p><strong>Claude’s approach:</strong></p>
-<ol type="1">
-<li>Identify the issue (variable doesn’t exist)</li>
-<li>Explain why (not created or misspelled)</li>
-<li>Suggest fix (check mutate step)</li>
-<li>Teach pattern (how to verify variables)</li>
-</ol>
+<p><strong>Common errors students encounter:</strong></p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb13"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb13-1"><a href=""></a>Error<span class="sc">:</span> could not find <span class="cf">function</span> <span class="st">"ggplot"</span>        <span class="co"># Missing package</span></span>
+<span id="cb13-2"><a href=""></a>Error<span class="sc">:</span> object <span class="st">'drinks_perweek'</span> not found       <span class="co"># Typo in variable name</span></span>
+<span id="cb13-3"><a href=""></a>Error <span class="cf">in</span> <span class="fu">lm.fit</span>(x, y, ...)                     <span class="co"># Formula syntax error</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+<div class="fragment">
+<div class="claude-box">
+<p><strong>Claude’s diagnostic process:</strong> Identify the error → Explain <em>why</em> it happened → Suggest the fix → Teach the pattern so it doesn’t happen again</p>
+</div>
+<div class="tip-box">
+<p><strong>Debug Tip:</strong> Run <code>ls()</code> to see your environment — check if the variable exists before panicking!</p>
+</div>
+</div>
+</section>
+<section id="section-2" class="slide level2 section-divider" data-background-color="#461D7C">
+<h2></h2>
+<div style="text-align: center;">
+<p><span style="color: white; font-family: 'Playfair Display', serif; font-size: 2em; font-weight: 900;">Bringing It All Together</span></p>
+<p><span style="color: #c4a8e0; font-size: 0.9em;">Implementation, integrity &amp; discussion</span></p>
 </div>
 </section>
 <section id="optional-follow-along" class="slide level2">
 <h2>Optional Follow-Along</h2>
-<p><strong>For participants:</strong></p>
+<div class="columns">
+<div class="column" style="width:50%;">
+<section id="get-set-up" class="card">
+<h3>Get Set Up</h3>
 <ol type="1">
-<li><p>Install <a href="https://cran.r-project.org/">R</a> and <a href="https://posit.co/download/rstudio-desktop/">RStudio</a> (latest versions)</p></li>
-<li><p>Create Claude account (free at <a href="https://claude.ai">claude.ai</a>)</p></li>
-<li><p>Install packages:</p>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb17"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb17-1"><a href=""></a><span class="fu">install.packages</span>(<span class="fu">c</span>(<span class="st">"tidyverse"</span>, <span class="st">"NHANES"</span>, <span class="st">"broom"</span>))</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div></li>
+<li>Install <a href="https://cran.r-project.org/">R</a> and <a href="https://posit.co/download/rstudio-desktop/">RStudio</a></li>
+<li>Create Claude account at <a href="https://claude.ai">claude.ai</a></li>
+<li>Install packages:</li>
 </ol>
-<p><strong>Workshop materials:</strong> <a href="https://github.com/muntasirmasum/ai-epi-workshop">GitHub repository</a></p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb14"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb14-1"><a href=""></a><span class="fu">install.packages</span>(<span class="fu">c</span>(<span class="st">"tidyverse"</span>,</span>
+<span id="cb14-2"><a href=""></a>                    <span class="st">"NHANES"</span>, <span class="st">"broom"</span>))</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</section>
+</div><div class="column" style="width:50%;">
+<section id="workshop-materials" class="card-orange">
+<h3>Workshop Materials</h3>
+<p>Everything is on GitHub:</p>
+<ul>
+<li>Slides &amp; source code</li>
+<li>Sample datasets</li>
+<li>Quick-start guide</li>
+</ul>
+<p><a href="https://github.com/muntasirmasum/ai-epi-workshop">github.com/muntasirmasum/ai-epi-workshop</a></p>
+</section>
+</div></div>
 </section>
 <section id="integrity" class="slide level2">
 <h2>Academic Integrity</h2>
 <div class="columns">
-<div class="column" style="width:50%;">
-<p><strong>Clear Guidelines</strong></p>
+<div class="column" style="width:48%;">
+<section id="clear-guidelines" class="card">
+<h3>Clear Guidelines</h3>
 <ul>
-<li>AI assistance allowed</li>
-<li>Must cite AI use</li>
-<li>Understand all code</li>
-<li>No copy-paste only</li>
+<li>AI assistance is <strong>allowed</strong></li>
+<li>Must <strong>cite</strong> AI use</li>
+<li>Must <strong>understand</strong> all code</li>
+<li>No copy-paste only submissions</li>
 </ul>
-</div><div class="column" style="width:50%;">
-<p><strong>Assessment Design</strong></p>
+</section>
+</div><div class="column" style="width:4%;">
+
+</div><div class="column" style="width:48%;">
+<section id="assessment-design" class="card-orange">
+<h3>Assessment Design</h3>
 <ul>
 <li>Timed exams (no AI)</li>
-<li>Interpretation focus</li>
-<li>Code annotation</li>
-<li>Learning reflection</li>
+<li>Interpretation-focused questions</li>
+<li>Code annotation requirements</li>
+<li>Learning reflection essays</li>
 </ul>
+</section>
 </div></div>
 <div class="fragment">
-<p><strong>Key message:</strong> AI is a learning tool, not a replacement for understanding</p>
+<div style="text-align: center; margin-top: 20px;">
+<p><strong>AI is a learning tool, not a replacement for understanding</strong></p>
 </div>
-</section>
-<section id="adapting-to-your-context" class="slide level2">
-<h2>Adapting to Your Context</h2>
-<ul>
-<li><strong>Different disciplines</strong> — Principles apply beyond epidemiology</li>
-<li><strong>Various skill levels</strong> — Scale scaffolding to student needs</li>
-<li><strong>Different software</strong> — Concepts transfer to Python, Stata, SAS</li>
-<li><strong>Online/in-person</strong> — Works in both modalities</li>
-<li><strong>Class size</strong> — Scalable from seminars to large lectures</li>
-</ul>
-</section>
-<section id="benefits-observed" class="slide level2">
-<h2>Benefits Observed</h2>
-<div class="columns">
-<div class="column" style="width:50%;">
-<p><strong>For Students</strong></p>
-<ul>
-<li>Reduced frustration</li>
-<li>Deeper understanding</li>
-<li>More interpretation time</li>
-<li>Confidence building</li>
-<li>24/7 support access</li>
-</ul>
-</div><div class="column" style="width:50%;">
-<p><strong>For Instructors</strong></p>
-<ul>
-<li>Focus on concepts</li>
-<li>Better class time use</li>
-<li>Fewer basic questions</li>
-<li>Advanced discussions</li>
-<li>Scalable support</li>
-</ul>
-</div></div>
-</section>
-<section id="challenges-solutions" class="slide level2">
-<h2>Challenges &amp; Solutions</h2>
-<table class="caption-top">
-<thead>
-<tr class="header">
-<th>Challenge</th>
-<th>Solution</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td>Over-reliance on AI</td>
-<td>Progressive scaffolding; AI-free assessments</td>
-</tr>
-<tr class="even">
-<td>Incorrect suggestions</td>
-<td>Teach verification; show error examples</td>
-</tr>
-<tr class="odd">
-<td>Equity concerns</td>
-<td>Free tier; computer lab access</td>
-</tr>
-<tr class="even">
-<td>Faculty learning curve</td>
-<td>Start small; build gradually</td>
-</tr>
-<tr class="odd">
-<td>Academic integrity</td>
-<td>Clear policies; reflection assignments</td>
-</tr>
-</tbody>
-</table>
+</div>
 </section>
 <section id="discussion" class="slide level2">
 <h2>Discussion</h2>
+<div class="columns">
+<div class="column" style="width:50%;">
+<p><strong>What we’ve seen today:</strong></p>
+<ul>
+<li>AI lowers barriers to statistical computing</li>
+<li>Students focus on <em>thinking</em>, not syntax</li>
+<li>Scaffolded learning builds independence</li>
+<li>Works across disciplines and skill levels</li>
+</ul>
+</div><div class="column" style="width:50%;">
 <p><strong>Let’s discuss:</strong></p>
 <ul>
-<li>What challenges do you face in teaching quantitative methods?</li>
+<li>What challenges do you face teaching quantitative methods?</li>
 <li>How might AI integration work in your context?</li>
 <li>What concerns do you have?</li>
-<li>What additional support would help?</li>
+<li>What would help you get started?</li>
 </ul>
+</div></div>
 </section>
 <section id="resources" class="slide level2">
 <h2>Resources</h2>
+<div class="medium">
 <p><strong>Workshop Materials</strong></p>
-<div style="font-size: 0.9em;">
 <ul>
-<li><strong>GitHub Repository:</strong> <a href="https://github.com/muntasirmasum/ai-epi-workshop" class="uri">https://github.com/muntasirmasum/ai-epi-workshop</a>
-<ul>
-<li>All slides, code, datasets, and guides</li>
-</ul></li>
-<li><strong>Live Presentation:</strong> <a href="https://muntasirmasum.github.io/ai-epi-workshop/" class="uri">https://muntasirmasum.github.io/ai-epi-workshop/</a></li>
-<li><strong>Contact:</strong> mmasum@albany.edu</li>
+<li><strong>GitHub:</strong> <a href="https://github.com/muntasirmasum/ai-epi-workshop">github.com/muntasirmasum/ai-epi-workshop</a> — All slides, code &amp; guides</li>
+<li><strong>Live Presentation:</strong> <a href="https://muntasirmasum.github.io/ai-epi-workshop/">muntasirmasum.github.io/ai-epi-workshop</a></li>
 </ul>
-</div>
-<div class="fragment">
-<p><strong>Additional Resources</strong></p>
+<p><strong>Tools &amp; Resources</strong></p>
 <ul>
-<li>Quarto: <a href="https://quarto.org" class="uri">https://quarto.org</a></li>
-<li>Claude AI: <a href="https://claude.ai" class="uri">https://claude.ai</a></li>
-<li>ClaudeR Package: <a href="https://github.com/IMNMV/ClaudeR" class="uri">https://github.com/IMNMV/ClaudeR</a></li>
-<li>NHANES Data: <a href="https://www.cdc.gov/nchs/nhanes/" class="uri">https://www.cdc.gov/nchs/nhanes/</a></li>
+<li>Quarto: <a href="https://quarto.org">quarto.org</a></li>
+<li>Claude AI: <a href="https://claude.ai">claude.ai</a></li>
+<li>ClaudeR Package: <a href="https://github.com/IMNMV/ClaudeR">github.com/IMNMV/ClaudeR</a></li>
+<li>NHANES Data: <a href="https://www.cdc.gov/nchs/nhanes/">cdc.gov/nchs/nhanes</a></li>
 </ul>
 </div>
 </section>
@@ -1127,7 +900,7 @@ F-statistic: 42.71 on 5 and 1168 DF,  p-value: &lt; 2.2e-16</code></pre>
         previewLinks: false,
 
         // Transition style (none/fade/slide/convex/concave/zoom)
-        transition: 'none',
+        transition: 'fade',
 
         // Transition speed (default/fast/slow)
         transitionSpeed: 'default',

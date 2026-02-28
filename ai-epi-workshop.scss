@@ -1,15 +1,230 @@
-@import url('https://fonts.googleapis.com/css2?family=Fira+Mono&family=Open+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,300;1,400;1,500;1,600;1,700;1,800&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Fira+Mono:wght@400;500;700&family=Open+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,300;1,400;1,500;1,600;1,700;1,800&family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400&display=swap');
 
 /*-- scss:defaults --*/
 
-$link-color: #461D7C;
+// Colors
+$purple: #461D7C;
+$purple-light: #f0e6f6;
+$purple-mid: #7B5EA7;
+$orange: #D55E00;
+$orange-light: #fff8f0;
+$blue: #0072B2;
+$green: #009E73;
+$gray-light: #f8f9fa;
+$gray-mid: #6c757d;
+
+$link-color: $purple;
 $font-family-sans-serif: 'Open Sans', sans-serif;
 $font-family-monospace: 'Fira Mono', monospace;
 
 $presentation-title-slide-text-align: left;
+$presentation-font-size-root: 40px;
+$code-block-font-size: 0.7em;
 
 /*-- scss:rules --*/
 
+// --- Typography ---
+
+h1, h2, h3 {
+  font-family: 'Playfair Display', serif !important;
+}
+
 h2 {
-  color: #461D7C !important;
+  color: $purple !important;
+  font-weight: 700 !important;
+}
+
+h3 {
+  color: $purple-mid !important;
+  font-weight: 400 !important;
+}
+
+// --- Code blocks ---
+
+.reveal pre {
+  font-size: 1.05em;
+  border-left: 4px solid $purple;
+  border-radius: 6px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+}
+
+.reveal pre code {
+  padding: 16px 20px;
+  line-height: 1.5;
+}
+
+// --- Cards ---
+
+.card {
+  background: white;
+  border-radius: 12px;
+  padding: 24px;
+  box-shadow: 0 4px 16px rgba(0,0,0,0.08);
+  border-top: 4px solid $purple;
+  text-align: center;
+}
+
+.card-orange {
+  @extend .card;
+  border-top-color: $orange;
+}
+
+.card-blue {
+  @extend .card;
+  border-top-color: $blue;
+}
+
+.card-green {
+  @extend .card;
+  border-top-color: $green;
+}
+
+.card h3, .card-orange h3, .card-blue h3, .card-green h3 {
+  margin-top: 0;
+  font-size: 0.9em;
+}
+
+.card-icon {
+  font-size: 2em;
+  margin-bottom: 8px;
+  display: block;
+}
+
+// --- Tip boxes ---
+
+.tip-box {
+  background: $orange-light;
+  border-left: 5px solid $orange;
+  border-radius: 0 8px 8px 0;
+  padding: 14px 20px;
+  margin: 16px 0;
+  font-size: 0.75em;
+}
+
+.tip-box strong {
+  color: $orange;
+}
+
+// --- Claude callout ---
+
+.claude-box {
+  background: $purple-light;
+  border-left: 5px solid $purple;
+  border-radius: 0 8px 8px 0;
+  padding: 14px 20px;
+  margin: 16px 0;
+  font-size: 0.75em;
+}
+
+.claude-box strong {
+  color: $purple;
+}
+
+// --- Student question box ---
+
+.student-ask {
+  background: $gray-light;
+  border-radius: 12px;
+  padding: 24px 30px;
+  font-size: 0.85em;
+  font-style: italic;
+  border: 2px solid #e0e0e0;
+  position: relative;
+  margin: 20px 0;
+}
+
+.student-ask::before {
+  content: "Student asks...";
+  font-style: normal;
+  font-weight: 700;
+  color: $gray-mid;
+  font-size: 0.7em;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  display: block;
+  margin-bottom: 8px;
+}
+
+// --- Section dividers ---
+
+.section-divider h2 {
+  color: white !important;
+  font-size: 1.8em !important;
+  font-weight: 900 !important;
+  text-align: center;
+}
+
+// --- Hero text ---
+
+.hero-text {
+  font-family: 'Playfair Display', serif;
+  font-size: 1.4em;
+  font-style: italic;
+  color: $purple;
+  text-align: center;
+  line-height: 1.4;
+  margin: 40px 0;
+}
+
+// --- Styled buttons ---
+
+.workflow-btn {
+  display: inline-block;
+  background: $purple;
+  color: white !important;
+  padding: 10px 24px;
+  border-radius: 30px;
+  text-decoration: none !important;
+  margin: 0 8px;
+  font-size: 0.7em;
+  font-weight: 600;
+  transition: background 0.2s;
+}
+
+.workflow-btn:hover {
+  background: $purple-mid;
+}
+
+// --- Highlight ---
+
+.highlight-orange {
+  color: $orange;
+  font-weight: bold;
+}
+
+// --- Subtle background for alternating slides ---
+
+.bg-light {
+  background-color: $gray-light !important;
+}
+
+// --- Clean bullet styling ---
+
+.reveal ul {
+  list-style: none;
+  padding-left: 0;
+}
+
+.reveal ul li {
+  padding-left: 1.2em;
+  position: relative;
+  margin-bottom: 0.4em;
+}
+
+.reveal ul li::before {
+  content: "›";
+  color: $purple;
+  font-weight: bold;
+  position: absolute;
+  left: 0;
+}
+
+// --- Smaller text utility ---
+
+.small {
+  font-size: 0.7em;
+}
+
+.medium {
+  font-size: 0.85em;
 }

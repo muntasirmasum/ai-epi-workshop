@@ -16,13 +16,14 @@ format:
     preview-links: auto
     echo: true
     mouse-wheel: true
+    transition: fade
+    code-block-height: 650px
 ---
 
 ```{r}
 #| label: setup
 #| include: false
 
-# Load required packages
 library(tidyverse)
 library(NHANES)
 library(broom)
@@ -30,7 +31,6 @@ library(knitr)
 library(kableExtra)
 library(plotly)
 
-# Set global chunk options
 knitr::opts_chunk$set(
   echo = TRUE,
   message = FALSE,
@@ -40,305 +40,253 @@ knitr::opts_chunk$set(
   cache = FALSE
 )
 
-# Set ggplot theme
 theme_set(theme_minimal(base_size = 16))
 ```
 
-## Welcome {#welcome}
+## {#welcome}
 
-### Today's Focus
-
-::: incremental
-- See Claude + RStudio in action
-- Statistical workflows
-- Practical demonstrations
-- Q&A and discussion
+::: {.hero-text}
+What if your students had a **24/7 AI teaching assistant**<br>that understood their data, their code, and their questions?
 :::
 
-## Workshop Overview {#overview}
+. . .
 
-### 75-Minute Structure
+::: {style="text-align: center; font-size: 0.8em; color: #6c757d;"}
+Today we'll see exactly how that works.
+:::
+
+## Workshop Roadmap {#overview}
 
 ::: columns
 ::: {.column width="33%"}
-**Part 1: Context** (15 min)
+::: {.card}
+[**Context**]{.card-icon style="font-size: 1.6em;"}
 
-- Teaching challenge
-- Why AI + R?
-- Course integration
+### 15 minutes
+
+The teaching challenge & how AI fits in
+:::
 :::
 
 ::: {.column width="33%"}
-**Part 2: Demonstrations** (45 min)
+::: {.card-orange}
+[**Live Demo**]{.card-icon style="font-size: 1.6em;"}
 
-- Coding workflow
-- Analysis workflow
-- Visualization
-- Debugging
+### 45 minutes
+
+Coding, analysis, visualization & debugging
+:::
 :::
 
 ::: {.column width="33%"}
-**Part 3: Discussion** (15 min)
+::: {.card-blue}
+[**Discussion**]{.card-icon style="font-size: 1.6em;"}
 
-- Implementation
-- Academic integrity
-- Q&A
+### 15 minutes
+
+Implementation, integrity & Q&A
 :::
 :::
-
-::: footer
-Materials available at: [https://github.com/muntasirmasum/ai-epi-workshop](https://github.com/muntasirmasum/ai-epi-workshop)
 :::
 
 ## Who Is This For?
 
-::: incremental
-- **Educators** teaching quantitative methods
-- **Students** learning R and statistics
-- **Researchers** working with data
-- **Anyone** interested in AI-assisted analysis
+::: columns
+::: {.column width="25%"}
+::: {.card}
+[**Educators**]{style="font-size: 1.1em;"}
+
+Teaching quantitative methods
+:::
+:::
+
+::: {.column width="25%"}
+::: {.card}
+[**Students**]{style="font-size: 1.1em;"}
+
+Learning R & statistics
+:::
+:::
+
+::: {.column width="25%"}
+::: {.card}
+[**Researchers**]{style="font-size: 1.1em;"}
+
+Working with data
+:::
+:::
+
+::: {.column width="25%"}
+::: {.card}
+[**Anyone**]{style="font-size: 1.1em;"}
+
+Curious about AI + analysis
+:::
+:::
 :::
 
 . . .
 
-**No assumptions about:** R experience • Statistics background • Epidemiology knowledge
+::: {style="text-align: center; margin-top: 30px; font-size: 0.85em;"}
+**No assumptions about:** R experience · Statistics background · Epidemiology knowledge
+:::
 
 ## The Teaching Challenge
 
-**Students come from diverse backgrounds**
-
-- Biology, Psychology, Public Health, Policy
-- Variable quantitative preparation
-- Different comfort with programming
-
-. . .
-
-**Traditional barriers**
-
-- Syntax frustration overshadows statistical thinking
-- Limited support outside office hours
-- Steep learning curve for R
-- Time debugging instead of learning
-
-. . .
-
-**The real goal:** Develop analytical thinkers, not code executors
-
-## Why Integrate AI Now?
-
 ::: columns
-::: {.column width="50%"}
-**Traditional Approach**
-
-- Lectures + textbook
-- Office hours
-- TA support (limited)
-- Peer learning groups
-- Steep learning curve
+::: {.column width="48%"}
+::: {style="text-align: center; margin-bottom: 15px;"}
+**The Problem**
 :::
 
-::: {.column width="50%"}
-**AI-Enhanced Approach**
-
-- On-demand explanation
-- Contextual guidance
-- Code debugging help
-- Iterative learning
-- Focus on interpretation
-:::
+- ~~Syntax frustration overshadows statistical thinking~~
+- ~~Limited support outside office hours~~
+- ~~Steep learning curve for R~~
+- ~~Debugging takes all the time~~
 :::
 
+::: {.column width="4%"}
+:::
 
-## Four Key Principles
+::: {.column width="48%"}
+::: {style="text-align: center; margin-bottom: 15px;"}
+**The Goal**
+:::
 
-1. **Scaffold, Don't Replace** — AI guides, students demonstrate understanding
-
-2. **Context Matters** — Statistical output → Public health implications
-
-3. **Encourage Curiosity** — AI asks questions that deepen learning
-
-4. **Build Independence** — Progressive responsibility transfer
+- Focus on *interpretation*, not syntax
+- On-demand, contextual guidance
+- Iterative, scaffolded learning
+- Students become *analytical thinkers*
+:::
+:::
 
 . . .
 
-**Core Philosophy:** AI is a teaching assistant, not a replacement for learning
+::: {.claude-box}
+**AI bridges this gap** — Students get instant, context-aware help so they can focus on understanding, not debugging.
+:::
 
-## Three Ways to Integrate Claude + RStudio {#integration}
-
-### Choose Your Workflow
+## Three Ways to Use Claude + RStudio {#integration}
 
 ::: columns
 ::: {.column width="33%"}
-**1. ClaudeR Package**
+::: {.card-green}
+### ClaudeR Package
 
-- Direct RStudio integration
-- Uses Claude Desktop app
-- Access to R environment
-- *<span style="color: #D55E00; font-weight: bold;">Most accessible</span>*
+Direct RStudio integration via Claude Desktop app
 
+[*<span class="highlight-orange">Most accessible</span>*]{style="font-size: 0.85em;"}
+:::
 :::
 
 ::: {.column width="33%"}
-**2. Claude Chat**
+::: {.card-orange}
+### Claude Chat
 
-- Claude Desktop App + RStudio
-- Copy/paste workflow
-- Manual code execution
-- *<span style="color: #D55E00; font-weight: bold;">Intermediate approach</span>*
+Claude Desktop App + copy/paste to RStudio
 
+[*<span class="highlight-orange">Intermediate approach</span>*]{style="font-size: 0.85em;"}
+:::
 :::
 
 ::: {.column width="33%"}
-**3. Claude Code**
+::: {.card}
+### Claude Code
 
-- Full AI IDE integration
-- Autonomous execution
-- Advanced workflows
-- *<span style="color: #D55E00; font-weight: bold;">Most powerful</span>*
+Full AI IDE integration with autonomous execution
 
+[*<span class="highlight-orange">Most powerful</span>*]{style="font-size: 0.85em;"}
+:::
 :::
 :::
 
 . . .
 
+::: {style="text-align: center; margin-top: 20px;"}
 **Today's focus:** Demonstrating AI-assisted statistical analysis workflows using Claude Code
-
-## ClaudeR Package Demo
-
-### What is ClaudeR?
-
-**Direct integration between RStudio and Claude AI**
-
-::: incremental
-- R package that connects RStudio to Claude Desktop app
-- Establishes communication bridge between R and Claude
-- Claude can "see" and interact with your R environment
-- Chat happens in Claude Desktop while R runs in RStudio
-- **Perfect for students new to AI workflows**
 :::
+
+## ClaudeR: The Easiest Starting Point
+
+::: columns
+::: {.column width="55%"}
+**What it does:** Connects RStudio directly to Claude Desktop app
+
+- Claude can *see* your loaded data and R environment
+- Chat in Claude Desktop, run code in RStudio
+- Perfect for students new to AI workflows
 
 . . .
 
-**Installation:** `devtools::install_github("IMNMV/ClaudeR")`
+::: {.tip-box}
+**Install:** `devtools::install_github("IMNMV/ClaudeR")`
+GitHub: [github.com/IMNMV/ClaudeR](https://github.com/IMNMV/ClaudeR)
+:::
+:::
 
-**GitHub:** [github.com/IMNMV/ClaudeR](https://github.com/IMNMV/ClaudeR)
-
-## ClaudeR in Action
-
-### Live Demonstration
-
+::: {.column width="45%"}
 ```r
 # Start ClaudeR connection
 library(ClaudeR)
 claudeAddin()
 
-# Now you can chat with Claude directly in RStudio!
-# Claude can see your loaded datasets
-# Ask questions about your data
+# Now Claude can see your data!
+# Ask questions directly
 # Get help with analysis
 ```
 
 . . .
 
-**Example conversation:**
+::: {style="background-color: #f0f0f0; padding: 16px; border-radius: 10px; font-size: 0.7em;"}
+👤 "I have NHANES loaded. Help me summarize systolic blood pressure?"
 
-::: {style="background-color: #f0f0f0; padding: 20px; border-radius: 10px; margin-top: 20px;"}
-👤 **Student:** "I have the NHANES data loaded. Can you help me run a basic summary of systolic blood pressure?"
-
-🤖 **Claude:** "I can see you have NHANES loaded in your environment. Let me help you..."
+🤖 "I can see NHANES in your environment. Let me help..."
+:::
+:::
 :::
 
-## Why ClaudeR Matters for Teaching
+---
 
-::: incremental
-- **Lower barrier to entry** — Students don't need to learn new tools
-- **Familiar environment** — Works within RStudio they already use
-- **Context awareness** — Claude sees loaded data and objects
-- **Progressive learning** — Students can transition to more advanced workflows
-- **Reduces friction** — No switching between browser and IDE
+## {.section-divider data-background-color="#461D7C"}
+
+::: {style="text-align: center;"}
+[Let's See It in Action]{style="color: white; font-family: 'Playfair Display', serif; font-size: 2em; font-weight: 900;"}
+
+[Coding · Analysis · Visualization · Debugging]{style="color: #c4a8e0; font-size: 0.9em;"}
 :::
-
-. . .
-
-**This is the approach I recommend for getting started!**
 
 ## Today's Research Question {#research-question}
 
-> *Does alcohol consumption predict blood pressure?*
-
-**Dataset:** NHANES 2017-2018
-
-- Outcome: Systolic blood pressure (mmHg)
-- Exposure: Alcohol drinks per week
-- Covariates: Age, BMI, smoking status, sex
-
-. . .
-
-**Four workflows:** [Coding](#coding) • [Analysis](#analysis) • [Plotting](#visualization) • [Debugging](#debugging)
-
-
-## Student-AI Interaction Flow
-
-::: {style="font-size: 1.3em;"}
-::: {.columns}
-::: {.column width="50%"}
-**Student Actions:**
-
-1. 👨‍🎓 Ask question
-2. 📝 Review & run code
-3. 📊 Interpret results
-4. 🔄 Iterate if needed
-
+::: {.hero-text}
+Does alcohol consumption predict blood pressure?
 :::
 
-::: {.column width="50%"}
-**Claude Assists:**
-
-1. 🤖 Understand context
-2. 💻 Generate R code
-3. 💡 Explain output
-4. 🐛 Help debug errors
-
-:::
-:::
+::: {style="text-align: center; font-size: 0.8em;"}
+**Dataset:** NHANES 2017-2018 · **Outcome:** Systolic BP (mmHg) · **Exposure:** Alcohol drinks/week
 :::
 
 . . .
 
-::: {style="text-align: center; margin-top: 30px; padding: 20px; background-color: #f0e6f6; border-radius: 10px;"}
-**Iterative learning:** Student maintains agency; Claude scaffolds understanding
-:::
-
-::: {.notes}
-Iterative learning process. Student maintains agency; Claude scaffolds understanding.
+::: {style="text-align: center; margin-top: 30px;"}
+[Coding](#coding){.workflow-btn} [Analysis](#analysis){.workflow-btn} [Visualization](#visualization){.workflow-btn} [Debugging](#debugging){.workflow-btn}
 :::
 
 ## Student Question: Coding {#coding}
 
-*"I need to prepare my NHANES data for regression analysis. I want adults aged 20-65, exclude missing values, and create a drinks-per-week variable. How do I do this in R?"*
+::: {.student-ask}
+I need to prepare my NHANES data for regression analysis. I want adults aged 20-65, exclude missing values, and create a drinks-per-week variable. How do I do this in R?
+:::
 
 . . .
 
-**How Claude helps:**
-
-- Suggests appropriate functions
-- Explains data manipulation logic
-- Provides annotated code
-- Anticipates common pitfalls
-
-## Claude's Approach
-
-**Understanding the task:**
-
-1. Filter age range (20-65)
-2. Select relevant variables
-3. Handle missing data
-4. Create derived variables
+::: {.claude-box}
+**Claude's approach:** Filter age range → Select variables → Handle missing data → Create derived variables
+:::
 
 ## The Code {.smaller}
 
-::: {style="background-color: #f0e6f6; padding: 15px; border-left: 5px solid #461D7C; border-radius: 5px; margin-bottom: 20px;"}
-**💡 Claude suggests:** Use `filter()` for age range, `mutate()` for new variables, and handle missing data explicitly
+::: {.claude-box}
+**Claude suggests:** Use `filter()` for age range, `mutate()` for new variables, and handle missing data explicitly
 :::
 
 ```r
@@ -350,25 +298,28 @@ data("NHANES")  # ← Built-in dataset from NHANES package
 
 # Prepare analysis dataset
 analysis_data <- NHANES %>%
-  filter(Age >= 20, Age <= 65) %>%  # ← Filter age range (student's requirement)
-  select(ID, Gender, Age, BMI, AlcoholDay, SmokeNow, BPSysAve) %>%  # ← Select relevant vars
-  na.omit() %>%  # ← Claude suggests: remove missing data
-  mutate(  # ← Create derived variables
-    drinks_per_week = AlcoholDay * 7,  # ← Convert daily to weekly
-    current_smoker = ifelse(SmokeNow == "Yes", 1, 0)  # ← Binary indicator
+  filter(Age >= 20, Age <= 65) %>%              # Filter age range
+  select(ID, Gender, Age, BMI, AlcoholDay,
+         SmokeNow, BPSysAve) %>%                # Select relevant vars
+  na.omit() %>%                                  # Remove missing data
+  mutate(
+    drinks_per_week = AlcoholDay * 7,            # Convert daily → weekly
+    current_smoker = ifelse(SmokeNow == "Yes", 1, 0)
   )
 ```
 
-## Live Demonstration
+::: {.tip-box}
+**R Tip:** `na.omit()` drops ALL rows with any NA — consider `filter(!is.na(var))` for targeted removal
+:::
+
+## Live Code Output
 
 ```{r}
 #| label: data-prep
 #| echo: true
 
-# Load NHANES data
 data("NHANES")
 
-# Prepare analysis dataset
 analysis_data <- NHANES %>%
   filter(Age >= 20, Age <= 65) %>%
   filter(!is.na(BPSysAve), !is.na(AlcoholDay), !is.na(BMI),
@@ -381,6 +332,10 @@ analysis_data <- NHANES %>%
   distinct(ID, .keep_all = TRUE)
 ```
 
+::: {.tip-box}
+**Pro Tip:** `glimpse()` gives you a better overview than `str()` for tidy data
+:::
+
 ## Check the Result
 
 ```{r}
@@ -388,24 +343,16 @@ analysis_data <- NHANES %>%
 glimpse(analysis_data)
 ```
 
-## Key Takeaways
-
-1. Claude explains **logic** before showing code
-2. Code is **annotated** for learning
-3. Line-by-line highlighting helps follow flow
-4. Student **understands** pipeline, not just copies
-
-. . .
-
-
 ## Student Question: Analysis {#analysis}
 
-*"I need to run a multiple regression with blood pressure as outcome and alcohol, age, BMI, smoking, and sex as predictors. How do I interpret the results?"*
+::: {.student-ask}
+I need to run a multiple regression with blood pressure as outcome and alcohol, age, BMI, smoking, and sex as predictors. How do I interpret the results?
+:::
 
 ## Fitting the Model {.smaller}
 
-::: {style="background-color: #f0e6f6; padding: 15px; border-left: 5px solid #461D7C; border-radius: 5px; margin-bottom: 20px;"}
-**💡 Claude explains:** Use `lm()` for linear regression. Formula syntax: `outcome ~ predictor1 + predictor2 + ...`
+::: {.claude-box}
+**Claude explains:** Use `lm()` for linear regression. Formula syntax: `outcome ~ predictor1 + predictor2 + ...`
 :::
 
 ```{r}
@@ -414,21 +361,20 @@ glimpse(analysis_data)
 #| code-line-numbers: "2,3,4"
 
 # Fit multiple linear regression
-model1 <- lm(BPSysAve ~ drinks_per_week + Age + BMI +  # ← Main predictors
-                        current_smoker + Gender,  # ← Additional covariates
-             data = analysis_data)  # ← Specify dataset
+model1 <- lm(BPSysAve ~ drinks_per_week + Age + BMI +
+                        current_smoker + Gender,
+             data = analysis_data)
 
-# View results ← Claude suggests: summary() for comprehensive output
 summary(model1)
 ```
 
-::: {style="font-size: 0.8em; margin-top: 15px; padding: 10px; background-color: #fff3cd; border-radius: 5px;"}
-**🎯 Claude's teaching point:** Each coefficient represents the change in BP for a 1-unit increase in that predictor, *holding all other variables constant*
+::: {.tip-box}
+**Claude Tip:** Always tell Claude your research question — it gives better, more contextual code suggestions
 :::
 
-## Claude's Interpretation
+## Interpreting the Results
 
-**1. Coefficient for alcohol:**
+**Coefficient for alcohol:**
 
 ```{r}
 #| echo: true
@@ -437,9 +383,9 @@ coef(model1)["drinks_per_week"]
 
 Each additional drink per week is associated with a `r round(coef(model1)["drinks_per_week"], 3)` mmHg change in systolic BP, holding other factors constant.
 
-## Statistical Significance
+. . .
 
-**2. P-value:**
+**P-value:**
 
 ```{r}
 #| echo: true
@@ -448,43 +394,39 @@ summary(model1)$coefficients["drinks_per_week", "Pr(>|t|)"]
 
 . . .
 
-**Claude guides interpretation:**
-
-::: {style="background-color: #f0e6f6; padding: 20px; border-radius: 10px;"}
-💬 *"What does p = `r format.pval(summary(model1)$coefficients['drinks_per_week', 'Pr(>|t|)'], digits=3)` tell us about this relationship?"*
-
-💬 *"Is this effect size clinically meaningful for public health?"*
+::: {.claude-box}
+**Claude guides the student:** "What does this p-value tell us? Is this effect size clinically meaningful for public health interventions?"
 :::
 
+---
+
+## {.section-divider data-background-color="#461D7C"}
+
+::: {style="text-align: center;"}
+[Telling the Story with Data]{style="color: white; font-family: 'Playfair Display', serif; font-size: 2em; font-weight: 900;"}
+
+[Visualization that communicates]{style="color: #c4a8e0; font-size: 0.9em;"}
+:::
 
 ## Student Question: Visualization {#visualization}
 
-*"I want to visualize the relationship between alcohol consumption and blood pressure, accounting for sex differences. What's the best plot?"*
-
-. . .
-
-**Claude suggests:**
-
-- Scatter plot with regression lines
-- Separate by sex
-- Add confidence intervals
-- Clear labels
-
-## Building the Plot {.smaller}
-
-::: {style="background-color: #f8f9fa; padding: 20px; border-radius: 10px;"}
-**Student asks:** *"How do I create a scatter plot with separate regression lines for males and females?"*
+::: {.student-ask}
+I want to visualize the relationship between alcohol consumption and blood pressure, accounting for sex differences. What's the best plot?
 :::
 
 . . .
 
-**Claude Code assists with visualization:**
+::: {.claude-box}
+**Claude suggests:** Scatter plot with regression lines, separate by sex, add confidence intervals, clear labels
+:::
+
+## Building the Plot {.smaller}
 
 ```r
-# Create scatter plot with regression lines
-p <- ggplot(analysis_data, aes(x = drinks_per_week, y = BPSysAve, color = Gender)) +
-  geom_point(alpha = 0.3, size = 2) +  # ← Claude suggests: alpha for overplotting
-  geom_smooth(method = "lm", se = TRUE, linewidth = 1.5) +  # ← Adds regression lines
+p <- ggplot(analysis_data, aes(x = drinks_per_week, y = BPSysAve,
+                                color = Gender)) +
+  geom_point(alpha = 0.3, size = 2) +
+  geom_smooth(method = "lm", se = TRUE, linewidth = 1.5) +
   labs(
     title = "Alcohol Consumption and Systolic Blood Pressure",
     subtitle = "NHANES 2017-2018, Adults Aged 20-65",
@@ -493,10 +435,12 @@ p <- ggplot(analysis_data, aes(x = drinks_per_week, y = BPSysAve, color = Gender
     color = "Sex"
   ) +
   theme_minimal(base_size = 20) +
-  theme(legend.position = "right")  # ← Claude suggests: move legend
-
-p  # Display the plot
+  theme(legend.position = "right")
 ```
+
+::: {.tip-box}
+**ggplot Tip:** `alpha` controls transparency — essential when you have overlapping points (overplotting)
+:::
 
 ## Visualization Output
 
@@ -506,7 +450,6 @@ p  # Display the plot
 #| fig-width: 14
 #| fig-height: 9
 
-# Create the plot with legend on right
 ggplot(analysis_data, aes(x = drinks_per_week, y = BPSysAve, color = Gender)) +
   geom_point(alpha = 0.3, size = 3) +
   geom_smooth(method = "lm", se = TRUE, linewidth = 2) +
@@ -530,10 +473,6 @@ ggplot(analysis_data, aes(x = drinks_per_week, y = BPSysAve, color = Gender)) +
   scale_color_manual(values = c("female" = "#D55E00", "male" = "#0072B2"))
 ```
 
-::: {.notes}
-Clear visualization showing relationship between alcohol and blood pressure by sex. Larger plot for better visibility during presentation.
-:::
-
 ## Data Distributions
 
 ```{r}
@@ -544,7 +483,6 @@ Clear visualization showing relationship between alcohol and blood pressure by s
 
 library(gridExtra)
 
-# Distribution of drinks per week
 p1 <- ggplot(analysis_data, aes(x = drinks_per_week, fill = Gender)) +
   geom_histogram(alpha = 0.6, bins = 30, position = "identity") +
   labs(title = "Distribution of Alcohol Consumption",
@@ -553,7 +491,6 @@ p1 <- ggplot(analysis_data, aes(x = drinks_per_week, fill = Gender)) +
   scale_fill_manual(values = c("female" = "#D55E00", "male" = "#0072B2")) +
   theme(legend.position = "top")
 
-# Distribution of systolic BP
 p2 <- ggplot(analysis_data, aes(x = BPSysAve, fill = Gender)) +
   geom_density(alpha = 0.6) +
   labs(title = "Distribution of Systolic Blood Pressure",
@@ -565,10 +502,6 @@ p2 <- ggplot(analysis_data, aes(x = BPSysAve, fill = Gender)) +
 grid.arrange(p1, p2, ncol = 2)
 ```
 
-::: {.notes}
-Understanding data distributions before modeling. Notice the skewed distribution of alcohol consumption and roughly normal distribution of blood pressure.
-:::
-
 ## Correlation Matrix
 
 ```{r}
@@ -577,15 +510,12 @@ Understanding data distributions before modeling. Notice the skewed distribution
 #| fig-width: 10
 #| fig-height: 8
 
-# Prepare numeric data for correlation
 corr_data <- analysis_data %>%
   select(Age, drinks_per_week, BPSysAve) %>%
   na.omit()
 
-# Calculate correlation matrix
 cor_matrix <- cor(corr_data)
 
-# Create heatmap
 library(reshape2)
 melted_cor <- melt(cor_matrix)
 
@@ -603,10 +533,6 @@ ggplot(melted_cor, aes(Var1, Var2, fill = value)) +
   labs(title = "Correlation Matrix of Key Variables")
 ```
 
-::: {.notes}
-Weak positive correlation between alcohol and blood pressure. Age shows weak correlations with both variables.
-:::
-
 ## Coefficient Plot
 
 ```{r}
@@ -615,7 +541,6 @@ Weak positive correlation between alcohol and blood pressure. Age shows weak cor
 #| fig-width: 12
 #| fig-height: 7
 
-# Extract coefficients with confidence intervals
 coef_data <- tidy(model1, conf.int = TRUE) %>%
   filter(term != "(Intercept)") %>%
   mutate(term = case_when(
@@ -638,11 +563,7 @@ ggplot(coef_data, aes(x = estimate, y = term)) +
         panel.grid.major.y = element_blank())
 ```
 
-::: {.notes}
-Visual representation of effect sizes. Interaction term crosses zero, suggesting similar effects by sex.
-:::
-
-## Model Diagnostics: Residual Plots
+## Model Diagnostics
 
 ```{r}
 #| label: diagnostic-plots
@@ -650,10 +571,8 @@ Visual representation of effect sizes. Interaction term crosses zero, suggesting
 #| fig-width: 14
 #| fig-height: 14
 
-# Get model diagnostics
 model_diag <- augment(model1)
 
-# 1. Residuals vs Fitted
 p1 <- ggplot(model_diag, aes(x = .fitted, y = .resid)) +
   geom_point(alpha = 0.3, color = "#461D7C", size = 1.5) +
   geom_hline(yintercept = 0, linetype = "dashed", color = "red", size = 1) +
@@ -663,7 +582,6 @@ p1 <- ggplot(model_diag, aes(x = .fitted, y = .resid)) +
   theme(axis.title = element_text(size = 20, face = "bold"),
         axis.text = element_text(size = 16))
 
-# 2. Q-Q Plot
 p2 <- ggplot(model_diag, aes(sample = .resid)) +
   stat_qq(alpha = 0.3, color = "#461D7C", size = 1.5) +
   stat_qq_line(color = "red", linetype = "dashed", size = 1) +
@@ -672,7 +590,6 @@ p2 <- ggplot(model_diag, aes(sample = .resid)) +
   theme(axis.title = element_text(size = 20, face = "bold"),
         axis.text = element_text(size = 16))
 
-# 3. Scale-Location
 p3 <- ggplot(model_diag, aes(x = .fitted, y = sqrt(abs(.std.resid)))) +
   geom_point(alpha = 0.3, color = "#461D7C", size = 1.5) +
   geom_smooth(se = TRUE, color = "#0072B2", size = 1) +
@@ -682,7 +599,6 @@ p3 <- ggplot(model_diag, aes(x = .fitted, y = sqrt(abs(.std.resid)))) +
   theme(axis.title = element_text(size = 20, face = "bold"),
         axis.text = element_text(size = 16))
 
-# 4. Residuals vs Leverage
 p4 <- ggplot(model_diag, aes(x = .hat, y = .std.resid)) +
   geom_point(alpha = 0.3, color = "#461D7C", size = 1.5) +
   geom_hline(yintercept = 0, linetype = "dashed", color = "red", size = 1) +
@@ -695,10 +611,6 @@ p4 <- ggplot(model_diag, aes(x = .hat, y = .std.resid)) +
 grid.arrange(p1, p2, p3, p4, ncol = 2)
 ```
 
-::: {.notes}
-Checking model assumptions: linearity, normality, homoscedasticity, influential points. Generally good fit with some deviations from normality.
-:::
-
 ## Model Comparison
 
 ```{r}
@@ -707,12 +619,10 @@ Checking model assumptions: linearity, normality, homoscedasticity, influential 
 #| fig-width: 12
 #| fig-height: 7
 
-# Fit comparison models
 model_simple <- lm(BPSysAve ~ drinks_per_week, data = analysis_data)
 model_additive <- lm(BPSysAve ~ drinks_per_week + Gender, data = analysis_data)
-model_interaction <- model1  # Already fitted
+model_interaction <- model1
 
-# Get model metrics
 model_metrics <- tibble(
   Model = c("Simple\n(Drinks Only)",
             "Additive\n(Drinks + Sex)",
@@ -726,26 +636,22 @@ model_metrics <- tibble(
   AIC = c(AIC(model_simple), AIC(model_additive), AIC(model_interaction))
 )
 
-# R-squared comparison
 p1 <- ggplot(model_metrics, aes(x = Model, y = Adj_R_squared)) +
   geom_col(fill = "#461D7C", alpha = 0.8) +
   geom_text(aes(label = sprintf("%.4f", Adj_R_squared)),
             vjust = -0.5, size = 6, fontface = "bold") +
-  labs(title = "Adjusted R²",
-       y = "Adjusted R²", x = "") +
+  labs(title = "Adjusted R²", y = "Adjusted R²", x = "") +
   theme_minimal(base_size = 20) +
   theme(axis.text.x = element_text(size = 16, face = "bold"),
         axis.title.y = element_text(size = 20, face = "bold"),
         plot.title = element_text(size = 22, face = "bold", hjust = 0.5)) +
   ylim(0, max(model_metrics$Adj_R_squared) * 1.2)
 
-# AIC comparison (lower is better)
 p2 <- ggplot(model_metrics, aes(x = Model, y = AIC)) +
   geom_col(fill = "#0072B2", alpha = 0.8) +
   geom_text(aes(label = sprintf("%.0f", AIC)),
             vjust = -0.5, size = 6, fontface = "bold") +
-  labs(title = "AIC (Lower is Better)",
-       y = "AIC", x = "") +
+  labs(title = "AIC (Lower is Better)", y = "AIC", x = "") +
   theme_minimal(base_size = 20) +
   theme(axis.text.x = element_text(size = 16, face = "bold"),
         axis.title.y = element_text(size = 20, face = "bold"),
@@ -755,10 +661,6 @@ p2 <- ggplot(model_metrics, aes(x = Model, y = AIC)) +
 grid.arrange(p1, p2, ncol = 2)
 ```
 
-::: {.notes}
-Comparing model performance. Interaction model shows marginally better fit but added complexity may not be justified.
-:::
-
 ## Predicted vs Observed
 
 ```{r}
@@ -767,7 +669,6 @@ Comparing model performance. Interaction model shows marginally better fit but a
 #| fig-width: 10
 #| fig-height: 8
 
-# Get predictions
 model_diag <- model_diag %>%
   rename(observed = BPSysAve, predicted = .fitted)
 
@@ -785,168 +686,147 @@ ggplot(model_diag, aes(x = observed, y = predicted, color = Gender)) +
   coord_fixed()
 ```
 
-::: {.notes}
-Model predictions generally track observed values but with considerable scatter, reflecting modest R² values.
+## Student Question: Debugging {#debugging}
+
+::: {.student-ask}
+I'm getting errors when I try to run my regression. Can you help me figure out what's wrong?
 :::
-
-## Iterative Refinement
-
-**Student:** "Can we make this publication-ready?"
 
 . . .
 
-**Claude suggests:**
-
-- Larger text for readability
-- Color-blind friendly palette
-- Add sample size annotations
-- Export at high resolution
-
-## Student Question: Debugging {#debugging}
-
 **Common errors students encounter:**
 
-1. **Missing package errors**
-   ```r
-   Error: could not find function "ggplot"
-   ```
-
-2. **Variable name typos**
-   ```r
-   Error: object 'drinks_perweek' not found
-   ```
-
-3. **Formula syntax errors**
-   ```r
-   Error in lm.fit(x, y, ...)
-   ```
-
-## Claude's Diagnostic Process
-
-**Student shares error:**
 ```r
-Error: object 'current_smoker' not found
+Error: could not find function "ggplot"        # Missing package
+Error: object 'drinks_perweek' not found       # Typo in variable name
+Error in lm.fit(x, y, ...)                     # Formula syntax error
 ```
 
 . . .
 
-**Claude's approach:**
+::: {.claude-box}
+**Claude's diagnostic process:** Identify the error → Explain *why* it happened → Suggest the fix → Teach the pattern so it doesn't happen again
+:::
 
-1. Identify the issue (variable doesn't exist)
-2. Explain why (not created or misspelled)
-3. Suggest fix (check mutate step)
-4. Teach pattern (how to verify variables)
+::: {.tip-box}
+**Debug Tip:** Run `ls()` to see your environment — check if the variable exists before panicking!
+:::
 
+---
+
+## {.section-divider data-background-color="#461D7C"}
+
+::: {style="text-align: center;"}
+[Bringing It All Together]{style="color: white; font-family: 'Playfair Display', serif; font-size: 2em; font-weight: 900;"}
+
+[Implementation, integrity & discussion]{style="color: #c4a8e0; font-size: 0.9em;"}
+:::
 
 ## Optional Follow-Along
 
-**For participants:**
+::: columns
+::: {.column width="50%"}
+::: {.card}
+### Get Set Up
 
-1. Install [R](https://cran.r-project.org/) and [RStudio](https://posit.co/download/rstudio-desktop/) (latest versions)
-2. Create Claude account (free at [claude.ai](https://claude.ai))
+1. Install [R](https://cran.r-project.org/) and [RStudio](https://posit.co/download/rstudio-desktop/)
+2. Create Claude account at [claude.ai](https://claude.ai)
 3. Install packages:
-   ```r
-   install.packages(c("tidyverse", "NHANES", "broom"))
-   ```
 
-**Workshop materials:** [GitHub repository](https://github.com/muntasirmasum/ai-epi-workshop)
+```r
+install.packages(c("tidyverse",
+                    "NHANES", "broom"))
+```
+:::
+:::
+
+::: {.column width="50%"}
+::: {.card-orange}
+### Workshop Materials
+
+Everything is on GitHub:
+
+- Slides & source code
+- Sample datasets
+- Quick-start guide
+
+[github.com/muntasirmasum/ai-epi-workshop](https://github.com/muntasirmasum/ai-epi-workshop)
+:::
+:::
+:::
 
 ## Academic Integrity {#integrity}
 
 ::: columns
-::: {.column width="50%"}
-**Clear Guidelines**
+::: {.column width="48%"}
+::: {.card}
+### Clear Guidelines
 
-- AI assistance allowed
-- Must cite AI use
-- Understand all code
-- No copy-paste only
+- AI assistance is **allowed**
+- Must **cite** AI use
+- Must **understand** all code
+- No copy-paste only submissions
+:::
 :::
 
-::: {.column width="50%"}
-**Assessment Design**
+::: {.column width="4%"}
+:::
+
+::: {.column width="48%"}
+::: {.card-orange}
+### Assessment Design
 
 - Timed exams (no AI)
-- Interpretation focus
-- Code annotation
-- Learning reflection
+- Interpretation-focused questions
+- Code annotation requirements
+- Learning reflection essays
+:::
 :::
 :::
 
 . . .
 
-**Key message:** AI is a learning tool, not a replacement for understanding
-
-## Adapting to Your Context
-
-- **Different disciplines** — Principles apply beyond epidemiology
-- **Various skill levels** — Scale scaffolding to student needs
-- **Different software** — Concepts transfer to Python, Stata, SAS
-- **Online/in-person** — Works in both modalities
-- **Class size** — Scalable from seminars to large lectures
-
-## Benefits Observed
-
-::: columns
-::: {.column width="50%"}
-**For Students**
-
-- Reduced frustration
-- Deeper understanding
-- More interpretation time
-- Confidence building
-- 24/7 support access
+::: {style="text-align: center; margin-top: 20px;"}
+**AI is a learning tool, not a replacement for understanding**
 :::
-
-::: {.column width="50%"}
-**For Instructors**
-
-- Focus on concepts
-- Better class time use
-- Fewer basic questions
-- Advanced discussions
-- Scalable support
-:::
-:::
-
-## Challenges & Solutions
-
-| Challenge | Solution |
-|-----------|----------|
-| Over-reliance on AI | Progressive scaffolding; AI-free assessments |
-| Incorrect suggestions | Teach verification; show error examples |
-| Equity concerns | Free tier; computer lab access |
-| Faculty learning curve | Start small; build gradually |
-| Academic integrity | Clear policies; reflection assignments |
 
 ## Discussion
 
+::: columns
+::: {.column width="50%"}
+**What we've seen today:**
+
+- AI lowers barriers to statistical computing
+- Students focus on *thinking*, not syntax
+- Scaffolded learning builds independence
+- Works across disciplines and skill levels
+:::
+
+::: {.column width="50%"}
 **Let's discuss:**
 
-- What challenges do you face in teaching quantitative methods?
+- What challenges do you face teaching quantitative methods?
 - How might AI integration work in your context?
 - What concerns do you have?
-- What additional support would help?
+- What would help you get started?
+:::
+:::
 
 ## Resources {#resources}
 
+::: {.medium}
 **Workshop Materials**
 
-::: {style="font-size: 0.9em;"}
-- **GitHub Repository:** <https://github.com/muntasirmasum/ai-epi-workshop>
-  - All slides, code, datasets, and guides
-- **Live Presentation:** <https://muntasirmasum.github.io/ai-epi-workshop/>
-- **Contact:** mmasum@albany.edu
+- **GitHub:** [github.com/muntasirmasum/ai-epi-workshop](https://github.com/muntasirmasum/ai-epi-workshop) — All slides, code & guides
+- **Live Presentation:** [muntasirmasum.github.io/ai-epi-workshop](https://muntasirmasum.github.io/ai-epi-workshop/)
+
+**Tools & Resources**
+
+- Quarto: [quarto.org](https://quarto.org)
+- Claude AI: [claude.ai](https://claude.ai)
+- ClaudeR Package: [github.com/IMNMV/ClaudeR](https://github.com/IMNMV/ClaudeR)
+- NHANES Data: [cdc.gov/nchs/nhanes](https://www.cdc.gov/nchs/nhanes/)
 :::
-
-. . .
-
-**Additional Resources**
-
-- Quarto: <https://quarto.org>
-- Claude AI: <https://claude.ai>
-- ClaudeR Package: <https://github.com/IMNMV/ClaudeR>
-- NHANES Data: <https://www.cdc.gov/nchs/nhanes/>
 
 ## Thank You!
 
