@@ -1456,7 +1456,7 @@ claude
 . . .
 
 ::: {style="text-align: center; margin-top: 20px; font-size: 0.85em;"}
-**Our recommendation:** Start with **Claude Chat** today, move to **Cowork** this week, explore **Code** when you're ready.
+**My recommendation:** Start with **Claude Chat** today, try **Claude Cowork** if you want more assistance, explore **Code** when you're ready.
 :::
 
 ## Anticipated Questions {.section-divider-gold data-background-color="#EAAA00"}
