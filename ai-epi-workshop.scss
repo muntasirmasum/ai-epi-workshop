@@ -220,12 +220,18 @@ h2 {
 
 .split {
   display: flex;
-  gap: 40px;
+  gap: 30px;
   align-items: flex-start;
 }
 
 .split > div {
   flex: 1;
+  min-width: 0;
+  overflow-x: auto;
+}
+
+.split pre {
+  font-size: 0.85em;
 }
 
 // --- Styled buttons ---

@@ -96,7 +96,7 @@
     code span.vs { color: #20794d; } /* VerbatimString */
     code span.wa { color: #5e5e5e; font-style: italic; } /* Warning */
   </style>
-  <link rel="stylesheet" href="AI-symposium-presentation_files/libs/revealjs/dist/theme/quarto-ff9384aafa7b17e768eadf608ccd3af6.css">
+  <link rel="stylesheet" href="AI-symposium-presentation_files/libs/revealjs/dist/theme/quarto-3a159cdad313537c32e7ddbc4d891eb7.css">
   <link href="AI-symposium-presentation_files/libs/revealjs/plugin/quarto-line-highlight/line-highlight.css" rel="stylesheet">
   <link href="AI-symposium-presentation_files/libs/revealjs/plugin/reveal-menu/menu.css" rel="stylesheet">
   <link href="AI-symposium-presentation_files/libs/revealjs/plugin/reveal-menu/quarto-menu.css" rel="stylesheet">
@@ -390,7 +390,7 @@ Full AI agent in the terminal — autonomous coding &amp; execution
 <div class="fragment">
 <div style="text-align: center; margin-top: 20px;">
 <p><strong>Today’s focus:</strong> Demonstrating AI-assisted statistical analysis workflows using ClaudeR + Claude Cowork</p>
-<p><span style="font-size: 0.65em; color: #6c757d;">📎 <a href="#/setup-appendix">Setup instructions in the appendix (slides 37–41)</a></span></p>
+<p><span style="font-size: 0.65em; color: #6c757d;">📎 <a href="#/setup-appendix">Setup instructions in the appendix (slides 37–42)</a></span></p>
 </div>
 </div>
 </section>
@@ -1029,7 +1029,7 @@ Learning reflection essays
 <p><a href="https://www.linkedin.com/in/muntasirmasum/"><img data-src="https://upload.wikimedia.org/wikipedia/commons/c/ca/LinkedIn_logo_initials.png" style="vertical-align: middle;" width="35"></a></p>
 </div>
 </section>
-<section id="setting-up-your-kitchen-before-you-cook" class="slide level2 section-divider-gold" data-background-color="#EAAA00">
+<section id="setup-appendix" class="slide level2 section-divider-gold" data-background-color="#EAAA00">
 <h2>Setting Up Your Kitchen Before You Cook</h2>
 <div style="text-align: center;">
 <p><span style="color: #461D7C; font-size: 0.9em; font-style: italic;">Because you can’t make a regression without cracking a few installs</span></p>
@@ -1056,7 +1056,7 @@ Best For
 </div>
 </div>
 </section>
-<section id="setup-appendix" class="slide level2">
+<section id="setup-2-clauder-cowork" class="slide level2">
 <h2>Setup 2: ClaudeR + Cowork</h2>
 <div class="split">
 <div>
@@ -1089,20 +1089,17 @@ Best For
 <h2>Setup 3: Claude Code — Install</h2>
 <div class="split">
 <div>
-<p><strong>Step 1: Install Node.js</strong> (required runtime)</p>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb16"><pre class="sourceCode numberSource bash number-lines code-with-copy"><code class="sourceCode bash"><span id="cb16-1"><a href=""></a><span class="co"># macOS (via Homebrew)</span></span>
+<p><strong>Step 1: Install Node.js</strong></p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb16"><pre class="sourceCode numberSource bash number-lines code-with-copy"><code class="sourceCode bash"><span id="cb16-1"><a href=""></a><span class="co"># macOS</span></span>
 <span id="cb16-2"><a href=""></a><span class="ex">brew</span> install node</span>
-<span id="cb16-3"><a href=""></a></span>
-<span id="cb16-4"><a href=""></a><span class="co"># Windows (via winget)</span></span>
-<span id="cb16-5"><a href=""></a><span class="ex">winget</span> install OpenJS.NodeJS</span>
-<span id="cb16-6"><a href=""></a></span>
-<span id="cb16-7"><a href=""></a><span class="co"># Verify installation</span></span>
-<span id="cb16-8"><a href=""></a><span class="ex">node</span> <span class="at">--version</span>   <span class="co"># Should show v18+</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<span id="cb16-3"><a href=""></a><span class="co"># Windows</span></span>
+<span id="cb16-4"><a href=""></a><span class="ex">winget</span> install OpenJS.NodeJS</span>
+<span id="cb16-5"><a href=""></a><span class="co"># Verify</span></span>
+<span id="cb16-6"><a href=""></a><span class="ex">node</span> <span class="at">--version</span>  <span class="co"># v18+</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 <div>
 <p><strong>Step 2: Install Claude Code</strong></p>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb17"><pre class="sourceCode numberSource bash number-lines code-with-copy"><code class="sourceCode bash"><span id="cb17-1"><a href=""></a><span class="co"># Install globally via npm</span></span>
-<span id="cb17-2"><a href=""></a><span class="ex">npm</span> install <span class="at">-g</span> @anthropic-ai/claude-code</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb17"><pre class="sourceCode numberSource bash number-lines code-with-copy"><code class="sourceCode bash"><span id="cb17-1"><a href=""></a><span class="ex">npm</span> install <span class="at">-g</span> @anthropic-ai/claude-code</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <p>. . .</p>
 <div class="tip-box" style="font-size: 0.85em;">
 <p><strong>Note:</strong> Claude Code requires a paid Anthropic API plan. Start with Cowork if you’re exploring.</p>
@@ -1115,23 +1112,17 @@ Best For
 <div class="split">
 <div>
 <p><strong>Step 3: Authenticate</strong></p>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb18"><pre class="sourceCode numberSource bash number-lines code-with-copy"><code class="sourceCode bash"><span id="cb18-1"><a href=""></a><span class="co"># Launch and follow the login prompt</span></span>
-<span id="cb18-2"><a href=""></a><span class="ex">claude</span></span>
-<span id="cb18-3"><a href=""></a></span>
-<span id="cb18-4"><a href=""></a><span class="co"># It will open a browser window</span></span>
-<span id="cb18-5"><a href=""></a><span class="co"># for Anthropic account authentication</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb18"><pre class="sourceCode numberSource bash number-lines code-with-copy"><code class="sourceCode bash"><span id="cb18-1"><a href=""></a><span class="co"># Launch — opens browser to log in</span></span>
+<span id="cb18-2"><a href=""></a><span class="ex">claude</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 <div>
 <p><strong>Step 4: Start using with R</strong></p>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb19"><pre class="sourceCode numberSource bash number-lines code-with-copy"><code class="sourceCode bash"><span id="cb19-1"><a href=""></a><span class="co"># Navigate to your project folder</span></span>
-<span id="cb19-2"><a href=""></a><span class="bu">cd</span> ~/my-r-project</span>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb19"><pre class="sourceCode numberSource bash number-lines code-with-copy"><code class="sourceCode bash"><span id="cb19-1"><a href=""></a><span class="bu">cd</span> ~/my-r-project</span>
+<span id="cb19-2"><a href=""></a><span class="ex">claude</span></span>
 <span id="cb19-3"><a href=""></a></span>
-<span id="cb19-4"><a href=""></a><span class="co"># Launch Claude Code</span></span>
-<span id="cb19-5"><a href=""></a><span class="ex">claude</span></span>
-<span id="cb19-6"><a href=""></a></span>
-<span id="cb19-7"><a href=""></a><span class="co"># Ask it to run R analysis</span></span>
-<span id="cb19-8"><a href=""></a><span class="op">&gt;</span> <span class="st">"Load NHANES data and run a</span></span>
-<span id="cb19-9"><a href=""></a><span class="st">    regression of BP on alcohol"</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<span id="cb19-4"><a href=""></a><span class="co"># Then ask Claude:</span></span>
+<span id="cb19-5"><a href=""></a><span class="op">&gt;</span> <span class="st">"Load NHANES data and run a</span></span>
+<span id="cb19-6"><a href=""></a><span class="st">   regression of BP on alcohol"</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 </div>
 </section>

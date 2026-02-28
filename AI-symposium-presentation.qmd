@@ -162,7 +162,7 @@ Office hours at 2am? Not ideal. Claude at 2am? Always available, never annoyed.
 ::: {style="text-align: center; margin-top: 20px;"}
 **Today's focus:** Demonstrating AI-assisted statistical analysis workflows using ClaudeR + Claude Cowork
 
-<span style="font-size: 0.65em; color: #6c757d;">📎 [Setup instructions in the appendix (slides 37–41)](#setup-appendix)</span>
+<span style="font-size: 0.65em; color: #6c757d;">📎 [Setup instructions in the appendix (slides 37–42)](#setup-appendix)</span>
 :::
 
 ## Claude Chat: Interpreting Output
@@ -991,7 +991,7 @@ University at Albany, SUNY
 [![](https://upload.wikimedia.org/wikipedia/commons/c/ca/LinkedIn_logo_initials.png){width=35px style="vertical-align: middle;"}](https://www.linkedin.com/in/muntasirmasum/)
 :::
 
-## Setting Up Your Kitchen Before You Cook {.section-divider-gold data-background-color="#EAAA00"}
+## Setting Up Your Kitchen Before You Cook {#setup-appendix .section-divider-gold data-background-color="#EAAA00"}
 
 ::: {style="text-align: center;"}
 [Because you can't make a regression without cracking a few installs]{style="color: #461D7C; font-size: 0.9em; font-style: italic;"}
@@ -1025,7 +1025,7 @@ That's it. Seriously.
 </div>
 </div>
 
-## Setup 2: ClaudeR + Cowork {#setup-appendix}
+## Setup 2: ClaudeR + Cowork
 
 <div class="split">
 <div>
@@ -1074,17 +1074,15 @@ claudeAddin()   # Opens the connection
 <div class="split">
 <div>
 
-**Step 1: Install Node.js** (required runtime)
+**Step 1: Install Node.js**
 
 ```bash
-# macOS (via Homebrew)
+# macOS
 brew install node
-
-# Windows (via winget)
+# Windows
 winget install OpenJS.NodeJS
-
-# Verify installation
-node --version   # Should show v18+
+# Verify
+node --version  # v18+
 ```
 
 </div>
@@ -1093,7 +1091,6 @@ node --version   # Should show v18+
 **Step 2: Install Claude Code**
 
 ```bash
-# Install globally via npm
 npm install -g @anthropic-ai/claude-code
 ```
 
@@ -1114,11 +1111,8 @@ npm install -g @anthropic-ai/claude-code
 **Step 3: Authenticate**
 
 ```bash
-# Launch and follow the login prompt
+# Launch — opens browser to log in
 claude
-
-# It will open a browser window
-# for Anthropic account authentication
 ```
 
 </div>
@@ -1127,15 +1121,12 @@ claude
 **Step 4: Start using with R**
 
 ```bash
-# Navigate to your project folder
 cd ~/my-r-project
-
-# Launch Claude Code
 claude
 
-# Ask it to run R analysis
+# Then ask Claude:
 > "Load NHANES data and run a
-    regression of BP on alcohol"
+   regression of BP on alcohol"
 ```
 
 </div>
