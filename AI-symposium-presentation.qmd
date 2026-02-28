@@ -326,6 +326,41 @@ Data prep steps, variable summaries, flags, and next-step suggestions — all fr
 
 </div>
 
+## Cowork vs Code
+
+<div class="card-grid">
+<div class="card card--green" style="flex: 1;">
+<span class="card__icon">🎓</span>
+<h3>Claude Cowork</h3>
+<p style="font-size:0.75em; text-align:left;">
+<strong>Learning mode</strong><br><br>
+› Student sees every step Claude takes<br>
+› Claude explains *why*, not just *what*<br>
+› Builds understanding through collaboration<br>
+› Student stays in the driver's seat
+</p>
+<span class="card__label">Best for learning</span>
+</div>
+<div class="card" style="flex: 1;">
+<span class="card__icon">⚡</span>
+<h3>Claude Code</h3>
+<p style="font-size:0.75em; text-align:left;">
+<strong>Production mode</strong><br><br>
+› Claude runs R autonomously in the terminal<br>
+› Writes, executes, and debugs code hands-off<br>
+› Best for experienced users with clear tasks<br>
+› Optimized for speed, not teaching
+</p>
+<span class="card__label">Best for efficiency</span>
+</div>
+</div>
+
+. . .
+
+::: {style="text-align: center; margin-top: 20px;"}
+**Start with Cowork to learn** → **Graduate to Code when ready**
+:::
+
 ## {data-background-color="#461D7C"}
 
 ::: {style="text-align: center; margin-top: 15%;"}
@@ -427,7 +462,7 @@ analysis_data <- NHANES %>%
          !is.na(BMI), !is.na(SmokeNow),
          !is.na(Gender)) %>%
   mutate(
-    drinks_per_week = AlcoholDay * 7,              # Daily → weekly
+    drinks_per_week = AlcoholDay * 7,              # Approx. weekly intake
     current_smoker = ifelse(SmokeNow == "Yes", 1, 0),  # Binary coding
     drink_category = cut(AlcoholDay * 7,           # Categorize drinkers
       breaks = c(-Inf, 0, 7, 14, Inf),
@@ -441,6 +476,10 @@ analysis_data <- NHANES %>%
 <div class="tip-box">
 <strong>Pro Tip:</strong> <code>glimpse()</code> gives you a better overview than <code>str()</code> for tidy data
 </div>
+
+::: {style="font-size: 0.55em; color: #6c757d; font-style: italic; text-align: center; margin-top: 8px;"}
+**Note:** `AlcoholDay` measures drinks on drinking days, not daily average — multiplying by 7 is a rough proxy for weekly intake, used here for demonstration purposes.
+:::
 
 ## A Look at the Data
 
@@ -703,7 +742,6 @@ coef_data <- tidy(model1, conf.int = TRUE) %>%
     term == "Age" ~ "Age (Years)",
     term == "BMI" ~ "BMI (kg/m²)",
     term == "current_smoker" ~ "Current Smoker",
-    term == "drinks_per_week:Gendermale" ~ "Interaction:\nDrinks × Sex",
     TRUE ~ term
   ))
 
@@ -796,19 +834,19 @@ grid.arrange(p1, p2, p3, p4, ncol = 2)
 
 model_simple <- lm(BPSysAve ~ drinks_per_week, data = analysis_data)
 model_additive <- lm(BPSysAve ~ drinks_per_week + Gender, data = analysis_data)
-model_interaction <- model1
+model_full <- model1
 
 model_metrics <- tibble(
   Model = c("Simple\n(Drinks Only)",
             "Additive\n(Drinks + Sex)",
-            "Interaction\n(Drinks × Sex)"),
+            "Full\n(All Covariates)"),
   R_squared = c(summary(model_simple)$r.squared,
                 summary(model_additive)$r.squared,
-                summary(model_interaction)$r.squared),
+                summary(model_full)$r.squared),
   Adj_R_squared = c(summary(model_simple)$adj.r.squared,
                     summary(model_additive)$adj.r.squared,
-                    summary(model_interaction)$adj.r.squared),
-  AIC = c(AIC(model_simple), AIC(model_additive), AIC(model_interaction))
+                    summary(model_full)$adj.r.squared),
+  AIC = c(AIC(model_simple), AIC(model_additive), AIC(model_full))
 )
 
 p1 <- ggplot(model_metrics, aes(x = Model, y = Adj_R_squared)) +
@@ -932,49 +970,6 @@ Every R programmer has rage-quit over a missing comma at least once. Claude does
 [TL;DR]{style="font-size: 1.2em; color: #EAAA00; font-weight: bold; letter-spacing: 3px;"}
 
 [*"Errors aren't roadblocks —<br>they're teaching moments."*]{style="font-size: 1.5em; color: white; font-family: 'Playfair Display', serif;"}
-:::
-
-## Cowork vs Code
-
-<div class="card-grid">
-<div class="card card--green" style="flex: 1;">
-<span class="card__icon">🎓</span>
-<h3>Claude Cowork</h3>
-<p style="font-size:0.75em; text-align:left;">
-<strong>Learning mode</strong><br><br>
-› Student sees every step Claude takes<br>
-› Claude explains *why*, not just *what*<br>
-› Builds understanding through collaboration<br>
-› Student stays in the driver's seat
-</p>
-<span class="card__label">Best for learning</span>
-</div>
-<div class="card" style="flex: 1;">
-<span class="card__icon">⚡</span>
-<h3>Claude Code</h3>
-<p style="font-size:0.75em; text-align:left;">
-<strong>Production mode</strong><br><br>
-› Claude runs R autonomously in the terminal<br>
-› Writes, executes, and debugs code hands-off<br>
-› Best for experienced users with clear tasks<br>
-› Optimized for speed, not teaching
-</p>
-<span class="card__label">Best for efficiency</span>
-</div>
-</div>
-
-. . .
-
-::: {style="text-align: center; margin-top: 20px;"}
-**Start with Cowork to learn** → **Graduate to Code when ready**
-:::
-
-## {data-background-color="#461D7C"}
-
-::: {style="text-align: center; margin-top: 15%;"}
-[TL;DR]{style="font-size: 1.2em; color: #EAAA00; font-weight: bold; letter-spacing: 3px;"}
-
-[*"Cowork to learn. Code to ship."*]{style="font-size: 1.5em; color: white; font-family: 'Playfair Display', serif;"}
 :::
 
 ## Bringing It All Together {.section-divider-gold data-background-color="#EAAA00"}
