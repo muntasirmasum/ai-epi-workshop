@@ -1219,19 +1219,37 @@ Every R programmer has rage-quit over a missing comma at least once. Claude does
 
 ## Resources {#resources}
 
-::: {.medium}
+:::: {.columns}
+::: {.column width="48%"}
+
+::: {.small}
 **Workshop Materials**
 
 - **GitHub:** [github.com/muntasirmasum/ai-epi-workshop](https://github.com/muntasirmasum/ai-epi-workshop) — All slides, code & guides
-- **Live Presentation:** [muntasirmasum.github.io/ai-epi-workshop](https://muntasirmasum.github.io/ai-epi-workshop/)
+- **Live Slides:** [muntasirmasum.github.io/ai-epi-workshop](https://muntasirmasum.github.io/ai-epi-workshop/)
 
 **Tools & Resources**
 
-- Quarto: [quarto.org](https://quarto.org)
-- Claude AI: [claude.ai](https://claude.ai)
+- Quarto: [quarto.org](https://quarto.org) · Claude AI: [claude.ai](https://claude.ai)
 - ClaudeR Package: [github.com/IMNMV/ClaudeR](https://github.com/IMNMV/ClaudeR)
 - NHANES Data: [cdc.gov/nchs/nhanes](https://www.cdc.gov/nchs/nhanes/)
 :::
+
+:::
+::: {.column width="50%"}
+
+::: {.small}
+**YouTube Tutorials to Explore**
+
+- 🎓 [R Programming for Beginners](https://www.youtube.com/watch?v=_V8eKsto3Ug) — freeCodeCamp (2 hrs)
+- 📊 [StatQuest: Statistics Fundamentals](https://www.youtube.com/playlist?list=PLblh5JKOoLUK0FLuzwntyYI10UQFUhsY9) — Josh Starmer
+- 🤖 [Getting Started with Claude AI](https://www.youtube.com/results?search_query=how+to+use+claude+ai+beginner+tutorial) — Search for latest tutorials
+- 📈 [R for Data Science](https://www.youtube.com/results?search_query=R+tidyverse+tutorial+beginners+2025) — Tidyverse tutorials
+- 🔬 [MarinStatsLectures](https://www.youtube.com/@maraboricic) — Statistics with R
+:::
+
+:::
+::::
 
 ## Thank You!
 
