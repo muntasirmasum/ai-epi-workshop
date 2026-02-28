@@ -1245,7 +1245,6 @@ Every R programmer has rage-quit over a missing comma at least once. Claude does
 - 📊 [StatQuest: Statistics Fundamentals](https://www.youtube.com/playlist?list=PLblh5JKOoLUK0FLuzwntyYI10UQFUhsY9) — Josh Starmer
 - 🤖 [Getting Started with Claude AI](https://www.youtube.com/results?search_query=how+to+use+claude+ai+beginner+tutorial) — Search for latest tutorials
 - 📈 [R for Data Science](https://www.youtube.com/results?search_query=R+tidyverse+tutorial+beginners+2025) — Tidyverse tutorials
-- 🔬 [MarinStatsLectures](https://www.youtube.com/@maraboricic) — Statistics with R
 :::
 
 :::
