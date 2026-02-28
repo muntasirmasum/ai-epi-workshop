@@ -19,6 +19,10 @@ format:
     transition: fade
     code-block-height: 650px
     navigation-mode: linear
+    title-slide-attributes:
+      data-background-image: "ai-plus-logo.png"
+      data-background-size: "160px"
+      data-background-position: "top 40px right 40px"
 ---
 
 ```{r}
