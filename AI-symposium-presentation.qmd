@@ -4,6 +4,7 @@ subtitle: "<span style='color: #461D7C;'>Integrating Claude with RStudio for Tea
 author: "Muntasir Masum, PhD"
 institute: "<a href='https://www.albany.edu/cihs/epidemiology-biostatistics'>Department of Epidemiology & Biostatistics</a><br><a href='https://www.albany.edu/cihs'>College of Integrated Health Sciences</a><br>University at Albany, SUNY<br><br>[AI+ Annual Symposium 2026](https://events.albany.edu/event/ai-plus-symposium)"
 date: "March 6, 2026"
+date-format: "MMMM D, YYYY"
 format:
   revealjs:
     theme: ["simple", ai-epi-workshop.scss]
