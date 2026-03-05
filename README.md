@@ -1,6 +1,7 @@
 # AI-Assisted Statistical Analysis in Graduate Epidemiology Education
 
 **Workshop Presentation: Integrating Claude with RStudio for Teaching Regression Methods**
+**Date: March 6, 2026**
 
 ---
 
