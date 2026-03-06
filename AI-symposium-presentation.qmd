@@ -1127,6 +1127,12 @@ Every R programmer has rage-quit over a missing comma at least once. Claude does
 [*"Errors aren't roadblocks —<br>they're teaching moments."*]{style="font-size: 1.5em; color: white; font-family: 'Playfair Display', serif;"}
 :::
 
+## Bringing It All Together {.section-divider-gold data-background-color="#EAAA00"}
+
+::: {style="text-align: center;"}
+[Integrity, implementation & discussion]{style="color: #461D7C; font-size: 0.9em;"}
+:::
+
 ## AI Guardrails — When Code Runs but Results Are Wrong {#guardrails}
 
 <div class="card-grid" style="grid-template-columns: repeat(2, 1fr);">
@@ -1161,12 +1167,6 @@ Every R programmer has rage-quit over a missing comma at least once. Claude does
 
 ::: {style="text-align: center; margin-top: 20px; font-size: 0.85em;"}
 **The rule: AI is a powerful co-pilot, but you are always the principal investigator**
-:::
-
-## Bringing It All Together {.section-divider-gold data-background-color="#EAAA00"}
-
-::: {style="text-align: center;"}
-[Integrity, implementation & discussion]{style="color: #461D7C; font-size: 0.9em;"}
 :::
 
 ## Academic Integrity — Ground Rules {#integrity}
