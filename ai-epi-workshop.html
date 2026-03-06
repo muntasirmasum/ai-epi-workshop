@@ -1047,6 +1047,56 @@ $ BPSysAve        &lt;int&gt; 112, 128, 152, 122, 122, 93, 124, 117, 120, 110, 9
 <p><span style="font-size: 1.5em; color: white; font-family: 'Playfair Display', serif;"><em>“Errors aren’t roadblocks —<br>they’re teaching moments.”</em></span></p>
 </div>
 </section>
+<section id="guardrails" class="slide level2">
+<h2>AI Guardrails — When Code Runs but Results Are Wrong</h2>
+<div class="card-grid" style="grid-template-columns: repeat(2, 1fr);">
+<div class="card" style="text-align: center;">
+<span class="card__icon">🔇</span>
+<h3>
+Silent Errors
+</h3>
+<p style="font-size:0.72em;">
+Code runs without errors but uses the wrong test, drops missing data unexpectedly, or picks the wrong reference group — no error message to warn you
+</p>
+</div>
+<div class="card card--orange" style="text-align: center;">
+<span class="card__icon">🎭</span>
+<h3>
+Confident but Wrong
+</h3>
+<p style="font-size:0.72em;">
+AI can confidently interpret a coefficient as <em>“for every 1-unit increase…”</em> when the variable is actually categorical or coded differently
+</p>
+</div>
+</div>
+<div class="fragment">
+<div class="card-grid" style="grid-template-columns: repeat(2, 1fr); margin-top: 15px;">
+<div class="card card--orange" style="text-align: center;">
+<span class="card__icon">🧩</span>
+<h3>
+Context Blindness
+</h3>
+<p style="font-size:0.72em;">
+AI doesn’t know your study design — it may suggest methods that ignore clustering, confounders, or data structure that domain expertise would catch
+</p>
+</div>
+<div class="card" style="text-align: center;">
+<span class="card__icon">🔬</span>
+<h3>
+Always Verify
+</h3>
+<p style="font-size:0.72em;">
+Check output against expectations. Do effect sizes make sense? Does the sample size match? AI catches <em>syntax</em> errors — only <strong>you</strong> catch <em>analytic</em> errors
+</p>
+</div>
+</div>
+</div>
+<div class="fragment">
+<div style="text-align: center; margin-top: 20px; font-size: 0.85em;">
+<p><strong>The rule: AI is a powerful co-pilot, but you are always the principal investigator</strong></p>
+</div>
+</div>
+</section>
 <section id="bringing-it-all-together" class="slide level2 section-divider-gold" data-background-color="#EAAA00">
 <h2>Bringing It All Together</h2>
 <div style="text-align: center;">
