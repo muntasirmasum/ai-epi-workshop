@@ -384,6 +384,58 @@ Data prep steps, variable summaries, flags, and next-step suggestions — all fr
 [Coding · Analysis · Visualization · Debugging]{style="color: #461D7C; font-size: 0.9em;"}
 :::
 
+## Workshop Materials
+
+::: {style="text-align: center; margin-top: 30px;"}
+
+<div class="card card--orange" style="max-width: 800px; margin: 0 auto; padding: 30px 40px;">
+<h3 style="font-size: 1.3em;">Everything is on GitHub</h3>
+<ul style="font-size:0.82em; text-align:left; line-height: 2; list-style: none; padding-left: 0;">
+<li>📂 Slides & source code</li>
+<li>📊 Sample datasets</li>
+<li>📖 Quick-start guide</li>
+</ul>
+<p style="font-size:0.82em; margin-top: 15px; white-space: nowrap;"><svg height="20" viewBox="0 0 16 16" width="20" style="vertical-align: middle; margin-right: 6px; fill: #333;"><path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.013 8.013 0 0016 8c0-4.42-3.58-8-8-8z"></path></svg><strong><a href="https://github.com/muntasirmasum/ai-epi-workshop">github.com/muntasirmasum/ai-epi-workshop</a></strong></p>
+</div>
+
+:::
+
+## Try It Yourself — No Installation Needed {#try-it}
+
+<div class="split">
+<div style="flex: 1;">
+
+<div style="text-align: center;">
+![](qr-posit-cloud.png){width=350px}
+
+<span style="font-size: 0.7em; color: #6c757d;">Scan or <a href="https://posit.cloud/content/12007732">visit the link</a></span>
+</div>
+
+</div>
+<div style="flex: 1.5;">
+
+**Run everything from today in your browser:**
+
+<div class="card card--green" style="text-align: left; font-size: 0.75em; line-height: 1.8;">
+<strong>1.</strong> Go to <a href="https://posit.cloud/content/12007732">posit.cloud/content/12007732</a><br>
+<strong>2.</strong> Sign up for a free account (or log in)<br>
+<strong>3.</strong> Click <strong>"Save a Permanent Copy"</strong> (saves your own editable copy)<br>
+<strong>4.</strong> Open <a href="https://github.com/muntasirmasum/ai-epi-workshop/blob/main/workshop-demo.Rmd"><code>workshop-demo.Rmd</code></a> and start running code!
+</div>
+
+. . .
+
+<div class="tip-box" style="font-size: 0.72em;">
+<strong>What's included:</strong> R + RStudio in the cloud, NHANES data, all packages pre-installed, the complete analysis script, <strong>deliberate bugs to debug with <a href="https://claude.ai">Claude</a></strong>, and challenges to try on your own.
+</div>
+
+<div style="font-size: 0.65em; color: #6c757d; font-style: italic; margin-top: 8px;">
+💡 If you'd like a local setup, install <a href="https://cran.r-project.org/">R</a> and <a href="https://posit.co/download/rstudio-desktop/">RStudio Desktop</a> — both are free.
+</div>
+
+</div>
+</div>
+
 ## Today's Research Question {#research-question}
 
 ::: {.hero-text}
@@ -1170,58 +1222,6 @@ Every R programmer has rage-quit over a missing comma at least once. Claude does
 <span class="card__icon">📓</span>
 <h3>Learning Reflections</h3>
 <p style="font-size:0.72em;">Short essays on what AI helped with, where it struggled, and what the student learned independently</p>
-</div>
-</div>
-
-## Workshop Materials
-
-::: {style="text-align: center; margin-top: 30px;"}
-
-<div class="card card--orange" style="max-width: 800px; margin: 0 auto; padding: 30px 40px;">
-<h3 style="font-size: 1.3em;">Everything is on GitHub</h3>
-<ul style="font-size:0.82em; text-align:left; line-height: 2; list-style: none; padding-left: 0;">
-<li>📂 Slides & source code</li>
-<li>📊 Sample datasets</li>
-<li>📖 Quick-start guide</li>
-</ul>
-<p style="font-size:0.82em; margin-top: 15px; white-space: nowrap;"><svg height="20" viewBox="0 0 16 16" width="20" style="vertical-align: middle; margin-right: 6px; fill: #333;"><path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.013 8.013 0 0016 8c0-4.42-3.58-8-8-8z"></path></svg><strong><a href="https://github.com/muntasirmasum/ai-epi-workshop">github.com/muntasirmasum/ai-epi-workshop</a></strong></p>
-</div>
-
-:::
-
-## Try It Yourself — No Installation Needed {#try-it}
-
-<div class="split">
-<div style="flex: 1;">
-
-<div style="text-align: center;">
-![](qr-posit-cloud.png){width=350px}
-
-<span style="font-size: 0.7em; color: #6c757d;">Scan or <a href="https://posit.cloud/content/12007732">visit the link</a></span>
-</div>
-
-</div>
-<div style="flex: 1.5;">
-
-**Run everything from today in your browser:**
-
-<div class="card card--green" style="text-align: left; font-size: 0.75em; line-height: 1.8;">
-<strong>1.</strong> Go to <a href="https://posit.cloud/content/12007732">posit.cloud/content/12007732</a><br>
-<strong>2.</strong> Sign up for a free account (or log in)<br>
-<strong>3.</strong> Click <strong>"Save a Permanent Copy"</strong> (saves your own editable copy)<br>
-<strong>4.</strong> Open <a href="https://github.com/muntasirmasum/ai-epi-workshop/blob/main/workshop-demo.Rmd"><code>workshop-demo.Rmd</code></a> and start running code!
-</div>
-
-. . .
-
-<div class="tip-box" style="font-size: 0.72em;">
-<strong>What's included:</strong> R + RStudio in the cloud, NHANES data, all packages pre-installed, the complete analysis script, <strong>deliberate bugs to debug with <a href="https://claude.ai">Claude</a></strong>, and challenges to try on your own.
-</div>
-
-<div style="font-size: 0.65em; color: #6c757d; font-style: italic; margin-top: 8px;">
-💡 If you'd like a local setup, install <a href="https://cran.r-project.org/">R</a> and <a href="https://posit.co/download/rstudio-desktop/">RStudio Desktop</a> — both are free.
-</div>
-
 </div>
 </div>
 
