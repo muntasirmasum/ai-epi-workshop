@@ -371,7 +371,7 @@ Copy code &amp; output from RStudio, paste into Claude Desktop App
 </div>
 <div class="card card--orange">
 <h3>
-ClaudeR + Cowork
+ClaudeR
 </h3>
 <p>
 ClaudeR connects RStudio to Claude — Claude sees your data and assists in real time
@@ -390,7 +390,7 @@ Full AI agent in the terminal — autonomous coding &amp; execution
 </div>
 <div class="fragment">
 <div style="text-align: center; margin-top: 20px;">
-<p><strong>Today’s focus:</strong> Demonstrating AI-assisted statistical analysis workflows using ClaudeR + Claude Cowork</p>
+<p><strong>Today’s focus:</strong> Demonstrating AI-assisted statistical analysis workflows using ClaudeR + Claude Desktop App</p>
 <p><span style="font-size: 0.65em; color: #6c757d;">📎 <a href="#/setup-appendix">Setup instructions in the appendix (slides 51–56)</a></span></p>
 </div>
 </div>
@@ -478,8 +478,8 @@ Gendermale    4.8215   0.9012    5.35  1.1e-07 ***
 </div>
 </div>
 </section>
-<section id="claude-cowork-in-action-you-ask-claude-codes" class="slide level2">
-<h2>Claude Cowork in Action — You Ask, Claude Codes</h2>
+<section id="clauder-in-action-you-ask-claude-codes" class="slide level2">
+<h2>ClaudeR in Action — You Ask, Claude Codes</h2>
 <div class="split">
 <div>
 <p><strong>You type a plain-English request</strong></p>
@@ -497,8 +497,8 @@ Gendermale    4.8215   0.9012    5.35  1.1e-07 ***
 </div>
 </div>
 </section>
-<section id="claude-cowork-in-action-the-results" class="slide level2">
-<h2>Claude Cowork in Action — The Results</h2>
+<section id="clauder-in-action-the-results" class="slide level2">
+<h2>ClaudeR in Action — The Results</h2>
 <div style="text-align: center;">
 <p><img data-src="claude-answers.png" style="border: 2px solid #ddd; border-radius: 8px; box-shadow: 0 4px 12px rgba(0,0,0,0.15); max-height: 600px;"></p>
 <div style="font-size: 0.65em; color: #6c757d; margin-top: 8px;">
@@ -506,13 +506,13 @@ Gendermale    4.8215   0.9012    5.35  1.1e-07 ***
 </div>
 </div>
 </section>
-<section id="cowork-vs-code" class="slide level2">
-<h2>Cowork vs Code</h2>
+<section id="clauder-vs-claude-code" class="slide level2">
+<h2>ClaudeR vs Claude Code</h2>
 <div class="card-grid">
 <div class="card card--green" style="flex: 1;">
 <span class="card__icon">🎓</span>
 <h3>
-Claude Cowork
+ClaudeR
 </h3>
 <p style="font-size:0.75em; text-align:left;">
 <strong>Learning mode</strong><br><br> › Student sees every step Claude takes<br> › Claude explains <em>why</em>, not just <em>what</em><br> › Builds understanding through collaboration<br> › Student stays in the driver’s seat
@@ -532,7 +532,7 @@ Claude Code
 </div>
 <div class="fragment">
 <div style="text-align: center; margin-top: 20px;">
-<p><strong>Start with Cowork to learn</strong> → <strong>Graduate to Code when ready</strong></p>
+<p><strong>Start with ClaudeR to learn</strong> → <strong>Graduate to Code when ready</strong></p>
 </div>
 </div>
 </section>
@@ -540,7 +540,7 @@ Claude Code
 <h2></h2>
 <div style="text-align: center; margin-top: 15%;">
 <p><span style="font-size: 1.2em; color: #EAAA00; font-weight: bold; letter-spacing: 3px;">TL;DR</span></p>
-<p><span style="font-size: 1.5em; color: white; font-family: 'Playfair Display', serif;"><em>“Chat → Cowork → Code.<br>Start simple, level up when ready.”</em></span></p>
+<p><span style="font-size: 1.5em; color: white; font-family: 'Playfair Display', serif;"><em>“Chat → ClaudeR → Claude Code.<br>Start simple, level up when ready.”</em></span></p>
 </div>
 </section>
 <section id="lets-see-it-in-action" class="slide level2 section-divider-gold" data-background-color="#EAAA00">
@@ -1377,8 +1377,8 @@ Best For
 </div>
 </div>
 </section>
-<section id="setup-2-clauder-cowork" class="slide level2">
-<h2>Setup 2: ClaudeR + Cowork</h2>
+<section id="setup-2-clauder" class="slide level2">
+<h2>Setup 2: ClaudeR</h2>
 <div class="split">
 <div>
 <p><strong>Step 1: Install R prerequisites</strong></p>
@@ -1394,7 +1394,7 @@ Best For
 <div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb13"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb13-1"><a href=""></a><span class="fu">library</span>(ClaudeR)</span>
 <span id="cb13-2"><a href=""></a><span class="fu">claudeAddin</span>()   <span class="co"># Opens the connection</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <p>. . .</p>
-<p><strong>Step 4: Enable Cowork mode in Claude Desktop</strong></p>
+<p><strong>Step 4: Enable ClaudeR mode in Claude Desktop</strong></p>
 <ol type="1">
 <li>Open Claude Desktop App</li>
 <li>Settings → Developer → Enable MCP</li>
@@ -1423,7 +1423,7 @@ Best For
 <div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb15"><pre class="sourceCode numberSource bash number-lines code-with-copy"><code class="sourceCode bash"><span id="cb15-1"><a href=""></a><span class="ex">npm</span> install <span class="at">-g</span> @anthropic-ai/claude-code</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <p>. . .</p>
 <div class="tip-box" style="font-size: 0.85em;">
-<p><strong>Note:</strong> Claude Code requires a paid Anthropic API plan. Start with Cowork if you’re exploring.</p>
+<p><strong>Note:</strong> Claude Code requires a paid Anthropic API plan. Start with Claude Chat if you’re exploring.</p>
 </div>
 </div>
 </div>
@@ -1462,7 +1462,7 @@ Claude Chat
 <div class="card card--orange">
 <span class="card__icon">🤝</span>
 <h3>
-ClaudeR + Cowork
+ClaudeR
 </h3>
 <p style="font-size:0.7em;">
 <strong>Time:</strong> 10 minutes<br> <strong>Cost:</strong> Free (Claude Desktop)<br> <strong>Skill:</strong> Beginner+<br> <strong>Best for:</strong> Learning &amp; analysis
@@ -1480,7 +1480,7 @@ Claude Code
 </div>
 <div class="fragment">
 <div style="text-align: center; margin-top: 20px; font-size: 0.85em;">
-<p><strong>My recommendation:</strong> Start with <strong>Claude Chat</strong> today, try <strong>Claude Cowork</strong> if you want more assistance, explore <strong>Claude Code</strong> when you’re ready.</p>
+<p><strong>My recommendation:</strong> Start with <strong>Claude Chat</strong> today, try <strong>ClaudeR</strong> if you want more assistance, explore <strong>Claude Code</strong> when you’re ready.</p>
 </div>
 </div>
 </section>
@@ -1496,7 +1496,7 @@ Claude Code
 <p><strong>🎓 Won’t students just let AI do all the work?</strong></p>
 </div>
 <div class="card card--green" style="text-align: left; font-size: 0.78em; line-height: 1.7; max-width: 85%;">
-<p><strong style="color: #461D7C;">Short answer: Not with Cowork.</strong><br><br> Claude Cowork is a <em>tutor</em>, not an autopilot. Students still choose the variables, interpret the output, and explain the results. Claude explains <em>why</em> code works — it doesn’t just hand over answers. The learning happens in the conversation, not the copy-paste.<br><br> <span style="font-size: 0.85em; color: #6c757d;">→ See how this works in practice: <a href="#analysis">Analysis demo</a> · <a href="#debugging">Debugging demo</a></span></p>
+<p><strong style="color: #461D7C;">Short answer: Not with ClaudeR.</strong><br><br> ClaudeR is a <em>tutor</em>, not an autopilot. Students still choose the variables, interpret the output, and explain the results. Claude explains <em>why</em> code works — it doesn’t just hand over answers. The learning happens in the conversation, not the copy-paste.<br><br> <span style="font-size: 0.85em; color: #6c757d;">→ See how this works in practice: <a href="#analysis">Analysis demo</a> · <a href="#debugging">Debugging demo</a></span></p>
 </div>
 </section>
 <section id="section-6" class="slide level2">
@@ -1514,7 +1514,7 @@ Claude Code
 <p><strong>💰 How much does this actually cost?</strong></p>
 </div>
 <div class="card card--green" style="text-align: left; font-size: 0.78em; line-height: 1.7; max-width: 85%;">
-<p><strong style="color: #461D7C;">Free to start, affordable to scale.</strong><br><br> <strong>Claude Chat:</strong> Free tier at claude.ai<br> <strong>ClaudeR + Cowork:</strong> Free (Claude Desktop App)<br> <strong>Claude Code:</strong> Paid API (~$5–20/month)<br><br> Most students can do everything on the free tier. No paywall for learning.<br><br> <span style="font-size: 0.85em; color: #6c757d;">→ <a href="#integration">Compare all three options</a> · <a href="#setup-appendix">Setup instructions</a></span></p>
+<p><strong style="color: #461D7C;">Free to start, affordable to scale.</strong><br><br> <strong>Claude Chat:</strong> Free tier at claude.ai<br> <strong>ClaudeR:</strong> Free (Claude Desktop App)<br> <strong>Claude Code:</strong> Paid API (~$5–20/month)<br><br> Most students can do everything on the free tier. No paywall for learning.<br><br> <span style="font-size: 0.85em; color: #6c757d;">→ <a href="#integration">Compare all three options</a> · <a href="#setup-appendix">Setup instructions</a></span></p>
 </div>
 </section>
 <section id="section-8" class="slide level2">

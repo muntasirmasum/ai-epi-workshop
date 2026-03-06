@@ -163,7 +163,7 @@ Office hours at 2am? Not ideal. Claude at 2am? Always available, never annoyed.
 <span class="card__label">Most accessible</span>
 </div>
 <div class="card card--orange">
-<h3>ClaudeR + Cowork</h3>
+<h3>ClaudeR</h3>
 <p>ClaudeR connects RStudio to Claude — Claude sees your data and assists in real time</p>
 <span class="card__label">Today's focus</span>
 </div>
@@ -177,7 +177,7 @@ Office hours at 2am? Not ideal. Claude at 2am? Always available, never annoyed.
 . . .
 
 ::: {style="text-align: center; margin-top: 20px;"}
-**Today's focus:** Demonstrating AI-assisted statistical analysis workflows using ClaudeR + Claude Cowork
+**Today's focus:** Demonstrating AI-assisted statistical analysis workflows using ClaudeR + Claude Desktop App
 
 <span style="font-size: 0.65em; color: #6c757d;">📎 [Setup instructions in the appendix (slides 51–56)](#setup-appendix)</span>
 :::
@@ -296,7 +296,7 @@ claudeAddin()
 </div>
 </div>
 
-## Claude Cowork in Action — You Ask, Claude Codes
+## ClaudeR in Action — You Ask, Claude Codes
 
 <div class="split">
 <div>
@@ -323,7 +323,7 @@ Real R code executed live in your RStudio session
 </div>
 </div>
 
-## Claude Cowork in Action — The Results
+## ClaudeR in Action — The Results
 
 <div style="text-align: center;">
 
@@ -335,12 +335,12 @@ Data prep steps, variable summaries, flags, and next-step suggestions — all fr
 
 </div>
 
-## Cowork vs Code
+## ClaudeR vs Claude Code
 
 <div class="card-grid">
 <div class="card card--green" style="flex: 1;">
 <span class="card__icon">🎓</span>
-<h3>Claude Cowork</h3>
+<h3>ClaudeR</h3>
 <p style="font-size:0.75em; text-align:left;">
 <strong>Learning mode</strong><br><br>
 › Student sees every step Claude takes<br>
@@ -367,7 +367,7 @@ Data prep steps, variable summaries, flags, and next-step suggestions — all fr
 . . .
 
 ::: {style="text-align: center; margin-top: 20px;"}
-**Start with Cowork to learn** → **Graduate to Code when ready**
+**Start with ClaudeR to learn** → **Graduate to Code when ready**
 :::
 
 ## {data-background-color="#461D7C"}
@@ -375,7 +375,7 @@ Data prep steps, variable summaries, flags, and next-step suggestions — all fr
 ::: {style="text-align: center; margin-top: 15%;"}
 [TL;DR]{style="font-size: 1.2em; color: #EAAA00; font-weight: bold; letter-spacing: 3px;"}
 
-[*"Chat → Cowork → Code.<br>Start simple, level up when ready."*]{style="font-size: 1.5em; color: white; font-family: 'Playfair Display', serif;"}
+[*"Chat → ClaudeR → Claude Code.<br>Start simple, level up when ready."*]{style="font-size: 1.5em; color: white; font-family: 'Playfair Display', serif;"}
 :::
 
 ## Let's See It in Action {.section-divider-gold data-background-color="#EAAA00"}
@@ -1348,7 +1348,7 @@ That's it. Seriously.
 </div>
 </div>
 
-## Setup 2: ClaudeR + Cowork
+## Setup 2: ClaudeR
 
 <div class="split">
 <div>
@@ -1379,7 +1379,7 @@ claudeAddin()   # Opens the connection
 
 . . .
 
-**Step 4: Enable Cowork mode in Claude Desktop**
+**Step 4: Enable ClaudeR mode in Claude Desktop**
 
 1. Open Claude Desktop App
 2. Settings → Developer → Enable MCP
@@ -1420,7 +1420,7 @@ npm install -g @anthropic-ai/claude-code
 . . .
 
 ::: {.tip-box style="font-size: 0.85em;"}
-**Note:** Claude Code requires a paid Anthropic API plan. Start with Cowork if you're exploring.
+**Note:** Claude Code requires a paid Anthropic API plan. Start with Claude Chat if you're exploring.
 :::
 
 </div>
@@ -1470,7 +1470,7 @@ claude
 </div>
 <div class="card card--orange">
 <span class="card__icon">🤝</span>
-<h3>ClaudeR + Cowork</h3>
+<h3>ClaudeR</h3>
 <p style="font-size:0.7em;">
 <strong>Time:</strong> 10 minutes<br>
 <strong>Cost:</strong> Free (Claude Desktop)<br>
@@ -1493,7 +1493,7 @@ claude
 . . .
 
 ::: {style="text-align: center; margin-top: 20px; font-size: 0.85em;"}
-**My recommendation:** Start with **Claude Chat** today, try **Claude Cowork** if you want more assistance, explore **Claude Code** when you're ready.
+**My recommendation:** Start with **Claude Chat** today, try **ClaudeR** if you want more assistance, explore **Claude Code** when you're ready.
 :::
 
 ## Anticipated Questions {.section-divider-gold data-background-color="#EAAA00"}
@@ -1509,8 +1509,8 @@ claude
 </div>
 
 <div class="card card--green" style="text-align: left; font-size: 0.78em; line-height: 1.7; max-width: 85%;">
-<strong style="color: #461D7C;">Short answer: Not with Cowork.</strong><br><br>
-Claude Cowork is a <em>tutor</em>, not an autopilot. Students still choose the variables, interpret the output, and explain the results. Claude explains <em>why</em> code works — it doesn't just hand over answers. The learning happens in the conversation, not the copy-paste.<br><br>
+<strong style="color: #461D7C;">Short answer: Not with ClaudeR.</strong><br><br>
+ClaudeR is a <em>tutor</em>, not an autopilot. Students still choose the variables, interpret the output, and explain the results. Claude explains <em>why</em> code works — it doesn't just hand over answers. The learning happens in the conversation, not the copy-paste.<br><br>
 <span style="font-size: 0.85em; color: #6c757d;">→ See how this works in practice: <a href="#analysis">Analysis demo</a> · <a href="#debugging">Debugging demo</a></span>
 </div>
 
@@ -1535,7 +1535,7 @@ Claude does not train on user conversations. In our demo, we use publicly availa
 <div class="card card--green" style="text-align: left; font-size: 0.78em; line-height: 1.7; max-width: 85%;">
 <strong style="color: #461D7C;">Free to start, affordable to scale.</strong><br><br>
 <strong>Claude Chat:</strong> Free tier at claude.ai<br>
-<strong>ClaudeR + Cowork:</strong> Free (Claude Desktop App)<br>
+<strong>ClaudeR:</strong> Free (Claude Desktop App)<br>
 <strong>Claude Code:</strong> Paid API (~$5–20/month)<br><br>
 Most students can do everything on the free tier. No paywall for learning.<br><br>
 <span style="font-size: 0.85em; color: #6c757d;">→ <a href="#integration">Compare all three options</a> · <a href="#setup-appendix">Setup instructions</a></span>
